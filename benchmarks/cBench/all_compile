@@ -28,7 +28,7 @@ then
   echo "**********************************************************"
   echo $i
   cd src_work
-  __compile $COMPILER
+  ./__compile $COMPILER
   echo ""
   ls -l a.out 
   echo ""
