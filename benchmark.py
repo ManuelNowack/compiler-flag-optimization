@@ -12,21 +12,6 @@ def ck_cmd(cmd: dict):
     return r
 
 
-def install_dependencies() -> None:
-    ck_cmd({"action": "pull",
-            "module_uoa": "repo",
-            "data_uoa": "mlcommons@ck-mlops"})
-    ck_cmd({"action": "pull",
-            "module_uoa": "repo",
-            "data_uoa": "ctuning-programs"})
-    ck_cmd({"action": "pull",
-            "module_uoa": "repo",
-            "data_uoa": "ctuning-datasets-min"})
-    # ck_cmd({"action": "detect",
-    #         "module_uoa": "soft",
-    #         "data_uoa": "compiler.gcc"})
-
-
 def extract_flags(path: str):
     """Extracts enabled optimization flags from a GCC assemble code file.
 
