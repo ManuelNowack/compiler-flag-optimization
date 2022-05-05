@@ -1,4 +1,5 @@
 import ck.kernel as ck
+import csv
 import glob
 import itertools
 import operator
@@ -89,5 +90,17 @@ flags = [
 powerset = itertools.chain.from_iterable(
     itertools.combinations(flags, i) for i in range(len(flags) + 1))
 times = [benchmark(subset) for subset in powerset]
+with open("execution_times.csv", "a") as fh:
+    writer = csv.writer(fh)
+    writer.writerow(times)
 indices = [i for i, _ in sorted(enumerate(times), key=operator.itemgetter(1))]
 print(indices)
+
+with open("execution_times.csv") as fh:
+    reader = csv.reader(fh)
+    all_times = [[float(val) for val in row] for row in reader]
+    reference_times = all_times[0]
+    for times in all_times[1:]:
+        diff = [abs(a - b) for a, b in zip(times, reference_times)]
+        noise = [a / b for a, b in zip(diff, reference_times)]
+        print(noise)
