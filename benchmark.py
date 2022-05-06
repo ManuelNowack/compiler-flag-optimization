@@ -3,12 +3,15 @@ import csv
 import glob
 import itertools
 import operator
+import os
 
 
 def ck_cmd(cmd: dict):
+    current_working_directory = os.getcwd()
     r = ck.access(cmd)
     if r["return"] > 0:
         ck.err(r)
+    os.chdir(current_working_directory)
     return r
 
 
@@ -75,13 +78,13 @@ flags = [
 powerset = itertools.chain.from_iterable(
     itertools.combinations(flags, i) for i in range(len(flags) + 1))
 times = [benchmark(subset) for subset in powerset]
-with open("execution_times.csv", "a") as fh:
+with open("results/execution_times.csv", "a") as fh:
     writer = csv.writer(fh)
     writer.writerow(times)
 indices = [i for i, _ in sorted(enumerate(times), key=operator.itemgetter(1))]
 print(indices)
 
-with open("execution_times.csv") as fh:
+with open("results/execution_times.csv") as fh:
     reader = csv.reader(fh)
     all_times = [[float(val) for val in row] for row in reader]
     reference_times = all_times[0]
