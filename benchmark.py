@@ -16,10 +16,13 @@ def ck_cmd(cmd: dict):
 
 
 def extract_flags(path: str):
-    """Extracts enabled optimization flags from a GCC assemble code file.
+    """Extracts enabled optimization flags from a GCC assembler code file.
+
+    You can generate the GCC assembler code file by passing the flags
+    -save-temps -fverbose-asm.
 
     Args:
-        path: Path to the assemble code file with file name suffix ".s".
+        path: Path to the assembler code file with file name suffix ".s".
 
     Returns:
         A list containing all enabled optimization flags.
