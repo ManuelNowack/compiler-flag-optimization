@@ -1,6 +1,6 @@
-import os, subprocess, re
+import benchmark
 
-from tuner import FlagInfo, Evaluator, FLOAT_MAX
+from tuner import FlagInfo, Evaluator
 from tuner import RandomTuner, SRTuner
 
 # Define GCC flags
@@ -67,103 +67,47 @@ def convert_to_str(opt_setting, search_space):
 
 # Define tuning task
 class cBenchEvaluator(Evaluator):
-    def __init__(self, path, num_repeats, search_space, artifact="a.out"):
+    def __init__(self, path, num_repeats, search_space):
         super().__init__(path, num_repeats)
-        self.artifact = artifact
+        if path == "cbench-consumer-jpeg-c":
+            self.dataset = "image-pgm-0001"
+        else:
+            self.dataset = ""
         self.search_space = search_space
 
-    def build(self, str_opt_setting):
-        commands = f"""cd {self.path};
-        make clean > /dev/null 2>/dev/null;
-        make -j4 CCC_OPTS_ADD="{str_opt_setting}" LD_OPTS=" -o {self.artifact} -fopenmp" > /dev/null 2>/dev/null;
-        """
-        subprocess.Popen(commands, stdout=subprocess.PIPE, shell=True).wait()
-
-        # Check if build fails
-        if not os.path.exists(self.path + "/" + self.artifact):
-            return -1
-        return 0
-
-    def run(self, num_repeats, input_id=1):
-        run_commands = f"""cd {self.path};
-        ./_ccc_check_output.clean ;
-        ./__run {input_id} 2>&1;
-        """
-        verify_commands = f"""cd {self.path};
-        rm -f tmp-ccc-diff;
-        ./_ccc_check_output.diff {input_id};
-        """
-        tot = 0
-
-        # Repeat the measurement and get the averaged execution time
-        for _ in range(num_repeats):
-            # Run the executable
-            p = subprocess.Popen(run_commands, stdout=subprocess.PIPE, shell=True)
-            p.wait()
-            stdouts = p.stdout.read().decode('ascii').split("\n")
-
-            # Check if the output is correct
-            subprocess.Popen(verify_commands, stdout=subprocess.PIPE, shell=True).wait()
-            diff_file = self.path+ "/tmp-ccc-diff"
-            if os.path.isfile(diff_file) and os.path.getsize(diff_file) == 0:
-                # Runs correctly. Extract performance numbers.
-                for out in stdouts:
-                    if out.startswith("real"):
-                        out = out.replace("real\t", "")
-                        nums = re.findall("\d*\.?\d+", out)
-                        assert len(nums) == 2, "Expect %dm %ds format"
-                        secs = float(nums[0])*60+float(nums[1])
-                        tot += secs
-            else:
-                # Runtime error or wrong output
-                return FLOAT_MAX
-
-        # Correct execution
-        return tot/num_repeats
-
-    def evaluate(self, opt_setting, num_repeats=-1):
+    def evaluate(self, opt_setting, num_repeats=None):
         flags = convert_to_str(opt_setting, self.search_space)
-        error = self.build(flags)
-        if error == -1:
-            # Bulid error
-            return FLOAT_MAX
-
-        # If not specified, use the default number of repeats
-        if num_repeats == -1:
-            num_repeats = self.num_repeats
-
-        perf = self.run(num_repeats, input_id=2)
-        self.clean()
-
-        return perf
-
-
-    def clean(self):
-        commands = f"""cd {self.path};
-        make clean > /dev/null 2>/dev/null;
-        ./_ccc_check_output.clean ;
-        """
-        subprocess.Popen(commands, stdout=subprocess.PIPE, shell=True).wait()
+        benchmark.ck_cmd({"action": "compile",
+                          "module_uoa": "program",
+                          "data_uoa": self.path,
+                          "flags": flags,
+                          "lflags": "-fopenmp"})
+        r = benchmark.ck_cmd({"action": "run",
+                              "module_uoa": "program",
+                              "data_uoa": self.path,
+                              "dataset_uoa": self.dataset})
+        return r["characteristics"]["execution_time"]
 
 
 if __name__ == "__main__":
     # Assign the number of trials as the budget.
     budget = 1000
     # Benchmark info
-    benchmark_home = "./cBench"
-    benchmark_list = ["network_dijkstra", "consumer_jpeg_c", "telecom_adpcm_d"]
+    program_list = [
+        "cbench-network-dijkstra",
+        "cbench-consumer-jpeg-c",
+        "cbench-telecom-adpcm-d"]
     gcc_optimization_info = "gcc_opts.txt"
 
     # Extract GCC search space
     search_space = read_gcc_opts(gcc_optimization_info)
     default_setting = {"stdOptLv":3}
 
-    with open("tuning_result.txt", "w") as ofp:
+    with open("results/tuning_result.txt", "w") as ofp:
         ofp.write("=== Result ===\n")
 
-    for benchmark in benchmark_list:
-        path = benchmark_home + "/" + benchmark + "/src"
-        evaluator = cBenchEvaluator(path, num_repeats=30, search_space=search_space)
+    for program in program_list:
+        evaluator = cBenchEvaluator(program, num_repeats=30, search_space=search_space)
 
         tuners = [
             RandomTuner(search_space, evaluator, default_setting),
@@ -175,6 +119,6 @@ if __name__ == "__main__":
             if best_opt_setting is not None:
                 default_perf = tuner.default_perf
                 best_perf = evaluator.evaluate(best_opt_setting)
-                print(f"Tuning {benchmark} w/ {tuner.name}: {default_perf:.3f}/{best_perf:.3f} = {default_perf/best_perf:.3f}x")
-                with open("tuning_result.txt", "a") as ofp:
-                    ofp.write(f"Tuning {benchmark} w/ {tuner.name}: {default_perf:.3f}/{best_perf:.3f} = {default_perf/best_perf:.3f}x\n")
+                print(f"Tuning {program} w/ {tuner.name}: {default_perf:.3f}/{best_perf:.3f} = {default_perf/best_perf:.3f}x")
+                with open("results/tuning_result.txt", "a") as ofp:
+                    ofp.write(f"Tuning {program} w/ {tuner.name}: {default_perf:.3f}/{best_perf:.3f} = {default_perf/best_perf:.3f}x\n")
