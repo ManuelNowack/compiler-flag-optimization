@@ -48,12 +48,12 @@ def negate_flags(flags: list):
     return [flag.replace("-f", "-f-no-") for flag in flags]
 
 
-def run(flags: list) -> float:
+def run(flags: str) -> float:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": "cbench-automotive-susan",
                 "speed": "yes",
-                "flags": "-w -save-temps -fverbose-asm " + " ".join(flags)})
+                "flags": "-w -save-temps -fverbose-asm " + flags})
     # print(r.keys())
     # print(r["return"])
     # print(r["tmp_dir"])
