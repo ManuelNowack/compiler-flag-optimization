@@ -3,7 +3,7 @@ import benchmark
 from tuner import FlagInfo, Evaluator
 from tuner import RandomTuner, SRTuner
 
-# Define GCC flags
+
 class GCCFlagInfo(FlagInfo):
     def __init__(self, name, configs, isParametric, stdOptLv):
         super().__init__(name, configs)
@@ -11,16 +11,20 @@ class GCCFlagInfo(FlagInfo):
         self.stdOptLv = stdOptLv
 
 
-# Read the list of gcc optimizations that follows certain format.
-# Due to a slight difference in GCC distributions, the supported flags are confirmed by using -fverbose-asm.
-# Each chunk specifies flags supported under each standard optimization levels.
-# Besides flags identified by -fverbose-asm, we also considered flags in online doc.
-# They are placed as the last chunk and considered as last optimization level.
-# (any standard optimization level would not configure them.)
 def read_gcc_opts(path):
-    search_space = dict() # pair: flag, configs
+    """Reads the list of gcc optimizations that follow a certain format.
+
+    Due to a slight difference in GCC distributions, the supported flags are
+    confirmed by using -fverbose-asm. Each chunk specifies flags supported
+    under each standard optimization levels. Besides flags identified by
+    -fverbose-asm, we also considered flags in online doc. They are placed as
+    the last chunk and considered as last optimization level. (Any standard
+    optimization level would not configure them.)
+    """
+    search_space = dict()  # pair: flag, configs
     # special case handling
-    search_space["stdOptLv"] = GCCFlagInfo(name="stdOptLv", configs=[1,2,3], isParametric=True, stdOptLv=-1)
+    search_space["stdOptLv"] = GCCFlagInfo(
+        name="stdOptLv", configs=[1, 2, 3], isParametric=True, stdOptLv=-1)
     with open(path, "r") as fp:
         stdOptLv = 0
         for raw_line in fp.read().split('\n'):
@@ -32,15 +36,23 @@ def read_gcc_opts(path):
                     flag_name = tokens[0]
                     # Binary flag
                     if len(tokens) == 1:
-                        info = GCCFlagInfo(name=flag_name, configs=[False, True], isParametric=False, stdOptLv=stdOptLv)
+                        info = GCCFlagInfo(
+                            name=flag_name,
+                            configs=[False, True],
+                            isParametric=False,
+                            stdOptLv=stdOptLv)
                     # Parametric flag
                     else:
                         assert(len(tokens) == 2)
-                        info = GCCFlagInfo(name=flag_name, configs=tokens[1].split(','), isParametric=True, stdOptLv=stdOptLv)
+                        info = GCCFlagInfo(
+                            name=flag_name,
+                            configs=tokens[1].split(','),
+                            isParametric=True,
+                            stdOptLv=stdOptLv)
                     search_space[flag_name] = info
             # Move onto next chunk
             else:
-                stdOptLv = stdOptLv+1
+                stdOptLv = stdOptLv + 1
     return search_space
 
 
@@ -52,7 +64,7 @@ def convert_to_str(opt_setting, search_space):
         flag_info = search_space[flag_name]
         # Parametric flag
         if flag_info.isParametric:
-            if flag_info.name != "stdOptLv" and len(config)>0:
+            if flag_info.name != "stdOptLv" and len(config) > 0:
                 str_opt_setting += f" {flag_name}={config}"
         # Binary flag
         else:
@@ -101,13 +113,14 @@ if __name__ == "__main__":
 
     # Extract GCC search space
     search_space = read_gcc_opts(gcc_optimization_info)
-    default_setting = {"stdOptLv":3}
+    default_setting = {"stdOptLv": 3}
 
     with open("results/tuning_result.txt", "w") as ofp:
         ofp.write("=== Result ===\n")
 
     for program in program_list:
-        evaluator = cBenchEvaluator(program, num_repeats=30, search_space=search_space)
+        evaluator = cBenchEvaluator(
+            program, num_repeats=30, search_space=search_space)
 
         tuners = [
             RandomTuner(search_space, evaluator, default_setting),
