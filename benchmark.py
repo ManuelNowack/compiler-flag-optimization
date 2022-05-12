@@ -51,7 +51,7 @@ def negate_flags(flags: list):
 def run(flags: str) -> float:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
-                "data_uoa": "cbench-automotive-susan",
+                "data_uoa": "cbench-network-dijkstra",
                 "speed": "yes",
                 "flags": "-w -save-temps -fverbose-asm " + flags})
     # print(r.keys())
@@ -64,7 +64,5 @@ def run(flags: str) -> float:
     #     print(file, extract_flags(file))
     r = ck_cmd({"action": "run",
                 "module_uoa": "program",
-                "data_uoa": "cbench-automotive-susan",
-                "cmd_key": "corners",
-                "dataset_uoa": "image-pgm-0001"})
+                "data_uoa": "cbench-network-dijkstra"})
     return r["characteristics"]["execution_time"]
