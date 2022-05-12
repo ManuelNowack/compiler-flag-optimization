@@ -94,7 +94,6 @@
 
  #Online doc
  -fdce
- -fdelayed-branch
  -fdse
  -fcse-skip-blocks
  -fschedule-insns
