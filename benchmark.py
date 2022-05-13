@@ -48,10 +48,10 @@ def negate_flags(flags: list):
     return [flag.replace("-f", "-f-no-") for flag in flags]
 
 
-def run(flags: str) -> float:
+def run(flags: str, program: str, dataset: str = "") -> float:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
-                "data_uoa": "cbench-network-dijkstra",
+                "data_uoa": program,
                 "speed": "yes",
                 "flags": "-w -save-temps -fverbose-asm " + flags})
     # print(r.keys())
@@ -64,5 +64,6 @@ def run(flags: str) -> float:
     #     print(file, extract_flags(file))
     r = ck_cmd({"action": "run",
                 "module_uoa": "program",
-                "data_uoa": "cbench-network-dijkstra"})
+                "data_uoa": program,
+                "dataset_uoa": dataset})
     return r["characteristics"]["execution_time"]

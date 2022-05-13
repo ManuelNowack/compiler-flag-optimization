@@ -10,10 +10,11 @@ try:
     repetitions = int(sys.argv[1])
 except IndexError:
     repetitions = 10
-run_times = np.array([benchmark.run("") for _ in range(repetitions)])
+program = "cbench-network-dijkstra"
+run_times = np.array([benchmark.run("", program) for _ in range(repetitions)])
 # Write runtimes to file for later usage
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-with open(f"results/stability_{timestamp}.txt", "x") as fh:
+with open(f"results/{program}_{timestamp}.txt", "x") as fh:
     np.savetxt(fh, run_times)
 # Log noise for your information
 with open(f"results/{os.path.basename(__file__)}.log", "w") as fh:
