@@ -79,13 +79,10 @@ def convert_to_str(opt_setting, search_space):
 
 # Define tuning task
 class cBenchEvaluator(Evaluator):
-    def __init__(self, path, num_repeats, search_space):
+    def __init__(self, path, num_repeats, search_space, dataset):
         super().__init__(path, num_repeats)
-        if path == "cbench-consumer-jpeg-c":
-            self.dataset = "image-pgm-0001"
-        else:
-            self.dataset = ""
         self.search_space = search_space
+        self.dataset = dataset
 
     def evaluate(self, opt_setting, num_repeats=None):
         flags = convert_to_str(opt_setting, self.search_space)
@@ -106,9 +103,9 @@ if __name__ == "__main__":
     budget = 1000
     # Benchmark info
     program_list = [
-        "cbench-network-dijkstra",
-        "cbench-consumer-jpeg-c",
-        "cbench-telecom-adpcm-d"]
+        ("cbench-network-dijkstra", "cdataset-dijkstra-0002"),
+        ("cbench-consumer-jpeg-c", "image-ppm-0002"),
+        ("cbench-telecom-adpcm-d", "adpcm-0002")]
     gcc_optimization_info = "gcc_opts.txt"
 
     # Extract GCC search space
@@ -118,9 +115,8 @@ if __name__ == "__main__":
     with open("results/tuning_result.txt", "w") as ofp:
         ofp.write("=== Result ===\n")
 
-    for program in program_list:
-        evaluator = cBenchEvaluator(
-            program, num_repeats=30, search_space=search_space)
+    for program, dataset in program_list:
+        evaluator = cBenchEvaluator(program, 30, search_space, dataset)
 
         tuners = [
             RandomTuner(search_space, evaluator, default_setting),
