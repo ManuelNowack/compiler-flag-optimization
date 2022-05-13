@@ -10,8 +10,16 @@ try:
     repetitions = int(sys.argv[1])
 except IndexError:
     repetitions = 10
-program = "cbench-network-dijkstra"
-run_times = np.array([benchmark.run("", program) for _ in range(repetitions)])
+try:
+    program = sys.argv[2]
+except IndexError:
+    program = "cbench-network-dijkstra"
+try:
+    dataset = sys.argv[3]
+except IndexError:
+    dataset = ""
+run_times = np.array([benchmark.run("", program, dataset)
+                     for _ in range(repetitions)])
 # Write runtimes to file for later usage
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
 with open(f"results/{program}_{timestamp}.txt", "x") as fh:
