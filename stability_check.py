@@ -17,7 +17,7 @@ except IndexError:
 try:
     dataset = sys.argv[3]
 except IndexError:
-    dataset = ""
+    dataset = "cdataset-dijkstra-0001"
 run_times = np.array([benchmark.run("", program, dataset)
                      for _ in range(repetitions)])
 # Write runtimes to file for later usage
