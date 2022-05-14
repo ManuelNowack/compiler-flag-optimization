@@ -45,7 +45,7 @@ class Tuner:
     def reflect_feedback(perfs):
         assert 0, "Undefined"
 
-    def tune(self, budget, batch_size=1):
+    def tune(self, budget, batch_size=1, out=None):
         best_opt_setting, best_perf = None, FLOAT_MAX
         i = 0
         while i<budget:
@@ -58,8 +58,10 @@ class Tuner:
                     best_perf = perf
                     best_opt_setting = opt_setting
             
-            
-            print(f"[{i}] current trial: {perf:.3f}s, best performance so far: {best_perf:.3f}s")
-            
+            try:
+                with open(out, "a") as fh:
+                    fh.write(f"[{i}] current trial: {perf:.6f}s, best performance so far: {best_perf:.6f}s\n")
+            except FileNotFoundError:
+                pass
             self.reflect_feedback(perfs)
         return best_opt_setting, best_perf

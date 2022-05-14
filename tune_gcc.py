@@ -1,5 +1,7 @@
-import benchmark
+import datetime
+import sys
 
+import benchmark
 from tuner import FlagInfo, Evaluator
 from tuner import RandomTuner, SRTuner
 
@@ -112,8 +114,13 @@ if __name__ == "__main__":
     search_space = read_gcc_opts(gcc_optimization_info)
     default_setting = {"stdOptLv": 3}
 
-    with open("results/tuning_result.txt", "w") as ofp:
-        ofp.write("=== Result ===\n")
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+    result_file = f"results/tuning_result_{timestamp}.txt"
+    result_verbose_file = f"results/tuning_result_verbose_{timestamp}.txt"
+    with open(result_file, "x") as fh:
+        fh.write("=== Result ===\n")
+    with open(result_verbose_file, "x") as fh:
+        fh.write("=== Result ===\n")
 
     for program, dataset in program_list:
         evaluator = cBenchEvaluator(program, 30, search_space, dataset)
@@ -124,10 +131,12 @@ if __name__ == "__main__":
         ]
 
         for tuner in tuners:
-            best_opt_setting, best_perf = tuner.tune(budget)
+            best_opt_setting, best_perf = tuner.tune(budget, out=result_verbose_file)
             if best_opt_setting is not None:
                 default_perf = tuner.default_perf
                 best_perf = evaluator.evaluate(best_opt_setting)
-                print(f"Tuning {program} w/ {tuner.name}: {default_perf:.3f}/{best_perf:.3f} = {default_perf/best_perf:.3f}x")
-                with open("results/tuning_result.txt", "a") as ofp:
-                    ofp.write(f"Tuning {program} w/ {tuner.name}: {default_perf:.3f}/{best_perf:.3f} = {default_perf/best_perf:.3f}x\n")
+                with open(result_file, "a") as fh:
+                    fh.write(f"Tuning {program} w/ {tuner.name}: {default_perf:.6f}/{best_perf:.6f} = {default_perf/best_perf:.3f}x\n")
+                with open(result_verbose_file, "a") as fh:
+                    fh.write(f"Tuning {program} w/ {tuner.name}: {default_perf:.6f}/{best_perf:.6f} = {default_perf/best_perf:.3f}x\n")
+                    fh.write(f"{convert_to_str(best_opt_setting, search_space)}\n")
