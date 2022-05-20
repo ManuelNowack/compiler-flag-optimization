@@ -26,7 +26,7 @@ class RandomTuner(Tuner):
         return candidates
     
     def evaluate_candidates(self, candidates):
-        return [self.evaluator.evaluate(opt_setting, num_repeats=3) for opt_setting in candidates]
+        return [self.evaluator.evaluate(opt_setting) for opt_setting in candidates]
 
     def reflect_feedback(self, perfs):
         # Random search. Do nothing

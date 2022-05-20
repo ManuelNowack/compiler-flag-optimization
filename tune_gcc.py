@@ -1,5 +1,5 @@
 import datetime
-import sys
+import statistics
 
 import benchmark
 from tuner import FlagInfo, Evaluator
@@ -86,18 +86,12 @@ class cBenchEvaluator(Evaluator):
         self.search_space = search_space
         self.dataset = dataset
 
-    def evaluate(self, opt_setting, num_repeats=None):
+    def evaluate(self, opt_setting, num_repeats=1):
         flags = convert_to_str(opt_setting, self.search_space)
-        benchmark.ck_cmd({"action": "compile",
-                          "module_uoa": "program",
-                          "data_uoa": self.path,
-                          "flags": flags,
-                          "lflags": "-fopenmp"})
-        r = benchmark.ck_cmd({"action": "run",
-                              "module_uoa": "program",
-                              "data_uoa": self.path,
-                              "dataset_uoa": self.dataset})
-        return r["characteristics"]["execution_time"]
+        benchmark.compile(self.path, flags, "-fopenmp")
+        run_times = [benchmark.run(self.path, self.dataset)
+                     for _ in range(num_repeats)]
+        return statistics.median(run_times)
 
 
 if __name__ == "__main__":
@@ -131,13 +125,13 @@ if __name__ == "__main__":
             tuner_file = f"results/tuning_{timestamp}_{program}_{tuner.name}.txt"
             with open(tuner_file, "x") as fh:
                 best_opt_setting, best_perf = tuner.tune(budget, file=fh)
+            default_flags = convert_to_str(tuner.default_setting, search_space)
+            best_flags = convert_to_str(best_opt_setting, search_space)
             with open(result_file, "a") as fh:
                 fh.write("\n")
                 fh.write(f"{program} with {tuner.name}\n")
                 fh.write(f"speedup: {tuner.default_perf / best_perf:.3f}\n")
                 fh.write(f"default runtime: {tuner.default_perf:.3e} s\n")
                 fh.write(f"best runtime: {best_perf:.3e} s\n")
-                default_setting_str = convert_to_str(tuner.default_setting, search_space)
-                best_setting_str = convert_to_str(best_opt_setting, search_space)
-                fh.write(f"default flags: {default_setting_str}\n")
-                fh.write(f"best flags: {best_setting_str}\n")
+                fh.write(f"default flags: {default_flags}\n")
+                fh.write(f"best flags: {best_flags}\n")

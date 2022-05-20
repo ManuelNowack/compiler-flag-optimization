@@ -22,8 +22,9 @@ args = parser.parse_args()
 
 
 def benchmark_process(program, dataset, repetitions):
-    return np.array([benchmark.compile_and_run("", program, dataset)
-                    for _ in range(repetitions)])
+    benchmark.compile(program, "-O3")
+    run_times = [benchmark.run(program, dataset) for _ in range(repetitions)]
+    return np.array(run_times)
 
 
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
