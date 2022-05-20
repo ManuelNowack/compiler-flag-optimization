@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 
 def benchmark_process(program, dataset, repetitions):
-    return np.array([benchmark.run("", program, dataset)
+    return np.array([benchmark.compile_and_run("", program, dataset)
                     for _ in range(repetitions)])
 
 

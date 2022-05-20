@@ -12,7 +12,7 @@ flags = [
     "-fno-inline-small-functions"]
 powerset = itertools.chain.from_iterable(
     itertools.combinations(flags, i) for i in range(len(flags) + 1))
-times = [benchmark.run(" ".join(subset)) for subset in powerset]
+times = [benchmark.compile_and_run(" ".join(subset)) for subset in powerset]
 with open("results/execution_times.csv", "a") as fh:
     writer = csv.writer(fh)
     writer.writerow(times)

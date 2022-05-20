@@ -48,7 +48,7 @@ def negate_flags(flags: list):
     return [flag.replace("-f", "-f-no-") for flag in flags]
 
 
-def run(flags: str, program: str, dataset: str = "") -> float:
+def compile_and_run(flags: str, program: str, dataset: str = "") -> float:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
