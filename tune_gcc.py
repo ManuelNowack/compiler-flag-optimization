@@ -115,11 +115,8 @@ if __name__ == "__main__":
     default_setting = {"stdOptLv": 3}
 
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-    result_file = f"results/tuning_result_{timestamp}.txt"
-    result_verbose_file = f"results/tuning_result_verbose_{timestamp}.txt"
+    result_file = f"results/tuning_{timestamp}.txt"
     with open(result_file, "x") as fh:
-        fh.write("=== Result ===\n")
-    with open(result_verbose_file, "x") as fh:
         fh.write("=== Result ===\n")
 
     for program, dataset in program_list:
@@ -131,12 +128,16 @@ if __name__ == "__main__":
         ]
 
         for tuner in tuners:
-            best_opt_setting, best_perf = tuner.tune(budget, out=result_verbose_file)
-            if best_opt_setting is not None:
-                default_perf = tuner.default_perf
-                best_perf = evaluator.evaluate(best_opt_setting)
-                with open(result_file, "a") as fh:
-                    fh.write(f"Tuning {program} w/ {tuner.name}: {default_perf:.6f}/{best_perf:.6f} = {default_perf/best_perf:.3f}x\n")
-                with open(result_verbose_file, "a") as fh:
-                    fh.write(f"Tuning {program} w/ {tuner.name}: {default_perf:.6f}/{best_perf:.6f} = {default_perf/best_perf:.3f}x\n")
-                    fh.write(f"{convert_to_str(best_opt_setting, search_space)}\n")
+            tuner_file = f"results/tuning_{timestamp}_{program}_{tuner.name}.txt"
+            with open(tuner_file, "x") as fh:
+                best_opt_setting, best_perf = tuner.tune(budget, file=fh)
+            with open(result_file, "a") as fh:
+                fh.write("\n")
+                fh.write(f"{program} with {tuner.name}\n")
+                fh.write(f"speedup: {tuner.default_perf / best_perf:.3f}\n")
+                fh.write(f"default runtime: {tuner.default_perf:.3e} s\n")
+                fh.write(f"best runtime: {best_perf:.3e} s\n")
+                default_setting_str = convert_to_str(tuner.default_setting, search_space)
+                best_setting_str = convert_to_str(best_opt_setting, search_space)
+                fh.write(f"default flags: {default_setting_str}\n")
+                fh.write(f"best flags: {best_setting_str}\n")
