@@ -19,7 +19,7 @@ parser.add_argument("--dataset", default=default_datasets, action=SplitArgs)
 args = parser.parse_args()
 
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-with open(f"results/stability_check.txt", "w") as fh:
+with open(f"results/stability_check_{timestamp}.txt", "w") as fh:
     for program, dataset in zip(args.program, args.dataset):
         run_times = np.array([benchmark.run("", program, dataset)
                              for _ in range(args.repetitions)])

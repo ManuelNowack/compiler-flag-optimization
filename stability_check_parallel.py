@@ -27,7 +27,7 @@ def benchmark_process(program, dataset, repetitions):
 
 
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-with open(f"results/stability_check.txt", "w") as fh:
+with open(f"results/stability_check_{timestamp}.txt", "w") as fh:
     with multiprocessing.Pool(processes=len(args.program)) as pool:
         a = zip(args.program, args.dataset, itertools.repeat(args.repetitions))
         output = pool.starmap(benchmark_process, a)
