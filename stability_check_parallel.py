@@ -36,8 +36,13 @@ with open(f"results/stability_check_{timestamp}.txt", "w") as fh:
         # Write runtimes to file for later usage
         np.savetxt(f"results/{program}_{timestamp}.txt", run_times)
         # Log noise for your information
-        fh.write(f"{program}\n")
+        noise = np.abs(1 - run_times / np.median(run_times))
+        fraction_noisy = np.count_nonzero(noise < 0.01) / len(noise)
+        percentile = np.percentile(noise, 95)
         max_noise = 1.0 - run_times.min() / run_times.max()
-        fh.write(f"Max noise: {max_noise * 100:.2f} %\n")
         std = np.std(run_times) / np.mean(run_times)
+        fh.write(f"{program}\n")
+        fh.write(f"Deviating more than 1%: {fraction_noisy:.2f}\n")
+        fh.write(f"95-percentile: {percentile * 100:.2f} %\n")
+        fh.write(f"Max noise: {max_noise * 100:.2f} %\n")
         fh.write(f"Relative standard deviation {std}\n")
