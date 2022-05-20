@@ -3,7 +3,7 @@ import random, time
 
 class RandomTuner(Tuner):
     def __init__(self, search_space, evaluator, default_setting):
-        super().__init__(search_space, evaluator, "Random Tuner", default_setting)
+        super().__init__(search_space, evaluator, "RandomTuner", default_setting)
         
         
     def generate_candidates(self, batch_size=1):
