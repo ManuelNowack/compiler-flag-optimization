@@ -1,4 +1,5 @@
 import datetime
+import multiprocessing
 import statistics
 
 import benchmark
@@ -113,7 +114,7 @@ if __name__ == "__main__":
     with open(result_file, "x") as fh:
         fh.write("=== Result ===\n")
 
-    for program, dataset in program_list:
+    def tuning_process(program, dataset):
         evaluator = cBenchEvaluator(program, 30, search_space, dataset)
 
         tuners = [
@@ -135,3 +136,6 @@ if __name__ == "__main__":
                 fh.write(f"best runtime: {best_perf:.3e} s\n")
                 fh.write(f"default flags: {default_flags}\n")
                 fh.write(f"best flags: {best_flags}\n")
+
+    with multiprocessing.Pool(processes=len(program_list)) as pool:
+        pool.starmap(tuning_process, program_list)
