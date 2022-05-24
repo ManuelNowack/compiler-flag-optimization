@@ -56,10 +56,11 @@ def compile(program: str, flags: str, lflags: str="") -> None:
             "lflags": lflags})
 
 
-def run(program: str, dataset: str = "") -> float:
+def run(program: str, dataset: str = "", command: str="") -> float:
     r = ck_cmd({"action": "run",
                 "module_uoa": "program",
                 "data_uoa": program,
+                "cmd_key": command,
                 "dataset_uoa": dataset})
     return r["characteristics"]["execution_time"]
 
