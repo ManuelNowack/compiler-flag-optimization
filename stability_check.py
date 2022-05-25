@@ -11,11 +11,13 @@ class SplitArgs(argparse.Action):
 
 default_programs = ["cbench-network-dijkstra"]
 default_datasets = ["cdataset-dijkstra-0001"]
+default_commands = [""]
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--repetitions", default=10, type=int)
 parser.add_argument("--program", default=default_programs, action=SplitArgs)
 parser.add_argument("--dataset", default=default_datasets, action=SplitArgs)
+parser.add_argument("--command", default=default_commands, action=SplitArgs)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
@@ -28,18 +30,27 @@ for i in range(100):
     except Exception:
         pass
 with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
-    def benchmark_thread(program, dataset):
+    def benchmark_thread(program, dataset, command):
         benchmark.compile(program, "-O3")
-        run_times = [benchmark.run(program, dataset)
+        run_times = [benchmark.run(program, dataset, command)
                      for _ in range(args.repetitions)]
         return np.array(run_times)
 
     if args.parallel is not None:
         with multiprocessing.Pool(processes=args.parallel) as pool:
-            o = pool.starmap(benchmark_thread, zip(args.program, args.dataset))
+            starmap_args = zip(args.program, args.dataset, args.command)
+            o = pool.starmap(benchmark_thread, starmap_args)
     else:
-        o = map(benchmark_thread, args.program, args.dataset)
-    for program, dataset, run_times in zip(args.program, args.dataset, o):
+        o = map(benchmark_thread, args.program, args.dataset, args.command)
+    for program, dataset, command, run_times in zip(
+            args.program, args.dataset, args.command, o):
+        # append suffix to ensure unique file name
+        if command == "encode":
+            program += "-e"
+        elif command == "decode":
+            program += "-d"
+        elif command != "":
+            raise ValueError("Unrecognized command " + command)
         # Write runtimes to file for later usage
         np.savetxt(f"results/{program}_{nonce:02d}.txt", run_times)
         # Log noise for your information
