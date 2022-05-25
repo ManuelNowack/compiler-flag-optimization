@@ -1,6 +1,5 @@
 import argparse
 import benchmark
-import datetime
 import multiprocessing
 import numpy as np
 
@@ -20,9 +19,15 @@ parser.add_argument("--dataset", default=default_datasets, action=SplitArgs)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
-timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-with open(f"results/stability_check_{timestamp}.txt", "w") as fh:
 
+for i in range(100):
+    try:
+        with open(f"results/stability_check_{i:02d}.txt", "x"):
+            nonce = i
+            break
+    except Exception:
+        pass
+with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
     def benchmark_thread(program, dataset):
         benchmark.compile(program, "-O3")
         run_times = [benchmark.run(program, dataset)
@@ -36,7 +41,7 @@ with open(f"results/stability_check_{timestamp}.txt", "w") as fh:
         o = map(benchmark_thread, args.program, args.dataset)
     for program, dataset, run_times in zip(args.program, args.dataset, o):
         # Write runtimes to file for later usage
-        np.savetxt(f"results/{program}_{timestamp}.txt", run_times)
+        np.savetxt(f"results/{program}_{nonce:02d}.txt", run_times)
         # Log noise for your information
         noise = np.abs(1 - run_times / np.median(run_times))
         fraction_noisy = np.count_nonzero(noise > 0.01) / len(noise)
