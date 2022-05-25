@@ -53,3 +53,4 @@ with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
         fh.write(f"95-percentile: {percentile * 100:.2f} %\n")
         fh.write(f"Max noise: {max_noise * 100:.2f} %\n")
         fh.write(f"Relative standard deviation {std}\n")
+        fh.write("\n")
