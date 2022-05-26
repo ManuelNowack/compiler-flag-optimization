@@ -62,11 +62,9 @@ def run(program: str, dataset: str = "", command: str="") -> float:
                 "data_uoa": program,
                 "cmd_key": command,
                 "dataset_uoa": dataset})
-    try:
-        return r["characteristics"]["execution_time"]
-    except KeyError as e:
-        print(r)
-        raise(e)
+    if not r["misc"]["run_success_bool"]:
+        raise RuntimeError(r["misc"]["fail_reason"])
+    return r["characteristics"]["execution_time"]
 
 
 def compile_and_run(flags: str, program: str, dataset: str = "") -> float:
