@@ -6,7 +6,7 @@
 
 import numpy as np
 from itertools import combinations
-from bhs import bhs
+from .bhs import bhs
 
 class LinReg:
 

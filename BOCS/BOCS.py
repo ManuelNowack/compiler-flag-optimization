@@ -7,8 +7,8 @@
 import numpy as np
 import cvxpy as cvx
 from itertools import combinations
-from LinReg import LinReg
-from sample_models import sample_models
+from .LinReg import LinReg
+from .sample_models import sample_models
 
 def BOCS(inputs, order, acquisitionFn):
 	# BOCS: Function runs binary optimization using simulated annealing on

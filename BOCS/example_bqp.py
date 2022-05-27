@@ -23,9 +23,9 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from BOCS import BOCS
-from quad_mat import quad_mat
-from sample_models import sample_models
+from .BOCS import BOCS
+from .quad_mat import quad_mat
+from .sample_models import sample_models
 
 # Save inputs in dictionary
 inputs = {}
