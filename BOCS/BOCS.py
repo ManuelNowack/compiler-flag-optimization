@@ -8,7 +8,6 @@ import numpy as np
 import cvxpy as cvx
 from itertools import combinations
 from .LinReg import LinReg
-from .sample_models import sample_models
 
 def BOCS(inputs, order, acquisitionFn):
 	# BOCS: Function runs binary optimization using simulated annealing on
@@ -109,7 +108,8 @@ def simulated_annealing(objective, inputs):
 	cool = lambda T: .8*T
 
 	# Set initial condition and evaluate objective
-	old_x   = sample_models(1,n_vars)
+	rng = np.random.default_rng()
+	old_x   = rng.random((1, n_vars)).round()
 	old_obj = objective(old_x)
 
 	# Set best_x and best_obj

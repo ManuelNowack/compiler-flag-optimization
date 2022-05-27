@@ -1,6 +1,5 @@
 import benchmark
 from BOCS.BOCS import BOCS
-from BOCS.sample_models import sample_models
 import numpy as np
 
 
@@ -46,7 +45,8 @@ inputs["model"] = f
 inputs["penalty"] = lambda x: inputs["lambda"] * np.sum(x, axis=1)
 
 # Generate initial samples for statistical models
-inputs["x_vals"] = sample_models(inputs["n_init"], inputs["n_vars"])
+rng = np.random.default_rng()
+inputs["x_vals"] = rng.random((inputs["n_init"], inputs["n_vars"])).round()
 inputs["y_vals"] = inputs["model"](inputs["x_vals"])
 
 # Run BOCS-SA and BOCS-SDP (order 2)
