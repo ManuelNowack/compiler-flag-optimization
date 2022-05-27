@@ -60,6 +60,7 @@ with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
         max_noise = 1.0 - run_times.min() / run_times.max()
         std = np.std(run_times) / np.mean(run_times)
         fh.write(f"{program}\n")
+        fh.write(f"Mean runtime: {np.mean(run_times)} s\n")
         fh.write(f"Deviating more than 1%: {fraction_noisy:.2f}\n")
         fh.write(f"95-percentile: {percentile * 100:.2f} %\n")
         fh.write(f"Max noise: {max_noise * 100:.2f} %\n")
