@@ -130,8 +130,6 @@ inputs["y_vals"] = inputs["model"](inputs["x_vals"])
 # Run BOCS-SA and BOCS-SDP (order 2)
 (BOCS_SA_model, BOCS_SA_obj) = BOCS(inputs.copy(), 2, "SA")
 (BOCS_SDP_model, BOCS_SDP_obj) = BOCS(inputs.copy(), 2, "SDP-l1")
-print(BOCS_SA_model)
-print(BOCS_SA_obj)
 
 # Compute optimal value found by BOCS
 BOCS_SA_flags = subset_to_flags(BOCS_SA_model[BOCS_SA_obj.argmin()])
