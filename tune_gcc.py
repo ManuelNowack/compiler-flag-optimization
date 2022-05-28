@@ -4,7 +4,7 @@ import statistics
 
 import benchmark
 from tuner import FlagInfo, Evaluator
-from tuner import RandomTuner, SRTuner
+from tuner import RandomTuner, SRTuner, BOCSTuner
 
 
 class GCCFlagInfo(FlagInfo):
@@ -125,7 +125,8 @@ if __name__ == "__main__":
         evaluator = cBenchEvaluator(program, 1, search_space, dataset, command)
         tuners = [
             RandomTuner(search_space, evaluator, default_setting),
-            SRTuner(search_space, evaluator, default_setting)
+            SRTuner(search_space, evaluator, default_setting),
+            BOCSTuner(search_space, evaluator, default_setting)
         ]
         # append suffix to ensure unique file name
         if command == "encode":
