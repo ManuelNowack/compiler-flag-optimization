@@ -15,6 +15,14 @@ ck add dataset:cdataset-dijkstra-0002 --tags=dijkstra,dataset --file=cBench/netw
 ck add dataset:image-ppm-0002 --tags=image,ppm,dataset --file=cBench/consumer_jpeg_data/2.ppm
 ck add dataset:adpcm-0002 --tags=audio,adpcm,dataset --file=cBench/telecom_data/2.adpcm
 ```
+### Sparse-dsft
+```
+cd sparse-dsft/cpp
+cmake .
+make
+cd ..
+pip install .
+```
 ### Larger Datasets
 Larger datasets were made available in a Google Drive which no longer appears to be accessible. However, we can add new datasets ourselves, e.g., from the original cBench.
 
