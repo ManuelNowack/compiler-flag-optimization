@@ -29,8 +29,8 @@ class BOCSTuner(Tuner):
     def tune(self, budget, batch_size=1, file=None):
         inputs = {}
         inputs["n_vars"] = len(self.binary_flags) + len(self.parametric_flags)
-        inputs["evalBudget"] = 50
-        inputs["n_init"] = 10
+        inputs["evalBudget"] = budget
+        inputs["n_init"] = budget // 5
         inputs["lambda"] = 1e-4
 
         def objective_function(x):
