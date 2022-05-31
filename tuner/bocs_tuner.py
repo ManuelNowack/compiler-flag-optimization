@@ -1,5 +1,5 @@
 from BOCS.BOCS import BOCS
-from .common import Tuner
+from .base_tuner import Tuner
 import numpy as np
 
 

@@ -1,9 +1,10 @@
-from .common import Tuner, FLOAT_MAX
+from .base_tuner import Tuner
 import random, time
 
 class RandomTuner(Tuner):
     def __init__(self, search_space, evaluator, default_setting):
         super().__init__(search_space, evaluator, "RandomTuner", default_setting)
+        self.visited = set()
         
         
     def generate_candidates(self, batch_size=1):
@@ -31,6 +32,23 @@ class RandomTuner(Tuner):
     def reflect_feedback(self, perfs):
         # Random search. Do nothing
         pass
+
+    def tune(self, budget, batch_size=1, file=None):
+        best_opt_setting, best_perf = None, float("inf")
+        i = 0
+        while i<budget:
+            candidates = self.generate_candidates(batch_size=batch_size)
+            perfs = self.evaluate_candidates(candidates)
+        
+            i += len(candidates)
+            for opt_setting, perf in zip(candidates, perfs):
+                if perf < best_perf:
+                    best_perf = perf
+                    best_opt_setting = opt_setting
+            
+            print(best_perf, file=file)
+            self.reflect_feedback(perfs)
+        return best_opt_setting, best_perf
 
 class mPBILTuner(Tuner):
     def __init__(self, search_space, evaluator, learning_rate=1):

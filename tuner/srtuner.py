@@ -1,10 +1,11 @@
 from SRTuner import SRTunerModule
-from .common import Tuner
+from .base_tuner import Tuner
 
 # SRTuner as a standalone tuner
 class SRTuner(Tuner):
     def __init__(self, search_space, evaluator, default_setting):
         super().__init__(search_space, evaluator, "SRTuner", default_setting)
+        self.visited = set()
 
         # User can customize reward func as Python function and pass to module.
         # In this demo, we use the default reward func. 
@@ -18,3 +19,20 @@ class SRTuner(Tuner):
 
     def reflect_feedback(self, perfs):
         self.mod.reflect_feedback(perfs)
+
+    def tune(self, budget, batch_size=1, file=None):
+        best_opt_setting, best_perf = None, float("inf")
+        i = 0
+        while i<budget:
+            candidates = self.generate_candidates(batch_size=batch_size)
+            perfs = self.evaluate_candidates(candidates)
+        
+            i += len(candidates)
+            for opt_setting, perf in zip(candidates, perfs):
+                if perf < best_perf:
+                    best_perf = perf
+                    best_opt_setting = opt_setting
+            
+            print(best_perf, file=file)
+            self.reflect_feedback(perfs)
+        return best_opt_setting, best_perf
