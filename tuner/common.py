@@ -1,11 +1,6 @@
 # Define constant
 FLOAT_MAX = float('inf')
 
-class FlagInfo:
-    def __init__(self, name, configs):
-        self.name = name
-        self.configs = configs
-
 class Evaluator:
     def __init__(self, path, num_repeats):
         self.path = path
