@@ -2,8 +2,8 @@ import datetime
 import multiprocessing
 
 from tuner import RandomTuner, SRTuner, BOCSTuner
-from tuner.flag_info import convert_to_str, read_gcc_opts
-from tuner.evaluator import Evaluator
+from tuner import Evaluator
+from tuner import convert_to_str, read_gcc_opts
 
 
 if __name__ == "__main__":
