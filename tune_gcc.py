@@ -1,27 +1,9 @@
 import datetime
 import multiprocessing
-import statistics
 
-import benchmark
-from tuner import Evaluator
 from tuner import RandomTuner, SRTuner, BOCSTuner
 from tuner.flag_info import convert_to_str, read_gcc_opts
-
-
-# Define tuning task
-class cBenchEvaluator(Evaluator):
-    def __init__(self, path, num_repeats, search_space, dataset, command):
-        super().__init__(path, num_repeats)
-        self.search_space = search_space
-        self.dataset = dataset
-        self.command = command
-
-    def evaluate(self, opt_setting, num_repeats=1):
-        flags = convert_to_str(opt_setting, self.search_space)
-        benchmark.compile(self.path, flags, "-fopenmp")
-        run_times = [benchmark.run(self.path, self.dataset, self.command)
-                     for _ in range(num_repeats)]
-        return statistics.median(run_times)
+from tuner.evaluator import Evaluator
 
 
 if __name__ == "__main__":
@@ -50,7 +32,7 @@ if __name__ == "__main__":
         fh.write("=== Result ===\n")
 
     def tuning_process(program, dataset, command):
-        evaluator = cBenchEvaluator(program, 1, search_space, dataset, command)
+        evaluator = Evaluator(program, 1, search_space, dataset, command)
         tuners = [
             RandomTuner(search_space, evaluator, default_setting),
             SRTuner(search_space, evaluator, default_setting),

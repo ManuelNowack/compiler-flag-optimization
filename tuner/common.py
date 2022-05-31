@@ -1,24 +1,6 @@
 # Define constant
 FLOAT_MAX = float('inf')
 
-class Evaluator:
-    def __init__(self, path, num_repeats):
-        self.path = path
-        self.num_repeats = num_repeats
-    
-    def build(self):
-        assert 0, "Undefined"
-
-    def run(self):
-        assert 0, "Undefined"
-
-    def evaluate(self):
-        assert 0, "Undefined"
-
-    def clean(self):
-        assert 0, "Undefined"
-
-
 class Tuner:
     def __init__(self, search_space, evaluator, name = "Base Tuner", default_setting = None):
         self.search_space = search_space

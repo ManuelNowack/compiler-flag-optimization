@@ -1,4 +1,4 @@
-from .common import Evaluator, FLOAT_MAX
+from .common import FLOAT_MAX
 
 from .srtuner import SRTuner
 from .baseline_tuners import RandomTuner, mPBILTuner
