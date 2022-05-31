@@ -49,18 +49,3 @@ class RandomTuner(Tuner):
             print(best_perf, file=file)
             self.reflect_feedback(perfs)
         return best_opt_setting, best_perf
-
-class mPBILTuner(Tuner):
-    def __init__(self, search_space, evaluator, learning_rate=1):
-        super().__init__(search_space, evaluator, "mPBIL Tuner")
-        self.learning_rate = learning_rate
- 
-class OpenTuner(Tuner):
-    def __init__(self, search_space, evaluator):
-        super().__init__(search_space, evaluator)
-
-
-
-
-
-

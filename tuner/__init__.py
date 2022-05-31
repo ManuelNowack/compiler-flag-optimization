@@ -1,3 +1,3 @@
 from .srtuner import SRTuner
-from .baseline_tuners import RandomTuner, mPBILTuner
+from .random_tuner import RandomTuner
 from .bocs_tuner import BOCSTuner
