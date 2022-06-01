@@ -3,7 +3,7 @@ project(sparsedsft)
 
 include_directories(cpp)
 
-set(CMAKE_CXX_FLAGS " -pthread -std=c++14 -funroll-loops -O2 -march=native -mavx2 -fPIC -lrt")
+set(CMAKE_CXX_FLAGS " -pthread -std=c++14 -funroll-loops -O2 -march=native -mavx2 -fPIC")
 
 set(HEADER_FILES
     src/common.hpp
