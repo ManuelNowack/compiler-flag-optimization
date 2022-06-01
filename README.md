@@ -11,12 +11,7 @@
 ```
 conda create -n compiler-flags -c conda-forge python anytree cvxopt cvxpy fast-histogram matplotlib numpy pandas pyscipopt pybind11 scikit-learn scipy tqdm
 conda activate compiler-flags
-cd sparse-dsft/cpp
-cmake .
-make
-cd ..
-pip install .
-cd ..
+cd sparse-dsft/cpp; cmake .; make; cd ..; pip install .; cd ..
 pip install ck
 ck pull repo:mlcommons@ck-mlops
 ck pull repo:ctuning-programs
