@@ -8,8 +8,9 @@ import numpy as np
 import cvxpy as cvx
 from itertools import combinations
 from .LinReg import LinReg
+import time
 
-def BOCS(inputs, order, acquisitionFn):
+def BOCS(inputs, order, acquisitionFn, file=None):
 	# BOCS: Function runs binary optimization using simulated annealing on
 	# the model drawn from the distribution over beta parameters
 	#
@@ -43,7 +44,7 @@ def BOCS(inputs, order, acquisitionFn):
 	obj_iter   = np.zeros(n_iter)
 
 	for t in range(n_iter):
-		print(t)
+		start = time.perf_counter()
 		# Draw alpha vector
 		alpha_t = LR.alpha
 
@@ -86,6 +87,10 @@ def BOCS(inputs, order, acquisitionFn):
 		# Save results for optimal model
 		model_iter[t,:] = x_new
 		obj_iter[t]		= y_new + penalty(x_new)
+
+		end = time.perf_counter()
+		if file is not None:
+			file.write(f"BOCS iteration {t}: {end - start} s\n")
 
 	return (model_iter, obj_iter)
 
