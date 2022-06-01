@@ -1,6 +1,6 @@
 import argparse
 import multiprocessing
-from tuner import RandomTuner, SRTuner, BOCSTuner
+from tuner import RandomTuner, SRTuner, BOCSTuner, FourierTuner
 from tuner import Evaluator
 from tuner import convert_to_str, read_gcc_opts
 
@@ -40,7 +40,8 @@ def tuning_thread(program, dataset, command):
     tuners = [
         RandomTuner(search_space, evaluator, default_setting),
         SRTuner(search_space, evaluator, default_setting),
-        BOCSTuner(search_space, evaluator, default_setting)
+        BOCSTuner(search_space, evaluator, default_setting),
+        FourierTuner(search_space, evaluator, default_setting)
     ]
     # append suffix to ensure unique file name
     if command == "encode":
