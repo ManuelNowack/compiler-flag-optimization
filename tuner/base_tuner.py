@@ -4,7 +4,7 @@ class Tuner:
         self.evaluator = evaluator
         self.name = name
         self.default_setting = default_setting
-        self.default_perf = evaluator.evaluate(default_setting)
+        self.default_perf = evaluator.evaluate(default_setting, 10)
 
     
     def tune(self, budget, batch_size=1, file=None):

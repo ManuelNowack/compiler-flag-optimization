@@ -48,4 +48,5 @@ class RandomTuner(Tuner):
             
             print(best_perf, file=file)
             self.reflect_feedback(perfs)
+        best_perf = self.evaluator.evaluate(best_opt_setting, 10)
         return best_opt_setting, best_perf
