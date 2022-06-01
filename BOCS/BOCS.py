@@ -43,7 +43,7 @@ def BOCS(inputs, order, acquisitionFn):
 	obj_iter   = np.zeros(n_iter)
 
 	for t in range(n_iter):
-
+		print(t)
 		# Draw alpha vector
 		alpha_t = LR.alpha
 
