@@ -9,6 +9,8 @@ class BOCSTuner(Tuner):
         self.binary_flags = []
         self.parametric_flags = []
         for flag, info in self.search_space.items():
+            if flag == "stdOptLv":
+                continue
             if info.isParametric:
                 for val in info.configs:
                     self.parametric_flags.append((flag, val))
@@ -16,11 +18,10 @@ class BOCSTuner(Tuner):
                 self.binary_flags.append(flag)
 
     def subset_to_opt_setting_(self, subset: np.ndarray):
-        opt_setting = dict()
+        opt_setting = {"stdOptLv": 3}
         subset_it = iter(subset)
         for flag, enabled in zip(self.binary_flags, subset_it):
             opt_setting[flag] = bool(enabled)
-        opt_setting["stdOptLv"] = 3
         for (flag, val), enabled in zip(self.parametric_flags, subset_it):
             if enabled:
                 opt_setting[flag] = val
