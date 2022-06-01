@@ -92,7 +92,7 @@ class SparseDSFT3Function(SetFunction):
             @param coefficients: one dimensional np.array of corresponding Fourier 
             coeffients
         """
-        self.freqs = frequencies
+        self.freqs = frequencies.astype(np.int32)
         self.coefs = coefficients
         self.call_counter = 0
         
@@ -104,7 +104,7 @@ class SparseDSFT3Function(SetFunction):
             @param count_flag: a flag indicating whether to count set function evaluations
             @returns: a np.array of set function evaluations
         """
-        ind = indicators
+        ind = indicators.astype(np.int32)
         freqs = self.freqs
         coefs = self.coefs
         if len(ind.shape) < 2:
@@ -168,7 +168,7 @@ class SparseDSFT4Function(SetFunction):
             @param coefficients: one dimensional np.array of corresponding Fourier 
             coeffients
         """
-        self.freqs = frequencies
+        self.freqs = frequencies.astype(np.int32)
         self.coefs = coefficients
         self.call_counter = 0
         
@@ -180,7 +180,7 @@ class SparseDSFT4Function(SetFunction):
             @param count_flag: a flag indicating whether to count set function evaluations
             @returns: a np.array of set function evaluations
         """
-        ind = indicators
+        ind = indicators.astype(np.int32)
         freqs = self.freqs
         coefs = self.coefs
         if len(ind.shape) < 2:
@@ -195,17 +195,7 @@ class SparseDSFT4Function(SetFunction):
             res = res.A1
         return res
     
-    def shapley_values(self):
-        freqs = self.freqs
-        coefs = self.coefs
-        values = []
-        n = freqs.shape[1]
-        for i in range(n):
-            bs = freqs.sum(axis=1)
-            indicator = np.zeros(n, dtype=np.int32)
-            indicator[i] = 1
-            values += [np.sum((-1/(bs+1))*(freqs.dot(indicator))*coefs)]
-        return np.asarray(values)
+
     
 class DSFT4OneHop(SetFunction):
     
@@ -342,14 +332,14 @@ class JoinZetaOneHop(SetFunction):
     
 class SparseWHTFunction(SetFunction):
     
-    def __init__(self, frequencies, coefficients, normalization=True):
+    def __init__(self, frequencies, coefficients, normalization=False):
         """
             @param frequencies: two dimensional np.array of type np.int32 with 
             one indicator vector per row. Important: int and not bool!
             @param coefficients: one dimensional np.array of corresponding Fourier 
             coeffients
         """
-        self.freqs = frequencies
+        self.freqs = frequencies.astype(np.int32)
         self.coefs = coefficients
         self.call_counter = 0
         self.normalization = normalization
@@ -361,7 +351,7 @@ class SparseWHTFunction(SetFunction):
             @param count_flag: a flag indicating whether to count set function evaluations
             @returns: a np.array of set function evaluations
         """    
-        ind = indicators
+        ind = indicators.astype(np.int32)
         freqs = self.freqs
         coefs = self.coefs
         if len(ind.shape) < 2:
@@ -377,22 +367,6 @@ class SparseWHTFunction(SetFunction):
         res = factor*((-1)**A_cap_B * coefs[:, np.newaxis]).sum(axis=0)
         return res
     
-    def shapley_values(self):
-        freqs = self.freqs
-        coefs = self.coefs
-        values = []
-        n = freqs.shape[1]
-        for i in range(n):
-            bs = freqs.sum(axis=1)
-            mask = bs != 0
-            bs = bs[mask]
-            freqs = freqs[mask]
-            coefs = coefs[mask]
-            indicator = np.zeros(n, dtype=np.int32)
-            indicator[i] = 1
-            values += [np.sum(2**(-n-1)*((-2*bs + (-1)**bs + -1)/(bs*(bs+1)))*(freqs.dot(indicator))*coefs)]
-        return np.asarray(values)
-
     
 class WHTOneHop(SetFunction):
     def __init__(self, n, weights, set_function):
