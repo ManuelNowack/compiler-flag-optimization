@@ -31,7 +31,7 @@ for i in range(100):
         pass
 with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
     def benchmark_thread(program, dataset, command):
-        benchmark.compile(program, "-O3")
+        benchmark.compile(program, "-w -O3")
         run_times = [benchmark.run(program, dataset, command)
                      for _ in range(args.repetitions)]
         return np.array(run_times)

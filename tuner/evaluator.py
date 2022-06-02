@@ -12,7 +12,7 @@ class Evaluator():
 
     def evaluate(self, opt_setting, num_repeats=1):
         flags = convert_to_str(opt_setting, self.search_space)
-        benchmark.compile(self.path, flags, "-fopenmp")
+        benchmark.compile(self.path, "-w " + flags, "-fopenmp")
         run_times = [benchmark.run(self.path, self.dataset, self.command)
                      for _ in range(num_repeats)]
         return statistics.median(run_times)

@@ -55,7 +55,7 @@ def read_gcc_opts(path):
 
 
 def convert_to_str(opt_setting, search_space):
-    str_opt_setting = " -O" + str(opt_setting["stdOptLv"])
+    str_opt_setting = "-O" + str(opt_setting["stdOptLv"])
 
     for flag_name, config in opt_setting.items():
         assert flag_name in search_space
