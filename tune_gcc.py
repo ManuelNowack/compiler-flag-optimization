@@ -52,7 +52,7 @@ def tuning_thread(program, dataset, command):
         raise ValueError("Unrecognized command " + command)
     for tuner in tuners:
         tuner_file = f"results/tuning_{nonce:02d}_{program}_{tuner.name}.txt"
-        with open(tuner_file, "x") as fh:
+        with open(tuner_file, "x", buffering=1) as fh:
             best_opt_setting, best_perf = tuner.tune(args.budget, file=fh)
         default_flags = convert_to_str(tuner.default_setting, search_space)
         best_flags = convert_to_str(best_opt_setting, search_space)
