@@ -1,13 +1,19 @@
+import re
+import subprocess
+
+
 class FlagInfo:
     def __init__(self, name, configs):
         self.name = name
         self.configs = configs
+
 
 class GCCFlagInfo(FlagInfo):
     def __init__(self, name, configs, isParametric, stdOptLv):
         super().__init__(name, configs)
         self.isParametric = isParametric
         self.stdOptLv = stdOptLv
+
 
 def read_gcc_opts(path):
     """Reads the list of gcc optimizations that follow a certain format.
@@ -25,11 +31,11 @@ def read_gcc_opts(path):
         name="stdOptLv", configs=[1, 2, 3], isParametric=True, stdOptLv=-1)
     with open(path, "r") as fp:
         stdOptLv = 0
-        for raw_line in fp.read().split('\n'):
+        for raw_line in fp.read().split("\n"):
             # Process current chunk
             if(len(raw_line)):
                 line = raw_line.replace(" ", "").strip()
-                if line[0] != '#':
+                if line[0] != "#":
                     tokens = line.split("=")
                     flag_name = tokens[0]
                     # Binary flag
@@ -44,7 +50,7 @@ def read_gcc_opts(path):
                         assert(len(tokens) == 2)
                         info = GCCFlagInfo(
                             name=flag_name,
-                            configs=tokens[1].split(','),
+                            configs=tokens[1].split(","),
                             isParametric=True,
                             stdOptLv=stdOptLv)
                     search_space[flag_name] = info
@@ -52,6 +58,59 @@ def read_gcc_opts(path):
             else:
                 stdOptLv = stdOptLv + 1
     return search_space
+
+
+def request_gcc_flags(opt_level: int):
+    if opt_level < 0 or opt_level > 3:
+        raise ValueError("Invalid optimization level")
+    r = subprocess.run(["gcc", f"-O{opt_level}", "-Q", "--help=optimizers"],
+                       capture_output=True, text=True)
+    r.check_returncode()
+    lines = [line.strip() for line in r.stdout.split("\n") if line != ""]
+    lines.remove("The following options control optimizations:")
+    re_opt_level = re.compile(r"-O.+")
+    re_binary = re.compile(r"(-f\S+)\s+\[(enabled|disabled)\]")
+    re_binary_no_default = re.compile(r"(-f[^=\s]+)$")
+    re_parametric = re.compile(r"(-f[^=]+)=\[([^\]]+)\]\s+(.+)")
+    re_numeric = re.compile(r"(-f[^=]+)=\s+(.+)")
+    enabled_flags = []
+    disabled_flags = []
+    ignored_flags = []
+    unknown_options = []
+    for line in lines:
+        match_opt_level = re_opt_level.match(line)
+        match_binary = re_binary.match(line)
+        match_binary_no_default = re_binary_no_default.match(line)
+        match_parametric = re_parametric.match(line)
+        match_numeric = re_numeric.match(line)
+        if match_opt_level is not None:
+            pass
+        elif match_binary is not None:
+            flag_name = match_binary.group(1)
+            value = match_binary.group(2)
+            if value == "enabled":
+                enabled_flags.append(flag_name)
+            else:
+                disabled_flags.append(flag_name)
+        elif match_binary_no_default:
+            flag_name = match_binary_no_default.group(1)
+            ignored_flags.append(flag_name)
+        elif match_parametric is not None:
+            flag_name = match_parametric.group(1)
+            configs = match_parametric.group(2).split("|")
+            value = match_parametric.group(3)
+            if value in configs:
+                enabled_flags.append(flag_name + "=" + value)
+            else:
+                unknown_options.append(line)
+        elif match_numeric is not None:
+            flag_name = match_numeric.group(1)
+            value = match_numeric.group(2)
+            if flag_name not in enabled_flags:
+                enabled_flags.append(flag_name + "=" + value)
+        else:
+            unknown_options.append(line)
+    return enabled_flags, disabled_flags, ignored_flags, unknown_options
 
 
 def convert_to_str(opt_setting, search_space):
@@ -73,3 +132,8 @@ def convert_to_str(opt_setting, search_space):
                 negated_flag_name = flag_name.replace("-f", "-fno-", 1)
                 str_opt_setting += f" {negated_flag_name}"
     return str_opt_setting
+
+
+if __name__ == "__main__":
+    for flag in request_gcc_flags(3)[0]:
+        print(flag)
