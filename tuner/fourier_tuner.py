@@ -53,5 +53,5 @@ class FourierTuner(Tuner):
         if file is not None:
             file.write(f"Minimize duration: {end - start} s\n")
         best_opt_setting = self.subset_to_opt_setting_(argmin)
-        best_perf = self.evaluator.evaluate(best_opt_setting)
+        best_perf = self.evaluator.evaluate(best_opt_setting, 10)
         return best_opt_setting, best_perf

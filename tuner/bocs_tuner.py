@@ -53,6 +53,6 @@ class BOCSTuner(Tuner):
 
         best_subset = BOCS_SA_model[BOCS_SA_obj.argmin()]
         best_opt_setting = self.subset_to_opt_setting_(best_subset)
-        best_perf = self.evaluator.evaluate(best_opt_setting)
+        best_perf = self.evaluator.evaluate(best_opt_setting, 10)
 
         return best_opt_setting, best_perf
