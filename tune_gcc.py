@@ -11,8 +11,8 @@ class SplitArgs(argparse.Action):
 
 
 default_budget = 10
-default_programs = ["cbench-network-dijkstra"]
-default_datasets = ["cdataset-dijkstra-0001"]
+default_programs = ["cbench-telecom-crc32"]
+default_datasets = ["pcm-0001"]
 default_commands = [""]
 
 parser = argparse.ArgumentParser()

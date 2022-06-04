@@ -102,5 +102,4 @@
  -falign-functions
  -freorder-blocks-and-partition
  -fvect-cost-model=,unlimited,dynamic,cheap
- -ftree-parallelize-loops=,1,2,3,4,5,6,7,8
  -floop-parallelize-all
