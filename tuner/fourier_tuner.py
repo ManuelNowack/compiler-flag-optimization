@@ -2,6 +2,7 @@ from .base_tuner import Tuner
 import numpy as np
 from ssftapprox import ElasticNetEstimator
 from ssftapprox.minimization import minimize_dsft3
+import time
 
 
 class FourierTuner(Tuner):
@@ -38,11 +39,19 @@ class FourierTuner(Tuner):
                 self.subset_to_opt_setting_(subset))
         Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
 
+        start = time.perf_counter()
         est = ElasticNetEstimator(enet_alpha=0.00001, standardize=False)
         est.fit(X_train, Y_train)
+        end = time.perf_counter()
+        if file is not None:
+            file.write(f"Fit duration: {end - start} s\n")
 
+        start = time.perf_counter()
         argmin, minval = minimize_dsft3(
             est.est, cardinality_constraint=lambda x: x == 7, C=1000)
+        end = time.perf_counter()
+        if file is not None:
+            file.write(f"Minimize duration: {end - start} s\n")
         best_opt_setting = self.subset_to_opt_setting_(argmin)
         best_perf = self.evaluator.evaluate(best_opt_setting)
         return best_opt_setting, best_perf
