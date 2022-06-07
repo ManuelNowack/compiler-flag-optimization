@@ -3,7 +3,7 @@ import subprocess
 from typing import Union
 
 OptSetting = dict[str, Union[bool, int, str]]
-SearchSpace = dict[str, list[Union[bool, int, str]]]
+SearchSpace = dict[str, tuple[Union[bool, int, str]]]
 
 
 def read_gcc_opts(path: str) -> SearchSpace:
@@ -16,7 +16,7 @@ def read_gcc_opts(path: str) -> SearchSpace:
     the last chunk and considered as last optimization level. (Any standard
     optimization level would not configure them.)
     """
-    search_space = {"stdOptLv": [1, 2, 3]}
+    search_space = {"stdOptLv": (1, 2, 3)}
     with open(path) as fp:
         for raw_line in fp.read().split("\n"):
             if raw_line != "":
@@ -26,11 +26,11 @@ def read_gcc_opts(path: str) -> SearchSpace:
                     flag_name = tokens[0]
                     # Binary flag
                     if len(tokens) == 1:
-                        search_space[flag_name] = [False, True]
+                        search_space[flag_name] = (False, True)
                     # Parametric flag
                     else:
                         assert(len(tokens) == 2)
-                        search_space[flag_name] = tokens[1].split(",")
+                        search_space[flag_name] = tuple(tokens[1].split(","))
     return search_space
 
 
@@ -98,7 +98,7 @@ def request_gcc_search_space() -> SearchSpace:
     re_binary_no_default = re.compile(r"(-f[^=\s]+)$")
     re_parametric = re.compile(r"(-f[^=]+)=\[([^\]]+)\]\s+(.+)")
     re_numeric = re.compile(r"(-f[^=]+)=\s+(.+)")
-    search_space = {"stdOptLv": [1, 2, 3]}
+    search_space = {"stdOptLv": (1, 2, 3)}
     ignored_flags = []
     unknown_options = []
     for line in lines:
@@ -111,14 +111,14 @@ def request_gcc_search_space() -> SearchSpace:
             pass
         elif match_binary is not None:
             flag_name = match_binary.group(1)
-            search_space[flag_name] = [False, True]
+            search_space[flag_name] = (False, True)
         elif match_binary_no_default:
             flag_name = match_binary_no_default.group(1)
             ignored_flags.append(flag_name)
         elif match_parametric is not None:
             flag_name = match_parametric.group(1)
             configs = match_parametric.group(2).split("|")
-            search_space[flag_name] = configs
+            search_space[flag_name] = tuple(configs)
         elif match_numeric is not None:
             if flag_name not in search_space:
                 ignored_flags.append(flag_name)
@@ -141,7 +141,7 @@ def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
         assert config in search_space[flag_name]
         if flag_name == "stdOptLv":
             continue
-        if search_space[flag_name] != [False, True]:
+        if search_space[flag_name] != (False, True):
             if config != "":
                 str_opt_setting += f" {flag_name}={config}"
         else:
@@ -155,8 +155,14 @@ def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
 
 if __name__ == "__main__":
     search_space = request_gcc_search_space()
-    # for flag, config in search_space.items():
-    #     print(flag, config)
     search_space_file = read_gcc_opts("gcc_opts.txt")
-    diff = set(search_space.items()) ^ set(search_space_file.items())
-    print(diff)
+
+    def print_diff(a: SearchSpace, b: SearchSpace) -> None:
+        diff = set(a.items()) - set(b.items())
+        for flag_name, config in sorted(diff):
+            print(flag_name, config)
+    print("Only in requested search space")
+    print_diff(search_space, search_space_file)
+    print("")
+    print("Only in stored search space")
+    print_diff(search_space_file, search_space)

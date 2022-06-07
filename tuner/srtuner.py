@@ -55,6 +55,6 @@ class GCCFlagInfo(FlagInfo):
 def convert_search_space(search_space):
     search_space_new = dict()
     for flag_name, configs in search_space.items():
-        isParametric = configs != [False, True]
+        isParametric = configs != (False, True)
         search_space_new[flag_name] = GCCFlagInfo(flag_name, configs, isParametric, None)
     return search_space_new

@@ -12,7 +12,7 @@ class BOCSTuner(Tuner):
             if flag == "stdOptLv":
                 continue
             assert len(configs) > 1
-            if configs != [False, True]:
+            if configs != (False, True):
                 for val in configs:
                     self.parametric_flags.append((flag, val))
             else:
