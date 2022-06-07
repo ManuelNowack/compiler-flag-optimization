@@ -16,7 +16,7 @@ def read_gcc_opts(path: str) -> SearchSpace:
     the last chunk and considered as last optimization level. (Any standard
     optimization level would not configure them.)
     """
-    search_space = {"stdOptLv", [1, 2, 3]}
+    search_space = {"stdOptLv": [1, 2, 3]}
     with open(path) as fp:
         for raw_line in fp.read().split("\n"):
             if raw_line != "":
@@ -87,6 +87,53 @@ def request_gcc_flags(opt_level: int):
     return enabled_flags, disabled_flags, ignored_flags, unknown_options
 
 
+def request_gcc_search_space() -> SearchSpace:
+    r = subprocess.run(["gcc", "-Q", "--help=optimizers"],
+                       capture_output=True, text=True)
+    r.check_returncode()
+    lines = [line.strip() for line in r.stdout.split("\n") if line != ""]
+    lines.remove("The following options control optimizations:")
+    re_opt_level = re.compile(r"-O.+")
+    re_binary = re.compile(r"(-f\S+)\s+\[(enabled|disabled)\]")
+    re_binary_no_default = re.compile(r"(-f[^=\s]+)$")
+    re_parametric = re.compile(r"(-f[^=]+)=\[([^\]]+)\]\s+(.+)")
+    re_numeric = re.compile(r"(-f[^=]+)=\s+(.+)")
+    search_space = {"stdOptLv": [1, 2, 3]}
+    ignored_flags = []
+    unknown_options = []
+    for line in lines:
+        match_opt_level = re_opt_level.match(line)
+        match_binary = re_binary.match(line)
+        match_binary_no_default = re_binary_no_default.match(line)
+        match_parametric = re_parametric.match(line)
+        match_numeric = re_numeric.match(line)
+        if match_opt_level is not None:
+            pass
+        elif match_binary is not None:
+            flag_name = match_binary.group(1)
+            search_space[flag_name] = [False, True]
+        elif match_binary_no_default:
+            flag_name = match_binary_no_default.group(1)
+            ignored_flags.append(flag_name)
+        elif match_parametric is not None:
+            flag_name = match_parametric.group(1)
+            configs = match_parametric.group(2).split("|")
+            search_space[flag_name] = configs
+        elif match_numeric is not None:
+            if flag_name not in search_space:
+                ignored_flags.append(flag_name)
+        else:
+            unknown_options.append(line)
+    ignored_flags.remove("-ffast-math")
+    ignored_flags.remove("-fhandle-exceptions")
+    ignored_flags.remove("-flive-patching")
+    ignored_flags.remove("-ftree-vectorize")
+    if ignored_flags:
+        raise ValueError("Unexpected flags " + ignored_flags)
+    # TODO unknown_options
+    return search_space
+
+
 def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
     str_opt_setting = f"-O{opt_setting['stdOptLv']}"
 
@@ -107,5 +154,9 @@ def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
 
 
 if __name__ == "__main__":
-    for flag in request_gcc_flags(3)[0]:
-        print(flag)
+    search_space = request_gcc_search_space()
+    # for flag, config in search_space.items():
+    #     print(flag, config)
+    search_space_file = read_gcc_opts("gcc_opts.txt")
+    diff = set(search_space.items()) ^ set(search_space_file.items())
+    print(diff)
