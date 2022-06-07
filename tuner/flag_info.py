@@ -1,8 +1,12 @@
 import re
 import subprocess
+from typing import Union
+
+OptSetting = dict[str, Union[bool, int, str]]
+SearchSpace = dict[str, list[Union[bool, int, str]]]
 
 
-def read_gcc_opts(path):
+def read_gcc_opts(path: str) -> SearchSpace:
     """Reads the list of gcc optimizations that follow a certain format.
 
     Due to a slight difference in GCC distributions, the supported flags are
@@ -12,13 +16,10 @@ def read_gcc_opts(path):
     the last chunk and considered as last optimization level. (Any standard
     optimization level would not configure them.)
     """
-    search_space = dict()  # pair: flag, configs
-    # special case handling
-    search_space["stdOptLv"] = [1, 2, 3]
-    with open(path, "r") as fp:
+    search_space = {"stdOptLv", [1, 2, 3]}
+    with open(path) as fp:
         for raw_line in fp.read().split("\n"):
-            # Process current chunk
-            if(len(raw_line)):
+            if raw_line != "":
                 line = raw_line.replace(" ", "").strip()
                 if line[0] != "#":
                     tokens = line.split("=")
@@ -86,18 +87,16 @@ def request_gcc_flags(opt_level: int):
     return enabled_flags, disabled_flags, ignored_flags, unknown_options
 
 
-def convert_to_str(opt_setting, search_space):
-    str_opt_setting = "-O" + str(opt_setting["stdOptLv"])
+def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
+    str_opt_setting = f"-O{opt_setting['stdOptLv']}"
 
     for flag_name, config in opt_setting.items():
         assert config in search_space[flag_name]
         if flag_name == "stdOptLv":
             continue
-        # Parametric flag
         if search_space[flag_name] != [False, True]:
             if config != "":
                 str_opt_setting += f" {flag_name}={config}"
-        # Binary flag
         else:
             if config:
                 str_opt_setting += f" {flag_name}"
