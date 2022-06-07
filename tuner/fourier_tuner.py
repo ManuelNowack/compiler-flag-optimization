@@ -10,11 +10,12 @@ class FourierTuner(Tuner):
         super().__init__(search_space, evaluator, "FourierTuner", default_setting)
         self.binary_flags = []
         self.parametric_flags = []
-        for flag, info in self.search_space.items():
+        for flag, configs in self.search_space.items():
             if flag == "stdOptLv":
                 continue
-            if info.isParametric:
-                for val in info.configs:
+            assert len(configs) > 1
+            if configs != [False, True]:
+                for val in configs:
                     self.parametric_flags.append((flag, val))
             else:
                 self.binary_flags.append(flag)

@@ -13,10 +13,10 @@ class RandomTuner(Tuner):
         for _ in range(batch_size):
             while True:
                 opt_setting = dict()
-                for flag_name, flag_info in self.search_space.items():
-                    num = len(flag_info.configs)
+                for flag_name, configs in self.search_space.items():
+                    num = len(configs)
                     rv = random.randint(0, num-1)
-                    opt_setting[flag_name] = flag_info.configs[rv]
+                    opt_setting[flag_name] = configs[rv]
                 
                 # Avoid duplication
                 if str(opt_setting) not in self.visited:

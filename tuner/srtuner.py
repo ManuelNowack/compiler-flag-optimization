@@ -9,7 +9,7 @@ class SRTuner(Tuner):
 
         # User can customize reward func as Python function and pass to module.
         # In this demo, we use the default reward func. 
-        self.mod = SRTunerModule(search_space, default_perf = self.default_perf)
+        self.mod = SRTunerModule(convert_search_space(search_space), default_perf = self.default_perf)
 
     def generate_candidates(self, batch_size=1):
         return self.mod.generate_candidates(batch_size)
@@ -37,3 +37,24 @@ class SRTuner(Tuner):
             self.reflect_feedback(perfs)
         best_perf = self.evaluator.evaluate(best_opt_setting, 10)
         return best_opt_setting, best_perf
+
+
+class FlagInfo:
+    def __init__(self, name, configs):
+        self.name = name
+        self.configs = configs
+
+
+class GCCFlagInfo(FlagInfo):
+    def __init__(self, name, configs, isParametric, stdOptLv):
+        super().__init__(name, configs)
+        self.isParametric = isParametric
+        self.stdOptLv = stdOptLv
+
+
+def convert_search_space(search_space):
+    search_space_new = dict()
+    for flag_name, configs in search_space.items():
+        isParametric = configs != [False, True]
+        search_space_new[flag_name] = GCCFlagInfo(flag_name, configs, isParametric, None)
+    return search_space_new
