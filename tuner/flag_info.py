@@ -154,9 +154,21 @@ def optimization_to_str(optimization: Optimization,
     return flags_str
 
 
+def write_gcc_search_space(path: str, search_space: SearchSpace) -> None:
+    with open(path, "w") as fh:
+        for flag_name, configs in search_space.items():
+            if flag_name == "stdOptLv":
+                continue
+            if configs == (False, True):
+                fh.write(f"{flag_name}\n")
+            else:
+                fh.write(f"{flag_name}={','.join(configs)}\n")
+
+
 if __name__ == "__main__":
     search_space = request_gcc_search_space()
     search_space_file = read_gcc_search_space("gcc_opts.txt")
+    write_gcc_search_space("gcc_search_space.txt", search_space)
 
     def print_diff(a: SearchSpace, b: SearchSpace) -> None:
         diff = set(a.items()) - set(b.items())
