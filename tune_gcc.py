@@ -2,7 +2,7 @@ import argparse
 import multiprocessing
 from tuner import RandomTuner, SRTuner, BOCSTuner, FourierTuner
 from tuner import Evaluator
-from tuner import convert_to_str, read_gcc_opts
+from tuner import convert_to_str, read_gcc_search_space
 
 
 class SplitArgs(argparse.Action):
@@ -23,7 +23,7 @@ parser.add_argument("--command", default=default_commands, action=SplitArgs)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
-search_space = read_gcc_opts("gcc_opts.txt")
+search_space = read_gcc_search_space("gcc_opts.txt")
 default_setting = {"stdOptLv": 3}
 
 for i in range(100):

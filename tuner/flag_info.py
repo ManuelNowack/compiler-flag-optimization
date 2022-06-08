@@ -6,7 +6,7 @@ OptSetting = dict[str, Union[bool, int, str]]
 SearchSpace = dict[str, tuple[Union[bool, int, str]]]
 
 
-def read_gcc_opts(path: str) -> SearchSpace:
+def read_gcc_search_space(path: str) -> SearchSpace:
     """Reads the list of gcc optimizations that follow a certain format.
 
     Due to a slight difference in GCC distributions, the supported flags are
@@ -155,7 +155,7 @@ def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
 
 if __name__ == "__main__":
     search_space = request_gcc_search_space()
-    search_space_file = read_gcc_opts("gcc_opts.txt")
+    search_space_file = read_gcc_search_space("gcc_opts.txt")
 
     def print_diff(a: SearchSpace, b: SearchSpace) -> None:
         diff = set(a.items()) - set(b.items())
