@@ -6,8 +6,8 @@ import time
 
 
 class FourierTuner(Tuner):
-    def __init__(self, search_space, evaluator, default_setting):
-        super().__init__(search_space, evaluator, "FourierTuner", default_setting)
+    def __init__(self, search_space, evaluator, default_optimization):
+        super().__init__(search_space, evaluator, "FourierTuner", default_optimization)
         self.binary_flags = []
         self.parametric_flags = []
         for flag, configs in self.search_space.items():
@@ -20,15 +20,15 @@ class FourierTuner(Tuner):
             else:
                 self.binary_flags.append(flag)
 
-    def subset_to_opt_setting_(self, subset: np.ndarray):
-        opt_setting = {"stdOptLv": 3}
+    def subset_to_optimization_(self, subset: np.ndarray):
+        optimization = {"stdOptLv": 3}
         subset_it = iter(subset)
         for flag, enabled in zip(self.binary_flags, subset_it):
-            opt_setting[flag] = bool(enabled)
+            optimization[flag] = bool(enabled)
         for (flag, val), enabled in zip(self.parametric_flags, subset_it):
             if enabled:
-                opt_setting[flag] = val
-        return opt_setting
+                optimization[flag] = val
+        return optimization
 
     def tune(self, budget, batch_size=1, file=None):
         n = len(self.binary_flags) + len(self.parametric_flags)
@@ -37,7 +37,7 @@ class FourierTuner(Tuner):
 
         def evaluate(subset):
             return self.evaluator.evaluate(
-                self.subset_to_opt_setting_(subset))
+                self.subset_to_optimization_(subset))
         Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
 
         start = time.perf_counter()
@@ -53,6 +53,6 @@ class FourierTuner(Tuner):
         end = time.perf_counter()
         if file is not None:
             file.write(f"Minimize duration: {end - start} s\n")
-        best_opt_setting = self.subset_to_opt_setting_(argmin)
-        best_perf = self.evaluator.evaluate(best_opt_setting, 10)
-        return best_opt_setting, best_perf
+        best_optimization = self.subset_to_optimization_(argmin)
+        best_perf = self.evaluator.evaluate(best_optimization, 10)
+        return best_optimization, best_perf

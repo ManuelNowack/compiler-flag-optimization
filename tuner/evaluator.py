@@ -1,6 +1,7 @@
 import benchmark
-from tuner.flag_info import convert_to_str
+from tuner.flag_info import optimization_to_str
 import statistics
+
 
 class Evaluator():
     def __init__(self, path, num_repeats, search_space, dataset, command):
@@ -10,8 +11,8 @@ class Evaluator():
         self.dataset = dataset
         self.command = command
 
-    def evaluate(self, opt_setting, num_repeats=1):
-        flags = convert_to_str(opt_setting, self.search_space)
+    def evaluate(self, optimization, num_repeats=1):
+        flags = optimization_to_str(optimization, self.search_space)
         benchmark.compile(self.path, "-w " + flags, "-fopenmp")
         run_times = [benchmark.run(self.path, self.dataset, self.command)
                      for _ in range(num_repeats)]

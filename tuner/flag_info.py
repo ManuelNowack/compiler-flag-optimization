@@ -2,7 +2,7 @@ import re
 import subprocess
 from typing import Union
 
-OptSetting = dict[str, Union[bool, int, str]]
+Optimization = dict[str, Union[bool, int, str]]
 SearchSpace = dict[str, tuple[Union[bool, int, str]]]
 
 
@@ -134,23 +134,24 @@ def request_gcc_search_space() -> SearchSpace:
     return search_space
 
 
-def convert_to_str(opt_setting: OptSetting, search_space: SearchSpace) -> str:
-    str_opt_setting = f"-O{opt_setting['stdOptLv']}"
+def optimization_to_str(optimization: Optimization,
+                        search_space: SearchSpace) -> str:
+    flags_str = f"-O{optimization['stdOptLv']}"
 
-    for flag_name, config in opt_setting.items():
+    for flag_name, config in optimization.items():
         assert config in search_space[flag_name]
         if flag_name == "stdOptLv":
             continue
         if search_space[flag_name] != (False, True):
             if config != "":
-                str_opt_setting += f" {flag_name}={config}"
+                flags_str += f" {flag_name}={config}"
         else:
             if config:
-                str_opt_setting += f" {flag_name}"
+                flags_str += f" {flag_name}"
             else:
                 negated_flag_name = flag_name.replace("-f", "-fno-", 1)
-                str_opt_setting += f" {negated_flag_name}"
-    return str_opt_setting
+                flags_str += f" {negated_flag_name}"
+    return flags_str
 
 
 if __name__ == "__main__":

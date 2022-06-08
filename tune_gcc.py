@@ -2,7 +2,7 @@ import argparse
 import multiprocessing
 from tuner import RandomTuner, SRTuner, BOCSTuner, FourierTuner
 from tuner import Evaluator
-from tuner import convert_to_str, read_gcc_search_space
+from tuner import optimization_to_str, read_gcc_search_space
 
 
 class SplitArgs(argparse.Action):
@@ -24,7 +24,7 @@ parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
 search_space = read_gcc_search_space("gcc_opts.txt")
-default_setting = {"stdOptLv": 3}
+default_optimization = {"stdOptLv": 3}
 
 for i in range(100):
     try:
@@ -38,10 +38,10 @@ for i in range(100):
 def tuning_thread(program, dataset, command):
     evaluator = Evaluator(program, 1, search_space, dataset, command)
     tuners = [
-        RandomTuner(search_space, evaluator, default_setting),
-        SRTuner(search_space, evaluator, default_setting),
-        BOCSTuner(search_space, evaluator, default_setting),
-        FourierTuner(search_space, evaluator, default_setting)
+        RandomTuner(search_space, evaluator, default_optimization),
+        SRTuner(search_space, evaluator, default_optimization),
+        BOCSTuner(search_space, evaluator, default_optimization),
+        FourierTuner(search_space, evaluator, default_optimization)
     ]
     # append suffix to ensure unique file name
     if command == "encode":
@@ -53,9 +53,10 @@ def tuning_thread(program, dataset, command):
     for tuner in tuners:
         tuner_file = f"results/tuning_{nonce:02d}_{program}_{tuner.name}.txt"
         with open(tuner_file, "x", buffering=1) as fh:
-            best_opt_setting, best_perf = tuner.tune(args.budget, file=fh)
-        default_flags = convert_to_str(tuner.default_setting, search_space)
-        best_flags = convert_to_str(best_opt_setting, search_space)
+            best_optimization, best_perf = tuner.tune(args.budget, file=fh)
+        default_flags = optimization_to_str(
+            tuner.default_optimization, search_space)
+        best_flags = optimization_to_str(best_optimization, search_space)
         with open(f"results/tuning_{nonce:02d}.txt", "a") as fh:
             fh.write("\n")
             fh.write(f"{program} with {tuner.name}\n")
