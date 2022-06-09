@@ -49,11 +49,21 @@ def negate_flags(flags: list):
 
 
 def compile(program: str, flags: str, lflags: str = "") -> None:
-    ck_cmd({"action": "compile",
-            "module_uoa": "program",
-            "data_uoa": program,
-            "flags": flags,
-            "lflags": lflags})
+    r = ck_cmd({"action": "compile",
+                "module_uoa": "program",
+                "data_uoa": program,
+                "flags": flags + " -save-temps -fverbose-asm",
+                "lflags": lflags})
+    expected_flags = {f for f in flags.split()
+                      if f.startswith("-f") and not f.startswith("-fno-")}
+    for file in glob.glob(os.path.join(r["tmp_dir"], "*.s")):
+        actual_flags = set(extract_flags(file))
+        missing_flags = expected_flags - actual_flags
+        unexpected_flags = actual_flags - expected_flags
+        if missing_flags:
+            print("Missing flags", sorted(missing_flags))
+        if unexpected_flags:
+            print("Unexpected flags", sorted(unexpected_flags))
 
 
 def run(program: str, dataset: str = "", command: str = "") -> float:
