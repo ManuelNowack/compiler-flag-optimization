@@ -23,6 +23,9 @@ def BOCS(inputs, order, acquisitionFn, file=None):
 	# 		   order (int): statistical model order
 	# 		   aquisitionFn: 'SA' or 'SDP'
 
+	if file is not None:
+		file.write(f"Acquisition function: {acquisitionFn}\n")
+
 	# Set the number of SA reruns
 	SA_reruns = 5
 
@@ -32,8 +35,12 @@ def BOCS(inputs, order, acquisitionFn, file=None):
 	penalty = inputs['penalty']
 
 	# Train initial statistical model
+	start = time.perf_counter()
 	LR = LinReg(n_vars, order)
 	LR.train(inputs)
+	end = time.perf_counter()
+	if file is not None:
+		file.write(f"Initial model with {inputs['n_init']}: {end - start} s\n")
 
 	# Find number of iterations based on total budget
 	n_init = inputs['x_vals'].shape[0]
@@ -90,7 +97,7 @@ def BOCS(inputs, order, acquisitionFn, file=None):
 
 		end = time.perf_counter()
 		if file is not None:
-			file.write(f"BOCS iteration {t}: {end - start} s\n")
+			file.write(f"Iteration {t + 1}: {end - start} s\n")
 
 	return (model_iter, obj_iter)
 
