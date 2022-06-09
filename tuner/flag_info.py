@@ -134,6 +134,19 @@ def request_gcc_search_space() -> SearchSpace:
     return search_space
 
 
+def flatten_search_space(search_space: SearchSpace) -> list[str]:
+    flat_search_space = []
+    for flag_name, configs in search_space.items():
+        if flag_name == "stdOptLv":
+            continue
+        if configs == (False, True):
+            flat_search_space.append(flag_name)
+        else:
+            for config in configs:
+                flat_search_space.append(f"{flag_name}={config}")
+    return flat_search_space
+
+
 def optimization_to_str(optimization: Optimization,
                         search_space: SearchSpace) -> str:
     flags_str = f"-O{optimization['stdOptLv']}"
@@ -155,20 +168,35 @@ def optimization_to_str(optimization: Optimization,
 
 
 def write_gcc_search_space(path: str, search_space: SearchSpace) -> None:
+    all_flags_0 = request_gcc_flags(0)
+    all_flags_1 = request_gcc_flags(1)
+    all_flags_2 = request_gcc_flags(2)
+    all_flags_3 = request_gcc_flags(3)
+    active_flags_0 = sorted(set(all_flags_0[0]))
+    active_flags_1 = sorted(set(all_flags_1[0]) - set(all_flags_0[0]))
+    active_flags_2 = sorted(set(all_flags_2[0]) - set(all_flags_1[0]))
+    active_flags_3 = sorted(set(all_flags_3[0]) - set(all_flags_2[0]))
+    active_flags_all = (active_flags_0 + active_flags_1 + active_flags_2
+                        + active_flags_3)
+    flat_search_space = flatten_search_space(search_space)
+    extra_flags = sorted(set(flat_search_space) - set(active_flags_all))
     with open(path, "w") as fh:
-        for flag_name, configs in search_space.items():
-            if flag_name == "stdOptLv":
-                continue
-            if configs == (False, True):
-                fh.write(f"{flag_name}\n")
-            else:
-                fh.write(f"{flag_name}={','.join(configs)}\n")
+        fh.write("# O0\n")
+        fh.writelines(map(lambda x: x + "\n", active_flags_0))
+        fh.write("\n# O1\n")
+        fh.writelines(map(lambda x: x + "\n", active_flags_1))
+        fh.write("\n# O2\n")
+        fh.writelines(map(lambda x: x + "\n", active_flags_2))
+        fh.write("\n# O3\n")
+        fh.writelines(map(lambda x: x + "\n", active_flags_3))
+        fh.write("\n# Additional optimizations\n")
+        fh.writelines(map(lambda x: x + "\n", extra_flags))
 
 
 if __name__ == "__main__":
     search_space = request_gcc_search_space()
     search_space_file = read_gcc_search_space("gcc_opts.txt")
-    write_gcc_search_space("gcc_search_space.txt", search_space)
+    write_gcc_search_space("gcc_full_search_space.txt", search_space)
 
     def print_diff(a: SearchSpace, b: SearchSpace) -> None:
         diff = set(a.items()) - set(b.items())
