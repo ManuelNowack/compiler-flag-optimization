@@ -76,24 +76,3 @@ def run(program: str, dataset: str = "", command: str = "") -> float:
         raise RuntimeError(
             f"{r['misc']['fail_reason']} at {program},{dataset},{command}")
     return r["characteristics"]["execution_time"]
-
-
-def compile_and_run(flags: str, program: str, dataset: str = "") -> float:
-    r = ck_cmd({"action": "compile",
-                "module_uoa": "program",
-                "data_uoa": program,
-                "speed": "yes",
-                "flags": "-w -save-temps -fverbose-asm " + flags})
-    # print(r.keys())
-    # print(r["return"])
-    # print(r["tmp_dir"])
-    # print(r["misc"].keys())
-    # print(r["characteristics"].keys())
-    # print(r["deps"].keys())
-    # for file in glob.glob("*.s"):
-    #     print(file, extract_flags(file))
-    r = ck_cmd({"action": "run",
-                "module_uoa": "program",
-                "data_uoa": program,
-                "dataset_uoa": dataset})
-    return r["characteristics"]["execution_time"]
