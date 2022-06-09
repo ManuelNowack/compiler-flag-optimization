@@ -13,7 +13,7 @@ class Evaluator():
 
     def evaluate(self, optimization, num_repeats=1):
         flags = optimization_to_str(optimization, self.search_space)
-        benchmark.compile(self.path, "-w " + flags, "-fopenmp")
-        run_times = [benchmark.run(self.path, self.dataset, self.command)
+        dir = benchmark.compile(self.path, "-w " + flags, "-fopenmp", True)
+        run_times = [benchmark.run(self.path, self.dataset, self.command, dir)
                      for _ in range(num_repeats)]
         return statistics.median(run_times)

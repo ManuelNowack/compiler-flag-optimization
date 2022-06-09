@@ -48,10 +48,12 @@ def negate_flags(flags: list):
     return [flag.replace("-f", "-f-no-") for flag in flags]
 
 
-def compile(program: str, flags: str, lflags: str = "") -> None:
+def compile(program: str, flags: str, lflags: str = "",
+            generate_rnd_tmp_dir: bool = False) -> str:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
+                "generate_rnd_tmp_dir": "yes" if generate_rnd_tmp_dir else "",
                 "flags": flags + " -save-temps -fverbose-asm",
                 "lflags": lflags})
     expected_flags = {f for f in flags.split()
@@ -64,12 +66,14 @@ def compile(program: str, flags: str, lflags: str = "") -> None:
             print("Missing flags", sorted(missing_flags))
         if unexpected_flags:
             print("Unexpected flags", sorted(unexpected_flags))
+    return r["tmp_dir"]
 
 
-def run(program: str, dataset: str = "", command: str = "") -> float:
+def run(program: str, dataset: str = "", command: str = "", tmp_dir: str = "") -> float:
     r = ck_cmd({"action": "run",
                 "module_uoa": "program",
                 "data_uoa": program,
+                "tmp_dir": tmp_dir,
                 "cmd_key": command,
                 "dataset_uoa": dataset})
     if not r["misc"]["run_success_bool"]:
