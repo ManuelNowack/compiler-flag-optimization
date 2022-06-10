@@ -34,6 +34,41 @@ def read_gcc_search_space(path: str) -> SearchSpace:
     return search_space
 
 
+def extract_gcc_flags(path: str) -> list[str]:
+    """Extracts enabled optimization flags from a GCC assembler code file.
+
+    You can generate the GCC assembler code file by passing the flags
+    -save-temps -fverbose-asm during compilation.
+
+    The file is parsed according to the observed output of GCC 9.4.0.
+
+    Args:
+        path: Path to the assembler code file with file name suffix ".s".
+
+    Returns:
+        A list containing all enabled optimization flags.
+
+    Raises:
+        ValueError: Flags are not found in the assembler code file. Typically
+        indicates the read file is not a proper GCC assembler code file.
+    """
+    with open(path) as fh:
+        flags = []
+        extracting = False
+        for line in fh:
+            if not extracting and line.startswith("# options enabled:  "):
+                extracting = True
+                flags += line[20:].rstrip().split(" ")
+            elif extracting:
+                if line.startswith("# "):
+                    flags += line[2:].rstrip().split(" ")
+                else:
+                    for flag in flags:
+                        assert flag.startswith("-f") or flag.startswith("-m")
+                    return [f for f in flags if f.startswith("-f")]
+    raise ValueError(f"Flags not found in assembler code file {path}")
+
+
 def request_gcc_flags(opt_level: int):
     if opt_level < 0 or opt_level > 3:
         raise ValueError("Invalid optimization level")
