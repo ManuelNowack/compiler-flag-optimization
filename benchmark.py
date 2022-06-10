@@ -44,10 +44,6 @@ def extract_flags(path: str):
     raise ValueError("Flags not found in assembler code file " + path)
 
 
-def negate_flags(flags: list):
-    return [flag.replace("-f", "-f-no-") for flag in flags]
-
-
 def compile(program: str, flags: str, lflags: str = "",
             generate_rnd_tmp_dir: bool = False) -> str:
     r = ck_cmd({"action": "compile",
