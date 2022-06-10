@@ -1,6 +1,9 @@
+import benchmark
+import glob
+import os
 import re
 import subprocess
-from typing import Union
+from typing import Callable, Union
 
 Optimization = dict[str, Union[bool, int, str]]
 SearchSpace = dict[str, tuple[Union[bool, int, str]]]
@@ -67,6 +70,20 @@ def extract_gcc_flags(path: str) -> list[str]:
                         assert flag.startswith("-f") or flag.startswith("-m")
                     return [f for f in flags if f.startswith("-f")]
     raise ValueError(f"Flags not found in assembler code file {path}")
+
+
+def read_gcc_flags(program: str, flags: str) -> list[str]:
+    r = benchmark.ck_cmd({"action": "compile",
+                          "module_uoa": "program",
+                          "data_uoa": program,
+                          "flags": flags + " -save-temps -fverbose-asm"})
+    actual_flags_prev = None
+    for file in glob.glob(os.path.join(r["tmp_dir"], "*.s")):
+        actual_flags = set(extract_gcc_flags(file))
+        if actual_flags_prev is not None:
+            assert actual_flags == actual_flags_prev
+        actual_flags_prev = actual_flags
+    return sorted(actual_flags)
 
 
 def request_gcc_flags(opt_level: int):
@@ -202,15 +219,16 @@ def optimization_to_str(optimization: Optimization,
     return flags_str
 
 
-def write_gcc_search_space(path: str, search_space: SearchSpace) -> None:
-    all_flags_0 = request_gcc_flags(0)
-    all_flags_1 = request_gcc_flags(1)
-    all_flags_2 = request_gcc_flags(2)
-    all_flags_3 = request_gcc_flags(3)
-    active_flags_0 = sorted(set(all_flags_0[0]))
-    active_flags_1 = sorted(set(all_flags_1[0]) - set(all_flags_0[0]))
-    active_flags_2 = sorted(set(all_flags_2[0]) - set(all_flags_1[0]))
-    active_flags_3 = sorted(set(all_flags_3[0]) - set(all_flags_2[0]))
+def write_gcc_search_space(path: str, search_space: SearchSpace,
+                           get_gcc_flags: Callable[[int], list[str]]) -> None:
+    all_flags_0 = get_gcc_flags(0)
+    all_flags_1 = get_gcc_flags(1)
+    all_flags_2 = get_gcc_flags(2)
+    all_flags_3 = get_gcc_flags(3)
+    active_flags_0 = sorted(set(all_flags_0))
+    active_flags_1 = sorted(set(all_flags_1) - set(all_flags_0))
+    active_flags_2 = sorted(set(all_flags_2) - set(all_flags_1))
+    active_flags_3 = sorted(set(all_flags_3) - set(all_flags_2))
     active_flags_all = (active_flags_0 + active_flags_1 + active_flags_2
                         + active_flags_3)
     flat_search_space = flatten_search_space(search_space)
@@ -230,15 +248,11 @@ def write_gcc_search_space(path: str, search_space: SearchSpace) -> None:
 
 if __name__ == "__main__":
     search_space = request_gcc_search_space()
-    search_space_file = read_gcc_search_space("gcc_opts.txt")
-    write_gcc_search_space("gcc_full_search_space.txt", search_space)
-
-    def print_diff(a: SearchSpace, b: SearchSpace) -> None:
-        diff = set(a.items()) - set(b.items())
-        for flag_name, config in sorted(diff):
-            print(flag_name, config)
-    print("Only in requested search space")
-    print_diff(search_space, search_space_file)
-    print("")
-    print("Only in stored search space")
-    print_diff(search_space_file, search_space)
+    write_gcc_search_space(
+        "gcc_search_space_help.txt",
+        search_space,
+        lambda x: request_gcc_flags(x)[0])
+    write_gcc_search_space(
+        "gcc_search_space_asm.txt",
+        search_space,
+        lambda x: read_gcc_flags("cbench-network-dijkstra", f"-O{x}"))
