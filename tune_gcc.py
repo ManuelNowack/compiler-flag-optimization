@@ -1,6 +1,6 @@
 import argparse
 import multiprocessing
-from tuner import RandomTuner, SRTuner, BOCSTuner, FourierTuner
+from tuner import RandomTuner, SRTuner, BOCSTuner, FourierTuner, MonoTuner
 from tuner import Evaluator
 from tuner import optimization_to_str, read_gcc_search_space
 
@@ -39,6 +39,7 @@ def tuning_thread(program, dataset, command):
     evaluator = Evaluator(program, 1, search_space, dataset, command)
     tuners = [
         RandomTuner(search_space, evaluator, default_optimization),
+        MonoTuner(search_space, evaluator, default_optimization),
         SRTuner(search_space, evaluator, default_optimization),
         BOCSTuner(search_space, evaluator, default_optimization),
         FourierTuner(search_space, evaluator, default_optimization)
