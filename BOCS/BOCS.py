@@ -25,6 +25,8 @@ def BOCS(inputs, order, acquisitionFn, file=None):
 
 	if file is not None:
 		file.write(f"Acquisition function: {acquisitionFn}\n")
+		file.write(f"Number of variables: {inputs['n_vars']}\n")
+		file.write(f"Budget: {inputs['evalBudget']}\n")
 
 	# Set the number of SA reruns
 	SA_reruns = 5
