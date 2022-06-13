@@ -1,15 +1,19 @@
 from .base_tuner import Tuner
+from .evaluator import Evaluator
 from .flag_info import optimization_to_str, read_gcc_flags
+from .types import Optimization, SearchSpace
+from typing import TextIO
 
 
 class MonoTuner(Tuner):
-    def __init__(self, search_space, evaluator, default_optimization):
+    def __init__(self, search_space: SearchSpace,
+                 evaluator: Evaluator, default_optimization: Optimization):
         super().__init__(search_space, evaluator, "MonoTuner", default_optimization)
         self.default_flags = read_gcc_flags(
-            self.evaluator.path,
+            self.evaluator.program,
             optimization_to_str(self.default_optimization, self.search_space))
 
-    def search_space_size(self):
+    def search_space_size(self) -> int:
         size = 0
         for flag, configs in self.search_space.items():
             if flag == "stdOptLv":
@@ -17,7 +21,8 @@ class MonoTuner(Tuner):
             size += len(configs)
         return size
 
-    def tune(self, budget, batch_size=1, file=None):
+    def tune(self, budget: int, batch_size: int = 1,
+             file: TextIO = None) -> tuple[Optimization, float]:
         repeats = budget // self.search_space_size()
         assert repeats > 0
 

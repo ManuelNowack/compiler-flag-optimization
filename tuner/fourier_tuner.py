@@ -1,12 +1,16 @@
 from .base_tuner import Tuner
+from .evaluator import Evaluator
 import numpy as np
 from ssftapprox import ElasticNetEstimator
 from ssftapprox.minimization import minimize_dsft3
 import time
+from .types import Optimization, SearchSpace
+from typing import TextIO
 
 
 class FourierTuner(Tuner):
-    def __init__(self, search_space, evaluator, default_optimization):
+    def __init__(self, search_space: SearchSpace,
+                 evaluator: Evaluator, default_optimization: Optimization):
         super().__init__(search_space, evaluator, "FourierTuner", default_optimization)
         self.binary_flags = []
         self.parametric_flags = []
@@ -20,7 +24,7 @@ class FourierTuner(Tuner):
             else:
                 self.binary_flags.append(flag)
 
-    def subset_to_optimization_(self, subset: np.ndarray):
+    def subset_to_optimization_(self, subset: np.ndarray) -> Optimization:
         optimization = {"stdOptLv": 3}
         subset_it = iter(subset)
         for flag, enabled in zip(self.binary_flags, subset_it):
@@ -30,7 +34,8 @@ class FourierTuner(Tuner):
                 optimization[flag] = val
         return optimization
 
-    def tune(self, budget, batch_size=1, file=None):
+    def tune(self, budget: int, batch_size: int = 1,
+             file: TextIO = None) -> tuple[Optimization, float]:
         n = len(self.binary_flags) + len(self.parametric_flags)
         rng = np.random.default_rng()
         X_train = rng.random((budget, n)).round()

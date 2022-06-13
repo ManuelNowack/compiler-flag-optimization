@@ -2,7 +2,7 @@ import ck.kernel as ck
 import os
 
 
-def ck_cmd(cmd: dict):
+def ck_cmd(cmd: dict) -> dict:
     current_working_directory = os.getcwd()
     r = ck.access(cmd)
     if r["return"] > 0:

@@ -1,19 +1,23 @@
 from .base_tuner import Tuner
+from .evaluator import Evaluator
 import random
 import time
+from .types import Optimization, SearchSpace
+from typing import TextIO
 
 
 class RandomTuner(Tuner):
-    def __init__(self, search_space, evaluator, default_optimization):
+    def __init__(self, search_space: SearchSpace,
+                 evaluator: Evaluator, default_optimization: Optimization):
         super().__init__(search_space, evaluator, "RandomTuner", default_optimization)
         self.visited = set()
 
-    def generate_candidates(self, batch_size=1):
+    def generate_candidates(self, batch_size: int = 1) -> list[Optimization]:
         random.seed(time.time())
         candidates = []
         for _ in range(batch_size):
             while True:
-                optimization = dict()
+                optimization = {}
                 for flag_name, configs in self.search_space.items():
                     num = len(configs)
                     rv = random.randint(0, num - 1)
@@ -27,7 +31,8 @@ class RandomTuner(Tuner):
 
         return candidates
 
-    def evaluate_candidates(self, candidates):
+    def evaluate_candidates(
+            self, candidates: list[Optimization]) -> list[float]:
         return [self.evaluator.evaluate(optimization)
                 for optimization in candidates]
 
@@ -35,7 +40,8 @@ class RandomTuner(Tuner):
         # Random search. Do nothing
         pass
 
-    def tune(self, budget, batch_size=1, file=None):
+    def tune(self, budget: int, batch_size: int = 1,
+             file: TextIO = None) -> tuple[Optimization, float]:
         best_optimization, best_perf = None, float("inf")
         i = 0
         while i < budget:

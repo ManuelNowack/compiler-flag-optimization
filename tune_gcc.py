@@ -35,7 +35,7 @@ for i in range(100):
         pass
 
 
-def tuning_thread(program, dataset, command):
+def tuning_thread(program: str, dataset: str, command: str):
     evaluator = Evaluator(program, 1, search_space, dataset, command)
     tuners = [
         RandomTuner(search_space, evaluator, default_optimization),

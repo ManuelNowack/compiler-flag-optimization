@@ -3,10 +3,8 @@ import glob
 import os
 import re
 import subprocess
-from typing import Callable, Union
-
-Optimization = dict[str, Union[bool, int, str]]
-SearchSpace = dict[str, tuple[Union[bool, int, str]]]
+from typing import Callable
+from .types import Optimization, SearchSpace
 
 
 def read_gcc_search_space(path: str) -> SearchSpace:
