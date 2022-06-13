@@ -40,12 +40,12 @@ class RandomTuner(Tuner):
         # Random search. Do nothing
         pass
 
-    def tune(self, budget: int, batch_size: int = 1,
+    def tune(self, budget: int,
              file: TextIO = None) -> tuple[Optimization, float]:
         best_optimization, best_perf = None, float("inf")
         i = 0
         while i < budget:
-            candidates = self.generate_candidates(batch_size=batch_size)
+            candidates = self.generate_candidates()
             perfs = self.evaluate_candidates(candidates)
 
             i += len(candidates)

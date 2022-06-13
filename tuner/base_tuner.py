@@ -12,6 +12,6 @@ class Tuner:
         self.default_optimization = default_optimization
         self.default_perf = evaluator.evaluate(default_optimization, 10)
 
-    def tune(self, budget: int, batch_size: int = 1,
+    def tune(self, budget: int,
              file: TextIO = None) -> tuple[Optimization, float]:
         raise NotImplementedError

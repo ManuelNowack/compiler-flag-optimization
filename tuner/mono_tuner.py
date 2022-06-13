@@ -21,7 +21,7 @@ class MonoTuner(Tuner):
             size += len(configs)
         return size
 
-    def tune(self, budget: int, batch_size: int = 1,
+    def tune(self, budget: int,
              file: TextIO = None) -> tuple[Optimization, float]:
         repeats = budget // self.search_space_size()
         assert repeats > 0

@@ -1,0 +1,18 @@
+# O0
+-ffp-contract=fast
+
+# O1
+-fdefer-pop
+-fforward-propagate
+-fomit-frame-pointer
+-finline
+-finline-functions-called-once
+
+# O2
+-foptimize-sibling-calls
+-foptimize-strlen
+-finline-small-functions
+-findirect-inlining
+
+# O3
+-finline-functions

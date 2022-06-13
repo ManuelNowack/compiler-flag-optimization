@@ -32,7 +32,7 @@ class BOCSTuner(Tuner):
                 optimization[flag] = val
         return optimization
 
-    def tune(self, budget: int, batch_size: int = 1,
+    def tune(self, budget: int,
              file: TextIO = None) -> tuple[Optimization, float]:
         inputs = {}
         inputs["n_vars"] = len(self.binary_flags) + len(self.parametric_flags)
