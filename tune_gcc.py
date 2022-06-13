@@ -55,23 +55,35 @@ def tuning_thread(program: str, dataset: str, command: str):
         tuner_file = f"results/tuning_{nonce:02d}_{program}_{tuner.name}.txt"
         with open(tuner_file, "x", buffering=1) as fh:
             best_optimization, best_perf = tuner.tune(args.budget, file=fh)
-        default_flags = optimization_to_str(
-            tuner.default_optimization, search_space)
-        best_flags = optimization_to_str(best_optimization, search_space)
-        with open(f"results/tuning_{nonce:02d}.txt", "a") as fh:
-            fh.write("\n")
-            fh.write(f"{program} with {tuner.name}\n")
-            fh.write(f"speedup: {tuner.default_perf / best_perf:.3f}\n")
-            fh.write(f"default runtime: {tuner.default_perf:.3e} s\n")
-            fh.write(f"best runtime: {best_perf:.3e} s\n")
-            fh.write(f"default flags: {default_flags}\n")
-            fh.write(f"best flags: {best_flags}\n")
+        tuner.best_optimization = best_optimization
+        tuner.best_perf = best_perf
+    return tuners
 
 
 tuning_thread_args = zip(args.program, args.dataset, args.command)
 if args.parallel is not None:
     with multiprocessing.Pool(processes=args.parallel) as pool:
-        pool.starmap(tuning_thread, tuning_thread_args)
+        o = pool.starmap(tuning_thread, tuning_thread_args)
 else:
-    for program, dataset, command in tuning_thread_args:
-        tuning_thread(program, dataset, command)
+    o = map(tuning_thread, args.program, args.dataset, args.command)
+for program, command, tuners in zip(args.program, args.command, o):
+    # append suffix to ensure unique program name
+    if command == "encode":
+        program += "-e"
+    elif command == "decode":
+        program += "-d"
+    elif command != "":
+        raise ValueError("Unrecognized command " + command)
+    with open(f"results/tuning_{nonce:02d}.txt", "a") as fh:
+        for tuner in tuners:
+            default_flags = optimization_to_str(
+                tuner.default_optimization, search_space)
+            best_flags = optimization_to_str(
+                tuner.best_optimization, search_space)
+            fh.write("\n")
+            fh.write(f"{program} with {tuner.name}\n")
+            fh.write(f"speedup: {tuner.default_perf / tuner.best_perf:.3f}\n")
+            fh.write(f"default runtime: {tuner.default_perf:.3e} s\n")
+            fh.write(f"best runtime: {tuner.best_perf:.3e} s\n")
+            fh.write(f"default flags: {default_flags}\n")
+            fh.write(f"best flags: {best_flags}\n")
