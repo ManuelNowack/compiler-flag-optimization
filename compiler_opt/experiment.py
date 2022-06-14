@@ -9,11 +9,13 @@ class Experiment():
             programs: list[str],
             datasets: list[str],
             commands: list[str],
+            tuner_types: list[type],
             budget: int,
             parallel: int = None):
         self.programs = programs
         self.datasets = datasets
         self.commands = commands
+        self.tuner_types = tuner_types
         self.budget = budget
         self.parallel = parallel
         self.search_space = compiler_opt.read_gcc_search_space("gcc_opts.txt")
@@ -38,12 +40,10 @@ class Experiment():
         evaluator = compiler_opt.Evaluator(
             program, 1, self.search_space, dataset, command)
         tuners: list[compiler_opt.Tuner] = [
-            compiler_opt.RandomTuner(self.search_space, evaluator, self.default_optimization),
-            compiler_opt.MonoTuner(self.search_space, evaluator, self.default_optimization),
-            compiler_opt.SRTuner(self.search_space, evaluator, self.default_optimization),
-            compiler_opt.BOCSTuner(self.search_space, evaluator, self.default_optimization),
-            compiler_opt.FourierTuner(self.search_space, evaluator, self.default_optimization)
-        ]
+            tuner_type(
+                self.search_space,
+                evaluator,
+                self.default_optimization) for tuner_type in self.tuner_types]
         # append suffix to ensure unique file name
         if command == "encode":
             program += "-e"
