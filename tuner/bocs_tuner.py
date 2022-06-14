@@ -1,14 +1,19 @@
-from BOCS.BOCS import BOCS
-from .base_tuner import Tuner
-from .evaluator import Evaluator
-import numpy as np
-from .types import Optimization, SearchSpace
 from typing import TextIO
 
+import numpy as np
+from BOCS.BOCS import BOCS
 
-class BOCSTuner(Tuner):
-    def __init__(self, search_space: SearchSpace,
-                 evaluator: Evaluator, default_optimization: Optimization):
+from . import base_tuner
+from . import evaluator
+from .typing import Optimization, SearchSpace
+
+
+class BOCSTuner(base_tuner.Tuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
         super().__init__(search_space, evaluator, "BOCSTuner", default_optimization)
         self.binary_flags = []
         self.parametric_flags = []

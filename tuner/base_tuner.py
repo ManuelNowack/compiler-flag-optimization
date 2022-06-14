@@ -1,11 +1,16 @@
-from .types import Optimization, SearchSpace
 from typing import TextIO
-from .evaluator import Evaluator
+
+from . import evaluator
+from .typing import Optimization, SearchSpace
 
 
 class Tuner:
-    def __init__(self, search_space: SearchSpace, evaluator: Evaluator,
-                 name: str, default_optimization: Optimization):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            name: str,
+            default_optimization: Optimization):
         self.search_space = search_space
         self.evaluator = evaluator
         self.name = name

@@ -1,10 +1,11 @@
-import benchmark
 import glob
 import os
 import re
 import subprocess
 from typing import Callable
-from .types import Optimization, SearchSpace
+
+from . import benchmark
+from .typing import Optimization, SearchSpace
 
 
 def read_gcc_search_space(path: str) -> SearchSpace:

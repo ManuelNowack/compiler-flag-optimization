@@ -1,7 +1,9 @@
 import argparse
-import benchmark
 import multiprocessing
+
 import numpy as np
+
+from tuner import benchmark
 
 
 class SplitArgs(argparse.Action):

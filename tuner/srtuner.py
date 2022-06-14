@@ -1,8 +1,9 @@
 from SRTuner import SRTunerModule
-from .base_tuner import Tuner
+
+from . import base_tuner
 
 
-class SRTuner(Tuner):
+class SRTuner(base_tuner.Tuner):
     def __init__(self, search_space, evaluator, default_optimization):
         super().__init__(search_space, evaluator, "SRTuner", default_optimization)
         self.visited = set()

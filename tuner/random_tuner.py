@@ -1,14 +1,18 @@
-from .base_tuner import Tuner
-from .evaluator import Evaluator
 import random
 import time
-from .types import Optimization, SearchSpace
 from typing import TextIO
 
+from . import base_tuner
+from . import evaluator
+from .typing import Optimization, SearchSpace
 
-class RandomTuner(Tuner):
-    def __init__(self, search_space: SearchSpace,
-                 evaluator: Evaluator, default_optimization: Optimization):
+
+class RandomTuner(base_tuner.Tuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
         super().__init__(search_space, evaluator, "RandomTuner", default_optimization)
         self.visited = set()
 

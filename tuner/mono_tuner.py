@@ -1,17 +1,21 @@
-from .base_tuner import Tuner
-from .evaluator import Evaluator
-from .flag_info import optimization_to_str, read_gcc_flags
-from .types import Optimization, SearchSpace
 from typing import TextIO
 
+from . import base_tuner
+from . import evaluator
+from . import flag_info
+from .typing import Optimization, SearchSpace
 
-class MonoTuner(Tuner):
-    def __init__(self, search_space: SearchSpace,
-                 evaluator: Evaluator, default_optimization: Optimization):
+
+class MonoTuner(base_tuner.Tuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
         super().__init__(search_space, evaluator, "MonoTuner", default_optimization)
-        self.default_flags = read_gcc_flags(
-            self.evaluator.program,
-            optimization_to_str(self.default_optimization, self.search_space))
+        self.default_flags = flag_info.read_gcc_flags(
+            self.evaluator.program, flag_info.optimization_to_str(
+                self.default_optimization, self.search_space))
 
     def search_space_size(self) -> int:
         size = 0

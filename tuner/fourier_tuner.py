@@ -1,16 +1,20 @@
-from .base_tuner import Tuner
-from .evaluator import Evaluator
-import numpy as np
-from ssftapprox import ElasticNetEstimator
-from ssftapprox.minimization import minimize_dsft3
 import time
-from .types import Optimization, SearchSpace
 from typing import TextIO
 
+import numpy as np
+import ssftapprox
 
-class FourierTuner(Tuner):
-    def __init__(self, search_space: SearchSpace,
-                 evaluator: Evaluator, default_optimization: Optimization):
+from . import base_tuner
+from . import evaluator
+from .typing import Optimization, SearchSpace
+
+
+class FourierTuner(base_tuner.Tuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
         super().__init__(search_space, evaluator, "FourierTuner", default_optimization)
         self.binary_flags = []
         self.parametric_flags = []
@@ -46,14 +50,15 @@ class FourierTuner(Tuner):
         Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
 
         start = time.perf_counter()
-        est = ElasticNetEstimator(enet_alpha=0.00001, standardize=True)
+        est = ssftapprox.ElasticNetEstimator(
+            enet_alpha=0.00001, standardize=True)
         est.fit(X_train, Y_train)
         end = time.perf_counter()
         if file is not None:
             file.write(f"Fit duration: {end - start} s\n")
             file.write(f"Num coefs: {len(est.est.coefs)} s\n")
         start = time.perf_counter()
-        argmin, minval = minimize_dsft3(est.est)
+        argmin, minval = ssftapprox.minimization.minimize_dsft3(est.est)
         end = time.perf_counter()
         if file is not None:
             file.write(f"Minimize duration: {end - start} s\n")

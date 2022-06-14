@@ -1,7 +1,8 @@
-import benchmark
-from .flag_info import optimization_to_str
 import statistics
-from .types import Optimization, SearchSpace
+
+from . import benchmark
+from . import flag_info
+from .typing import Optimization, SearchSpace
 
 
 class Evaluator():
@@ -15,7 +16,7 @@ class Evaluator():
 
     def evaluate(self, optimization: Optimization,
                  num_repeats: int = 1) -> float:
-        flags = optimization_to_str(optimization, self.search_space)
+        flags = flag_info.optimization_to_str(optimization, self.search_space)
         dir = benchmark.compile(self.program, "-w " + flags, "-fopenmp", True)
         run_times = [benchmark.run(self.program, self.dataset, self.command, dir)
                      for _ in range(num_repeats)]

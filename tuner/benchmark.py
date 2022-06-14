@@ -1,5 +1,6 @@
-import ck.kernel as ck
 import os
+
+import ck.kernel as ck
 
 
 def ck_cmd(cmd: dict) -> dict:
@@ -22,7 +23,8 @@ def compile(program: str, flags: str, lflags: str = "",
     return r["tmp_dir"]
 
 
-def run(program: str, dataset: str = "", command: str = "", tmp_dir: str = "") -> float:
+def run(program: str, dataset: str = "", command: str = "",
+        tmp_dir: str = "") -> float:
     r = ck_cmd({"action": "run",
                 "module_uoa": "program",
                 "data_uoa": program,
