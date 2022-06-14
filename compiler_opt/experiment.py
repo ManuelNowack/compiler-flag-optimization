@@ -1,5 +1,7 @@
 import multiprocessing
 
+import pandas as pd
+
 import compiler_opt
 
 
@@ -66,24 +68,29 @@ class Experiment():
                 self.results = pool.starmap(
                     self.tuning_thread_, tuning_thread_args)
         else:
-            self.results = map(
+            self.results = list(map(
                 self.tuning_thread_,
                 self.programs,
                 self.datasets,
-                self.commands)
+                self.commands))
 
     def write_results_(self) -> None:
+        column_names = [name for tuner in self.results[0]
+                        for name in ("Default", tuner.name)]
+        df = pd.DataFrame(index=column_names)
         for program, command, tuners in zip(
                 self.programs, self.commands, self.results):
+            if command == "encode":
+                benchmark_name = program + "-e"
+            elif command == "decode":
+                benchmark_name = program + "-d"
+            elif command == "":
+                benchmark_name = program
+            else:
+                raise ValueError("Unrecognized command " + command)
+            df[benchmark_name] = [perf for t in tuners
+                                  for perf in (t.default_perf, t.best_perf)]
             for tuner in tuners:
-                if command == "encode":
-                    benchmark_name = program + "-e"
-                elif command == "decode":
-                    benchmark_name = program + "-d"
-                elif command == "":
-                    benchmark_name = program
-                else:
-                    raise ValueError("Unrecognized command " + command)
                 default_flags = compiler_opt.optimization_to_str(
                     tuner.default_optimization, tuner.search_space)
                 best_flags = compiler_opt.optimization_to_str(
@@ -97,3 +104,4 @@ class Experiment():
                     fh.write(f"best runtime: {tuner.best_perf:.3e} s\n")
                     fh.write(f"default flags: {default_flags}\n")
                     fh.write(f"best flags: {best_flags}\n")
+        df.to_csv(f"results/tuning_{self.nonce:02d}.csv")
