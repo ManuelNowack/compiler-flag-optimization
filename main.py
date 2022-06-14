@@ -33,14 +33,16 @@ parser.add_argument("--budget", default=default_budget, type=int)
 parser.add_argument("--program", default=default_programs, action=SplitArgs)
 parser.add_argument("--dataset", default=default_datasets, action=SplitArgs)
 parser.add_argument("--command", default=default_commands, action=SplitArgs)
-parser.add_argument("--tuners", default=default_tuners, action=SplitArgsTuner)
+parser.add_argument("--tuner", default=default_tuners, action=SplitArgsTuner)
+parser.add_argument("--rerun", default=1, type=int)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
-compiler_opt.Experiment(
-    args.program,
-    args.dataset,
-    args.command,
-    args.tuners,
-    args.budget,
-    args.parallel)
+for _ in range(args.rerun):
+    compiler_opt.Experiment(
+        args.program,
+        args.dataset,
+        args.command,
+        args.tuner,
+        args.budget,
+        args.parallel)
