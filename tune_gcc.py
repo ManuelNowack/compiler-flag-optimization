@@ -1,7 +1,7 @@
 import argparse
 import multiprocessing
 
-import tuner as asdf
+import compiler_opt
 
 
 class SplitArgs(argparse.Action):
@@ -22,7 +22,7 @@ parser.add_argument("--command", default=default_commands, action=SplitArgs)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
-search_space = asdf.read_gcc_search_space("gcc_opts.txt")
+search_space = compiler_opt.read_gcc_search_space("gcc_opts.txt")
 default_optimization = {"stdOptLv": 3}
 
 for i in range(100):
@@ -35,13 +35,13 @@ for i in range(100):
 
 
 def tuning_thread(program: str, dataset: str, command: str):
-    evaluator = asdf.Evaluator(program, 1, search_space, dataset, command)
+    evaluator = compiler_opt.Evaluator(program, 1, search_space, dataset, command)
     tuners = [
-        asdf.RandomTuner(search_space, evaluator, default_optimization),
-        asdf.MonoTuner(search_space, evaluator, default_optimization),
-        asdf.SRTuner(search_space, evaluator, default_optimization),
-        asdf.BOCSTuner(search_space, evaluator, default_optimization),
-        asdf.FourierTuner(search_space, evaluator, default_optimization)
+        compiler_opt.RandomTuner(search_space, evaluator, default_optimization),
+        compiler_opt.MonoTuner(search_space, evaluator, default_optimization),
+        compiler_opt.SRTuner(search_space, evaluator, default_optimization),
+        compiler_opt.BOCSTuner(search_space, evaluator, default_optimization),
+        compiler_opt.FourierTuner(search_space, evaluator, default_optimization)
     ]
     # append suffix to ensure unique file name
     if command == "encode":
@@ -75,9 +75,9 @@ for program, command, tuners in zip(args.program, args.command, o):
         raise ValueError("Unrecognized command " + command)
     with open(f"results/tuning_{nonce:02d}.txt", "a") as fh:
         for tuner in tuners:
-            default_flags = asdf.optimization_to_str(
+            default_flags = compiler_opt.optimization_to_str(
                 tuner.default_optimization, search_space)
-            best_flags = asdf.optimization_to_str(
+            best_flags = compiler_opt.optimization_to_str(
                 tuner.best_optimization, search_space)
             fh.write("\n")
             fh.write(f"{program} with {tuner.name}\n")

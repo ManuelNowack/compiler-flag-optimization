@@ -59,8 +59,8 @@ class BOCSTuner(base_tuner.Tuner):
             (inputs["n_init"], inputs["n_vars"])).round()
         inputs["y_vals"] = inputs["model"](inputs["x_vals"])
 
-        (BOCS_SA_model, BOCS_SA_obj) = BOCS(inputs.copy(), 2, "SA", file)
-        # (BOCS_SDP_model, BOCS_SDP_obj) = BOCS(inputs.copy(), 2, "SDP-l1", file)
+        BOCS_SA_model, BOCS_SA_obj = BOCS(inputs.copy(), 2, "SA", file)
+        # BOCS_SDP_model, BOCS_SDP_obj = BOCS(inputs.copy(), 2, "SDP-l1", file)
 
         best_subset = BOCS_SA_model[BOCS_SA_obj.argmin()]
         # best_subset = BOCS_SDP_model[BOCS_SDP_obj.argmin()]
