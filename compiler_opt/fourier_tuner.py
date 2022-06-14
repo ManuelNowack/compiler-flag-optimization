@@ -52,11 +52,13 @@ class FourierTuner(base_tuner.Tuner):
         start = time.perf_counter()
         est = ssftapprox.ElasticNetEstimator(
             enet_alpha=0.00001, standardize=True)
+        if file is not None:
+            file.write(f"Num coefs: {len(est.est.coefs)} s\n")
+            file.write(f"Alpha: {est.enet_alpha}\n")
         est.fit(X_train, Y_train)
         end = time.perf_counter()
         if file is not None:
             file.write(f"Fit duration: {end - start} s\n")
-            file.write(f"Num coefs: {len(est.est.coefs)} s\n")
         start = time.perf_counter()
         argmin, minval = ssftapprox.minimization.minimize_dsft3(est.est)
         end = time.perf_counter()
