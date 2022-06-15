@@ -1,6 +1,7 @@
 import glob
 import os
 import re
+import requests
 import subprocess
 from typing import Callable
 
@@ -83,6 +84,22 @@ def read_gcc_flags(program: str, flags: str) -> list[str]:
             assert actual_flags == actual_flags_prev
         actual_flags_prev = actual_flags
     return sorted(actual_flags)
+
+
+def request_gcc_flags_online() -> list[str]:
+    url = "https://gcc.gnu.org/onlinedocs/gcc-9.5.0/gcc/Optimize-Options.html"
+    resp = requests.get(url)
+    r = re.compile(r"<dt><code>(-f[^=]+)(=.+)?</code></dt>")
+    flags = set()
+    for line in resp.text.split("\n"):
+        m = r.match(line)
+        if m:
+            if m.group(2) and not m.group(1) in flags:
+                flags.add(m.group(1) + "=")
+            else:
+                assert m.group(1) + "=" not in flags
+                flags.add(m.group(1))
+    return sorted(flags)
 
 
 def request_gcc_flags(opt_level: int):
