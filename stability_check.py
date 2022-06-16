@@ -46,22 +46,16 @@ with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
         o = map(benchmark_thread, args.program, args.dataset, args.command)
     for program, dataset, command, run_times in zip(
             args.program, args.dataset, args.command, o):
-        # append suffix to ensure unique file name
-        if command == "encode":
-            program += "-e"
-        elif command == "decode":
-            program += "-d"
-        elif command != "":
-            raise ValueError("Unrecognized command " + command)
+        benchmark_name = f"{program}-{command}"
         # Write runtimes to file for later usage
-        np.savetxt(f"results/{program}_{nonce:02d}.txt", run_times)
+        np.savetxt(f"results/{benchmark_name}_{nonce:02d}.txt", run_times)
         # Log noise for your information
         noise = np.abs(1 - run_times / np.median(run_times))
         fraction_noisy = np.count_nonzero(noise > 0.01) / len(noise)
         percentile = np.percentile(noise, 95)
         max_noise = 1.0 - run_times.min() / run_times.max()
         std = np.std(run_times) / np.mean(run_times)
-        fh.write(f"{program}\n")
+        fh.write(f"{benchmark_name}\n")
         fh.write(f"Mean runtime: {np.mean(run_times)} s\n")
         fh.write(f"Deviating more than 1%: {fraction_noisy:.2f}\n")
         fh.write(f"95-percentile: {percentile * 100:.2f} %\n")

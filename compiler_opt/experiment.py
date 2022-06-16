@@ -80,14 +80,7 @@ class Experiment():
         df = pd.DataFrame(index=column_names)
         for program, command, tuners in zip(
                 self.programs, self.commands, self.results):
-            if command == "encode":
-                benchmark_name = program + "-e"
-            elif command == "decode":
-                benchmark_name = program + "-d"
-            elif command == "":
-                benchmark_name = program
-            else:
-                raise ValueError("Unrecognized command " + command)
+            benchmark_name = f"{program}-{command}"
             df[benchmark_name] = [perf for t in tuners
                                   for perf in (t.default_perf, t.best_perf)]
             for tuner in tuners:
