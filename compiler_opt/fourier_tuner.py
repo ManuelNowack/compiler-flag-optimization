@@ -50,6 +50,9 @@ class FourierTuner(base_tuner.Tuner):
                 self.subset_to_optimization_(subset))
         Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
 
+        if file is not None:
+            file.write(f"best train runtime: {Y_train.min():.3e} s\n")
+
         start = time.perf_counter()
         est = ssftapprox.ElasticNetEstimator(enet_alpha=1e-5, standardize=True)
         if file is not None:
