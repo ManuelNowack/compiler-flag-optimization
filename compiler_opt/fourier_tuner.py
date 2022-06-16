@@ -51,8 +51,7 @@ class FourierTuner(base_tuner.Tuner):
         Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
 
         start = time.perf_counter()
-        est = ssftapprox.ElasticNetEstimator(
-            enet_alpha=0.00001, standardize=True)
+        est = ssftapprox.ElasticNetEstimator(enet_alpha=1e-5, standardize=True)
         if file is not None:
             file.write(f"Alpha: {est.enet_alpha}\n")
         est.fit(X_train, Y_train)

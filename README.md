@@ -20,6 +20,8 @@ ck detect soft:compiler.gcc
 mkdir results
 ```
 
+conda env config vars set OMP_NUM_THREADS=1
+
 ## Larger Datasets
 
 Larger datasets were made available in a Google Drive which no longer appears to be accessible. However, we can add new datasets ourselves, e.g., from the original cBench.
