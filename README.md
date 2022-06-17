@@ -17,10 +17,11 @@ ck pull repo:mlcommons@ck-mlops
 ck pull repo:ctuning-programs
 ck pull repo:ctuning-datasets-min
 ck detect soft:compiler.gcc
+conda env config vars set OMP_NUM_THREADS=1
 mkdir results
 ```
 
-conda env config vars set OMP_NUM_THREADS=1
+Setting `OMP_NUM_THREADS` to 1 restricts CVXPY to a single thread. This ensures concurrent benchmarks do not fight over threads. Furthermore, we observed CVXPY solves these optimization problems faster on a (highly) scalable system when not parallelized.
 
 ## Larger Datasets
 
