@@ -26,12 +26,12 @@ args = parser.parse_args()
 
 for i in range(100):
     try:
-        with open(f"results/stability_check_{i:02d}.txt", "x"):
+        with open(f"results/stability_{i:02d}.txt", "x"):
             nonce = i
             break
     except Exception:
         pass
-with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
+with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
     def benchmark_thread(program, dataset, command):
         dir = benchmark.compile(program, "-w -O3", generate_rnd_tmp_dir=True)
         run_times = [benchmark.run(program, dataset, command, dir)
@@ -46,9 +46,13 @@ with open(f"results/stability_check_{nonce:02d}.txt", "w") as fh:
         o = map(benchmark_thread, args.program, args.dataset, args.command)
     for program, dataset, command, run_times in zip(
             args.program, args.dataset, args.command, o):
-        benchmark_name = f"{program}-{command}"
+        if command == "":
+            benchmark_name = program
+        else:
+            benchmark_name = f"{program}-{command}"
         # Write runtimes to file for later usage
-        np.savetxt(f"results/{benchmark_name}_{nonce:02d}.txt", run_times)
+        file_name = f"results/stability_{nonce:02d}_{benchmark_name}.txt"
+        np.savetxt(file_name, run_times)
         # Log noise for your information
         noise = np.abs(1 - run_times / np.median(run_times))
         fraction_noisy = np.count_nonzero(noise > 0.01) / len(noise)

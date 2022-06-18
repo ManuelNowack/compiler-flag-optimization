@@ -42,16 +42,14 @@ class Experiment():
                 self.search_space,
                 evaluator,
                 self.default_optimization) for tuner_type in self.tuner_types]
-        # append suffix to ensure unique file name
-        if command == "encode":
-            program += "-e"
-        elif command == "decode":
-            program += "-d"
-        elif command != "":
-            raise ValueError("Unrecognized command " + command)
+        if command == "":
+            benchmark_name = program
+        else:
+            benchmark_name = f"{program}-{command}"
         for tuner in tuners:
-            tuner_file = f"results/tuning_{self.nonce:02d}_{program}_{tuner.name}.txt"
-            with open(tuner_file, "x", buffering=1) as fh:
+            file_name = (f"results/tuning_{self.nonce:02d}_{benchmark_name}"
+                         f"_{tuner.name}.txt")
+            with open(file_name, "x", buffering=1) as fh:
                 best_optimization, best_perf = tuner.tune(self.budget, file=fh)
             tuner.best_optimization = best_optimization
             tuner.best_perf = best_perf
@@ -66,11 +64,14 @@ class Experiment():
                             for program, dataset, command in self.programs]
 
     def write_results_(self) -> None:
-        column_names = [name for tuner in self.results[0]
-                        for name in ("Default", tuner.name)]
-        df = pd.DataFrame(index=column_names)
+        row_names = [name for tuner in self.results[0]
+                     for name in ("Default", tuner.name)]
+        df = pd.DataFrame(index=row_names)
         for (program, _, command), tuners in zip(self.programs, self.results):
-            benchmark_name = f"{program}-{command}"
+            if command == "":
+                benchmark_name = program
+            else:
+                benchmark_name = f"{program}-{command}"
             df[benchmark_name] = [perf for t in tuners
                                   for perf in (t.default_perf, t.best_perf)]
             for tuner in tuners:
