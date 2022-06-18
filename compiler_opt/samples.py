@@ -1,5 +1,6 @@
 import multiprocessing
 import random
+import sys
 
 import numpy as np
 import pandas as pd
@@ -34,7 +35,15 @@ class Samples():
     def sample_thread_(self, program: str, dataset: str,
                        command: str) -> list[float]:
         evaluator = Evaluator(program, 1, self.search_space, dataset, command)
-        return [evaluator.evaluate(opt) for opt in self.optimizations]
+        run_times = []
+        for opt in self.optimizations:
+            try:
+                run_times.append(evaluator.evaluate(opt))
+            except RuntimeError as e:
+                run_times.append(0.0)
+                opt_str = flag_info.optimization_to_str(opt, self.search_space)
+                print(f"{e} at {opt_str}", file=sys.stderr)
+        return run_times
 
     def run_(self) -> None:
         if self.parallel is not None:
