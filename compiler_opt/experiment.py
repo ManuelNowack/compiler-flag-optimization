@@ -8,15 +8,11 @@ import compiler_opt
 class Experiment():
     def __init__(
             self,
-            programs: list[str],
-            datasets: list[str],
-            commands: list[str],
+            programs: tuple[str, str, str],
             tuner_types: list[type],
             budget: int,
             parallel: int = None):
         self.programs = programs
-        self.datasets = datasets
-        self.commands = commands
         self.tuner_types = tuner_types
         self.budget = budget
         self.parallel = parallel
@@ -62,24 +58,18 @@ class Experiment():
         return tuners
 
     def run_(self) -> None:
-        tuning_thread_args = zip(self.programs, self.datasets, self.commands)
         if self.parallel is not None:
             with multiprocessing.Pool(processes=self.parallel) as pool:
-                self.results = pool.starmap(
-                    self.tuning_thread_, tuning_thread_args)
+                self.results = pool.starmap(self.tuning_thread_, self.programs)
         else:
-            self.results = list(map(
-                self.tuning_thread_,
-                self.programs,
-                self.datasets,
-                self.commands))
+            self.results = [self.tuning_thread_(program, dataset, command)
+                            for program, dataset, command in self.programs]
 
     def write_results_(self) -> None:
         column_names = [name for tuner in self.results[0]
                         for name in ("Default", tuner.name)]
         df = pd.DataFrame(index=column_names)
-        for program, command, tuners in zip(
-                self.programs, self.commands, self.results):
+        for (program, _, command), tuners in zip(self.programs, self.results):
             benchmark_name = f"{program}-{command}"
             df[benchmark_name] = [perf for t in tuners
                                   for perf in (t.default_perf, t.best_perf)]
