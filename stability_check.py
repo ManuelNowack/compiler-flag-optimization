@@ -6,20 +6,19 @@ import numpy as np
 from compiler_opt import benchmark
 
 
-class SplitArgs(argparse.Action):
+class SplitArgsProgram(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
-        setattr(namespace, self.dest, values.split(","))
+        programs = [tuple(x.split(":")) for x in values]
+        setattr(namespace, self.dest, programs)
 
-
-default_programs = ["cbench-network-dijkstra"]
-default_datasets = ["cdataset-dijkstra-0001"]
-default_commands = [""]
 
 parser = argparse.ArgumentParser()
+parser.add_argument(
+    "programs",
+    default=["cbench-network-dijkstra:cdataset-dijkstra-0001:"],
+    action=SplitArgsProgram,
+    nargs="*")
 parser.add_argument("--repetitions", default=10, type=int)
-parser.add_argument("--program", default=default_programs, action=SplitArgs)
-parser.add_argument("--dataset", default=default_datasets, action=SplitArgs)
-parser.add_argument("--command", default=default_commands, action=SplitArgs)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
@@ -40,12 +39,11 @@ with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
 
     if args.parallel is not None:
         with multiprocessing.Pool(processes=args.parallel) as pool:
-            starmap_args = zip(args.program, args.dataset, args.command)
-            o = pool.starmap(benchmark_thread, starmap_args)
+            results = pool.starmap(benchmark_thread, args.programs)
     else:
-        o = map(benchmark_thread, args.program, args.dataset, args.command)
-    for program, dataset, command, run_times in zip(
-            args.program, args.dataset, args.command, o):
+        results = [benchmark_thread(program, dataset, command)
+                   for program, dataset, command in args.programs]
+    for (program, _, command), run_times in zip(args.programs, results):
         if command == "":
             benchmark_name = program
         else:
