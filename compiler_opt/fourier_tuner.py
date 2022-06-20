@@ -84,8 +84,7 @@ class FourierTuner(base_tuner.Tuner):
             Y_train = y[train_indices]
             assert np.all(Y_train)
 
-        if file is not None:
-            file.write(f"best train runtime: {Y_train.min():.3e} s\n")
+        self.best_perf_train = Y_train.min()
 
         start = time.perf_counter()
         est = ssftapprox.ElasticNetEstimator(enet_alpha=1e-5, standardize=True)

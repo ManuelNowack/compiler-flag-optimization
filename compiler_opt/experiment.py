@@ -80,10 +80,16 @@ class Experiment():
                 best_flags = compiler_opt.optimization_to_str(
                     tuner.best_optimization, tuner.search_space)
                 speedup = tuner.default_perf / tuner.best_perf
+                try:
+                    speedup_train = tuner.default_perf / tuner.best_perf_train
+                except AttributeError:
+                    speedup_train = None
                 with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
                     fh.write("\n")
                     fh.write(f"{benchmark_name} with {tuner.name}\n")
                     fh.write(f"speedup: {speedup:.3f}\n")
+                    if speedup_train is not None:
+                        fh.write(f"speedup train: {speedup_train:.3f}\n")
                     fh.write(f"default runtime: {tuner.default_perf:.3e} s\n")
                     fh.write(f"best runtime: {tuner.best_perf:.3e} s\n")
                     fh.write(f"default flags: {default_flags}\n")
