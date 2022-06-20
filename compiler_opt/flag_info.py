@@ -234,6 +234,26 @@ def optimization_to_str(optimization: Optimization,
                 flags_str += f" {negated_flag_name}"
     return flags_str
 
+def str_to_optimization(flags_str: str, search_space: SearchSpace) -> str:
+    flags = [flag for flag in flags_str.split(" ") if flag != ""]
+    optimization = {}
+    for flag in flags:
+        try:
+            flag_name, config = flag.split("=")
+        except ValueError:
+            if flag.startswith("-O"):
+                flag_name = "stdOptLv"
+                config = int(flag[2:])
+            elif flag.startswith("-fno-"):
+                flag_name = flag.replace("-fno-", "-f", 1)
+                config = False
+            else:
+                flag_name = flag
+                config = True
+        assert config in search_space[flag_name]
+        optimization[flag_name] = config
+    return optimization
+
 
 def write_gcc_search_space(path: str, search_space: SearchSpace,
                            get_gcc_flags: Callable[[int], list[str]]) -> None:
