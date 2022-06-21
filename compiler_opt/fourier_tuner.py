@@ -95,6 +95,8 @@ class FourierTuner(base_tuner.Tuner):
         if file is not None:
             file.write(f"Num coefs: {len(est.est.coefs)}\n")
             file.write(f"Fit duration: {end - start} s\n")
+            file.write(f"Train score: {est.score(X_train, Y_train)}\n")
+            file.write(f"Validate score: {est.score(x, y)}\n")
         start = time.perf_counter()
         argmin, minval = ssftapprox.minimization.minimize_dsft3(est.est)
         end = time.perf_counter()
