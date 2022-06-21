@@ -30,7 +30,8 @@ def run(program: str, dataset: str = "", command: str = "",
                 "data_uoa": program,
                 "tmp_dir": tmp_dir,
                 "cmd_key": command,
-                "dataset_uoa": dataset})
+                "dataset_uoa": dataset,
+                "dataset_file": "data.txt" if dataset == "txt-0001" else ""})
     if not r["misc"]["run_success_bool"]:
         raise RuntimeError(
             f"{r['misc']['fail_reason']} at {program},{dataset},{command}")
