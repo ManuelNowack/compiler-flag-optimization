@@ -10,9 +10,7 @@ class SRTuner(base_tuner.Tuner):
 
         # User can customize reward func as Python function and pass to module.
         # In this demo, we use the default reward func.
-        self.mod = SRTunerModule(
-            convert_search_space(search_space),
-            default_perf=self.default_perf)
+        self.mod = SRTunerModule(convert_search_space(search_space))
 
     def generate_candidates(self, batch_size=1):
         return self.mod.generate_candidates(batch_size)
@@ -24,23 +22,22 @@ class SRTuner(base_tuner.Tuner):
     def reflect_feedback(self, perfs):
         self.mod.reflect_feedback(perfs)
 
-    def tune(self, budget, batch_size=1, file=None):
-        best_optimization, best_perf = None, float("inf")
+    def find_best_optimization(self, budget, file=None):
+        best_optimization, best_runtime = None, float("inf")
         i = 0
         while i < budget:
-            candidates = self.generate_candidates(batch_size=batch_size)
+            candidates = self.generate_candidates()
             perfs = self.evaluate_candidates(candidates)
 
             i += len(candidates)
             for optimization, perf in zip(candidates, perfs):
-                if perf < best_perf:
-                    best_perf = perf
+                if perf < best_runtime:
+                    best_runtime = perf
                     best_optimization = optimization
 
-            print(best_perf, file=file)
+            print(best_runtime, file=file)
             self.reflect_feedback(perfs)
-        best_perf = self.evaluator.evaluate(best_optimization, 10)
-        return best_optimization, best_perf
+        return best_optimization
 
 
 class FlagInfo:

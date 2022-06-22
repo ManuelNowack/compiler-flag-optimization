@@ -65,8 +65,10 @@ class FourierTuner(base_tuner.Tuner):
         optimization = flag_info.str_to_optimization(flags, self.search_space)
         return self.optimization_to_subset_(optimization)
 
-    def tune(self, budget: int,
-             file: TextIO = None) -> tuple[Optimization, float]:
+    def find_best_optimization(
+            self,
+            budget: int,
+            file: TextIO = None) -> Optimization:
         if False:
             n = len(self.binary_flags) + len(self.parametric_flags)
             rng = np.random.default_rng()
@@ -84,7 +86,7 @@ class FourierTuner(base_tuner.Tuner):
             Y_train = y[train_indices]
             assert np.all(Y_train)
 
-        self.best_perf_train = Y_train.min()
+        self.train_runtime = Y_train.min()
 
         start = time.perf_counter()
         est = ssftapprox.ElasticNetEstimator(enet_alpha=1e-5, standardize=True)
@@ -102,9 +104,7 @@ class FourierTuner(base_tuner.Tuner):
         end = time.perf_counter()
         if file is not None:
             file.write(f"Minimize duration: {end - start} s\n")
-        best_optimization = self.subset_to_optimization_(argmin)
-        best_perf = self.evaluator.evaluate(best_optimization, 10)
-        return best_optimization, best_perf
+        return self.subset_to_optimization_(argmin)
 
     def load_training_data(self, path: str) -> tuple[np.ndarray, np.ndarray]:
         df = pd.read_csv(path, index_col=0)

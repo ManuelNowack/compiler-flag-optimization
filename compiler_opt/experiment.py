@@ -50,9 +50,7 @@ class Experiment():
             file_name = (f"results/tuning_{self.nonce:02d}_{benchmark_name}"
                          f"_{tuner.name}.txt")
             with open(file_name, "x", buffering=1) as fh:
-                best_optimization, best_perf = tuner.tune(self.budget, file=fh)
-            tuner.best_optimization = best_optimization
-            tuner.best_perf = best_perf
+                tuner.tune(self.budget, file=fh)
         return tuners
 
     def run_(self) -> None:
@@ -72,16 +70,16 @@ class Experiment():
                 benchmark_name = program
             else:
                 benchmark_name = f"{program}-{command}"
-            df[benchmark_name] = [perf for t in tuners
-                                  for perf in (t.default_perf, t.best_perf)]
+            df[benchmark_name] = [x for t in tuners
+                                  for x in (t.default_runtime, t.best_runtime)]
             for tuner in tuners:
                 default_flags = compiler_opt.optimization_to_str(
                     tuner.default_optimization, tuner.search_space)
                 best_flags = compiler_opt.optimization_to_str(
                     tuner.best_optimization, tuner.search_space)
-                speedup = tuner.default_perf / tuner.best_perf
+                speedup = tuner.default_runtime / tuner.best_runtime
                 try:
-                    speedup_train = tuner.default_perf / tuner.best_perf_train
+                    speedup_train = tuner.default_runtime / tuner.train_runtime
                 except AttributeError:
                     speedup_train = None
                 with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
@@ -90,8 +88,8 @@ class Experiment():
                     fh.write(f"speedup: {speedup:.3f}\n")
                     if speedup_train is not None:
                         fh.write(f"speedup train: {speedup_train:.3f}\n")
-                    fh.write(f"default runtime: {tuner.default_perf:.3e} s\n")
-                    fh.write(f"best runtime: {tuner.best_perf:.3e} s\n")
+                    fh.write(f"default runtime: {tuner.default_runtime:.3e}\n")
+                    fh.write(f"best runtime: {tuner.best_runtime:.3e}\n")
                     fh.write(f"default flags: {default_flags}\n")
                     fh.write(f"best flags: {best_flags}\n")
         df.to_csv(f"results/tuning_{self.nonce:02d}.csv")

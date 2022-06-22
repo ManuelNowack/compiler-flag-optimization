@@ -25,13 +25,15 @@ class MonoTuner(base_tuner.Tuner):
             size += len(configs)
         return size
 
-    def tune(self, budget: int,
-             file: TextIO = None) -> tuple[Optimization, float]:
+    def find_best_optimization(
+            self,
+            budget: int,
+            file: TextIO = None) -> Optimization:
         repeats = budget // self.search_space_size()
         assert repeats > 0
 
         best_optimization = self.default_optimization
-        best_perf = self.default_perf
+        best_runtime = float("inf")
         for flag_name, configs in self.search_space.items():
             if flag_name == "stdOptLv":
                 continue
@@ -52,7 +54,7 @@ class MonoTuner(base_tuner.Tuner):
                 if file is not None:
                     speedup = self.default_perf / curr_perf
                     file.write(f"{flag_name}: {speedup:.3f}\n")
-                if best_perf > curr_perf:
-                    best_perf = curr_perf
+                if best_runtime > curr_perf:
+                    best_runtime = curr_perf
                     best_optimization = curr_optimization
-        return best_optimization, best_perf
+        return best_optimization

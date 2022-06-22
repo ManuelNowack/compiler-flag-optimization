@@ -37,8 +37,10 @@ class BOCSTuner(base_tuner.Tuner):
                 optimization[flag] = val
         return optimization
 
-    def tune(self, budget: int,
-             file: TextIO = None) -> tuple[Optimization, float]:
+    def find_best_optimization(
+            self,
+            budget: int,
+            file: TextIO = None) -> Optimization:
         inputs = {}
         inputs["n_vars"] = len(self.binary_flags) + len(self.parametric_flags)
         inputs["evalBudget"] = budget
@@ -64,7 +66,5 @@ class BOCSTuner(base_tuner.Tuner):
 
         best_subset = BOCS_SA_model[BOCS_SA_obj.argmin()]
         # best_subset = BOCS_SDP_model[BOCS_SDP_obj.argmin()]
-        best_optimization = self.subset_to_optimization_(best_subset)
-        best_perf = self.evaluator.evaluate(best_optimization, 10)
 
-        return best_optimization, best_perf
+        return self.subset_to_optimization_(best_subset)

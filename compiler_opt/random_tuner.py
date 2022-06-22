@@ -44,9 +44,11 @@ class RandomTuner(base_tuner.Tuner):
         # Random search. Do nothing
         pass
 
-    def tune(self, budget: int,
-             file: TextIO = None) -> tuple[Optimization, float]:
-        best_optimization, best_perf = None, float("inf")
+    def find_best_optimization(
+            self,
+            budget: int,
+            file: TextIO = None) -> Optimization:
+        best_optimization, best_runtime = None, float("inf")
         i = 0
         while i < budget:
             candidates = self.generate_candidates()
@@ -54,11 +56,10 @@ class RandomTuner(base_tuner.Tuner):
 
             i += len(candidates)
             for optimization, perf in zip(candidates, perfs):
-                if perf < best_perf:
-                    best_perf = perf
+                if perf < best_runtime:
+                    best_runtime = perf
                     best_optimization = optimization
 
-            print(best_perf, file=file)
+            print(best_runtime, file=file)
             self.reflect_feedback(perfs)
-        best_perf = self.evaluator.evaluate(best_optimization, 10)
-        return best_optimization, best_perf
+        return best_optimization

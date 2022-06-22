@@ -15,8 +15,17 @@ class Tuner:
         self.evaluator = evaluator
         self.name = name
         self.default_optimization = default_optimization
-        self.default_perf = evaluator.evaluate(default_optimization, 10)
 
-    def tune(self, budget: int,
-             file: TextIO = None) -> tuple[Optimization, float]:
+    def find_best_optimization(
+            self,
+            budget: int,
+            file: TextIO = None) -> Optimization:
         raise NotImplementedError
+
+    def tune(self, budget: int, file: TextIO = None) -> None:
+        self.best_optimization = self.find_best_optimization(budget, file)
+        num_repeats = 10
+        self.default_runtime = self.evaluator.evaluate(
+            self.default_optimization, num_repeats)
+        self.best_runtime = self.evaluator.evaluate(
+            self.best_optimization, num_repeats)
