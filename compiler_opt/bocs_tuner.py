@@ -5,6 +5,7 @@ from BOCS.BOCS import BOCS
 
 from . import base_tuner
 from . import evaluator
+from . import powerset
 from .typing import Optimization, SearchSpace
 
 
@@ -15,34 +16,14 @@ class BOCSTuner(base_tuner.Tuner):
             evaluator: evaluator.Evaluator,
             default_optimization: Optimization):
         super().__init__(search_space, evaluator, "BOCSTuner", default_optimization)
-        self.binary_flags = []
-        self.parametric_flags = []
-        for flag, configs in self.search_space.items():
-            if flag == "stdOptLv":
-                continue
-            assert len(configs) > 1
-            if configs != (False, True):
-                for val in configs:
-                    self.parametric_flags.append((flag, val))
-            else:
-                self.binary_flags.append(flag)
-
-    def subset_to_optimization_(self, subset: np.ndarray) -> Optimization:
-        optimization = {"stdOptLv": 3}
-        subset_it = iter(subset)
-        for flag, enabled in zip(self.binary_flags, subset_it):
-            optimization[flag] = bool(enabled)
-        for (flag, val), enabled in zip(self.parametric_flags, subset_it):
-            if enabled:
-                optimization[flag] = val
-        return optimization
+        self.powerset = powerset.PowerSet(self.search_space)
 
     def find_best_optimization(
             self,
             budget: int,
             file: TextIO = None) -> Optimization:
         inputs = {}
-        inputs["n_vars"] = len(self.binary_flags) + len(self.parametric_flags)
+        inputs["n_vars"] = self.powerset.num_elements
         inputs["evalBudget"] = budget
         inputs["n_init"] = budget // 5
         inputs["lambda"] = 1e-4
@@ -50,7 +31,7 @@ class BOCSTuner(base_tuner.Tuner):
         def objective_function(x):
             def evaluate(subset):
                 return self.evaluator.evaluate(
-                    self.subset_to_optimization_(subset))
+                    self.powerset.subset_to_optimization_(subset))
             return np.apply_along_axis(evaluate, 1, x)
 
         inputs["model"] = objective_function
@@ -67,4 +48,4 @@ class BOCSTuner(base_tuner.Tuner):
         best_subset = BOCS_SA_model[BOCS_SA_obj.argmin()]
         # best_subset = BOCS_SDP_model[BOCS_SDP_obj.argmin()]
 
-        return self.subset_to_optimization_(best_subset)
+        return self.powerset.subset_to_optimization_(best_subset)
