@@ -28,8 +28,8 @@ class Samples():
 
     def random_optimization_(self) -> Optimization:
         optimization = {}
-        for flag_name, configs in self.search_space.items():
-            optimization[flag_name] = self.rng.choice(configs)
+        for flag_name, domain in self.search_space.items():
+            optimization[flag_name] = self.rng.choice(domain)
         return optimization
 
     def sample_thread_(self, program: str, dataset: str,

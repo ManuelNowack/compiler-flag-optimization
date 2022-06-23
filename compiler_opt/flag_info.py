@@ -139,9 +139,9 @@ def request_gcc_flags(opt_level: int):
             ignored_flags.append(flag_name)
         elif match_parametric is not None:
             flag_name = match_parametric.group(1)
-            configs = match_parametric.group(2).split("|")
+            domain = match_parametric.group(2).split("|")
             value = match_parametric.group(3)
-            if value in configs:
+            if value in domain:
                 enabled_flags.append(flag_name + "=" + value)
             else:
                 unknown_options.append(line)
@@ -185,8 +185,8 @@ def request_gcc_search_space() -> SearchSpace:
             ignored_flags.append(flag_name)
         elif match_parametric is not None:
             flag_name = match_parametric.group(1)
-            configs = match_parametric.group(2).split("|")
-            search_space[flag_name] = tuple(configs)
+            domain = match_parametric.group(2).split("|")
+            search_space[flag_name] = tuple(domain)
         elif match_numeric is not None:
             if flag_name not in search_space:
                 ignored_flags.append(flag_name)
@@ -204,14 +204,14 @@ def request_gcc_search_space() -> SearchSpace:
 
 def flatten_search_space(search_space: SearchSpace) -> list[str]:
     flat_search_space = []
-    for flag_name, configs in search_space.items():
+    for flag_name, domain in search_space.items():
         if flag_name == "stdOptLv":
             continue
-        if configs == (False, True):
+        if domain == (False, True):
             flat_search_space.append(flag_name)
         else:
-            for config in configs:
-                flat_search_space.append(f"{flag_name}={config}")
+            for value in domain:
+                flat_search_space.append(f"{flag_name}={value}")
     return flat_search_space
 
 
@@ -219,15 +219,15 @@ def optimization_to_str(optimization: Optimization,
                         search_space: SearchSpace) -> str:
     flags_str = f"-O{optimization['stdOptLv']}"
 
-    for flag_name, config in optimization.items():
-        assert config in search_space[flag_name]
+    for flag_name, value in optimization.items():
+        assert value in search_space[flag_name]
         if flag_name == "stdOptLv":
             continue
         if search_space[flag_name] != (False, True):
-            if config != "":
-                flags_str += f" {flag_name}={config}"
+            if value != "":
+                flags_str += f" {flag_name}={value}"
         else:
-            if config:
+            if value:
                 flags_str += f" {flag_name}"
             else:
                 negated_flag_name = flag_name.replace("-f", "-fno-", 1)
@@ -239,19 +239,19 @@ def str_to_optimization(flags_str: str, search_space: SearchSpace) -> str:
     optimization = {}
     for flag in flags:
         try:
-            flag_name, config = flag.split("=")
+            flag_name, value = flag.split("=")
         except ValueError:
             if flag.startswith("-O"):
                 flag_name = "stdOptLv"
-                config = int(flag[2:])
+                value = int(flag[2:])
             elif flag.startswith("-fno-"):
                 flag_name = flag.replace("-fno-", "-f", 1)
-                config = False
+                value = False
             else:
                 flag_name = flag
-                config = True
-        assert config in search_space[flag_name]
-        optimization[flag_name] = config
+                value = True
+        assert value in search_space[flag_name]
+        optimization[flag_name] = value
     return optimization
 
 

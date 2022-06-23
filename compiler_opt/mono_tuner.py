@@ -19,10 +19,10 @@ class MonoTuner(base_tuner.Tuner):
 
     def search_space_size(self) -> int:
         size = 0
-        for flag, configs in self.search_space.items():
-            if flag == "stdOptLv":
+        for flag_name, domain in self.search_space.items():
+            if flag_name == "stdOptLv":
                 continue
-            size += len(configs)
+            size += len(domain)
         return size
 
     def find_best_optimization(
@@ -34,22 +34,22 @@ class MonoTuner(base_tuner.Tuner):
 
         best_optimization = self.default_optimization
         best_runtime = float("inf")
-        for flag_name, configs in self.search_space.items():
+        for flag_name, domain in self.search_space.items():
             if flag_name == "stdOptLv":
                 continue
-            for config in configs:
-                if config is True:
+            for value in domain:
+                if value is True:
                     if flag_name in self.default_flags:
                         continue
-                elif config is False:
+                elif value is False:
                     if flag_name not in self.default_flags:
                         continue
                 else:
-                    flag = f"{flag_name}={config}"
+                    flag = f"{flag_name}={value}"
                     if flag in self.default_flags:
                         continue
                 curr_optimization = self.default_optimization.copy()
-                curr_optimization[flag_name] = config
+                curr_optimization[flag_name] = value
                 curr_perf = self.evaluator.evaluate(curr_optimization, repeats)
                 if file is not None:
                     speedup = self.default_perf / curr_perf

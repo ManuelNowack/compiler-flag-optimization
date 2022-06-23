@@ -22,10 +22,10 @@ class RandomTuner(base_tuner.Tuner):
         for _ in range(batch_size):
             while True:
                 optimization = {}
-                for flag_name, configs in self.search_space.items():
-                    num = len(configs)
+                for flag_name, domain in self.search_space.items():
+                    num = len(domain)
                     rv = random.randint(0, num - 1)
-                    optimization[flag_name] = configs[rv]
+                    optimization[flag_name] = domain[rv]
 
                 # Avoid duplication
                 if str(optimization) not in self.visited:
