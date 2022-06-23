@@ -27,8 +27,10 @@ class Samples():
         self.write_results_()
 
     def random_optimization_(self) -> Optimization:
-        optimization = {}
+        optimization = {"stdOptLv": 3}
         for flag_name, domain in self.search_space.items():
+            if flag_name == "stdOptLv":
+                continue
             optimization[flag_name] = self.rng.choice(domain)
         return optimization
 
