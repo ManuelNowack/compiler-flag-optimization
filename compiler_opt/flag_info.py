@@ -73,12 +73,10 @@ def extract_gcc_flags(path: str) -> list[str]:
 
 
 def read_gcc_flags(program: str, flags: str) -> list[str]:
-    r = benchmark.ck_cmd({"action": "compile",
-                          "module_uoa": "program",
-                          "data_uoa": program,
-                          "flags": flags + " -save-temps -fverbose-asm"})
+    flags += " -save-temps -fverbose-asm"
+    tmp_dir = benchmark.compile(program, flags, generate_rnd_tmp_dir=True)
     actual_flags_prev = None
-    for file in glob.glob(os.path.join(r["tmp_dir"], "*.s")):
+    for file in glob.glob(os.path.join(tmp_dir, "*.s")):
         actual_flags = set(extract_gcc_flags(file))
         if actual_flags_prev is not None:
             assert actual_flags == actual_flags_prev
