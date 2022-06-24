@@ -46,7 +46,7 @@ class MonoTuner(base_tuner.Tuner):
                 run_time = self.evaluator.evaluate(new_optimization)
                 file.write(f"{flag} {run_time}\n")
                 mutated_optimizations.append((new_optimization, run_time))
-        mutated_optimizations.sort(key=operator.itemgetter(1), reverse=True)
+        mutated_optimizations.sort(key=operator.itemgetter(1))
         return mutated_optimizations
 
     def find_best_optimization(
@@ -64,7 +64,7 @@ class MonoTuner(base_tuner.Tuner):
                 del candidates[budget:]
             next_optimization = best_optimization.copy()
             for optimization, run_time in candidates[:1]:
-                if run_time > best_runtime:
+                if run_time < best_runtime:
                     curr_optimization_set = set(optimization.items())
                     best_optimization_set = set(best_optimization.items())
                     new_flags = curr_optimization_set - best_optimization_set
