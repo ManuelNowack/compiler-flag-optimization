@@ -25,7 +25,9 @@ class MonoTuner(base_tuner.Tuner):
             if flag_name == "stdOptLv":
                 continue
             for value in domain:
-                if value is True:
+                if optimization.get(flag_name) == value:
+                    continue
+                elif value is True:
                     if flag_name in base_flags:
                         continue
                 elif value is False:
