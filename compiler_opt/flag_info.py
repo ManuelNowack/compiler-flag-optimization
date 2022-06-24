@@ -73,7 +73,7 @@ def extract_gcc_flags(path: str) -> list[str]:
 
 
 def read_gcc_flags(program: str, flags: str) -> list[str]:
-    flags += " -save-temps -fverbose-asm"
+    flags += " -w -save-temps -fverbose-asm"
     tmp_dir = benchmark.compile(program, flags, generate_rnd_tmp_dir=True)
     actual_flags_prev = None
     for file in glob.glob(os.path.join(tmp_dir, "*.s")):
