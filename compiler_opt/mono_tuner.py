@@ -16,7 +16,9 @@ class MonoTuner(base_tuner.Tuner):
         super().__init__(search_space, evaluator, "MonoTuner", default_optimization)
 
     def mutate_optimization_by_individual_flags(
-            self, optimization: Optimization) -> list[tuple[Optimization, float]]:
+            self,
+            optimization: Optimization,
+            file: TextIO = None) -> list[tuple[Optimization, float]]:
         base_flags = flag_info.read_gcc_flags(
             self.evaluator.program, flag_info.optimization_to_str(
                 optimization, self.search_space))
@@ -30,9 +32,11 @@ class MonoTuner(base_tuner.Tuner):
                 elif value is True:
                     if flag_name in base_flags:
                         continue
+                    flag = flag_name
                 elif value is False:
                     if flag_name not in base_flags:
                         continue
+                    flag = flag_name.replace("-f", "-fno-", 1)
                 else:
                     flag = f"{flag_name}={value}"
                     if flag in base_flags:
@@ -40,6 +44,7 @@ class MonoTuner(base_tuner.Tuner):
                 new_optimization = optimization.copy()
                 new_optimization[flag_name] = value
                 run_time = self.evaluator.evaluate(new_optimization)
+                file.write(f"{flag} {run_time}\n")
                 mutated_optimizations.append((new_optimization, run_time))
         mutated_optimizations.sort(key=operator.itemgetter(1), reverse=True)
         return mutated_optimizations
@@ -51,8 +56,9 @@ class MonoTuner(base_tuner.Tuner):
         best_optimization = self.default_optimization
         best_runtime = self.evaluator.evaluate(best_optimization)
         while budget > 0:
+            file.write(f"Budget: {budget}\n")
             candidates = self.mutate_optimization_by_individual_flags(
-                best_optimization)
+                best_optimization, file)
             budget -= len(candidates)
             if budget < 0:
                 del candidates[budget:]
