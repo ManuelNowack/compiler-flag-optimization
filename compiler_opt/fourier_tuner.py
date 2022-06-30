@@ -69,9 +69,7 @@ class FourierTuner(base_tuner.Tuner):
     def load_training_data(self, path: str) -> tuple[np.ndarray, np.ndarray]:
         df = pd.read_csv(path, index_col=0)
         x = np.array([self.str_to_subset_(flags) for flags in df.index])
-        if self.evaluator.command == "":
-            program_name = self.evaluator.program
-        else:
-            program_name = f"{self.evaluator.program}-{self.evaluator.command}"
-        y = df[program_name].to_numpy()
+        module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
+                  f":{self.evaluator.command}")
+        y = df[module].to_numpy()
         return x, y

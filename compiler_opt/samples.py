@@ -13,10 +13,10 @@ from .typing import Optimization
 class Samples():
     def __init__(
             self,
-            programs: tuple[str, str, str],
+            modules: list[str],
             samples: int,
             parallel: int = None):
-        self.programs = programs
+        self.modules = modules
         self.samples = samples
         self.parallel = parallel
         self.search_space = flag_info.read_gcc_search_space("gcc_opts.txt")
@@ -34,8 +34,8 @@ class Samples():
             optimization[flag_name] = self.rng.choice(domain)
         return optimization
 
-    def sample_thread_(self, program: str, dataset: str,
-                       command: str) -> list[float]:
+    def sample_thread_(self, module: str) -> list[float]:
+        program, dataset, command = module.split(":")
         evaluator = Evaluator(program, 1, self.search_space, dataset, command)
         run_times = []
         for opt in self.optimizations:
@@ -50,16 +50,14 @@ class Samples():
     def run_(self) -> None:
         if self.parallel is not None:
             with multiprocessing.Pool(processes=self.parallel) as pool:
-                self.results = pool.starmap(self.sample_thread_, self.programs)
+                self.results = pool.map(self.sample_thread_, self.modules)
         else:
-            self.results = [self.sample_thread_(program, dataset, command)
-                            for program, dataset, command in self.programs]
+            self.results = [self.sample_thread_(module)
+                            for module in self.modules]
 
     def write_results_(self) -> None:
-        program_names = [program if command == "" else f"{program}-{command}"
-                         for program, _, command in self.programs]
         flags = [flag_info.optimization_to_str(opt, self.search_space)
                  for opt in self.optimizations]
         data = np.array(self.results).transpose()
-        df = pd.DataFrame(data=data, index=flags, columns=program_names)
+        df = pd.DataFrame(data=data, index=flags, columns=self.modules)
         df.to_csv(f"samples/{self.samples}.csv")

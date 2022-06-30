@@ -34,5 +34,5 @@ def run(program: str, dataset: str = "", command: str = "",
                 "dataset_file": "data.txt" if dataset == "txt-0001" else ""})
     if not r["misc"]["run_success_bool"]:
         raise RuntimeError(
-            f"{r['misc']['fail_reason']} at {program},{dataset},{command}")
+            f"{r['misc']['fail_reason']} at {program}:{dataset}:{command}")
     return r["characteristics"]["execution_time"]
