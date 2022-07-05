@@ -1,9 +1,11 @@
-import random
-import time
 from typing import TextIO
+
+import numpy as np
+import pandas as pd
 
 from . import base_tuner
 from . import evaluator
+from . import flag_info
 from .typing import Optimization, SearchSpace
 
 
@@ -16,50 +18,37 @@ class RandomTuner(base_tuner.Tuner):
         super().__init__(search_space, evaluator, "RandomTuner", default_optimization)
         self.visited = set()
 
-    def generate_candidates(self, batch_size: int = 1) -> list[Optimization]:
-        random.seed(time.time())
-        candidates = []
-        for _ in range(batch_size):
-            while True:
-                optimization = {}
-                for flag_name, domain in self.search_space.items():
-                    num = len(domain)
-                    rv = random.randint(0, num - 1)
-                    optimization[flag_name] = domain[rv]
-
-                # Avoid duplication
-                if str(optimization) not in self.visited:
-                    self.visited.add(str(optimization))
-                    candidates.append(optimization)
-                    break
-
-        return candidates
-
-    def evaluate_candidates(
-            self, candidates: list[Optimization]) -> list[float]:
-        return [self.evaluator.evaluate(optimization)
-                for optimization in candidates]
-
-    def reflect_feedback(self, perfs):
-        # Random search. Do nothing
-        pass
-
     def find_best_optimization(
             self,
             budget: int,
             file: TextIO = None) -> Optimization:
-        best_optimization, best_runtime = None, float("inf")
-        i = 0
-        while i < budget:
-            candidates = self.generate_candidates()
-            perfs = self.evaluate_candidates(candidates)
+        if False:
+            rng = np.random.default_rng()
 
-            i += len(candidates)
-            for optimization, perf in zip(candidates, perfs):
-                if perf < best_runtime:
-                    best_runtime = perf
+            def random_optimization() -> Optimization:
+                optimization = {"stdOptLv": 3}
+                for flag_name, domain in self.search_space.items():
+                    if flag_name == "stdOptLv":
+                        continue
+                    optimization[flag_name] = rng.choice(domain)
+                return optimization
+            best_runtime = float("inf")
+            for _ in range(budget):
+                optimization = random_optimization()
+                runtime = self.evaluator.evaluate(optimization)
+                if file is not None:
+                    print(runtime, file=file)
+                if best_runtime > runtime:
+                    best_runtime = runtime
                     best_optimization = optimization
-
-            print(best_runtime, file=file)
-            self.reflect_feedback(perfs)
+        else:
+            df = pd.read_csv("samples/10000.csv", index_col=0)
+            module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
+                      f":{self.evaluator.command}")
+            samples = df[module].sample(budget)
+            if file is not None:
+                samples.cummin().to_string(file, index=False)
+            best_flags = samples.idxmin()
+            best_optimization = flag_info.str_to_optimization(
+                best_flags, self.search_space)
         return best_optimization
