@@ -1,3 +1,4 @@
+import shutil
 import statistics
 
 from . import benchmark
@@ -20,4 +21,5 @@ class Evaluator():
         dir = benchmark.compile(self.program, "-w " + flags, "-fopenmp", True)
         run_times = [benchmark.run(self.program, self.dataset, self.command, dir)
                      for _ in range(num_repeats)]
+        shutil.rmtree(dir)
         return statistics.median(run_times)

@@ -1,5 +1,6 @@
 import argparse
 import multiprocessing
+import shutil
 
 import numpy as np
 
@@ -35,6 +36,7 @@ with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
         dir = benchmark.compile(program, "-w -O3", generate_rnd_tmp_dir=True)
         run_times = [benchmark.run(program, dataset, command, dir)
                      for _ in range(args.repetitions)]
+        shutil.rmtree(dir)
         return np.array(run_times)
 
     if args.parallel is not None:

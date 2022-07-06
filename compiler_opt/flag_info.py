@@ -2,6 +2,7 @@ import glob
 import os
 import re
 import requests
+import shutil
 import subprocess
 from typing import Callable
 
@@ -81,6 +82,7 @@ def read_gcc_flags(program: str, flags: str) -> list[str]:
         if actual_flags_prev is not None:
             assert actual_flags == actual_flags_prev
         actual_flags_prev = actual_flags
+    shutil.rmtree(tmp_dir)
     return sorted(actual_flags)
 
 
