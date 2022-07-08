@@ -42,12 +42,8 @@ class Experiment():
                 self.search_space,
                 evaluator,
                 self.default_optimization) for tuner_type in self.tuner_types]
-        if command == "":
-            benchmark_name = program
-        else:
-            benchmark_name = f"{program}-{command}"
         for tuner in tuners:
-            file_name = (f"results/tuning_{self.nonce:02d}_{benchmark_name}"
+            file_name = (f"results/tuning_{self.nonce:02d}_{module}"
                          f"_{tuner.name}.txt")
             with open(file_name, "x", buffering=1) as fh:
                 tuner.tune(self.budget, file=fh)
