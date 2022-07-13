@@ -1,0 +1,13 @@
+//=====================
+// Build-relevant data
+//=====================
+
+#ifndef BUILD_INFO_H
+#define BUILD_INFO_H
+
+#define PROJECT_ROOT "@CMAKE_SOURCE_DIR@"
+
+#cmakedefine BENCHMARKING_BUILD
+#cmakedefine PROFILING_BUILD
+
+#endif
