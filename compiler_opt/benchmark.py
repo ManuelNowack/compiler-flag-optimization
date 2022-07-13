@@ -13,14 +13,14 @@ def ck_cmd(cmd: dict) -> dict:
     return r
 
 
-def compile(program: str, flags: str, lflags: str = "",
+def compile(program: str,
+            flags: str,
             generate_rnd_tmp_dir: bool = False) -> str:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
                 "generate_rnd_tmp_dir": "yes" if generate_rnd_tmp_dir else "",
-                "flags": flags,
-                "lflags": lflags})
+                "flags": flags})
     return r["tmp_dir"]
 
 

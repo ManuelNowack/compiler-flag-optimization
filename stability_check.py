@@ -27,7 +27,7 @@ for i in range(100):
 with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
     def benchmark_thread(module: str):
         program, dataset, command = module.split(":")
-        dir = benchmark.compile(program, "-w -O3", generate_rnd_tmp_dir=True)
+        dir = benchmark.compile(program, "-w -O3", True)
         run_times = []
         file_name = f"results/stability_{nonce:02d}_{module}.txt"
         with open(file_name, "w", buffering=1) as fh:
