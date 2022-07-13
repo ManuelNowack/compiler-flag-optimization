@@ -1,4 +1,5 @@
 import os
+import sys
 
 import ck.kernel as ck
 
@@ -25,14 +26,17 @@ def compile(program: str, flags: str, lflags: str = "",
 
 def run(program: str, dataset: str = "", command: str = "",
         tmp_dir: str = "") -> float:
-    r = ck_cmd({"action": "run",
-                "module_uoa": "program",
-                "data_uoa": program,
-                "tmp_dir": tmp_dir,
-                "cmd_key": command,
-                "dataset_uoa": dataset,
-                "dataset_file": "data.txt" if dataset == "txt-0001" else ""})
-    if not r["misc"]["run_success_bool"]:
-        raise RuntimeError(
-            f"{r['misc']['fail_reason']} at {program}:{dataset}:{command}")
-    return r["characteristics"]["execution_time"]
+    for _ in range(10):
+        r = ck_cmd({"action": "run",
+                    "module_uoa": "program",
+                    "data_uoa": program,
+                    "tmp_dir": tmp_dir,
+                    "cmd_key": command,
+                    "dataset_uoa": dataset,
+                    "dataset_file": "data.txt" if dataset == "txt-0001" else ""})
+        if r["misc"]["run_success_bool"]:
+            return r["characteristics"]["execution_time"]
+        print(f"{r['misc']['fail_reason']} at {program}:{dataset}:{command}",
+              file=sys.stderr)
+    raise RuntimeError(
+        f"{r['misc']['fail_reason']} at {program}:{dataset}:{command}")
