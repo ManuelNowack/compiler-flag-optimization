@@ -36,6 +36,7 @@ setup(
             extra_compile_args = ['-std=c++17', '-O3', '-march=native']
         )
     ],
+    install_requires=['typing_extensions'],
     package_dir = {
         'swht': src_folder
     },
