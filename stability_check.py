@@ -28,8 +28,13 @@ with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
     def benchmark_thread(module: str):
         program, dataset, command = module.split(":")
         dir = benchmark.compile(program, "-w -O3", generate_rnd_tmp_dir=True)
-        run_times = [benchmark.run(program, dataset, command, dir)
-                     for _ in range(args.repetitions)]
+        run_times = []
+        file_name = f"results/stability_{nonce:02d}_{module}.txt"
+        with open(file_name, "w", buffering=1) as fh:
+            for _ in range(args.repetitions):
+                run_time = benchmark.run(program, dataset, command, dir)
+                run_times.append(run_time)
+                print(run_time, file=fh)
         shutil.rmtree(dir)
         return np.array(run_times)
 
@@ -39,10 +44,6 @@ with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
     else:
         results = [benchmark_thread(module) for module in args.modules]
     for module, run_times in zip(args.modules, results):
-        # Write runtimes to file for later usage
-        file_name = f"results/stability_{nonce:02d}_{module}.txt"
-        np.savetxt(file_name, run_times)
-        # Log noise for your information
         noise = np.abs(1 - run_times / np.median(run_times))
         fraction_noisy = np.count_nonzero(noise > 0.01) / len(noise)
         percentile = np.percentile(noise, 95)
