@@ -48,8 +48,8 @@ Hasher::Hasher(unsigned long n, unsigned long b, PyObject *signal) : n(n), b(b),
     py_args = PyTuple_Pack(1l, Py_None);
     py_args_content = ((PyTupleObject *) py_args)->ob_item;
     signal_call = signal->ob_type->tp_call;
-    py_bits[0ul] = _PyLong_Zero;
-    py_bits[1ul] = _PyLong_One;
+    py_bits[0ul] = PyLong_FromLong(0);
+    py_bits[1ul] = PyLong_FromLong(1);
 
     // Precompute hashed indexes
     for (bits bucket = 0ul; bucket < B; bucket++) {
