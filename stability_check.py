@@ -27,15 +27,17 @@ for i in range(100):
 with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
     def benchmark_thread(module: str):
         program, dataset, command = module.split(":")
-        dir = benchmark.compile(program, "-w -O3", True)
+        tmp_dir = benchmark.compile(program, "-w -O3", True)
+        repeat = benchmark.get_repeat(program, dataset, command)
         run_times = []
         file_name = f"results/stability_{nonce:02d}_{module}.txt"
         with open(file_name, "w", buffering=1) as fh:
             for _ in range(args.repetitions):
-                run_time = benchmark.run(program, dataset, command, dir)
+                run_time = benchmark.run(
+                    program, dataset, command, tmp_dir, repeat)
                 run_times.append(run_time)
                 print(run_time, file=fh)
-        shutil.rmtree(dir)
+        shutil.rmtree(tmp_dir)
         return np.array(run_times)
 
     if args.parallel is not None:

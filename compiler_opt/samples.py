@@ -41,7 +41,7 @@ class Samples():
         for opt in self.optimizations:
             try:
                 run_times.append(evaluator.evaluate(opt))
-            except RuntimeError as e:
+            except Exception as e:
                 run_times.append(0.0)
                 opt_str = flag_info.optimization_to_str(opt, self.search_space)
                 print(f"{e} at {opt_str}", file=sys.stderr)
