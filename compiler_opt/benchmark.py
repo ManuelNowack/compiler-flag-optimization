@@ -15,9 +15,10 @@ def ck_cmd(cmd: dict) -> dict:
     return r
 
 
-def compile(program: str,
-            flags: str,
-            generate_rnd_tmp_dir: bool = False) -> str:
+def compile(
+        program: str,
+        flags: str,
+        generate_rnd_tmp_dir: bool = False) -> str:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
@@ -26,10 +27,11 @@ def compile(program: str,
     return r["tmp_dir"]
 
 
-def get_repeat(program: str,
-               dataset: str = "",
-               command: str = "",
-               flags: str = "") -> str:
+def get_repeat(
+        program: str,
+        dataset: str = "",
+        command: str = "",
+        flags: str = "") -> str:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
@@ -48,8 +50,12 @@ def get_repeat(program: str,
     return str(math.ceil(r["characteristics"]["repeat"] / 4))
 
 
-def run(program: str, dataset: str = "", command: str = "",
-        tmp_dir: str = "", repeat: str = "") -> float:
+def run(
+        program: str,
+        dataset: str = "",
+        command: str = "",
+        tmp_dir: str = "",
+        repeat: str = "") -> float:
     runtimes = []
     for _ in range(5):
         r = ck_cmd({"action": "run",
