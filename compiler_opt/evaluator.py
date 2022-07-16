@@ -13,7 +13,7 @@ class Evaluator():
         self.search_space = search_space
         self.dataset = dataset
         self.command = command
-        self.repeat = benchmark.get_repeat(program, dataset, command)
+        self.repeat = benchmark.get_repeat(program, dataset, command, "-w -O3")
 
     def evaluate(self, optimization: Optimization,
                  num_repeats: int = 1) -> float:

@@ -26,12 +26,15 @@ def compile(program: str,
     return r["tmp_dir"]
 
 
-def get_repeat(program: str, dataset: str = "", command: str = "") -> str:
+def get_repeat(program: str,
+               dataset: str = "",
+               command: str = "",
+               flags: str = "") -> str:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
                 "generate_rnd_tmp_dir": "yes",
-                "flags": "-w"})
+                "flags": flags})
     tmp_dir = r["tmp_dir"]
     r = ck_cmd({"action": "run",
                 "module_uoa": "program",
