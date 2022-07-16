@@ -27,11 +27,7 @@ def compile(
     return r["tmp_dir"]
 
 
-def get_repeat(
-        program: str,
-        dataset: str = "",
-        command: str = "",
-        flags: str = "") -> str:
+def get_repeat(program: str, dataset: str, command: str, flags: str) -> str:
     r = ck_cmd({"action": "compile",
                 "module_uoa": "program",
                 "data_uoa": program,
@@ -52,8 +48,8 @@ def get_repeat(
 
 def run(
         program: str,
-        dataset: str = "",
-        command: str = "",
+        dataset: str,
+        command: str,
         tmp_dir: str = "",
         repeat: str = "") -> float:
     runtimes = []
