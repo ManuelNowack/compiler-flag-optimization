@@ -41,9 +41,12 @@ def get_repeat(program: str, dataset: str, command: str, flags: str) -> str:
                 "cmd_key": command,
                 "dataset_uoa": dataset,
                 "dataset_file": "data.txt" if dataset == "txt-0001" else ""})
+    assert r["misc"]["calibration_success"]
+    assert r["misc"]["run_success_bool"]
+    assert not r["misc"]["output_check_failed_bool"]
     shutil.rmtree(tmp_dir)
     # The repeat value targets an execution time of 4 seconds, we want 1 second
-    return str(math.ceil(r["characteristics"]["repeat"] / 4))
+    return str(int(math.ceil(r["characteristics"]["repeat"] / 4)))
 
 
 def run(
