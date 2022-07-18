@@ -6,6 +6,7 @@ import compiler_opt
 tuner_type_dict = {
     "bocs": compiler_opt.BOCSTuner,
     "fourier": compiler_opt.FourierTuner,
+    "hadamard": compiler_opt.HadamardTuner,
     "mono": compiler_opt.MonoTuner,
     "random": compiler_opt.RandomTuner,
     "sr": compiler_opt.SRTuner}
