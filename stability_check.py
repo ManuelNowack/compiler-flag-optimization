@@ -24,22 +24,37 @@ for i in range(100):
             break
     except Exception:
         pass
-with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
-    def benchmark_thread(module: str):
-        program, dataset, command = module.split(":")
-        tmp_dir = benchmark.compile(program, "-w -O3", True)
-        repeat = benchmark.get_repeat(program, dataset, command, "-w -O3")
-        run_times = []
-        file_name = f"results/stability_{nonce:02d}_{module}.txt"
-        with open(file_name, "w", buffering=1) as fh:
-            for _ in range(args.repetitions):
-                run_time = benchmark.run(
-                    program, dataset, command, tmp_dir, repeat)
-                run_times.append(run_time)
-                print(run_time, file=fh)
-        shutil.rmtree(tmp_dir)
-        return np.array(run_times)
 
+
+def all_benchmarks_finished():
+    for module in args.modules:
+        file_name = f"results/stability_{nonce:02d}_{module}.txt"
+        with open(file_name) as fh:
+            if len(fh.readlines()) < args.repetitions:
+                return False
+    return True
+
+
+def benchmark_thread(module: str):
+    program, dataset, command = module.split(":")
+    tmp_dir = benchmark.compile(program, "-w -O3", True)
+    repeat = benchmark.get_repeat(program, dataset, command, "-w -O3")
+    run_times = []
+    file_name = f"results/stability_{nonce:02d}_{module}.txt"
+    with open(file_name, "x", buffering=1) as fh:
+        for _ in range(args.repetitions):
+            run_time = benchmark.run(
+                program, dataset, command, tmp_dir, repeat)
+            run_times.append(run_time)
+            print(run_time, file=fh)
+    if args.parallel is not None:
+        while not all_benchmarks_finished():
+            benchmark.run(program, dataset, command, tmp_dir, repeat)
+    shutil.rmtree(tmp_dir)
+    return np.array(run_times)
+
+
+with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
     if args.parallel is not None:
         with multiprocessing.Pool(processes=args.parallel) as pool:
             results = pool.map(benchmark_thread, args.modules)

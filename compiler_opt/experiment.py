@@ -1,4 +1,6 @@
 import multiprocessing
+import os
+import tempfile
 
 import pandas as pd
 
@@ -33,6 +35,16 @@ class Experiment():
         else:
             raise ValueError("No nonce available")
 
+    def latch_arrive(self, module: str) -> None:
+        with open(os.path.join(self.sync_dir, module), "x"):
+            pass
+
+    def latch_finished(self) -> None:
+        for module in self.modules:
+            if not os.path.isfile(os.path.join(self.sync_dir, module)):
+                return False
+        return True
+
     def tuning_thread_(self, module: str) -> list[compiler_opt.Tuner]:
         program, dataset, command = module.split(":")
         evaluator = compiler_opt.Evaluator(
@@ -47,12 +59,18 @@ class Experiment():
                          f"_{tuner.name}.txt")
             with open(file_name, "x", buffering=1) as fh:
                 tuner.tune(self.budget, file=fh)
+        if self.parallel is not None:
+            self.latch_arrive(module)
+            while not self.latch_finished():
+                evaluator.evaluate(self.default_optimization)
         return tuners
 
     def run_(self) -> None:
         if self.parallel is not None:
-            with multiprocessing.Pool(processes=self.parallel) as pool:
-                self.results = pool.map(self.tuning_thread_, self.modules)
+            with tempfile.TemporaryDirectory() as sync_dir:
+                self.sync_dir = sync_dir
+                with multiprocessing.Pool(processes=self.parallel) as pool:
+                    self.results = pool.map(self.tuning_thread_, self.modules)
         else:
             self.results = [self.tuning_thread_(module)
                             for module in self.modules]
