@@ -12,15 +12,28 @@ num_rows, num_cols = df.shape
 
 rng = random.Random(42)
 
-noise = []
-for _ in range(100):
-    row_index = rng.randrange(num_rows)
-    col_index = rng.randrange(num_cols)
-    program, dataset, command = df.columns[col_index].split(":")
+samples = df.sample(n=5, random_state=42)
+
+def f(x: pd.Series):
+    program, dataset, command = x.name.split(":")
     evaluator = compiler_opt.Evaluator(
         program, 1, search_space, dataset, command)
-    flags = df.index[row_index]
-    optimization = compiler_opt.str_to_optimization(flags, search_space)
-    runtime = evaluator.evaluate(optimization)
-    noise.append(abs(1.0 - df.iloc[row_index, col_index] / runtime))
-print(noise)
+    transformation = []
+    for flags, runtime in x.iteritems():
+        optimization = compiler_opt.str_to_optimization(flags, search_space)
+        runtime_rerun = evaluator.evaluate(optimization)
+        noise = 1.0 - runtime / runtime_rerun
+        transformation.append(noise)
+    return transformation
+
+samples.apply(f)
+for i in range(100):
+    try:
+        with open(f"results/samples_{i:02d}.csv", "x"):
+            nonce = i
+            break
+    except Exception:
+        pass
+samples.to_csv(f"results/samples_{nonce:02d}.csv")
+with open(f"results/samples_{nonce:02d}.txt", "w") as fh:
+    fh.write(samples.to_string(index=False))

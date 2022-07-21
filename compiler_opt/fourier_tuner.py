@@ -39,7 +39,7 @@ class FourierTuner(base_tuner.Tuner):
                     self.powerset.subset_to_optimization_(subset))
             Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
         else:
-            x, y = self.load_training_data("samples/5000.csv")
+            x, y = self.load_training_data("samples/10000.csv")
             rng = np.random.default_rng()
             train_indices = rng.choice(len(x), size=budget, replace=False)
             X_train = x[train_indices]
@@ -49,7 +49,8 @@ class FourierTuner(base_tuner.Tuner):
         self.train_runtime = Y_train.min()
 
         start = time.perf_counter()
-        est = ssftapprox.ElasticNetEstimator(enet_alpha=1e-5, standardize=True)
+        est = ssftapprox.ElasticNetEstimator(
+            enet_alpha=1e-5, n_threads=1, standardize=True)
         if file is not None:
             file.write(f"Alpha: {est.enet_alpha}\n")
         est.fit(X_train, Y_train)
