@@ -48,7 +48,7 @@ class Samples():
 
     def sample_thread_(self, module: str) -> list[float]:
         program, dataset, command = module.split(":")
-        evaluator = Evaluator(program, 1, self.search_space, dataset, command)
+        evaluator = Evaluator(program, dataset, command, self.search_space)
         run_times = []
         for opt in self.optimizations:
             try:

@@ -48,7 +48,7 @@ class Experiment():
     def tuning_thread_(self, module: str) -> list[compiler_opt.Tuner]:
         program, dataset, command = module.split(":")
         evaluator = compiler_opt.Evaluator(
-            program, 1, self.search_space, dataset, command)
+            program, dataset, command, self.search_space)
         tuners: list[compiler_opt.Tuner] = [
             tuner_type(
                 self.search_space,

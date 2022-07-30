@@ -16,8 +16,7 @@ samples = df.sample(n=5, random_state=42)
 
 def f(x: pd.Series):
     program, dataset, command = x.name.split(":")
-    evaluator = compiler_opt.Evaluator(
-        program, 1, search_space, dataset, command)
+    evaluator = compiler_opt.Evaluator(program, dataset, command, search_space)
     transformation = []
     for flags, runtime in x.iteritems():
         optimization = compiler_opt.str_to_optimization(flags, search_space)
