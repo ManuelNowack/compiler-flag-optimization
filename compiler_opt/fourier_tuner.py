@@ -39,29 +39,29 @@ class FourierTuner(base_tuner.Tuner):
                 return self.evaluator.evaluate(
                     self.powerset.subset_to_optimization_(subset))
             y = np.apply_along_axis(evaluate, axis=1, arr=x)
-            X_train = x[:budget]
-            Y_train = y[:budget]
+            x_train = x[:budget]
+            y_train = y[:budget]
         else:
             x, y = self.load_training_data("samples/10000.csv")
             rng = np.random.default_rng()
             train_indices = rng.choice(len(x), size=budget, replace=False)
-            X_train = x[train_indices]
-            Y_train = y[train_indices]
-            assert np.all(Y_train)
+            x_train = x[train_indices]
+            y_train = y[train_indices]
+            assert np.all(y_train)
 
-        self.train_runtime = Y_train.min()
+        self.train_runtime = y_train.min()
 
         start = time.perf_counter()
         est = ssftapprox.ElasticNetEstimator(
             enet_alpha=1e-5, n_threads=1, standardize=True)
         if file is not None:
             file.write(f"Alpha: {est.enet_alpha}\n")
-        est.fit(X_train, Y_train)
+        est.fit(x_train, y_train)
         end = time.perf_counter()
         if file is not None:
             file.write(f"Num coefs: {len(est.est.coefs)}\n")
             file.write(f"Fit duration: {end - start} s\n")
-            file.write(f"Train score: {est.score(X_train, Y_train)}\n")
+            file.write(f"Train score: {est.score(x_train, y_train)}\n")
             file.write(f"Validate score: {est.score(x, y)}\n")
         start = time.perf_counter()
         argmin, minval = ssftapprox.minimization.minimize_dsft3(est.est)
