@@ -92,12 +92,18 @@ class Experiment():
                     speedup_train = tuner.default_runtime / tuner.train_runtime
                 except AttributeError:
                     speedup_train = None
+                try:
+                    speedup_optimal = tuner.default_runtime / tuner.evaluator.min()
+                except AttributeError:
+                    speedup_optimal = None
                 with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
                     fh.write("\n")
                     fh.write(f"{module} with {tuner.name}\n")
                     fh.write(f"speedup: {speedup:.3f}\n")
                     if speedup_train is not None:
                         fh.write(f"speedup train: {speedup_train:.3f}\n")
+                    if speedup_optimal is not None:
+                        fh.write(f"speedup optimal: {speedup_optimal:.3f}\n")
                     fh.write(f"default runtime: {tuner.default_runtime:.3e}\n")
                     fh.write(f"best runtime: {tuner.best_runtime:.3e}\n")
                     fh.write(f"default flags: {default_flags}\n")

@@ -9,4 +9,5 @@ from .hadamard_tuner import HadamardTuner
 from .mono_tuner import MonoTuner
 from .samples import Samples
 from .random_tuner import RandomTuner
+from .simulator import Simulator
 from .srtuner import SRTuner

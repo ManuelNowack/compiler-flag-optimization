@@ -10,6 +10,7 @@ from . import base_tuner
 from . import evaluator
 from . import flag_info
 from . import powerset
+from . import simulator
 from .typing import Optimization, SearchSpace
 
 
@@ -30,14 +31,16 @@ class FourierTuner(base_tuner.Tuner):
             self,
             budget: int,
             file: TextIO = None) -> Optimization:
-        if False:
-            rng = np.random.default_rng()
-            X_train = rng.random((budget, self.powerset.num_elements)).round()
+        if isinstance(self.evaluator, simulator.Simulator):
+            rng = np.random.default_rng(42)
+            x = rng.random((10000, self.powerset.num_elements)).round()
 
             def evaluate(subset):
                 return self.evaluator.evaluate(
                     self.powerset.subset_to_optimization_(subset))
-            Y_train = np.apply_along_axis(evaluate, axis=1, arr=X_train)
+            y = np.apply_along_axis(evaluate, axis=1, arr=x)
+            X_train = x[:budget]
+            Y_train = y[:budget]
         else:
             x, y = self.load_training_data("samples/10000.csv")
             rng = np.random.default_rng()

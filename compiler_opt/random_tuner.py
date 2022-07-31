@@ -6,6 +6,7 @@ import pandas as pd
 from . import base_tuner
 from . import evaluator
 from . import flag_info
+from . import simulator
 from .typing import Optimization, SearchSpace
 
 
@@ -22,8 +23,8 @@ class RandomTuner(base_tuner.Tuner):
             self,
             budget: int,
             file: TextIO = None) -> Optimization:
-        if False:
-            rng = np.random.default_rng()
+        if isinstance(self.evaluator, simulator.Simulator):
+            rng = np.random.default_rng(42)
 
             def random_optimization() -> Optimization:
                 optimization = {"stdOptLv": 3}
