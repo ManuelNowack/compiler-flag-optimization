@@ -30,6 +30,7 @@ parser.add_argument("--tuner", default=default_tuners, action=SplitArgsTuner)
 parser.add_argument("--budget", default=default_budget, type=int)
 parser.add_argument("--rerun", default=default_reruns, type=int)
 parser.add_argument("--parallel", type=int)
+parser.add_argument("--simulation", action="store_true")
 args = parser.parse_args()
 
 for _ in range(args.rerun):
@@ -37,4 +38,5 @@ for _ in range(args.rerun):
         args.modules,
         args.tuner,
         args.budget,
-        args.parallel)
+        args.parallel,
+        args.simulation)

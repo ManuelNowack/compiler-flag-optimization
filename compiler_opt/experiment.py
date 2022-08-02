@@ -13,11 +13,13 @@ class Experiment():
             modules: list[str],
             tuner_types: list[type],
             budget: int,
-            parallel: int = None):
+            parallel: int = None,
+            simulation: bool = False):
         self.modules = modules
         self.tuner_types = tuner_types
         self.budget = budget
         self.parallel = parallel
+        self.simulation = simulation
         self.search_space = compiler_opt.read_gcc_search_space("gcc_opts.txt")
         self.default_optimization = {"stdOptLv": 3}
         self.nonce_()
@@ -47,8 +49,12 @@ class Experiment():
 
     def tuning_thread_(self, module: str) -> list[compiler_opt.Tuner]:
         program, dataset, command = module.split(":")
-        evaluator = compiler_opt.Evaluator(
-            program, dataset, command, self.search_space)
+        if self.simulation:
+            evaluator = compiler_opt.Simulator(
+                program, dataset, command, self.search_space)
+        else:
+            evaluator = compiler_opt.Evaluator(
+                program, dataset, command, self.search_space)
         tuners: list[compiler_opt.Tuner] = [
             tuner_type(
                 self.search_space,
