@@ -4,7 +4,10 @@ import tempfile
 
 import pandas as pd
 
-import compiler_opt
+from . import base_tuner
+from . import evaluator
+from . import flag_info
+from .typing import SearchSpace
 
 
 class Experiment():
@@ -12,13 +15,14 @@ class Experiment():
             self,
             modules: list[str],
             tuner_types: list[type],
+            search_space: SearchSpace,
             budget: int,
             parallel: int = None):
         self.modules = modules
         self.tuner_types = tuner_types
+        self.search_space = search_space
         self.budget = budget
         self.parallel = parallel
-        self.search_space = compiler_opt.read_gcc_search_space("gcc_opts.txt")
         self.default_optimization = {"stdOptLv": 3}
         self.nonce_()
         self.run_()
@@ -45,14 +49,14 @@ class Experiment():
                 return False
         return True
 
-    def tuning_thread_(self, module: str) -> list[compiler_opt.Tuner]:
+    def tuning_thread_(self, module: str) -> list[base_tuner.Tuner]:
         program, dataset, command = module.split(":")
-        evaluator = compiler_opt.Evaluator(
+        my_evaluator = evaluator.Evaluator(
             program, dataset, command, self.search_space)
-        tuners: list[compiler_opt.Tuner] = [
+        tuners: list[base_tuner.Tuner] = [
             tuner_type(
                 self.search_space,
-                evaluator,
+                my_evaluator,
                 self.default_optimization) for tuner_type in self.tuner_types]
         for tuner in tuners:
             file_name = (f"results/tuning_{self.nonce:02d}_{module}"
@@ -62,7 +66,7 @@ class Experiment():
         if self.parallel is not None:
             self.latch_arrive(module)
             while not self.latch_finished():
-                evaluator.evaluate(self.default_optimization)
+                my_evaluator.evaluate(self.default_optimization)
         return tuners
 
     def run_(self) -> None:
@@ -83,9 +87,9 @@ class Experiment():
             df[module] = [x for tuner in tuners
                           for x in (tuner.default_runtime, tuner.best_runtime)]
             for tuner in tuners:
-                default_flags = compiler_opt.optimization_to_str(
+                default_flags = flag_info.optimization_to_str(
                     tuner.default_optimization, tuner.search_space)
-                best_flags = compiler_opt.optimization_to_str(
+                best_flags = flag_info.optimization_to_str(
                     tuner.best_optimization, tuner.search_space)
                 speedup = tuner.default_runtime / tuner.best_runtime
                 try:

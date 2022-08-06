@@ -20,12 +20,14 @@ class SplitArgsTuner(argparse.Action):
 
 default_modules = ["cbench-telecom-crc32:pcm-0001:"]
 default_tuners = list(tuner_type_dict.values())
+default_search_space = "gcc_opts.txt"
 default_budget = 10
 default_reruns = 1
 
 parser = argparse.ArgumentParser()
 parser.add_argument("modules", default=default_modules, nargs="*")
 parser.add_argument("--tuner", default=default_tuners, action=SplitArgsTuner)
+parser.add_argument("--search_space", default=default_search_space, type=str)
 parser.add_argument("--budget", default=default_budget, type=int)
 parser.add_argument("--rerun", default=default_reruns, type=int)
 parser.add_argument("--parallel", type=int)
@@ -35,5 +37,6 @@ for _ in range(args.rerun):
     compiler_opt.Experiment(
         args.modules,
         args.tuner,
+        compiler_opt.read_gcc_search_space(args.search_space),
         args.budget,
         args.parallel)

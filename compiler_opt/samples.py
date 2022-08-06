@@ -9,19 +9,20 @@ import pandas as pd
 
 from . import Evaluator
 from . import flag_info
-from .typing import Optimization
+from .typing import Optimization, SearchSpace
 
 
 class Samples():
     def __init__(
             self,
             modules: list[str],
+            search_space: SearchSpace,
             samples: int,
             parallel: int = None):
         self.modules = modules
+        self.search_space = search_space
         self.samples = samples
         self.parallel = parallel
-        self.search_space = flag_info.read_gcc_search_space("gcc_opts.txt")
         self.rng = random.Random(42)
         self.optimizations = [self.random_optimization_()
                               for _ in range(self.samples)]
@@ -78,4 +79,4 @@ class Samples():
                  for opt in self.optimizations]
         data = np.array(self.results).transpose()
         df = pd.DataFrame(data=data, index=flags, columns=self.modules)
-        df.to_csv(f"samples/{self.samples}.csv")
+        df.to_csv(f"samples/{self.samples}_{len(self.search_space)}.csv")
