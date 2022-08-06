@@ -17,7 +17,7 @@
  -fmove-loop-invariants
  -fomit-frame-pointer
  -freorder-blocks
- -freorder-blocks-algorithm=,stc,simple
+ -freorder-blocks-algorithm=stc,simple
  -fshrink-wrap
  -fsplit-wide-types
  -fssa-phiopt
@@ -101,5 +101,5 @@
  -falign-jumps
  -falign-functions
  -freorder-blocks-and-partition
- -fvect-cost-model=,unlimited,dynamic,cheap
+ -fvect-cost-model=unlimited,dynamic,cheap
  -floop-parallelize-all

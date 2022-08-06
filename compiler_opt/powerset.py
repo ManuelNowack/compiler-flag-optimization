@@ -5,12 +5,12 @@ from .typing import Optimization, SearchSpace
 
 class PowerSet:
     def __init__(self, search_space: SearchSpace):
+        self.search_space = search_space
         self.binary_flags = []
         self.parametric_flags = []
         for flag_name, domain in search_space.items():
             if flag_name == "stdOptLv":
                 continue
-            assert len(domain) > 1
             if domain == (False, True):
                 self.binary_flags.append(flag_name)
             else:
@@ -31,14 +31,11 @@ class PowerSet:
 
     def optimization_to_subset_(
             self, optimization: Optimization) -> np.ndarray:
-        # TODO: Remove empty configs from input file
-        # assert optimization.keys() == self.search_space.keys()
+        assert optimization.keys() == self.search_space.keys()
         subset = np.zeros(self.num_elements)
         for flag_name, value in optimization.items():
             if flag_name == "stdOptLv":
-                # TODO: Ensure assertion
-                # assert value == 3
-                continue
+                assert value == 3
             elif value is True:
                 index = self.binary_flags.index(flag_name)
                 subset[index] = 1.0

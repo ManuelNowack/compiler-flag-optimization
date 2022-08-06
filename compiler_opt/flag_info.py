@@ -224,8 +224,8 @@ def optimization_to_str(optimization: Optimization,
         if flag_name == "stdOptLv":
             continue
         if search_space[flag_name] != (False, True):
-            if value != "":
-                flags_str += f" {flag_name}={value}"
+            assert type(value) == str and value
+            flags_str += f" {flag_name}={value}"
         else:
             if value:
                 flags_str += f" {flag_name}"

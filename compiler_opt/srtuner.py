@@ -1,6 +1,7 @@
 from SRTuner import SRTunerModule
 
 from . import base_tuner
+from .typing import Optimization, SearchSpace
 
 
 class SRTuner(base_tuner.Tuner):
@@ -13,7 +14,10 @@ class SRTuner(base_tuner.Tuner):
         self.mod = SRTunerModule(convert_search_space(search_space))
 
     def generate_candidates(self, batch_size=1):
-        return self.mod.generate_candidates(batch_size)
+        candidates = self.mod.generate_candidates(batch_size)
+        candidates = [remove_empty_flags(optimization)
+                      for optimization in candidates]
+        return candidates
 
     def evaluate_candidates(self, candidates):
         return [self.evaluator.evaluate(optimization)
@@ -53,10 +57,18 @@ class GCCFlagInfo(FlagInfo):
         self.stdOptLv = stdOptLv
 
 
-def convert_search_space(search_space):
+def convert_search_space(search_space: SearchSpace) -> SearchSpace:
     search_space_new = dict()
     for flag_name, configs in search_space.items():
         isParametric = configs != (False, True)
+        if isParametric and flag_name != "stdOptLv":
+            assert "" not in configs
+            configs = ("",) + configs
         search_space_new[flag_name] = GCCFlagInfo(
             flag_name, configs, isParametric, None)
     return search_space_new
+
+
+def remove_empty_flags(optimization: Optimization) -> Optimization:
+    return {flag_name: value for flag_name, value in optimization.items()
+            if value != ""}
