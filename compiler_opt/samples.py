@@ -7,7 +7,7 @@ import tempfile
 import numpy as np
 import pandas as pd
 
-from . import Evaluator
+from . import evaluator
 from . import flag_info
 from .typing import Optimization, SearchSpace
 
@@ -49,11 +49,12 @@ class Samples():
 
     def sample_thread_(self, module: str) -> list[float]:
         program, dataset, command = module.split(":")
-        evaluator = Evaluator(program, dataset, command, self.search_space)
+        sample_evaluator = evaluator.Evaluator(
+            program, dataset, command, self.search_space)
         run_times = []
         for opt in self.optimizations:
             try:
-                run_times.append(evaluator.evaluate(opt))
+                run_times.append(sample_evaluator.evaluate(opt))
             except Exception as e:
                 run_times.append(0.0)
                 opt_str = flag_info.optimization_to_str(opt, self.search_space)
@@ -61,7 +62,7 @@ class Samples():
         if self.parallel is not None:
             self.latch_arrive(module)
             while not self.latch_finished():
-                evaluator.evaluate(opt)
+                sample_evaluator.evaluate(opt)
         return run_times
 
     def run_(self) -> None:
