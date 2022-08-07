@@ -5,7 +5,6 @@ import tempfile
 import pandas as pd
 
 from . import base_tuner
-from . import evaluator
 from . import flag_info
 from .typing import SearchSpace
 
@@ -17,11 +16,13 @@ class Experiment():
             tuner_types: list[type],
             search_space: SearchSpace,
             budget: int,
+            evaluator_type: type,
             parallel: int = None):
         self.modules = modules
         self.tuner_types = tuner_types
         self.search_space = search_space
         self.budget = budget
+        self.evaluator_type = evaluator_type
         self.parallel = parallel
         self.default_optimization = {"stdOptLv": 3}
         self.nonce_()
@@ -51,12 +52,12 @@ class Experiment():
 
     def tuning_thread_(self, module: str) -> list[base_tuner.Tuner]:
         program, dataset, command = module.split(":")
-        my_evaluator = evaluator.Evaluator(
+        evaluator = self.evaluator_type(
             program, dataset, command, self.search_space)
         tuners: list[base_tuner.Tuner] = [
             tuner_type(
                 self.search_space,
-                my_evaluator,
+                evaluator,
                 self.default_optimization) for tuner_type in self.tuner_types]
         for tuner in tuners:
             file_name = (f"results/tuning_{self.nonce:02d}_{module}"
@@ -66,7 +67,7 @@ class Experiment():
         if self.parallel is not None:
             self.latch_arrive(module)
             while not self.latch_finished():
-                my_evaluator.evaluate(self.default_optimization)
+                evaluator.evaluate(self.default_optimization)
         return tuners
 
     def run_(self) -> None:

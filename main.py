@@ -30,6 +30,7 @@ parser.add_argument("--tuner", default=default_tuners, action=SplitArgsTuner)
 parser.add_argument("--search_space", default=default_search_space, type=str)
 parser.add_argument("--budget", default=default_budget, type=int)
 parser.add_argument("--rerun", default=default_reruns, type=int)
+parser.add_argument("--simulation", action="store_true")
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
@@ -39,4 +40,5 @@ for _ in range(args.rerun):
         args.tuner,
         compiler_opt.read_gcc_search_space(args.search_space),
         args.budget,
+        compiler_opt.Simulator if args.simulation else compiler_opt.Evaluator,
         args.parallel)
