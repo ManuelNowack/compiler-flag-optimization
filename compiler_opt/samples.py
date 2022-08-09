@@ -80,4 +80,4 @@ class Samples():
                  for opt in self.optimizations]
         data = np.array(self.results).transpose()
         df = pd.DataFrame(data=data, index=flags, columns=self.modules)
-        df.to_csv(f"samples/{self.samples}_{len(self.search_space)}.csv")
+        df.to_csv(f"samples/{self.samples}_{len(self.search_space) - 1}.csv")

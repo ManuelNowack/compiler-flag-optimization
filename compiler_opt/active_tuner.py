@@ -43,7 +43,8 @@ class ActiveTuner(base_tuner.Tuner):
             x_train = x[:offline_budget]
             y_train = y[:offline_budget]
         else:
-            x, y = self.load_training_data("samples/10000.csv")
+            samples_path = f"samples/10000_{len(self.search_space) - 1}.csv"
+            x, y = self.load_training_data(samples_path)
             rng = np.random.default_rng()
             train_indices = rng.choice(
                 len(x), size=offline_budget, replace=False)
