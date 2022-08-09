@@ -31,7 +31,9 @@ class PowerSet:
 
     def optimization_to_subset_(
             self, optimization: Optimization) -> np.ndarray:
-        assert optimization.keys() == self.search_space.keys()
+        assert not optimization.keys() - self.search_space.keys()
+        for flag_name in self.search_space.keys() - optimization.keys():
+            assert len(self.search_space[flag_name]) == 1
         subset = np.zeros(self.num_elements)
         for flag_name, value in optimization.items():
             if flag_name == "stdOptLv":
