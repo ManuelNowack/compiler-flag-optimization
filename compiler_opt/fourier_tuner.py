@@ -42,7 +42,8 @@ class FourierTuner(base_tuner.Tuner):
             x_train = x[:budget]
             y_train = y[:budget]
         else:
-            x, y = self.load_training_data("samples/10000.csv")
+            samples_path = f"samples/10000_{len(self.search_space)}.csv"
+            x, y = self.load_training_data(samples_path)
             rng = np.random.default_rng()
             train_indices = rng.choice(len(x), size=budget, replace=False)
             x_train = x[train_indices]

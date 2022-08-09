@@ -43,7 +43,8 @@ class RandomTuner(base_tuner.Tuner):
                     best_runtime = runtime
                     best_optimization = optimization
         else:
-            df = pd.read_csv("samples/10000.csv", index_col=0)
+            samples_path = f"samples/10000_{len(self.search_space)}.csv"
+            df = pd.read_csv(samples_path, index_col=0)
             module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
                       f":{self.evaluator.command}")
             samples = df[module].sample(budget)
