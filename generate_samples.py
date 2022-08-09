@@ -8,7 +8,10 @@ parser.add_argument(
     "modules",
     default=["cbench-network-dijkstra:cdataset-dijkstra-0001:"],
     nargs="*")
-parser.add_argument("--search_space", default="gcc_opts.txt", type=str)
+parser.add_argument(
+    "--search_space",
+    default="gcc_flags/search_space_98.txt",
+    type=str)
 parser.add_argument("--samples", default=10, type=int)
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()

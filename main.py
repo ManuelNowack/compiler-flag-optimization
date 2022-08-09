@@ -20,7 +20,7 @@ class SplitArgsTuner(argparse.Action):
 
 default_modules = ["cbench-telecom-crc32:pcm-0001:"]
 default_tuners = list(tuner_type_dict.values())
-default_search_space = "gcc_opts.txt"
+default_search_space = "gcc_flags/search_space_98.txt"
 default_budget = 10
 default_reruns = 1
 

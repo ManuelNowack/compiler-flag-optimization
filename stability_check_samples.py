@@ -5,14 +5,16 @@ import pandas as pd
 import compiler_opt
 
 
-search_space = compiler_opt.read_gcc_search_space("gcc_opts.txt")
+search_space_path = "gcc_flags/search_space_98.txt"
+search_space = compiler_opt.read_gcc_search_space(search_space_path)
 
-df = pd.read_csv("samples/10000.csv", index_col=0)
+df = pd.read_csv("samples/10000_98.csv", index_col=0)
 num_rows, num_cols = df.shape
 
 rng = random.Random(42)
 
 samples = df.sample(n=5, random_state=42)
+
 
 def f(x: pd.Series):
     program, dataset, command = x.name.split(":")
@@ -24,6 +26,7 @@ def f(x: pd.Series):
         noise = 1.0 - runtime / runtime_rerun
         transformation.append(noise)
     return transformation
+
 
 samples.apply(f)
 for i in range(100):
