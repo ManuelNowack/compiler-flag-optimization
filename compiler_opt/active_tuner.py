@@ -73,9 +73,12 @@ class ActiveTuner(base_tuner.Tuner):
             if file is not None:
                 file.write(f"Minimize duration: {end - start} s\n")
             next_feature = min_feature.astype(x_train.dtype)
-            if np.array_equal(next_feature, x_train[-1]):
-                next_feature = rng.random(self.powerset.num_elements).round()
-                file.write(f"Take random feature\n")
+            for prev_feature in x_train:
+                if np.array_equal(prev_feature, next_feature):
+                    next_feature = rng.random(
+                        self.powerset.num_elements).round()
+                    file.write(f"Take random feature\n")
+                    break
             x_train = np.vstack((x_train, next_feature))
             y_train = np.append(y_train, self.evaluate_subset(next_feature))
         return self.powerset.subset_to_optimization_(x_train[y_train.argmin()])
