@@ -26,8 +26,9 @@ class Samples():
             self.optimizations = [self.random_optimization_()
                                   for _ in range(samples)]
         else:
-            self.optimizations = [flag_info.str_to_optimization(flags_str)
-                                  for flags_str in samples]
+            self.optimizations = [
+                flag_info.str_to_optimization(flags_str, self.search_space)
+                for flags_str in samples]
         self.parallel = parallel
         self.run_()
         self.write_results_()
