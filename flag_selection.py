@@ -11,9 +11,10 @@ for file in glob.glob("results/tuning_24*MonoTuner.txt"):
         r = re.compile(r"([^ ]+) (\d*\.\d+)")
         for line in fh:
             m = r.match(line)
+            assert m
             flags = m.group(1)
             speedup = float(m.group(2))
-            if flags is not None and speedup > 1.01:
+            if speedup > 1.01:
                 impact[flags] += speedup
 impact = sorted(impact.items(), key=operator.itemgetter(1), reverse=True)
 with open("gcc_flags/flags_impact.txt", "w") as fh:
