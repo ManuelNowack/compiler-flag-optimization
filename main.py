@@ -5,7 +5,8 @@ import compiler_opt
 
 tuner_type_dict = {
     "active": compiler_opt.ActiveTuner,
-    "bocs": compiler_opt.BOCSTuner,
+    "bocs-sa": compiler_opt.BOCSSATuner,
+    "bocs-sdp": compiler_opt.BOCSSDPTuner,
     "fourier": compiler_opt.FourierTuner,
     "hadamard": compiler_opt.HadamardTuner,
     "mono": compiler_opt.MonoTuner,

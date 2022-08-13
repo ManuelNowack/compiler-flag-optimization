@@ -1,7 +1,7 @@
 from . import benchmark
 from .active_tuner import ActiveTuner
 from .base_tuner import Tuner
-from .bocs_tuner import BOCSTuner
+from .bocs_tuner import BOCSSATuner, BOCSSDPTuner
 from .evaluator import Evaluator
 from .experiment import Experiment
 from .flag_info import optimization_to_str, read_gcc_search_space, str_to_optimization

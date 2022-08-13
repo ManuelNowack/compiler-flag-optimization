@@ -14,8 +14,14 @@ class BOCSTuner(base_tuner.Tuner):
             self,
             search_space: SearchSpace,
             evaluator: evaluator.Evaluator,
-            default_optimization: Optimization):
-        super().__init__(search_space, evaluator, "BOCSTuner", default_optimization)
+            default_optimization: Optimization,
+            acquisition_function: str):
+        super().__init__(
+            search_space,
+            evaluator,
+            f"BOCS-{acquisition_function}",
+            default_optimization)
+        self.acquisition_function = acquisition_function
         self.powerset = powerset.PowerSet(self.search_space)
 
     def find_best_optimization(
@@ -42,10 +48,34 @@ class BOCSTuner(base_tuner.Tuner):
             (inputs["n_init"], inputs["n_vars"])).round()
         inputs["y_vals"] = inputs["model"](inputs["x_vals"])
 
-        BOCS_SA_model, BOCS_SA_obj = BOCS(inputs.copy(), 2, "SA", file)
-        # BOCS_SDP_model, BOCS_SDP_obj = BOCS(inputs.copy(), 2, "SDP-l1", file)
-
-        best_subset = BOCS_SA_model[BOCS_SA_obj.argmin()]
-        # best_subset = BOCS_SDP_model[BOCS_SDP_obj.argmin()]
+        BOCS_model, BOCS_obj = BOCS(
+            inputs.copy(), 2, self.acquisition_function, file)
+        best_subset = BOCS_model[BOCS_obj.argmin()]
 
         return self.powerset.subset_to_optimization_(best_subset)
+
+
+class BOCSSATuner(BOCSTuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
+        super().__init__(
+            search_space,
+            evaluator,
+            default_optimization,
+            "SA")
+
+
+class BOCSSDPTuner(BOCSTuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
+        super().__init__(
+            search_space,
+            evaluator,
+            default_optimization,
+            "SDP-l1")
