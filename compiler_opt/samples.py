@@ -3,6 +3,7 @@ import os
 import random
 import sys
 import tempfile
+from typing import Union
 
 import numpy as np
 import pandas as pd
@@ -17,24 +18,26 @@ class Samples():
             self,
             modules: list[str],
             search_space: SearchSpace,
-            samples: int,
+            samples: Union[int, list[str]],
             parallel: int = None):
         self.modules = modules
         self.search_space = search_space
-        self.samples = samples
+        if isinstance(samples, int):
+            self.optimizations = [self.random_optimization_()
+                                  for _ in range(samples)]
+        else:
+            self.optimizations = [flag_info.str_to_optimization(flags_str)
+                                  for flags_str in samples]
         self.parallel = parallel
-        self.rng = random.Random(42)
-        self.optimizations = [self.random_optimization_()
-                              for _ in range(self.samples)]
         self.run_()
         self.write_results_()
 
-    def random_optimization_(self) -> Optimization:
+    def random_optimization_(self, rng=random.Random(42)) -> Optimization:
         optimization = {"stdOptLv": 3}
         for flag_name, domain in self.search_space.items():
             if flag_name == "stdOptLv":
                 continue
-            optimization[flag_name] = self.rng.choice(domain)
+            optimization[flag_name] = rng.choice(domain)
         return optimization
 
     def latch_arrive(self, module: str) -> None:
@@ -80,4 +83,4 @@ class Samples():
                  for opt in self.optimizations]
         data = np.array(self.results).transpose()
         df = pd.DataFrame(data=data, index=flags, columns=self.modules)
-        df.to_csv(f"samples/{self.samples}_{len(self.search_space) - 1}.csv")
+        df.to_csv(f"samples/{len(df.index)}_{len(self.search_space) - 1}.csv")
