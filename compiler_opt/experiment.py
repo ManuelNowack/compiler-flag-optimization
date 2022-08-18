@@ -81,6 +81,8 @@ class Experiment():
                             for module in self.modules]
 
     def write_results_(self) -> None:
+        with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
+            fh.write(f"search space size: {len(self.search_space) - 1}\n")
         row_names = [name for tuner in self.results[0]
                      for name in ("Default", tuner.name)]
         df = pd.DataFrame(index=row_names)
