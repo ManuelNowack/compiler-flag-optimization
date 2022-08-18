@@ -32,7 +32,7 @@ class BOCSTuner(base_tuner.Tuner):
         inputs["n_vars"] = self.powerset.num_elements
         inputs["evalBudget"] = budget
         inputs["n_init"] = budget // 5
-        inputs["lambda"] = 1e-4
+        inputs["lambda"] = 0
 
         def objective_function(x):
             def evaluate(subset):
