@@ -36,11 +36,18 @@ parser.add_argument("--simulation", action="store_true")
 parser.add_argument("--parallel", type=int)
 args = parser.parse_args()
 
+if args.simulation:
+    search_space = compiler_opt.fake_gcc_search_space(int(args.search_space))
+    evaluator_type = compiler_opt.Simulator
+else:
+    search_space = compiler_opt.read_gcc_search_space(args.search_space)
+    evaluator_type = compiler_opt.Evaluator
+
 for _ in range(args.rerun):
     compiler_opt.Experiment(
         args.modules,
         args.tuner,
-        compiler_opt.read_gcc_search_space(args.search_space),
+        search_space,
         args.budget,
-        compiler_opt.Simulator if args.simulation else compiler_opt.Evaluator,
+        evaluator_type,
         args.parallel)

@@ -10,6 +10,14 @@ from . import benchmark
 from .typing import Optimization, SearchSpace
 
 
+def fake_gcc_search_space(size: int) -> SearchSpace:
+    """Generates a simulated search space of binary flags."""
+    search_space = {"stdOptLv": (1, 2, 3)}
+    for i in range(size):
+        search_space[str(i)] = (False, True)
+    return search_space
+
+
 def read_gcc_search_space(path: str) -> SearchSpace:
     """Reads the list of gcc optimizations that follow a certain format.
 
