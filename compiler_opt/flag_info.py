@@ -33,7 +33,7 @@ def read_gcc_search_space(path: str) -> SearchSpace:
                         search_space[flag_name] = (False, True)
                     # Parametric flag
                     else:
-                        assert(len(tokens) == 2)
+                        assert (len(tokens) == 2)
                         search_space[flag_name] = tuple(tokens[1].split(","))
     return search_space
 
@@ -224,7 +224,7 @@ def optimization_to_str(optimization: Optimization,
         if flag_name == "stdOptLv":
             continue
         if search_space[flag_name] != (False, True):
-            assert type(value) == str and value
+            assert isinstance(value, str) and value
             flags_str += f" {flag_name}={value}"
         else:
             if value:
@@ -233,6 +233,7 @@ def optimization_to_str(optimization: Optimization,
                 negated_flag_name = flag_name.replace("-f", "-fno-", 1)
                 flags_str += f" {negated_flag_name}"
     return flags_str
+
 
 def str_to_optimization(flags_str: str, search_space: SearchSpace) -> str:
     flags = [flag for flag in flags_str.split(" ") if flag != ""]
