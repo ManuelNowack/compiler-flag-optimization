@@ -52,8 +52,6 @@ class ActiveTuner(base_tuner.Tuner):
             y_train = y[train_indices]
             assert np.all(y_train)
 
-        self.train_runtime = y_train.min()
-
         for i in range(offline_budget, budget):
             start = time.perf_counter()
             est = ssftapprox.LowDegreeEstimator(
