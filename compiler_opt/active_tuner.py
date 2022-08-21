@@ -35,7 +35,7 @@ class ActiveTuner(base_tuner.Tuner):
         optimization = flag_info.str_to_optimization(flags, self.search_space)
         return self.powerset.optimization_to_subset_(optimization)
 
-    def evaluate_subset(self, subset):
+    def evaluate_subset_(self, subset):
         return self.evaluator.evaluate(
             self.powerset.subset_to_optimization_(subset))
 
@@ -70,26 +70,26 @@ class ActiveTuner(base_tuner.Tuner):
             self,
             budget: int,
             file: TextIO = None) -> Optimization:
-        offline_budget = budget // 5
+        initial_budget = budget // 5
         if isinstance(self.evaluator, simulator.Simulator):
             rng = np.random.default_rng(42)
             x = rng.random((10000, self.powerset.num_elements)).round()
-            y = np.apply_along_axis(self.evaluate_subset, axis=1, arr=x)
-            x_train = x[:offline_budget]
-            y_train = y[:offline_budget]
+            y = np.apply_along_axis(self.evaluate_subset_, axis=1, arr=x)
+            x_train = x[:initial_budget]
+            y_train = y[:initial_budget]
         else:
             samples_path = f"samples/10000_{len(self.search_space) - 1}.csv"
-            x, y = self.load_training_data(samples_path)
+            x, y = self.load_training_data_(samples_path)
             rng = np.random.default_rng()
             train_indices = rng.choice(
-                len(x), size=offline_budget, replace=False)
+                len(x), size=initial_budget, replace=False)
             x_train = x[train_indices]
             y_train = y[train_indices]
             assert np.all(y_train)
 
         if file is not None:
             file.write(f"Alpha: {self.estimator.enet_alpha}\n")
-        for i in range(offline_budget, budget):
+        for i in range(initial_budget, budget):
             if file is not None:
                 file.write("\n")
                 file.write(f"Query {i + 1}\n")
@@ -103,10 +103,10 @@ class ActiveTuner(base_tuner.Tuner):
                         file.write(f"Take random feature\n")
                     break
             x_train = np.vstack((x_train, next_feature))
-            y_train = np.append(y_train, self.evaluate_subset(next_feature))
+            y_train = np.append(y_train, self.evaluate_subset_(next_feature))
         return self.powerset.subset_to_optimization_(x_train[y_train.argmin()])
 
-    def load_training_data(self, path: str) -> tuple[np.ndarray, np.ndarray]:
+    def load_training_data_(self, path: str) -> tuple[np.ndarray, np.ndarray]:
         df = pd.read_csv(path, index_col=0)
         x = np.array([self.str_to_subset_(flags) for flags in df.index])
         module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
