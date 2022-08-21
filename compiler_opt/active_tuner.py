@@ -1,5 +1,5 @@
 import time
-from typing import TextIO
+from typing import TextIO, Union
 
 import numpy as np
 import pandas as pd
@@ -15,12 +15,20 @@ from .typing import Optimization, SearchSpace
 
 
 class ActiveTuner(base_tuner.Tuner):
-    def __init__(
-            self,
-            search_space: SearchSpace,
-            evaluator: evaluator.Evaluator,
-            default_optimization: Optimization):
-        super().__init__(search_space, evaluator, "ActiveTuner", default_optimization)
+    def __init__(self,
+                 search_space: SearchSpace,
+                 evaluator: evaluator.Evaluator,
+                 default_optimization: Optimization,
+                 estimator: Union[ssftapprox.ElasticNetEstimator,
+                                  ssftapprox.LowDegreeEstimator]):
+        if isinstance(estimator, ssftapprox.ElasticNetEstimator):
+            name = "ActiveFourier"
+        elif isinstance(estimator, ssftapprox.LowDegreeEstimator):
+            name = "ActiveLowDegree"
+        else:
+            ValueError("Unsupported estimator")
+        super().__init__(search_space, evaluator, name, default_optimization)
+        self.estimator = estimator
         self.powerset = powerset.PowerSet(self.search_space)
 
     def str_to_subset_(self, flags: str) -> np.ndarray:
@@ -52,21 +60,23 @@ class ActiveTuner(base_tuner.Tuner):
             y_train = y[train_indices]
             assert np.all(y_train)
 
+        if file is not None:
+            file.write(f"Alpha: {self.estimator.enet_alpha}\n")
         for i in range(offline_budget, budget):
             start = time.perf_counter()
-            est = ssftapprox.LowDegreeEstimator(
-                enet_alpha=1e-5, n_threads=1, standardize=True)
-            est.fit(x_train, y_train)
+            self.estimator.fit(x_train, y_train)
             end = time.perf_counter()
             if file is not None:
                 file.write("\n")
                 file.write(f"Query {i + 1}\n")
-                file.write(f"Num coefs: {len(est.est.coefs)}\n")
+                file.write(f"Num coefs: {len(self.estimator.est.coefs)}\n")
                 file.write(f"Fit duration: {end - start} s\n")
-                file.write(f"Train score: {est.score(x_train, y_train)}\n")
-                file.write(f"Validate score: {est.score(x, y)}\n")
+                file.write(
+                    f"Train score: {self.estimator.score(x_train, y_train)}\n")
+                file.write(f"Validate score: {self.estimator.score(x, y)}\n")
             start = time.perf_counter()
-            min_feature, _ = ssftapprox.minimization.minimize_wht(est.est)
+            min_feature, _ = ssftapprox.minimization.minimize_wht(
+                self.estimator.est)
             end = time.perf_counter()
             if file is not None:
                 file.write(f"Minimize duration: {end - start} s\n")
@@ -88,3 +98,35 @@ class ActiveTuner(base_tuner.Tuner):
                   f":{self.evaluator.command}")
         y = df[module].to_numpy()
         return x, y
+
+
+class ActiveFourierTuner(ActiveTuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
+        super().__init__(
+            search_space,
+            evaluator,
+            default_optimization,
+            ssftapprox.LowDegreeEstimator(
+                enet_alpha=1e-5,
+                n_threads=1,
+                standardize=True))
+
+
+class ActiveLowDegreeTuner(ActiveTuner):
+    def __init__(
+            self,
+            search_space: SearchSpace,
+            evaluator: evaluator.Evaluator,
+            default_optimization: Optimization):
+        super().__init__(
+            search_space,
+            evaluator,
+            default_optimization,
+            ssftapprox.ElasticNetEstimator(
+                enet_alpha=1e-5,
+                n_threads=1,
+                standardize=True))
