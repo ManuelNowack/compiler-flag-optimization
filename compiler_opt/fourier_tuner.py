@@ -157,7 +157,7 @@ class ActiveLowDegreeTuner(FourierTunerBase):
             evaluator,
             default_optimization,
             ssftapprox.LowDegreeEstimator(
-                enet_alpha=1e-5,
+                enet_alpha=1e-2,
                 n_threads=1,
                 standardize=True),
             0.2)
@@ -190,6 +190,6 @@ class LowDegreeTuner(FourierTunerBase):
             evaluator,
             default_optimization,
             ssftapprox.LowDegreeEstimator(
-                enet_alpha=1e-5,
+                enet_alpha=1e-2,
                 n_threads=1,
                 standardize=True))
