@@ -6,6 +6,7 @@ import pandas as pd
 
 from . import base_tuner
 from . import flag_info
+from . import simulator
 from .typing import SearchSpace
 
 
@@ -84,12 +85,25 @@ class Experiment():
         with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
             fh.write(f"search space size: {len(self.search_space) - 1}\n")
             fh.write(f"budget: {self.budget}\n")
-        row_names = [name for tuner in self.results[0]
-                     for name in ("Default", tuner.name)]
+        if issubclass(self.evaluator_type, simulator.Simulator):
+            row_names = [name for tuner in self.results[0]
+                         for name in ("Default", tuner.name, "Optimal")]
+        else:
+            row_names = [name for tuner in self.results[0]
+                         for name in ("Default", tuner.name)]
         df = pd.DataFrame(index=row_names)
         for module, tuners in zip(self.modules, self.results):
-            df[module] = [x for tuner in tuners
-                          for x in (tuner.default_runtime, tuner.best_runtime)]
+            if issubclass(self.evaluator_type, simulator.Simulator):
+                df[module] = [
+                    runtime for tuner in tuners for runtime in (
+                        tuner.default_runtime,
+                        tuner.best_runtime,
+                        tuner.evaluator.min())]
+            else:
+                df[module] = [
+                    runtime for tuner in tuners for runtime in (
+                        tuner.default_runtime,
+                        tuner.best_runtime)]
             for tuner in tuners:
                 default_flags = flag_info.optimization_to_str(
                     tuner.default_optimization, tuner.search_space)
@@ -100,9 +114,9 @@ class Experiment():
                     speedup_train = tuner.default_runtime / tuner.train_runtime
                 except AttributeError:
                     speedup_train = None
-                try:
+                if issubclass(self.evaluator_type, simulator.Simulator):
                     speedup_optimal = tuner.default_runtime / tuner.evaluator.min()
-                except AttributeError:
+                else:
                     speedup_optimal = None
                 with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
                     fh.write("\n")
