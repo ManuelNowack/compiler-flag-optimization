@@ -23,11 +23,6 @@ def BOCS(inputs, order, acquisitionFn, file=None):
 	# 		   order (int): statistical model order
 	# 		   aquisitionFn: 'SA' or 'SDP'
 
-	if file is not None:
-		file.write(f"Acquisition function: {acquisitionFn}\n")
-		file.write(f"Number of variables: {inputs['n_vars']}\n")
-		file.write(f"Budget: {inputs['evalBudget']}\n")
-
 	# Set the number of SA reruns
 	SA_reruns = 5
 
