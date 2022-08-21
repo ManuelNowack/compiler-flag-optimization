@@ -27,6 +27,39 @@ class FourierTuner(base_tuner.Tuner):
         optimization = flag_info.str_to_optimization(flags, self.search_space)
         return self.powerset.optimization_to_subset_(optimization)
 
+    def evaluate_subset_(self, subset):
+        return self.evaluator.evaluate(
+            self.powerset.subset_to_optimization_(subset))
+
+    def fit_and_minimize_(
+            self,
+            x: np.ndarray,
+            y: np.ndarray,
+            file: TextIO = None) -> np.ndarray:
+        estimator = ssftapprox.ElasticNetEstimator(
+            enet_alpha=1e-5, n_threads=1, standardize=True)
+        start = time.perf_counter()
+        estimator.fit(x, y)
+        end = time.perf_counter()
+        if file is not None:
+            file.write(f"Num coefs: {len(estimator.est.coefs)}\n")
+            file.write(f"Fit duration: {end - start} s\n")
+            file.write(f"Train score: {estimator.score(x, y)}\n")
+            file.write(f"Validate score: {estimator.score(x, y)}\n")
+
+        if isinstance(estimator.est, ssftapprox.SparseDSFT3Function):
+            minimize_function = ssftapprox.minimization.minimize_dsft3
+        elif isinstance(estimator.est, ssftapprox.SparseWHTFunction):
+            minimize_function = ssftapprox.minimization.minimize_wht
+        else:
+            raise ValueError("Unsupported estimator")
+        start = time.perf_counter()
+        min_feature, _ = minimize_function(estimator.est)
+        end = time.perf_counter()
+        if file is not None:
+            file.write(f"Minimize duration: {end - start} s\n")
+        return min_feature
+
     def find_best_optimization(
             self,
             budget: int,
@@ -34,16 +67,12 @@ class FourierTuner(base_tuner.Tuner):
         if isinstance(self.evaluator, simulator.Simulator):
             rng = np.random.default_rng(42)
             x = rng.random((10000, self.powerset.num_elements)).round()
-
-            def evaluate(subset):
-                return self.evaluator.evaluate(
-                    self.powerset.subset_to_optimization_(subset))
-            y = np.apply_along_axis(evaluate, axis=1, arr=x)
+            y = np.apply_along_axis(self.evaluate_subset_, axis=1, arr=x)
             x_train = x[:budget]
             y_train = y[:budget]
         else:
             samples_path = f"samples/10000_{len(self.search_space) - 1}.csv"
-            x, y = self.load_training_data(samples_path)
+            x, y = self.load_training_data_(samples_path)
             rng = np.random.default_rng()
             train_indices = rng.choice(len(x), size=budget, replace=False)
             x_train = x[train_indices]
@@ -51,27 +80,10 @@ class FourierTuner(base_tuner.Tuner):
             assert np.all(y_train)
 
         self.train_runtime = y_train.min()
+        min_feature = self.fit_and_minimize_(x_train, y_train, file)
+        return self.powerset.subset_to_optimization_(min_feature)
 
-        start = time.perf_counter()
-        est = ssftapprox.ElasticNetEstimator(
-            enet_alpha=1e-5, n_threads=1, standardize=True)
-        if file is not None:
-            file.write(f"Alpha: {est.enet_alpha}\n")
-        est.fit(x_train, y_train)
-        end = time.perf_counter()
-        if file is not None:
-            file.write(f"Num coefs: {len(est.est.coefs)}\n")
-            file.write(f"Fit duration: {end - start} s\n")
-            file.write(f"Train score: {est.score(x_train, y_train)}\n")
-            file.write(f"Validate score: {est.score(x, y)}\n")
-        start = time.perf_counter()
-        argmin, minval = ssftapprox.minimization.minimize_dsft3(est.est)
-        end = time.perf_counter()
-        if file is not None:
-            file.write(f"Minimize duration: {end - start} s\n")
-        return self.powerset.subset_to_optimization_(argmin)
-
-    def load_training_data(self, path: str) -> tuple[np.ndarray, np.ndarray]:
+    def load_training_data_(self, path: str) -> tuple[np.ndarray, np.ndarray]:
         df = pd.read_csv(path, index_col=0)
         x = np.array([self.str_to_subset_(flags) for flags in df.index])
         module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
