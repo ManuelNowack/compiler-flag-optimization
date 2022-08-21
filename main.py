@@ -5,10 +5,11 @@ import compiler_opt
 
 tuner_type_dict = {
     "active-fourier": compiler_opt.ActiveFourierTuner,
-    "active-low-degree": compiler_opt.ActiveLowDegreeTuner,
+    "active-fourier-low-degree": compiler_opt.ActiveLowDegreeTuner,
     "bocs-sa": compiler_opt.BOCSSATuner,
     "bocs-sdp": compiler_opt.BOCSSDPTuner,
     "fourier": compiler_opt.FourierTuner,
+    "fourier-low-degree": compiler_opt.LowDegreeTuner,
     "hadamard": compiler_opt.HadamardTuner,
     "mono": compiler_opt.MonoTuner,
     "random": compiler_opt.RandomTuner,
