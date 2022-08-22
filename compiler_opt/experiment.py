@@ -133,4 +133,4 @@ class Experiment():
                     fh.write(f"default flags: {default_flags}\n")
                     fh.write(f"best flags: {best_flags}\n")
                 df[module] = runtimes
-        df.to_csv(f"results/{self.base_path_}.csv")
+        df.to_csv(f"{self.base_path_}.csv")
