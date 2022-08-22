@@ -57,9 +57,9 @@ class FourierTunerBase(base_tuner.Tuner):
             file.write(f"Num coefs: {len(self.estimator.est.coefs)}\n")
             file.write(f"Fit duration: {end - start} s\n")
             train_score = self.estimator.score(x_train, y_train)
-            validate_score = self.estimator.score(x_validate, y_validate)
+            self.validate_score = self.estimator.score(x_validate, y_validate)
             file.write(f"Train score: {train_score}\n")
-            file.write(f"Validate score: {validate_score}\n")
+            file.write(f"Validate score: {self.validate_score}\n")
 
         if isinstance(self.estimator.est, ssftapprox.SparseDSFT3Function):
             minimize_function = ssftapprox.minimization.minimize_dsft3

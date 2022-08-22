@@ -134,3 +134,10 @@ class Experiment():
                     fh.write(f"best flags: {best_flags}\n")
                 df[module] = runtimes
         df.to_csv(f"{self.base_path_}.csv")
+        # Validate scores
+        row_names = [tuner.name for tuner in self.results[0]
+                     if hasattr(tuner, "validate_score")]
+        df = pd.DataFrame(index=row_names)
+        for module, tuners in zip(self.modules, self.results):
+            df[module] = [tuner.validate_score for tuner in tuners]
+        df.to_csv(f"{self.base_path_}_validate_score.csv")
