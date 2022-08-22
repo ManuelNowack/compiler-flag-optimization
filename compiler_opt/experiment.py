@@ -27,8 +27,8 @@ class Experiment():
         self.default_optimization = {"stdOptLv": 3}
         for i in range(100):
             try:
-                file_name = (f"results/tuning_n={len(self.search_space) - 1}_"
-                             f"budget={self.budget}_{i:02d}")
+                file_name = (f"results/n_{len(self.search_space) - 1}_"
+                             f"budget_{self.budget}_{i:02d}")
                 with open(file_name, "x"):
                     self.base_path_ = file_name
                     break
