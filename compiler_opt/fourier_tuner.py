@@ -140,7 +140,7 @@ class ActiveFourierTuner(FourierTunerBase):
             evaluator,
             default_optimization,
             ssftapprox.ElasticNetEstimator(
-                enet_alpha=1e-5,
+                enet_alpha=1e-2,
                 n_threads=1,
                 standardize=True),
             0.2)
@@ -174,7 +174,7 @@ class FourierTuner(FourierTunerBase):
             evaluator,
             default_optimization,
             ssftapprox.ElasticNetEstimator(
-                enet_alpha=1e-5,
+                enet_alpha=1e-2,
                 n_threads=1,
                 standardize=True))
 
