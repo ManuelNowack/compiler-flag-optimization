@@ -26,20 +26,19 @@ class Experiment():
         self.evaluator_type = evaluator_type
         self.parallel = parallel
         self.default_optimization = {"stdOptLv": 3}
-        self.nonce_()
-        self.run_()
-        self.write_results_()
-
-    def nonce_(self) -> None:
         for i in range(100):
             try:
-                with open(f"results/tuning_{i:02d}.txt", "x"):
-                    self.nonce = i
+                file_name = (f"results/tuning_n={len(self.search_space) - 1}_"
+                             f"budget={self.budget}_{i:02d}")
+                with open(file_name, "x"):
+                    self.base_path_ = file_name
                     break
             except Exception:
                 pass
         else:
             raise ValueError("No nonce available")
+        self.run_()
+        self.write_results_()
 
     def latch_arrive(self, module: str) -> None:
         with open(os.path.join(self.sync_dir, module), "x"):
@@ -61,8 +60,7 @@ class Experiment():
                 evaluator,
                 self.default_optimization) for tuner_type in self.tuner_types]
         for tuner in tuners:
-            file_name = (f"results/tuning_{self.nonce:02d}_{module}"
-                         f"_{tuner.name}.txt")
+            file_name = (f"{self.base_path_}_{module}_{tuner.name}.txt")
             with open(file_name, "x", buffering=1) as fh:
                 tuner.tune(self.budget, file=fh)
         if self.parallel is not None:
@@ -82,43 +80,42 @@ class Experiment():
                             for module in self.modules]
 
     def write_results_(self) -> None:
-        with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
+        with open(f"{self.base_path_}.txt", "x") as fh:
             fh.write(f"search space size: {len(self.search_space) - 1}\n")
             fh.write(f"budget: {self.budget}\n")
-        if issubclass(self.evaluator_type, simulator.Simulator):
-            row_names = [name for tuner in self.results[0]
-                         for name in ("Default", tuner.name, "Optimal")]
-        else:
-            row_names = [name for tuner in self.results[0]
-                         for name in ("Default", tuner.name)]
-        df = pd.DataFrame(index=row_names)
-        for module, tuners in zip(self.modules, self.results):
             if issubclass(self.evaluator_type, simulator.Simulator):
-                df[module] = [
-                    runtime for tuner in tuners for runtime in (
-                        tuner.default_runtime,
-                        tuner.best_runtime,
-                        tuner.evaluator.min())]
+                row_names = [name for tuner in self.results[0]
+                             for name in ("Default", tuner.name, "Optimal")]
             else:
-                df[module] = [
-                    runtime for tuner in tuners for runtime in (
-                        tuner.default_runtime,
-                        tuner.best_runtime)]
-            for tuner in tuners:
-                default_flags = flag_info.optimization_to_str(
-                    tuner.default_optimization, tuner.search_space)
-                best_flags = flag_info.optimization_to_str(
-                    tuner.best_optimization, tuner.search_space)
-                speedup = tuner.default_runtime / tuner.best_runtime
-                try:
-                    speedup_train = tuner.default_runtime / tuner.train_runtime
-                except AttributeError:
-                    speedup_train = None
+                row_names = [name for tuner in self.results[0]
+                             for name in ("Default", tuner.name)]
+            df = pd.DataFrame(index=row_names)
+            for module, tuners in zip(self.modules, self.results):
                 if issubclass(self.evaluator_type, simulator.Simulator):
-                    speedup_optimal = tuner.default_runtime / tuner.evaluator.min()
+                    df[module] = [
+                        runtime for tuner in tuners for runtime in (
+                            tuner.default_runtime,
+                            tuner.best_runtime,
+                            tuner.evaluator.min())]
                 else:
-                    speedup_optimal = None
-                with open(f"results/tuning_{self.nonce:02d}.txt", "a") as fh:
+                    df[module] = [
+                        runtime for tuner in tuners for runtime in (
+                            tuner.default_runtime,
+                            tuner.best_runtime)]
+                for tuner in tuners:
+                    default_flags = flag_info.optimization_to_str(
+                        tuner.default_optimization, tuner.search_space)
+                    best_flags = flag_info.optimization_to_str(
+                        tuner.best_optimization, tuner.search_space)
+                    speedup = tuner.default_runtime / tuner.best_runtime
+                    try:
+                        speedup_train = tuner.default_runtime / tuner.train_runtime
+                    except AttributeError:
+                        speedup_train = None
+                    if issubclass(self.evaluator_type, simulator.Simulator):
+                        speedup_optimal = tuner.default_runtime / tuner.evaluator.min()
+                    else:
+                        speedup_optimal = None
                     fh.write("\n")
                     fh.write(f"{module} with {tuner.name}\n")
                     fh.write(f"speedup: {speedup:.3f}\n")
@@ -130,4 +127,4 @@ class Experiment():
                     fh.write(f"best runtime: {tuner.best_runtime:.3e}\n")
                     fh.write(f"default flags: {default_flags}\n")
                     fh.write(f"best flags: {best_flags}\n")
-        df.to_csv(f"results/tuning_{self.nonce:02d}.csv")
+        df.to_csv(f"results/{self.base_path_}.csv")
