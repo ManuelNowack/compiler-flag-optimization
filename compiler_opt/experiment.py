@@ -139,5 +139,6 @@ class Experiment():
                      if hasattr(tuner, "validate_score")]
         df = pd.DataFrame(index=row_names)
         for module, tuners in zip(self.modules, self.results):
-            df[module] = [tuner.validate_score for tuner in tuners]
+            df[module] = [tuner.validate_score for tuner in tuners
+                          if hasattr(tuner, "validate_score")]
         df.to_csv(f"{self.base_path_}_validate_score.csv")
