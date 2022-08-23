@@ -85,17 +85,11 @@ class Experiment():
             row_names = []
             for tuner in self.results[0]:
                 row_names.append("Default")
-                try:
-                    tuner.train_runtime
+                if hasattr(tuner, "train_runtime"):
                     row_names.append("Train")
-                except AttributeError:
-                    pass
                 row_names.append(tuner.name)
-                try:
-                    tuner.evaluator.min()
+                if hasattr(tuner.evaluator, "min"):
                     row_names.append("Optimal")
-                except AttributeError:
-                    pass
             df = pd.DataFrame(index=row_names)
             for module, tuners in zip(self.modules, self.results):
                 runtimes = []
@@ -105,24 +99,20 @@ class Experiment():
                     # Baseline runtime
                     runtimes.append(tuner.default_runtime)
                     # Best runtime encountered in training data
-                    try:
+                    if hasattr(tuner, "train_runtime"):
                         runtimes.append(tuner.train_runtime)
                         speedup_train = tuner.default_runtime / tuner.train_runtime
                         fh.write(f"speedup train: {speedup_train:.3f}\n")
-                    except AttributeError:
-                        pass
                     # Best runtime learned by tuner
                     runtimes.append(tuner.best_runtime)
                     speedup = tuner.default_runtime / tuner.best_runtime
                     fh.write(f"speedup: {speedup:.3f}\n")
                     # Optimal runtime
-                    try:
+                    if hasattr(tuner.evaluator, "min"):
                         min_runtime = tuner.evaluator.min()
                         runtimes.append(min_runtime)
                         speedup_optimal = tuner.default_runtime / min_runtime
                         fh.write(f"speedup optimal: {speedup_optimal:.3f}\n")
-                    except AttributeError:
-                        pass
 
                     fh.write(f"default runtime: {tuner.default_runtime:.3e}\n")
                     fh.write(f"best runtime: {tuner.best_runtime:.3e}\n")
