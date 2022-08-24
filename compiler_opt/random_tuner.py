@@ -47,7 +47,10 @@ class RandomTuner(base_tuner.Tuner):
             df = pd.read_csv(samples_path, index_col=0)
             module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
                       f":{self.evaluator.command}")
-            samples = df[module].sample(budget)
+            # The filename is of the form "results/n_???_budget_????_??_*"
+            # where the last two question marks store the current repetition
+            begin = (int(file.name[26:28]) * budget) % len(df[module])
+            samples = df[module][begin:begin + budget]
             if file is not None:
                 samples.cummin().to_string(file, index=False)
             best_flags = samples.idxmin()
