@@ -67,8 +67,8 @@ class Simulator():
         runtime = self.evaluate_in_feature_space_(feature)
         # Abuse the num_repeats parameter as a request for accurate
         # measurements
-        if num_repeats == 1:
-            runtime += self.rng.gauss(0.0, 0.005)
+        #if num_repeats == 1:
+        #    runtime += self.rng.gauss(0.0, 0.005)
         return runtime
 
     def evaluate_in_feature_space_(self, otpimization: int) -> float:
