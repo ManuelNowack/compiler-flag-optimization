@@ -86,14 +86,13 @@ class FourierTunerBase(base_tuner.Tuner):
             x_train = x[:initial_budget]
             y_train = y[:initial_budget]
         else:
-            samples_path = f"samples/10000_{len(self.search_space) - 1}.csv"
-            x, y = self.load_training_data_(samples_path)
-            rng = np.random.default_rng()
-            train_indices = rng.choice(
-                len(x), size=initial_budget, replace=False)
-            x_train = x[train_indices]
-            y_train = y[train_indices]
-            assert np.all(y_train)
+            x, y = self.load_training_data_()
+            # The filename is of the form "results/n_???_budget_????_??_*"
+            # where the last two question marks store the current repetition
+            begin = (int(file.name[26:28]) * budget) % len(x)
+            x_train = x[begin:begin + budget]
+            y_train = y[begin:begin + budget]
+
 
         if file is not None:
             file.write(f"Alpha: {self.estimator.enet_alpha}\n")
@@ -120,12 +119,14 @@ class FourierTunerBase(base_tuner.Tuner):
             y_train = np.append(y_train, self.evaluate_subset_(next_feature))
         return self.powerset.subset_to_optimization_(x_train[y_train.argmin()])
 
-    def load_training_data_(self, path: str) -> tuple[np.ndarray, np.ndarray]:
-        df = pd.read_csv(path, index_col=0)
+    def load_training_data_(self) -> tuple[np.ndarray, np.ndarray]:
+        samples_path = f"samples/10000_{len(self.search_space) - 1}.csv"
+        df = pd.read_csv(samples_path, index_col=0)
         x = np.array([self.str_to_subset_(flags) for flags in df.index])
         module = (f"{self.evaluator.program}:{self.evaluator.dataset}"
                   f":{self.evaluator.command}")
         y = df[module].to_numpy()
+        assert np.all(y)
         return x, y
 
 
