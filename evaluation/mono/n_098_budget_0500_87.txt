@@ -1,0 +1,415 @@
+search space size: 98
+budget: 500
+
+cbench-automotive-bitcount:number-0001: with MonoTuner
+speedup: 1.237
+default runtime: 6.711e-02
+best runtime: 5.427e-02
+default flags: -O3
+best flags: -O3 -fno-crossjumping -fno-tree-loop-vectorize -fschedule-insns -fno-tree-vrp -fvect-cost-model=cheap
+
+cbench-automotive-qsort1:cdataset-qsort-0001: with MonoTuner
+speedup: 1.035
+default runtime: 1.949e-02
+best runtime: 1.883e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-move-loop-invariants -fno-align-jumps -fno-forward-propagate -fno-devirtualize
+
+cbench-automotive-qsort1:cdataset-qsort-0005: with MonoTuner
+speedup: 1.039
+default runtime: 1.223e-02
+best runtime: 1.176e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fschedule-insns -fno-forward-propagate -fno-tree-partial-pre -fvect-cost-model=dynamic
+
+cbench-automotive-qsort1:cdataset-qsort-0009: with MonoTuner
+speedup: 1.038
+default runtime: 1.757e-02
+best runtime: 1.693e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -freorder-blocks-algorithm=stc -fno-ipa-icf -fno-schedule-insns2 -fno-tree-sra
+
+cbench-automotive-qsort1:cdataset-qsort-0013: with MonoTuner
+speedup: 1.032
+default runtime: 1.465e-02
+best runtime: 1.420e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-optimize-strlen -fstrict-aliasing -fno-lra-remat
+
+cbench-automotive-qsort1:cdataset-qsort-0017: with MonoTuner
+speedup: 1.035
+default runtime: 1.410e-02
+best runtime: 1.362e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-defer-pop -fno-merge-constants -fno-align-functions -fno-cprop-registers
+
+cbench-automotive-qsort1:cdataset-qsort-0020: with MonoTuner
+speedup: 1.041
+default runtime: 2.220e-02
+best runtime: 2.133e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-tree-copy-prop -fno-combine-stack-adjustments -fno-split-paths -fno-schedule-insns2
+
+cbench-automotive-susan:image-pgm-0001:corners with MonoTuner
+speedup: 1.000
+default runtime: 6.429e-03
+best runtime: 6.426e-03
+default flags: -O3
+best flags: -O3 -fno-ipa-cp-clone
+
+cbench-automotive-susan:image-pgm-0005:corners with MonoTuner
+speedup: 0.998
+default runtime: 1.409e-02
+best runtime: 1.411e-02
+default flags: -O3
+best flags: -O3 -fno-ipa-icf-variables -fno-ipa-bit-cp
+
+cbench-automotive-susan:image-pgm-0009:corners with MonoTuner
+speedup: 1.001
+default runtime: 2.872e-02
+best runtime: 2.869e-02
+default flags: -O3
+best flags: -O3 -fno-peel-loops -fno-ipa-bit-cp -fno-combine-stack-adjustments -fstrict-overflow -fno-toplevel-reorder
+
+cbench-automotive-susan:image-pgm-0013:corners with MonoTuner
+speedup: 1.002
+default runtime: 2.031e-03
+best runtime: 2.027e-03
+default flags: -O3
+best flags: -O3 -fno-strict-aliasing -fvect-cost-model=dynamic -fno-shrink-wrap -fno-ipa-cp-clone
+
+cbench-automotive-susan:image-pgm-0017:corners with MonoTuner
+speedup: 1.000
+default runtime: 6.527e-03
+best runtime: 6.524e-03
+default flags: -O3
+best flags: -O3 -fno-combine-stack-adjustments -fcompare-elim -fno-optimize-strlen -fno-split-loops
+
+cbench-automotive-susan:image-pgm-0020:corners with MonoTuner
+speedup: 1.006
+default runtime: 9.907e-03
+best runtime: 9.853e-03
+default flags: -O3
+best flags: -O3 -fno-branch-count-reg -fno-partial-inlining -fno-code-hoisting -fno-merge-constants -fno-omit-frame-pointer
+
+cbench-automotive-susan:image-pgm-0001:edges with MonoTuner
+speedup: 1.080
+default runtime: 1.666e-02
+best runtime: 1.542e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fschedule-insns -freorder-blocks-algorithm=simple -fno-gcse-after-reload -fno-shrink-wrap
+
+cbench-automotive-susan:image-pgm-0005:edges with MonoTuner
+speedup: 1.110
+default runtime: 3.021e-02
+best runtime: 2.721e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fschedule-insns -freorder-blocks-algorithm=simple -fno-tree-coalesce-vars -fno-optimize-sibling-calls
+
+cbench-automotive-susan:image-pgm-0009:edges with MonoTuner
+speedup: 1.075
+default runtime: 8.785e-02
+best runtime: 8.171e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fschedule-insns -fno-tree-pta -freorder-blocks-algorithm=simple -fno-inline-functions-called-once
+
+cbench-automotive-susan:image-pgm-0013:edges with MonoTuner
+speedup: 1.077
+default runtime: 9.062e-03
+best runtime: 8.414e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-move-loop-invariants -fno-reorder-functions -fipa-icf-functions
+
+cbench-automotive-susan:image-pgm-0017:edges with MonoTuner
+speedup: 1.075
+default runtime: 1.940e-02
+best runtime: 1.805e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -freorder-blocks-algorithm=simple -fno-move-loop-invariants -fno-ipa-reference -fno-store-merging
+
+cbench-automotive-susan:image-pgm-0020:edges with MonoTuner
+speedup: 1.072
+default runtime: 2.848e-02
+best runtime: 2.657e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -freorder-blocks-algorithm=simple -fno-move-loop-invariants -fno-defer-pop -fno-tree-loop-distribute-patterns
+
+cbench-automotive-susan:image-pgm-0001:smoothing with MonoTuner
+speedup: 1.065
+default runtime: 8.443e-02
+best runtime: 7.926e-02
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fstrict-overflow -fno-ipa-ra -fno-ipa-bit-cp -fno-reorder-blocks
+
+cbench-automotive-susan:image-pgm-0005:smoothing with MonoTuner
+speedup: 1.071
+default runtime: 2.235e-01
+best runtime: 2.087e-01
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-peephole2 -fno-partial-inlining -fno-inline-functions-called-once -fno-align-labels
+
+cbench-automotive-susan:image-pgm-0009:smoothing with MonoTuner
+speedup: 1.071
+default runtime: 4.334e-01
+best runtime: 4.048e-01
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-ipa-pure-const -fno-tree-loop-distribute-patterns -fstrict-overflow -fno-merge-constants
+
+cbench-automotive-susan:image-pgm-0013:smoothing with MonoTuner
+speedup: 1.079
+default runtime: 1.626e-02
+best runtime: 1.507e-02
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-ipa-pure-const -fno-align-functions -fno-tree-pta -fno-reorder-blocks-and-partition
+
+cbench-automotive-susan:image-pgm-0017:smoothing with MonoTuner
+speedup: 1.080
+default runtime: 7.188e-02
+best runtime: 6.656e-02
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-ipa-reference -fvect-cost-model=dynamic -fno-align-loops -fno-tree-fre
+
+cbench-automotive-susan:image-pgm-0020:smoothing with MonoTuner
+speedup: 1.081
+default runtime: 1.192e-01
+best runtime: 1.103e-01
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-omit-frame-pointer -fno-tree-dce -fno-defer-pop -fno-ipa-bit-cp
+
+cbench-network-dijkstra:cdataset-dijkstra-0001: with MonoTuner
+speedup: 1.018
+default runtime: 8.106e-07
+best runtime: 7.966e-07
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-if-conversion -fno-align-jumps -fvect-cost-model=dynamic -fno-tree-tail-merge
+
+cbench-network-dijkstra:cdataset-dijkstra-0005: with MonoTuner
+speedup: 1.024
+default runtime: 1.213e-02
+best runtime: 1.185e-02
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-tree-dce -fno-defer-pop -fno-inline-functions-called-once -fno-lra-remat
+
+cbench-network-dijkstra:cdataset-dijkstra-0009: with MonoTuner
+speedup: 1.015
+default runtime: 1.293e-01
+best runtime: 1.274e-01
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-ipa-icf -fno-devirtualize-speculatively -fno-split-paths -fno-branch-count-reg
+
+cbench-network-dijkstra:cdataset-dijkstra-0013: with MonoTuner
+speedup: 1.048
+default runtime: 5.646e-01
+best runtime: 5.389e-01
+default flags: -O3
+best flags: -O3 -fno-tree-dominator-opts -fno-tree-tail-merge -freorder-blocks-algorithm=simple -fno-caller-saves -fno-tree-coalesce-vars
+
+cbench-network-patricia:cdataset-patricia-0001: with MonoTuner
+speedup: 1.044
+default runtime: 6.547e-05
+best runtime: 6.272e-05
+default flags: -O3
+best flags: -O3 -fno-optimize-strlen -fno-tree-slp-vectorize -fno-branch-count-reg -fno-tree-pta -fno-ipa-cp
+
+cbench-network-patricia:cdataset-patricia-0005: with MonoTuner
+speedup: 1.122
+default runtime: 3.085e-04
+best runtime: 2.749e-04
+default flags: -O3
+best flags: -O3 -fno-split-paths -fno-optimize-strlen -fno-tree-slp-vectorize -fno-if-conversion2 -fno-devirtualize
+
+cbench-network-patricia:cdataset-patricia-0009: with MonoTuner
+speedup: 1.181
+default runtime: 1.394e-03
+best runtime: 1.180e-03
+default flags: -O3
+best flags: -O3 -fno-split-paths -fno-optimize-strlen -fno-tree-slp-vectorize -fno-combine-stack-adjustments -fno-tree-ch
+
+cbench-network-patricia:cdataset-patricia-0013: with MonoTuner
+speedup: 1.101
+default runtime: 6.757e-03
+best runtime: 6.139e-03
+default flags: -O3
+best flags: -O3 -fno-split-paths -fno-optimize-strlen -fno-align-functions -fno-reorder-functions -fdce
+
+cbench-network-patricia:cdataset-patricia-0017: with MonoTuner
+speedup: 1.176
+default runtime: 3.490e-02
+best runtime: 2.968e-02
+default flags: -O3
+best flags: -O3 -fno-split-paths -fno-optimize-strlen -fno-tree-slp-vectorize -fno-tree-dominator-opts -fdse
+
+cbench-network-patricia:cdataset-patricia-0020: with MonoTuner
+speedup: 1.153
+default runtime: 1.266e-01
+best runtime: 1.098e-01
+default flags: -O3
+best flags: -O3 -fno-split-paths -fno-optimize-strlen -fno-toplevel-reorder -fno-tree-switch-conversion -fno-tree-fre
+
+cbench-telecom-adpcm-c:pcm-0001: with MonoTuner
+speedup: 1.300
+default runtime: 6.595e-04
+best runtime: 5.072e-04
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-tree-partial-pre -fno-expensive-optimizations -fno-ipa-reference -fno-ipa-icf-functions
+
+cbench-telecom-adpcm-c:pcm-0005: with MonoTuner
+speedup: 1.550
+default runtime: 5.965e-03
+best runtime: 3.849e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-tree-ch -fno-gcse -fno-if-conversion -fno-optimize-sibling-calls
+
+cbench-telecom-adpcm-c:pcm-0009: with MonoTuner
+speedup: 1.296
+default runtime: 7.500e-04
+best runtime: 5.789e-04
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-tree-ch -fno-gcse -fno-schedule-insns2 -fno-cse-follow-jumps
+
+cbench-telecom-adpcm-c:pcm-0013: with MonoTuner
+speedup: 1.443
+default runtime: 4.838e-03
+best runtime: 3.353e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-tree-partial-pre -fno-expensive-optimizations -fno-combine-stack-adjustments -fno-gcse
+
+cbench-telecom-adpcm-c:pcm-0017: with MonoTuner
+speedup: 1.309
+default runtime: 5.000e-03
+best runtime: 3.821e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-split-paths -fno-gcse -fno-omit-frame-pointer -fno-schedule-insns2
+
+cbench-telecom-adpcm-c:pcm-0020: with MonoTuner
+speedup: 1.357
+default runtime: 7.743e-03
+best runtime: 5.707e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-tree-partial-pre -fno-expensive-optimizations -fno-cse-follow-jumps -fcse-skip-blocks
+
+cbench-telecom-adpcm-d:adpcm-0001: with MonoTuner
+speedup: 1.369
+default runtime: 4.492e-04
+best runtime: 3.282e-04
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-if-conversion2 -fno-schedule-insns2 -fno-align-loops -fschedule-insns
+
+cbench-telecom-adpcm-d:adpcm-0005: with MonoTuner
+speedup: 1.370
+default runtime: 3.604e-03
+best runtime: 2.631e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-cse-follow-jumps -fcse-skip-blocks -fno-ree -fno-optimize-strlen
+
+cbench-telecom-adpcm-d:adpcm-0009: with MonoTuner
+speedup: 1.372
+default runtime: 5.144e-04
+best runtime: 3.750e-04
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-cse-follow-jumps -fno-ree -fno-ipa-bit-cp -fno-tree-fre
+
+cbench-telecom-adpcm-d:adpcm-0013: with MonoTuner
+speedup: 1.439
+default runtime: 3.341e-03
+best runtime: 2.321e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-if-conversion2 -fno-tree-switch-conversion -fschedule-insns -fno-schedule-insns2
+
+cbench-telecom-adpcm-d:adpcm-0017: with MonoTuner
+speedup: 1.370
+default runtime: 3.348e-03
+best runtime: 2.443e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-cse-follow-jumps -fno-tree-vrp -fno-ree -fschedule-insns
+
+cbench-telecom-adpcm-d:adpcm-0020: with MonoTuner
+speedup: 1.386
+default runtime: 5.145e-03
+best runtime: 3.711e-03
+default flags: -O3
+best flags: -O3 -fno-ssa-phiopt -fno-if-conversion2 -fno-align-functions -fno-schedule-insns2 -fschedule-insns
+
+cbench-telecom-crc32:pcm-0001: with MonoTuner
+speedup: 1.720
+default runtime: 1.066e-03
+best runtime: 6.196e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fno-forward-propagate -fno-tree-slp-vectorize -fno-ipa-icf-variables -fdse
+
+cbench-telecom-crc32:pcm-0005: with MonoTuner
+speedup: 1.719
+default runtime: 8.506e-03
+best runtime: 4.947e-03
+default flags: -O3
+best flags: -O3 -fno-inline-functions -fno-tree-fre -fno-ipa-pure-const -fno-merge-constants -fno-crossjumping
+
+cbench-telecom-crc32:pcm-0009: with MonoTuner
+speedup: 1.721
+default runtime: 1.217e-03
+best runtime: 7.075e-04
+default flags: -O3
+best flags: -O3 -fno-inline-small-functions -fno-ipa-ra -fno-tree-dce -fno-ipa-cp -fno-isolate-erroneous-paths-dereference
+
+cbench-telecom-crc32:pcm-0013: with MonoTuner
+speedup: 1.719
+default runtime: 7.862e-03
+best runtime: 4.573e-03
+default flags: -O3
+best flags: -O3 -fno-inline-functions -fno-strict-aliasing -fno-tree-dominator-opts -fno-code-hoisting -fno-forward-propagate
+
+cbench-telecom-crc32:pcm-0017: with MonoTuner
+speedup: 1.716
+default runtime: 7.895e-03
+best runtime: 4.602e-03
+default flags: -O3
+best flags: -O3 -fno-inline-small-functions -fno-lra-remat -fschedule-insns -fno-tree-copy-prop -fno-ipa-cp-clone
+
+cbench-telecom-crc32:pcm-0020: with MonoTuner
+speedup: 1.720
+default runtime: 1.215e-02
+best runtime: 7.061e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fno-strict-aliasing -fno-split-paths -fno-partial-inlining -fno-optimize-sibling-calls
+
+cbench-telecom-gsm:au-0001: with MonoTuner
+speedup: 1.342
+default runtime: 1.150e-02
+best runtime: 8.568e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fno-ssa-phiopt -fno-predictive-commoning -fno-combine-stack-adjustments -freorder-blocks-algorithm=simple
+
+cbench-telecom-gsm:au-0005: with MonoTuner
+speedup: 1.351
+default runtime: 9.258e-02
+best runtime: 6.851e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-ssa-phiopt -fno-predictive-commoning -freorder-blocks-algorithm=simple -fno-code-hoisting
+
+cbench-telecom-gsm:au-0009: with MonoTuner
+speedup: 1.343
+default runtime: 1.310e-02
+best runtime: 9.752e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fno-ssa-phiopt -fno-predictive-commoning -fno-forward-propagate -fno-optimize-sibling-calls
+
+cbench-telecom-gsm:au-0013: with MonoTuner
+speedup: 1.343
+default runtime: 8.076e-02
+best runtime: 6.014e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pta -fno-predictive-commoning -fno-tree-pre -fno-caller-saves -fno-shrink-wrap
+
+cbench-telecom-gsm:au-0017: with MonoTuner
+speedup: 1.350
+default runtime: 8.646e-02
+best runtime: 6.402e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-ssa-phiopt -fno-predictive-commoning -freorder-blocks-algorithm=simple -fno-ipa-profile
+
+cbench-telecom-gsm:au-0020: with MonoTuner
+speedup: 1.338
+default runtime: 1.285e-01
+best runtime: 9.602e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-ssa-phiopt -fno-predictive-commoning -freorder-blocks-algorithm=simple -fno-cprop-registers
