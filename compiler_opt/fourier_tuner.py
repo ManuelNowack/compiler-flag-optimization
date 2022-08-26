@@ -86,13 +86,13 @@ class FourierTunerBase(base_tuner.Tuner):
             x_train = x[:initial_budget]
             y_train = y[:initial_budget]
         else:
+            rng = np.random.default_rng()
             x, y = self.load_training_data_()
             # The filename is of the form "results/n_???_budget_????_??_*"
             # where the last two question marks store the current repetition
             begin = (int(file.name[26:28]) * budget) % len(x)
             x_train = x[begin:begin + budget]
             y_train = y[begin:begin + budget]
-
 
         if file is not None:
             file.write(f"Alpha: {self.estimator.enet_alpha}\n")
