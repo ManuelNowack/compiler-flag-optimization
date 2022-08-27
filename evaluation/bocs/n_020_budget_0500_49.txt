@@ -1,0 +1,414 @@
+search space size: 20
+
+cbench-automotive-bitcount:number-0001: with BOCS-SDP-l1
+speedup: 1.227
+default runtime: 6.725e-02
+best runtime: 5.480e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fno-caller-saves -fno-reorder-functions -fno-gcse
+
+cbench-automotive-qsort1:cdataset-qsort-0001: with BOCS-SDP-l1
+speedup: 1.033
+default runtime: 1.956e-02
+best runtime: 1.893e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-guess-branch-probability -falign-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fno-move-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-automotive-qsort1:cdataset-qsort-0005: with BOCS-SDP-l1
+speedup: 1.035
+default runtime: 1.226e-02
+best runtime: 1.184e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-guess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fpartial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-automotive-qsort1:cdataset-qsort-0009: with BOCS-SDP-l1
+speedup: 1.035
+default runtime: 1.759e-02
+best runtime: 1.700e-02
+default flags: -O3
+best flags: -O3 -finline -fno-guess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-automotive-qsort1:cdataset-qsort-0013: with BOCS-SDP-l1
+speedup: 1.031
+default runtime: 1.470e-02
+best runtime: 1.425e-02
+default flags: -O3
+best flags: -O3 -finline -fno-guess-branch-probability -fno-align-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-qsort1:cdataset-qsort-0017: with BOCS-SDP-l1
+speedup: 1.029
+default runtime: 1.405e-02
+best runtime: 1.366e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-guess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-qsort1:cdataset-qsort-0020: with BOCS-SDP-l1
+speedup: 1.034
+default runtime: 2.213e-02
+best runtime: 2.141e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-guess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -finline-small-functions -fno-move-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fno-gcse
+
+cbench-automotive-susan:image-pgm-0001:corners with BOCS-SDP-l1
+speedup: 1.005
+default runtime: 6.452e-03
+best runtime: 6.419e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fpartial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -fno-reorder-functions -fno-gcse
+
+cbench-automotive-susan:image-pgm-0005:corners with BOCS-SDP-l1
+speedup: 1.005
+default runtime: 1.417e-02
+best runtime: 1.410e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0009:corners with BOCS-SDP-l1
+speedup: 1.006
+default runtime: 2.873e-02
+best runtime: 2.855e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fno-caller-saves -fno-reorder-functions -fno-gcse
+
+cbench-automotive-susan:image-pgm-0013:corners with BOCS-SDP-l1
+speedup: 1.008
+default runtime: 2.029e-03
+best runtime: 2.014e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fcaller-saves -fno-reorder-functions -fno-gcse
+
+cbench-automotive-susan:image-pgm-0017:corners with BOCS-SDP-l1
+speedup: 1.005
+default runtime: 6.528e-03
+best runtime: 6.499e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -freorder-functions -fno-gcse
+
+cbench-automotive-susan:image-pgm-0020:corners with BOCS-SDP-l1
+speedup: 1.003
+default runtime: 9.927e-03
+best runtime: 9.893e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -ftree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0001:edges with BOCS-SDP-l1
+speedup: 1.058
+default runtime: 1.664e-02
+best runtime: 1.572e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0005:edges with BOCS-SDP-l1
+speedup: 1.053
+default runtime: 3.025e-02
+best runtime: 2.874e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0009:edges with BOCS-SDP-l1
+speedup: 1.048
+default runtime: 8.781e-02
+best runtime: 8.379e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0013:edges with BOCS-SDP-l1
+speedup: 1.075
+default runtime: 9.069e-03
+best runtime: 8.435e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0017:edges with BOCS-SDP-l1
+speedup: 1.061
+default runtime: 1.940e-02
+best runtime: 1.827e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0020:edges with BOCS-SDP-l1
+speedup: 1.056
+default runtime: 2.847e-02
+best runtime: 2.696e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0001:smoothing with BOCS-SDP-l1
+speedup: 1.083
+default runtime: 8.463e-02
+best runtime: 7.815e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -ftree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0005:smoothing with BOCS-SDP-l1
+speedup: 1.088
+default runtime: 2.239e-01
+best runtime: 2.057e-01
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fpartial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0009:smoothing with BOCS-SDP-l1
+speedup: 1.085
+default runtime: 4.337e-01
+best runtime: 3.998e-01
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0013:smoothing with BOCS-SDP-l1
+speedup: 1.082
+default runtime: 1.629e-02
+best runtime: 1.505e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0017:smoothing with BOCS-SDP-l1
+speedup: 1.078
+default runtime: 7.176e-02
+best runtime: 6.659e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-automotive-susan:image-pgm-0020:smoothing with BOCS-SDP-l1
+speedup: 1.084
+default runtime: 1.191e-01
+best runtime: 1.099e-01
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fpartial-inlining -fforward-propagate -ftree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fno-gcse
+
+cbench-network-dijkstra:cdataset-dijkstra-0001: with BOCS-SDP-l1
+speedup: 1.003
+default runtime: 8.089e-07
+best runtime: 8.062e-07
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-network-dijkstra:cdataset-dijkstra-0005: with BOCS-SDP-l1
+speedup: 1.022
+default runtime: 1.214e-02
+best runtime: 1.189e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fno-forward-propagate -ftree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-network-dijkstra:cdataset-dijkstra-0009: with BOCS-SDP-l1
+speedup: 1.015
+default runtime: 1.294e-01
+best runtime: 1.274e-01
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -ftree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-network-dijkstra:cdataset-dijkstra-0013: with BOCS-SDP-l1
+speedup: 1.011
+default runtime: 5.640e-01
+best runtime: 5.579e-01
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -ftree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-network-patricia:cdataset-patricia-0001: with BOCS-SDP-l1
+speedup: 1.020
+default runtime: 6.404e-05
+best runtime: 6.279e-05
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -ftree-pre -ftree-loop-vectorize -fno-tree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-network-patricia:cdataset-patricia-0005: with BOCS-SDP-l1
+speedup: 1.072
+default runtime: 3.155e-04
+best runtime: 2.944e-04
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -finline-small-functions -fno-move-loop-invariants -fno-tree-ter -fpartial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fno-gcse
+
+cbench-network-patricia:cdataset-patricia-0009: with BOCS-SDP-l1
+speedup: 1.022
+default runtime: 1.392e-03
+best runtime: 1.362e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fno-gcse
+
+cbench-network-patricia:cdataset-patricia-0013: with BOCS-SDP-l1
+speedup: 1.026
+default runtime: 6.757e-03
+best runtime: 6.586e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-network-patricia:cdataset-patricia-0017: with BOCS-SDP-l1
+speedup: 1.016
+default runtime: 3.486e-02
+best runtime: 3.430e-02
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -fno-tree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-network-patricia:cdataset-patricia-0020: with BOCS-SDP-l1
+speedup: 1.010
+default runtime: 1.260e-01
+best runtime: 1.247e-01
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fno-move-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -fno-tree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-telecom-adpcm-c:pcm-0001: with BOCS-SDP-l1
+speedup: 1.023
+default runtime: 6.600e-04
+best runtime: 6.453e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -fno-tree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-telecom-adpcm-c:pcm-0005: with BOCS-SDP-l1
+speedup: 1.138
+default runtime: 5.968e-03
+best runtime: 5.244e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fno-forward-propagate -ftree-fre -ftree-pre -fno-tree-loop-vectorize -fno-tree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-telecom-adpcm-c:pcm-0009: with BOCS-SDP-l1
+speedup: 1.018
+default runtime: 7.499e-04
+best runtime: 7.365e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-adpcm-c:pcm-0013: with BOCS-SDP-l1
+speedup: 1.023
+default runtime: 4.835e-03
+best runtime: 4.728e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-telecom-adpcm-c:pcm-0017: with BOCS-SDP-l1
+speedup: 1.030
+default runtime: 4.999e-03
+best runtime: 4.851e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -fno-tree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-adpcm-c:pcm-0020: with BOCS-SDP-l1
+speedup: 1.061
+default runtime: 7.751e-03
+best runtime: 7.304e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fno-gcse
+
+cbench-telecom-adpcm-d:adpcm-0001: with BOCS-SDP-l1
+speedup: 1.016
+default runtime: 4.494e-04
+best runtime: 4.422e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fno-gcse
+
+cbench-telecom-adpcm-d:adpcm-0005: with BOCS-SDP-l1
+speedup: 1.017
+default runtime: 3.605e-03
+best runtime: 3.545e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-telecom-adpcm-d:adpcm-0009: with BOCS-SDP-l1
+speedup: 1.016
+default runtime: 5.145e-04
+best runtime: 5.064e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -fno-inline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fno-gcse
+
+cbench-telecom-adpcm-d:adpcm-0013: with BOCS-SDP-l1
+speedup: 1.016
+default runtime: 3.338e-03
+best runtime: 3.285e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fno-gcse
+
+cbench-telecom-adpcm-d:adpcm-0017: with BOCS-SDP-l1
+speedup: 1.014
+default runtime: 3.349e-03
+best runtime: 3.301e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fomit-frame-pointer -fno-caller-saves -freorder-functions -fno-gcse
+
+cbench-telecom-adpcm-d:adpcm-0020: with BOCS-SDP-l1
+speedup: 1.015
+default runtime: 5.151e-03
+best runtime: 5.073e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fno-expensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fno-caller-saves -fno-reorder-functions -fno-gcse
+
+cbench-telecom-crc32:pcm-0001: with BOCS-SDP-l1
+speedup: 1.736
+default runtime: 1.061e-03
+best runtime: 6.111e-04
+default flags: -O3
+best flags: -O3 -finline -fno-guess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fno-move-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -ftree-pre -fno-tree-loop-vectorize -fno-tree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-crc32:pcm-0005: with BOCS-SDP-l1
+speedup: 1.720
+default runtime: 8.495e-03
+best runtime: 4.940e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -fno-inline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -ftree-pre -fno-tree-loop-vectorize -fno-tree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -freorder-functions -fno-gcse
+
+cbench-telecom-crc32:pcm-0009: with BOCS-SDP-l1
+speedup: 1.723
+default runtime: 1.216e-03
+best runtime: 7.056e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -fno-toplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fno-strict-aliasing -fomit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-crc32:pcm-0013: with BOCS-SDP-l1
+speedup: 1.721
+default runtime: 7.865e-03
+best runtime: 4.570e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -fno-toplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -ftree-pre -fno-tree-loop-vectorize -ftree-ch -fno-strict-aliasing -fno-omit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-crc32:pcm-0017: with BOCS-SDP-l1
+speedup: 1.739
+default runtime: 7.898e-03
+best runtime: 4.541e-03
+default flags: -O3
+best flags: -O3 -finline -fno-guess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fno-expensive-optimizations -finline-small-functions -fno-move-loop-invariants -fno-tree-ter -fno-partial-inlining -fforward-propagate -fno-tree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-crc32:pcm-0020: with BOCS-SDP-l1
+speedup: 1.720
+default runtime: 1.213e-02
+best runtime: 7.052e-03
+default flags: -O3
+best flags: -O3 -finline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-telecom-gsm:au-0001: with BOCS-SDP-l1
+speedup: 1.253
+default runtime: 1.150e-02
+best runtime: 9.177e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fno-forward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-telecom-gsm:au-0005: with BOCS-SDP-l1
+speedup: 1.256
+default runtime: 9.261e-02
+best runtime: 7.373e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -fno-align-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-telecom-gsm:au-0009: with BOCS-SDP-l1
+speedup: 1.255
+default runtime: 1.310e-02
+best runtime: 1.043e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -fno-inline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fno-caller-saves -freorder-functions -fgcse
+
+cbench-telecom-gsm:au-0013: with BOCS-SDP-l1
+speedup: 1.237
+default runtime: 8.025e-02
+best runtime: 6.487e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -fno-reorder-functions -fgcse
+
+cbench-telecom-gsm:au-0017: with BOCS-SDP-l1
+speedup: 1.263
+default runtime: 8.646e-02
+best runtime: 6.844e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -finline-small-functions -fmove-loop-invariants -ftree-ter -fno-partial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
+
+cbench-telecom-gsm:au-0020: with BOCS-SDP-l1
+speedup: 1.243
+default runtime: 1.282e-01
+best runtime: 1.032e-01
+default flags: -O3
+best flags: -O3 -fno-inline -fguess-branch-probability -falign-loops -ftoplevel-reorder -finline-functions -fexpensive-optimizations -fno-inline-small-functions -fmove-loop-invariants -ftree-ter -fpartial-inlining -fforward-propagate -ftree-fre -fno-tree-pre -ftree-loop-vectorize -ftree-ch -fstrict-aliasing -fno-omit-frame-pointer -fcaller-saves -freorder-functions -fgcse
