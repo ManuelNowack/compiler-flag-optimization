@@ -1,0 +1,290 @@
+search space size: 20
+budget: 900
+
+avgpool-armcl-opencl:: with Fourier
+speedup train: 1.133
+speedup: 1.048
+speedup optimal: 1.080
+default runtime: 1.000e+00
+best runtime: 9.546e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+avgpool-armcl-opencl-uint8:: with Fourier
+speedup train: 1.170
+speedup: 1.184
+speedup optimal: 1.197
+default runtime: 1.000e+00
+best runtime: 8.448e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+avgpool-caffe-cpu:: with Fourier
+speedup train: 1.085
+speedup: 1.044
+speedup optimal: 1.084
+default runtime: 1.000e+00
+best runtime: 9.576e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+avgpool-caffe-opencl:: with Fourier
+speedup train: 1.114
+speedup: 0.997
+speedup optimal: 1.067
+default runtime: 1.000e+00
+best runtime: 1.003e+00
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+avgpool-tensorflow-cpu:: with Fourier
+speedup train: 1.148
+speedup: 0.755
+speedup optimal: 1.062
+default runtime: 1.000e+00
+best runtime: 1.324e+00
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+avgpool-tensorflow-cpu-uint8:: with Fourier
+speedup train: 1.108
+speedup: 0.865
+speedup optimal: 1.091
+default runtime: 1.000e+00
+best runtime: 1.155e+00
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-automotive-bitcount:number-0001: with Fourier
+speedup train: 1.126
+speedup: 1.053
+speedup optimal: 1.077
+default runtime: 1.000e+00
+best runtime: 9.495e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-automotive-qsort1:cdataset-qsort-0001: with Fourier
+speedup train: 1.142
+speedup: 1.032
+speedup optimal: 1.116
+default runtime: 1.000e+00
+best runtime: 9.692e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-automotive-susan:image-pgm-0001:corners with Fourier
+speedup train: 1.110
+speedup: 0.960
+speedup optimal: 1.056
+default runtime: 1.000e+00
+best runtime: 1.041e+00
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-automotive-susan:image-pgm-0001:edges with Fourier
+speedup train: 1.160
+speedup: 1.183
+speedup optimal: 1.228
+default runtime: 1.000e+00
+best runtime: 8.455e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-automotive-susan:image-pgm-0001:smoothing with Fourier
+speedup train: 1.220
+speedup: 1.086
+speedup optimal: 1.133
+default runtime: 1.000e+00
+best runtime: 9.209e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-bzip2::encode with Fourier
+speedup train: 1.107
+speedup: 1.097
+speedup optimal: 1.139
+default runtime: 1.000e+00
+best runtime: 9.117e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-bzip2::decode with Fourier
+speedup train: 1.109
+speedup: 1.015
+speedup optimal: 1.075
+default runtime: 1.000e+00
+best runtime: 9.857e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-jpeg-c:image-ppm-0001: with Fourier
+speedup train: 1.204
+speedup: 1.178
+speedup optimal: 1.199
+default runtime: 1.000e+00
+best runtime: 8.492e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-jpeg-d:image-jpeg-0001: with Fourier
+speedup train: 1.159
+speedup: 1.076
+speedup optimal: 1.134
+default runtime: 1.000e+00
+best runtime: 9.294e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-lame:: with Fourier
+speedup train: 1.174
+speedup: 1.047
+speedup optimal: 1.080
+default runtime: 1.000e+00
+best runtime: 9.548e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-mad:: with Fourier
+speedup train: 1.164
+speedup: 1.084
+speedup optimal: 1.147
+default runtime: 1.000e+00
+best runtime: 9.224e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-tiff2bw:image-tiff-0001: with Fourier
+speedup train: 1.206
+speedup: 1.205
+speedup optimal: 1.253
+default runtime: 1.000e+00
+best runtime: 8.301e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-tiff2dither:image-tiff-0001-bw: with Fourier
+speedup train: 1.148
+speedup: 1.047
+speedup optimal: 1.102
+default runtime: 1.000e+00
+best runtime: 9.549e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-tiff2median:: with Fourier
+speedup train: 1.083
+speedup: 0.994
+speedup optimal: 1.084
+default runtime: 1.000e+00
+best runtime: 1.006e+00
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-consumer-tiff2rgba:image-tiff-0001: with Fourier
+speedup train: 1.144
+speedup: 1.025
+speedup optimal: 1.099
+default runtime: 1.000e+00
+best runtime: 9.756e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-network-dijkstra:cdataset-dijkstra-0001: with Fourier
+speedup train: 1.166
+speedup: 1.104
+speedup optimal: 1.142
+default runtime: 1.000e+00
+best runtime: 9.061e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-network-patricia:cdataset-patricia-0001: with Fourier
+speedup train: 1.199
+speedup: 1.175
+speedup optimal: 1.214
+default runtime: 1.000e+00
+best runtime: 8.508e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-office-stringsearch2:: with Fourier
+speedup train: 1.126
+speedup: 1.056
+speedup optimal: 1.089
+default runtime: 1.000e+00
+best runtime: 9.469e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-security-blowfish:: with Fourier
+speedup train: 1.188
+speedup: 1.106
+speedup optimal: 1.183
+default runtime: 1.000e+00
+best runtime: 9.041e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-security-pgp:: with Fourier
+speedup train: 1.195
+speedup: 1.121
+speedup optimal: 1.151
+default runtime: 1.000e+00
+best runtime: 8.921e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-security-rijndael:: with Fourier
+speedup train: 1.121
+speedup: 1.033
+speedup optimal: 1.080
+default runtime: 1.000e+00
+best runtime: 9.683e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-security-sha:: with Fourier
+speedup train: 1.131
+speedup: 1.051
+speedup optimal: 1.104
+default runtime: 1.000e+00
+best runtime: 9.512e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-telecom-adpcm-c:pcm-0001: with Fourier
+speedup train: 1.081
+speedup: 1.009
+speedup optimal: 1.063
+default runtime: 1.000e+00
+best runtime: 9.915e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-telecom-adpcm-d:adpcm-0001: with Fourier
+speedup train: 1.194
+speedup: 1.047
+speedup optimal: 1.091
+default runtime: 1.000e+00
+best runtime: 9.550e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-telecom-crc32:pcm-0001: with Fourier
+speedup train: 1.174
+speedup: 1.123
+speedup optimal: 1.219
+default runtime: 1.000e+00
+best runtime: 8.905e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+cbench-telecom-gsm:au-0001: with Fourier
+speedup train: 1.217
+speedup: 1.088
+speedup optimal: 1.139
+default runtime: 1.000e+00
+best runtime: 9.194e-01
+default flags: -O3
+best flags: -O3 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
