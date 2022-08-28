@@ -1,0 +1,415 @@
+search space size: 20
+budget: 500
+
+cbench-automotive-bitcount:number-0001: with MonoTuner
+speedup: 1.225
+default runtime: 6.732e-02
+best runtime: 5.497e-02
+default flags: -O3
+best flags: -O3 -fcaller-saves -ftree-loop-vectorize -fno-reorder-functions -fmove-loop-invariants -fno-omit-frame-pointer -fstrict-aliasing -finline-functions -fpartial-inlining -fno-tree-pre -ftree-fre
+
+cbench-automotive-qsort1:cdataset-qsort-0001: with MonoTuner
+speedup: 1.026
+default runtime: 1.947e-02
+best runtime: 1.897e-02
+default flags: -O3
+best flags: -O3 -fno-move-loop-invariants -fno-toplevel-reorder -freorder-functions -ftree-fre -fno-strict-aliasing -fno-expensive-optimizations -fno-forward-propagate -falign-loops -finline-small-functions -fno-partial-inlining -fno-guess-branch-probability -fno-gcse -fno-inline
+
+cbench-automotive-qsort1:cdataset-qsort-0005: with MonoTuner
+speedup: 1.031
+default runtime: 1.226e-02
+best runtime: 1.189e-02
+default flags: -O3
+best flags: -O3 -fomit-frame-pointer -fno-guess-branch-probability -fno-strict-aliasing -fno-inline-functions -finline-small-functions -fno-tree-pre -fno-move-loop-invariants -fforward-propagate -fgcse -freorder-functions -fno-partial-inlining -fno-toplevel-reorder -fno-tree-fre -fno-align-loops
+
+cbench-automotive-qsort1:cdataset-qsort-0009: with MonoTuner
+speedup: 1.038
+default runtime: 1.758e-02
+best runtime: 1.693e-02
+default flags: -O3
+best flags: -O3 -fno-guess-branch-probability -fno-tree-fre -finline-small-functions -fno-tree-pre -fstrict-aliasing -fno-move-loop-invariants -fno-partial-inlining -freorder-functions -finline-functions -fno-align-loops -fno-forward-propagate -fno-expensive-optimizations -fno-toplevel-reorder -fno-tree-ter -fno-inline
+
+cbench-automotive-qsort1:cdataset-qsort-0013: with MonoTuner
+speedup: 1.023
+default runtime: 1.472e-02
+best runtime: 1.439e-02
+default flags: -O3
+best flags: -O3 -fno-omit-frame-pointer -fno-tree-pre -ftree-fre -fno-inline-small-functions -finline-functions -fstrict-aliasing -fno-forward-propagate -freorder-functions -fmove-loop-invariants -fno-partial-inlining
+
+cbench-automotive-qsort1:cdataset-qsort-0017: with MonoTuner
+speedup: 1.034
+default runtime: 1.407e-02
+best runtime: 1.360e-02
+default flags: -O3
+best flags: -O3 -fno-guess-branch-probability -fno-tree-fre -fno-expensive-optimizations -fno-inline -fno-toplevel-reorder -fforward-propagate -finline-functions -fno-gcse -fno-move-loop-invariants -fno-align-loops -fno-tree-ter -fno-inline-small-functions -fpartial-inlining -fno-strict-aliasing
+
+cbench-automotive-qsort1:cdataset-qsort-0020: with MonoTuner
+speedup: 1.030
+default runtime: 2.218e-02
+best runtime: 2.152e-02
+default flags: -O3
+best flags: -O3 -fno-move-loop-invariants -fno-tree-fre -fpartial-inlining -fno-strict-aliasing -fno-guess-branch-probability -finline-functions -fforward-propagate -fno-gcse -fno-tree-pre -finline-small-functions -falign-loops -finline -fno-reorder-functions
+
+cbench-automotive-susan:image-pgm-0001:corners with MonoTuner
+speedup: 1.006
+default runtime: 6.433e-03
+best runtime: 6.394e-03
+default flags: -O3
+best flags: -O3 -fno-toplevel-reorder -fno-strict-aliasing -fpartial-inlining -fno-caller-saves -fno-tree-pre -fno-omit-frame-pointer -fno-inline-functions -fgcse -fno-tree-ter -fno-reorder-functions
+
+cbench-automotive-susan:image-pgm-0005:corners with MonoTuner
+speedup: 1.005
+default runtime: 1.410e-02
+best runtime: 1.404e-02
+default flags: -O3
+best flags: -O3 -finline-functions -fno-tree-pre -fno-tree-fre -fno-toplevel-reorder -fno-caller-saves -fno-reorder-functions -fno-omit-frame-pointer -fno-gcse -fno-strict-aliasing -fno-partial-inlining -fno-tree-loop-vectorize
+
+cbench-automotive-susan:image-pgm-0009:corners with MonoTuner
+speedup: 1.007
+default runtime: 2.870e-02
+best runtime: 2.851e-02
+default flags: -O3
+best flags: -O3 -fno-toplevel-reorder -fstrict-aliasing -fpartial-inlining -fcaller-saves -fno-tree-pre -fno-tree-fre -fno-omit-frame-pointer -finline -fno-reorder-functions -fno-align-loops -fno-inline-small-functions
+
+cbench-automotive-susan:image-pgm-0013:corners with MonoTuner
+speedup: 1.001
+default runtime: 2.028e-03
+best runtime: 2.026e-03
+default flags: -O3
+best flags: -O3 -fno-inline-functions
+
+cbench-automotive-susan:image-pgm-0017:corners with MonoTuner
+speedup: 0.997
+default runtime: 6.524e-03
+best runtime: 6.541e-03
+default flags: -O3
+best flags: -O3 -fpartial-inlining -fstrict-aliasing -fcaller-saves -finline-functions -fno-tree-pre -fno-inline-small-functions -fforward-propagate -fno-reorder-functions
+
+cbench-automotive-susan:image-pgm-0020:corners with MonoTuner
+speedup: 1.007
+default runtime: 9.930e-03
+best runtime: 9.858e-03
+default flags: -O3
+best flags: -O3 -ftoplevel-reorder -fstrict-aliasing -fcaller-saves -fno-partial-inlining -fno-tree-pre -fno-inline-small-functions -fno-omit-frame-pointer -fno-expensive-optimizations -fno-align-loops -fno-inline-functions -fno-tree-ter -fno-reorder-functions
+
+cbench-automotive-susan:image-pgm-0001:edges with MonoTuner
+speedup: 1.053
+default runtime: 1.665e-02
+best runtime: 1.581e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fgcse -fno-strict-aliasing -finline -freorder-functions -fno-toplevel-reorder -fno-move-loop-invariants -fpartial-inlining -fno-inline-small-functions -ftree-fre -finline-functions -fforward-propagate
+
+cbench-automotive-susan:image-pgm-0005:edges with MonoTuner
+speedup: 1.047
+default runtime: 3.020e-02
+best runtime: 2.883e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-gcse -fno-toplevel-reorder -fno-strict-aliasing -fpartial-inlining -fno-reorder-functions -fno-inline-functions -fno-inline-small-functions
+
+cbench-automotive-susan:image-pgm-0009:edges with MonoTuner
+speedup: 1.048
+default runtime: 8.779e-02
+best runtime: 8.378e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-forward-propagate -fexpensive-optimizations -fno-partial-inlining -ftoplevel-reorder -fstrict-aliasing
+
+cbench-automotive-susan:image-pgm-0013:edges with MonoTuner
+speedup: 1.074
+default runtime: 9.056e-03
+best runtime: 8.431e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-move-loop-invariants -fno-tree-loop-vectorize -ftree-fre -fpartial-inlining -fno-inline-small-functions -finline -fno-strict-aliasing -finline-functions
+
+cbench-automotive-susan:image-pgm-0017:edges with MonoTuner
+speedup: 1.064
+default runtime: 1.941e-02
+best runtime: 1.824e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-move-loop-invariants -fno-tree-fre -fpartial-inlining -ftoplevel-reorder -fstrict-aliasing -ftree-loop-vectorize
+
+cbench-automotive-susan:image-pgm-0020:edges with MonoTuner
+speedup: 1.057
+default runtime: 2.847e-02
+best runtime: 2.693e-02
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fforward-propagate -fno-partial-inlining -fno-move-loop-invariants -fno-reorder-functions -fno-strict-aliasing -ftoplevel-reorder -finline-small-functions -fno-inline-functions -fno-inline
+
+cbench-automotive-susan:image-pgm-0001:smoothing with MonoTuner
+speedup: 1.086
+default runtime: 8.427e-02
+best runtime: 7.757e-02
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-tree-pre -fstrict-aliasing -fno-expensive-optimizations -fno-caller-saves -ftoplevel-reorder -fno-inline -fno-align-loops -fno-partial-inlining -fno-inline-functions -fno-inline-small-functions
+
+cbench-automotive-susan:image-pgm-0005:smoothing with MonoTuner
+speedup: 1.079
+default runtime: 2.239e-01
+best runtime: 2.076e-01
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-omit-frame-pointer -fno-inline-small-functions -freorder-functions -fpartial-inlining -finline-functions -fstrict-aliasing
+
+cbench-automotive-susan:image-pgm-0009:smoothing with MonoTuner
+speedup: 1.076
+default runtime: 4.332e-01
+best runtime: 4.028e-01
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-omit-frame-pointer -fno-inline-small-functions -fno-inline-functions -freorder-functions -fpartial-inlining -fno-strict-aliasing
+
+cbench-automotive-susan:image-pgm-0013:smoothing with MonoTuner
+speedup: 1.088
+default runtime: 1.633e-02
+best runtime: 1.501e-02
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-align-loops -fno-tree-fre -fno-inline-small-functions -fforward-propagate -fno-strict-aliasing -fpartial-inlining -finline-functions -ftree-loop-vectorize
+
+cbench-automotive-susan:image-pgm-0017:smoothing with MonoTuner
+speedup: 1.074
+default runtime: 7.182e-02
+best runtime: 6.689e-02
+default flags: -O3
+best flags: -O3 -fno-tree-ter -fno-tree-pre -fno-expensive-optimizations -fno-partial-inlining -fcaller-saves -fno-toplevel-reorder -fno-inline-small-functions -fno-inline-functions -fstrict-aliasing
+
+cbench-automotive-susan:image-pgm-0020:smoothing with MonoTuner
+speedup: 1.080
+default runtime: 1.190e-01
+best runtime: 1.102e-01
+default flags: -O3
+best flags: -O3 -fno-tree-ter -ftree-pre -fpartial-inlining -finline-functions -fstrict-aliasing -fno-omit-frame-pointer -ftoplevel-reorder -freorder-functions -fno-inline-small-functions
+
+cbench-network-dijkstra:cdataset-dijkstra-0001: with MonoTuner
+speedup: 1.001
+default runtime: 8.104e-07
+best runtime: 8.092e-07
+default flags: -O3
+best flags: -O3
+
+cbench-network-dijkstra:cdataset-dijkstra-0005: with MonoTuner
+speedup: 1.001
+default runtime: 1.215e-02
+best runtime: 1.214e-02
+default flags: -O3
+best flags: -O3
+
+cbench-network-dijkstra:cdataset-dijkstra-0009: with MonoTuner
+speedup: 1.001
+default runtime: 1.295e-01
+best runtime: 1.293e-01
+default flags: -O3
+best flags: -O3
+
+cbench-network-dijkstra:cdataset-dijkstra-0013: with MonoTuner
+speedup: 1.000
+default runtime: 5.641e-01
+best runtime: 5.641e-01
+default flags: -O3
+best flags: -O3
+
+cbench-network-patricia:cdataset-patricia-0001: with MonoTuner
+speedup: 1.018
+default runtime: 6.677e-05
+best runtime: 6.559e-05
+default flags: -O3
+best flags: -O3 -fno-toplevel-reorder -fcaller-saves -fno-partial-inlining -fno-strict-aliasing -fno-forward-propagate -freorder-functions -fno-tree-pre -fno-tree-fre -fno-move-loop-invariants -fexpensive-optimizations -fno-align-loops -fgcse -fno-tree-ch
+
+cbench-network-patricia:cdataset-patricia-0005: with MonoTuner
+speedup: 1.034
+default runtime: 3.073e-04
+best runtime: 2.972e-04
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-omit-frame-pointer -fexpensive-optimizations -fno-tree-ter -fno-tree-fre -fno-align-loops -fno-move-loop-invariants -fno-partial-inlining -fno-reorder-functions -fno-forward-propagate
+
+cbench-network-patricia:cdataset-patricia-0009: with MonoTuner
+speedup: 1.020
+default runtime: 1.396e-03
+best runtime: 1.368e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fcaller-saves -finline-functions -fgcse -falign-loops -fno-partial-inlining -finline-small-functions -fno-tree-fre -fno-forward-propagate -fno-tree-ter -freorder-functions -fno-tree-loop-vectorize -fno-expensive-optimizations
+
+cbench-network-patricia:cdataset-patricia-0013: with MonoTuner
+speedup: 1.016
+default runtime: 6.782e-03
+best runtime: 6.678e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-inline-functions -fno-tree-loop-vectorize -fno-caller-saves -fpartial-inlining -finline-small-functions -freorder-functions -fno-omit-frame-pointer -fno-move-loop-invariants -fno-gcse
+
+cbench-network-patricia:cdataset-patricia-0017: with MonoTuner
+speedup: 1.022
+default runtime: 3.490e-02
+best runtime: 3.415e-02
+default flags: -O3
+best flags: -O3 -ftree-ter -fno-tree-fre -fno-tree-pre -fno-move-loop-invariants -fno-inline-small-functions -fno-caller-saves -fno-strict-aliasing -ftree-loop-vectorize -fno-reorder-functions -fno-inline-functions -fno-partial-inlining -fforward-propagate
+
+cbench-network-patricia:cdataset-patricia-0020: with MonoTuner
+speedup: 1.016
+default runtime: 1.266e-01
+best runtime: 1.245e-01
+default flags: -O3
+best flags: -O3 -fstrict-aliasing -fno-inline-small-functions -freorder-functions -fno-gcse -fpartial-inlining -fno-tree-pre -fno-tree-ter -fno-forward-propagate -fno-caller-saves -fno-inline-functions -ftree-loop-vectorize
+
+cbench-telecom-adpcm-c:pcm-0001: with MonoTuner
+speedup: 1.021
+default runtime: 6.585e-04
+best runtime: 6.449e-04
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-tree-ch -fno-forward-propagate -fno-inline-small-functions -fcaller-saves -ftree-loop-vectorize -ftree-fre -fno-reorder-functions -fno-partial-inlining -fno-inline-functions -fno-inline -fno-align-loops -ftoplevel-reorder -fstrict-aliasing -fgcse
+
+cbench-telecom-adpcm-c:pcm-0005: with MonoTuner
+speedup: 1.136
+default runtime: 5.970e-03
+best runtime: 5.254e-03
+default flags: -O3
+best flags: -O3 -fno-align-loops -fforward-propagate -fpartial-inlining -fno-inline -fcaller-saves -fno-toplevel-reorder -ftree-loop-vectorize -ftree-ter -fno-strict-aliasing -fno-tree-fre
+
+cbench-telecom-adpcm-c:pcm-0009: with MonoTuner
+speedup: 1.020
+default runtime: 7.502e-04
+best runtime: 7.353e-04
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-omit-frame-pointer -fpartial-inlining -finline -fno-reorder-functions -fno-inline-small-functions -fno-toplevel-reorder -ftree-fre -ftree-loop-vectorize -fno-inline-functions -fno-caller-saves
+
+cbench-telecom-adpcm-c:pcm-0013: with MonoTuner
+speedup: 1.025
+default runtime: 4.838e-03
+best runtime: 4.720e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-omit-frame-pointer -fno-inline-functions -fno-tree-fre -fstrict-aliasing -ftoplevel-reorder -fno-inline -fno-tree-loop-vectorize -fno-inline-small-functions -fforward-propagate -fcaller-saves
+
+cbench-telecom-adpcm-c:pcm-0017: with MonoTuner
+speedup: 1.031
+default runtime: 4.996e-03
+best runtime: 4.847e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-tree-ch -fno-reorder-functions -fno-inline-small-functions -fno-inline -fno-align-loops -fno-inline-functions -fcaller-saves -fpartial-inlining -ftree-ter -fstrict-aliasing -fno-toplevel-reorder -fno-forward-propagate
+
+cbench-telecom-adpcm-c:pcm-0020: with MonoTuner
+speedup: 1.061
+default runtime: 7.749e-03
+best runtime: 7.304e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-gcse -ftree-ter -fno-align-loops -fno-caller-saves -fno-tree-loop-vectorize -fno-forward-propagate -ftree-fre -finline -fpartial-inlining -fstrict-aliasing -fno-toplevel-reorder -fno-inline-functions -fno-inline-small-functions
+
+cbench-telecom-adpcm-d:adpcm-0001: with MonoTuner
+speedup: 1.015
+default runtime: 4.490e-04
+best runtime: 4.424e-04
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-expensive-optimizations -fno-tree-loop-vectorize -freorder-functions -finline-functions -fcaller-saves -fno-gcse -fno-tree-fre -fno-tree-ter -fno-partial-inlining -fno-forward-propagate -fstrict-aliasing -fno-align-loops
+
+cbench-telecom-adpcm-d:adpcm-0005: with MonoTuner
+speedup: 1.015
+default runtime: 3.605e-03
+best runtime: 3.550e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -finline-small-functions -ftree-fre -fstrict-aliasing -fcaller-saves -fno-tree-loop-vectorize -fno-inline-functions -fno-reorder-functions -fno-forward-propagate -fpartial-inlining -fno-expensive-optimizations -falign-loops -fno-inline
+
+cbench-telecom-adpcm-d:adpcm-0009: with MonoTuner
+speedup: 1.014
+default runtime: 5.144e-04
+best runtime: 5.071e-04
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-align-loops -ftree-fre -fno-inline-small-functions -fno-inline -ftree-loop-vectorize -fpartial-inlining -fno-expensive-optimizations -ftree-ter -fno-gcse -fno-inline-functions -ftoplevel-reorder
+
+cbench-telecom-adpcm-d:adpcm-0013: with MonoTuner
+speedup: 1.014
+default runtime: 3.331e-03
+best runtime: 3.285e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-forward-propagate -fgcse -fpartial-inlining -ftree-ter -falign-loops -fno-expensive-optimizations -fstrict-aliasing -freorder-functions -fno-tree-loop-vectorize -fno-inline-small-functions -ftree-fre -fno-inline-functions -fno-toplevel-reorder
+
+cbench-telecom-adpcm-d:adpcm-0017: with MonoTuner
+speedup: 1.014
+default runtime: 3.346e-03
+best runtime: 3.301e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-forward-propagate -fno-caller-saves -fno-tree-fre -fno-toplevel-reorder -fstrict-aliasing -fno-tree-loop-vectorize -fno-partial-inlining -fno-inline -fno-tree-ter -fno-expensive-optimizations -freorder-functions -fno-inline-functions -fno-align-loops -fno-inline-small-functions
+
+cbench-telecom-adpcm-d:adpcm-0020: with MonoTuner
+speedup: 1.016
+default runtime: 5.150e-03
+best runtime: 5.070e-03
+default flags: -O3
+best flags: -O3 -fno-tree-pre -fno-inline-functions -fno-strict-aliasing -fno-gcse -fno-tree-fre -fno-caller-saves -ftree-loop-vectorize -fforward-propagate -fno-expensive-optimizations -fno-toplevel-reorder -fno-partial-inlining -fno-tree-ter -finline -fno-inline-small-functions
+
+cbench-telecom-crc32:pcm-0001: with MonoTuner
+speedup: 1.715
+default runtime: 1.066e-03
+best runtime: 6.217e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fno-reorder-functions -fno-tree-ch -fno-tree-pre -fno-tree-loop-vectorize -fstrict-aliasing -fno-align-loops -finline-functions -fno-gcse -ftree-fre -fno-omit-frame-pointer -fno-partial-inlining -fno-inline-small-functions -fno-tree-ter
+
+cbench-telecom-crc32:pcm-0005: with MonoTuner
+speedup: 1.716
+default runtime: 8.511e-03
+best runtime: 4.960e-03
+default flags: -O3
+best flags: -O3 -finline-small-functions -fno-tree-pre -fno-align-loops -fno-partial-inlining -ftree-fre -fstrict-aliasing -ftoplevel-reorder -fno-inline -fno-tree-loop-vectorize -fno-inline-functions -fno-forward-propagate -fno-gcse -ftree-ter -fno-reorder-functions
+
+cbench-telecom-crc32:pcm-0009: with MonoTuner
+speedup: 1.718
+default runtime: 1.220e-03
+best runtime: 7.101e-04
+default flags: -O3
+best flags: -O3 -fno-inline -fno-reorder-functions -fno-align-loops -fno-gcse -ftoplevel-reorder -fno-strict-aliasing -fno-inline-small-functions -fomit-frame-pointer -finline-functions -ftree-loop-vectorize -ftree-pre -fno-tree-ch
+
+cbench-telecom-crc32:pcm-0013: with MonoTuner
+speedup: 1.715
+default runtime: 7.860e-03
+best runtime: 4.584e-03
+default flags: -O3
+best flags: -O3 -fno-inline -ftoplevel-reorder -fgcse -ftree-pre -fno-forward-propagate -fno-omit-frame-pointer -fno-strict-aliasing -fno-tree-ter -finline-small-functions -ftree-loop-vectorize -fno-inline-functions -fno-tree-fre
+
+cbench-telecom-crc32:pcm-0017: with MonoTuner
+speedup: 1.718
+default runtime: 7.905e-03
+best runtime: 4.602e-03
+default flags: -O3
+best flags: -O3 -fno-inline-functions -fno-inline -fpartial-inlining -fgcse -fno-forward-propagate -finline-small-functions -ftree-loop-vectorize -freorder-functions -fno-omit-frame-pointer -fno-tree-pre -fno-align-loops -fno-tree-fre
+
+cbench-telecom-crc32:pcm-0020: with MonoTuner
+speedup: 1.720
+default runtime: 1.213e-02
+best runtime: 7.053e-03
+default flags: -O3
+best flags: -O3 -fno-inline-small-functions -fno-inline -ftree-loop-vectorize -fstrict-aliasing -fno-partial-inlining -fno-tree-fre -fno-tree-ter -finline-functions -falign-loops -fno-reorder-functions -fno-tree-ch
+
+cbench-telecom-gsm:au-0001: with MonoTuner
+speedup: 1.252
+default runtime: 1.149e-02
+best runtime: 9.173e-03
+default flags: -O3
+best flags: -O3 -fno-inline -fno-tree-pre -fno-omit-frame-pointer -fno-caller-saves -fno-inline-small-functions -fno-partial-inlining -ftree-fre -fgcse -freorder-functions -fno-inline-functions
+
+cbench-telecom-gsm:au-0005: with MonoTuner
+speedup: 1.257
+default runtime: 9.278e-02
+best runtime: 7.379e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-tree-pre -fno-omit-frame-pointer -finline-functions -fno-reorder-functions -fno-partial-inlining -fno-gcse -fno-tree-fre -fcaller-saves -falign-loops -finline-small-functions
+
+cbench-telecom-gsm:au-0009: with MonoTuner
+speedup: 1.256
+default runtime: 1.310e-02
+best runtime: 1.043e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-tree-pre -fno-omit-frame-pointer -fcaller-saves -fpartial-inlining -fno-inline-small-functions -fgcse -ftree-fre -fno-inline-functions
+
+cbench-telecom-gsm:au-0013: with MonoTuner
+speedup: 1.236
+default runtime: 8.031e-02
+best runtime: 6.496e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-tree-pre -fno-omit-frame-pointer -fcaller-saves -fgcse -fno-inline-functions -fno-partial-inlining -fno-inline-small-functions -fno-tree-fre
+
+cbench-telecom-gsm:au-0017: with MonoTuner
+speedup: 1.271
+default runtime: 8.703e-02
+best runtime: 6.845e-02
+default flags: -O3
+best flags: -O3 -fno-inline -fno-tree-pre -fno-omit-frame-pointer -freorder-functions -fno-inline-functions -finline-small-functions -fgcse -fno-partial-inlining -fno-caller-saves -fno-forward-propagate
+
+cbench-telecom-gsm:au-0020: with MonoTuner
+speedup: 1.238
+default runtime: 1.279e-01
+best runtime: 1.033e-01
+default flags: -O3
+best flags: -O3 -fno-inline -fno-tree-pre -fno-omit-frame-pointer -fno-inline-functions -ftree-fre -falign-loops -fno-partial-inlining -fno-gcse -fno-caller-saves -ftoplevel-reorder -ftree-ch -finline-small-functions
