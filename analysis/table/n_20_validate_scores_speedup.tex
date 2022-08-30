@@ -1,0 +1,69 @@
+\begin{table}
+\caption{Speedup of the learned flags over the best flags from the training data}
+\label{table:validate_score_speedup}
+\begin{tabular}{lrrrrr}
+\toprule
+ & 1e-1 & 1e-2 & 1e-3 & 1e-4 & 1e-5 \\
+\midrule
+cbench-automotive-bitcount:number-0001: & 0.96 & 0.93 & 0.94 & 0.93 & 0.93 \\
+cbench-automotive-qsort1:cdataset-qsort-0001: & 0.96 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-qsort1:cdataset-qsort-0005: & 0.96 & 0.97 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-qsort1:cdataset-qsort-0009: & 0.96 & 0.98 & 0.98 & 0.97 & 0.97 \\
+cbench-automotive-qsort1:cdataset-qsort-0013: & 0.96 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-qsort1:cdataset-qsort-0017: & 0.96 & 0.97 & 0.97 & 0.97 & 0.98 \\
+cbench-automotive-qsort1:cdataset-qsort-0020: & 0.96 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-susan:image-pgm-0001:corners & 0.97 & 0.98 & 0.98 & 0.98 & 0.97 \\
+cbench-automotive-susan:image-pgm-0005:corners & 0.97 & 0.97 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-susan:image-pgm-0009:corners & 0.98 & 0.98 & 0.97 & 0.98 & 0.97 \\
+cbench-automotive-susan:image-pgm-0013:corners & 0.97 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-susan:image-pgm-0017:corners & 0.97 & 0.98 & 0.99 & 0.98 & 0.97 \\
+cbench-automotive-susan:image-pgm-0020:corners & 0.97 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-automotive-susan:image-pgm-0001:edges & 0.98 & 0.99 & 0.99 & 0.99 & 0.98 \\
+cbench-automotive-susan:image-pgm-0005:edges & 0.97 & 0.99 & 0.99 & 0.99 & 0.99 \\
+cbench-automotive-susan:image-pgm-0009:edges & 0.97 & 0.98 & 0.99 & 0.97 & 0.98 \\
+cbench-automotive-susan:image-pgm-0013:edges & 0.99 & 1.00 & 1.00 & 0.99 & 0.99 \\
+cbench-automotive-susan:image-pgm-0017:edges & 0.98 & 0.99 & 0.99 & 0.99 & 0.99 \\
+cbench-automotive-susan:image-pgm-0020:edges & 0.98 & 0.99 & 0.99 & 0.99 & 0.99 \\
+cbench-automotive-susan:image-pgm-0001:smoothing & 0.93 & 0.91 & 0.92 & 0.90 & 0.88 \\
+cbench-automotive-susan:image-pgm-0005:smoothing & 0.93 & 0.91 & 0.90 & 0.91 & 0.91 \\
+cbench-automotive-susan:image-pgm-0009:smoothing & 0.93 & 0.92 & 0.89 & 0.92 & 0.89 \\
+cbench-automotive-susan:image-pgm-0013:smoothing & 0.93 & 0.91 & 0.89 & 0.91 & 0.91 \\
+cbench-automotive-susan:image-pgm-0017:smoothing & 0.93 & 0.91 & 0.90 & 0.91 & 0.90 \\
+cbench-automotive-susan:image-pgm-0020:smoothing & 0.93 & 0.91 & 0.90 & 0.94 & 0.89 \\
+cbench-network-dijkstra:cdataset-dijkstra-0001: & 0.97 & 0.99 & 0.97 & 0.98 & 0.95 \\
+cbench-network-dijkstra:cdataset-dijkstra-0005: & 0.92 & 0.97 & 0.97 & 0.96 & 0.97 \\
+cbench-network-dijkstra:cdataset-dijkstra-0009: & 0.93 & 0.97 & 0.97 & 0.96 & 0.95 \\
+cbench-network-dijkstra:cdataset-dijkstra-0013: & 0.94 & 0.97 & 0.95 & 0.97 & 0.95 \\
+cbench-network-patricia:cdataset-patricia-0001: & 0.90 & 0.94 & 0.93 & 0.92 & 0.94 \\
+cbench-network-patricia:cdataset-patricia-0005: & 0.96 & 0.98 & 0.98 & 0.97 & 0.97 \\
+cbench-network-patricia:cdataset-patricia-0009: & 0.97 & 0.98 & 0.98 & 0.98 & 0.97 \\
+cbench-network-patricia:cdataset-patricia-0013: & 0.98 & 0.98 & 0.97 & 0.98 & 0.98 \\
+cbench-network-patricia:cdataset-patricia-0017: & 0.98 & 0.98 & 0.98 & 0.98 & 0.97 \\
+cbench-network-patricia:cdataset-patricia-0020: & 0.98 & 0.99 & 0.98 & 0.98 & 0.98 \\
+cbench-telecom-adpcm-c:pcm-0001: & 1.00 & 0.98 & 0.97 & 0.98 & 0.98 \\
+cbench-telecom-adpcm-c:pcm-0005: & 0.99 & 0.98 & 0.98 & 0.99 & 0.98 \\
+cbench-telecom-adpcm-c:pcm-0009: & 1.00 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-telecom-adpcm-c:pcm-0013: & 1.00 & 0.98 & 0.98 & 0.98 & 0.98 \\
+cbench-telecom-adpcm-c:pcm-0017: & 1.00 & 0.97 & 0.97 & 0.98 & 0.98 \\
+cbench-telecom-adpcm-c:pcm-0020: & 0.99 & 0.96 & 0.96 & 0.97 & 0.96 \\
+cbench-telecom-adpcm-d:adpcm-0001: & 1.00 & 1.00 & 1.00 & 0.99 & 0.99 \\
+cbench-telecom-adpcm-d:adpcm-0005: & 1.00 & 1.00 & 1.00 & 1.00 & 0.99 \\
+cbench-telecom-adpcm-d:adpcm-0009: & 1.00 & 1.00 & 1.00 & 0.99 & 1.00 \\
+cbench-telecom-adpcm-d:adpcm-0013: & 1.00 & 1.00 & 1.00 & 0.99 & 1.00 \\
+cbench-telecom-adpcm-d:adpcm-0017: & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
+cbench-telecom-adpcm-d:adpcm-0020: & 1.00 & 1.00 & 1.00 & 0.99 & 1.00 \\
+cbench-telecom-crc32:pcm-0001: & 0.93 & 0.86 & 0.93 & 0.96 & 0.96 \\
+cbench-telecom-crc32:pcm-0005: & 0.93 & 0.89 & 0.93 & 0.93 & 0.93 \\
+cbench-telecom-crc32:pcm-0009: & 0.93 & 0.83 & 0.93 & 0.92 & 0.90 \\
+cbench-telecom-crc32:pcm-0013: & 0.94 & 0.83 & 0.94 & 0.94 & 0.92 \\
+cbench-telecom-crc32:pcm-0017: & 0.93 & 0.87 & 0.96 & 0.96 & 0.93 \\
+cbench-telecom-crc32:pcm-0020: & 0.94 & 0.89 & 0.97 & 0.96 & 0.93 \\
+cbench-telecom-gsm:au-0001: & 0.96 & 0.99 & 0.99 & 0.99 & 0.99 \\
+cbench-telecom-gsm:au-0005: & 0.97 & 0.99 & 0.99 & 0.99 & 0.99 \\
+cbench-telecom-gsm:au-0009: & 0.96 & 0.99 & 0.99 & 0.99 & 0.98 \\
+cbench-telecom-gsm:au-0013: & 0.96 & 0.98 & 0.98 & 0.98 & 0.99 \\
+cbench-telecom-gsm:au-0017: & 0.96 & 0.99 & 0.98 & 0.99 & 0.99 \\
+cbench-telecom-gsm:au-0020: & 0.97 & 0.98 & 0.99 & 0.99 & 0.98 \\
+\bottomrule
+\end{tabular}
+\end{table}
