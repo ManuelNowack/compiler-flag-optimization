@@ -1,3 +1,4 @@
+import collections
 import glob
 import pandas as pd
 
@@ -104,6 +105,61 @@ def online_fourier_speedup():
         environment="longtable")
 
 
+def simulation_offline_fourier():
+    data_success_chance = collections.defaultdict(list)
+    data_speedup_learn = collections.defaultdict(list)
+    data_speedup_optimal = collections.defaultdict(list)
+    for search_space in range(20, 121, 10):
+        for budget in range(100, 1001, 100):
+            path = f"simulation/noise_5e-3/n_{search_space:03d}_budget_{budget:04d}_00.csv"
+            df = pd.read_csv(path, index_col=0).transpose()
+            assert len(df.columns) == 4
+            assert df.columns[0] == "Default"
+            assert df["Default"].min() == df["Default"].max() == 1.0
+            assert df.columns[1] == "Train"
+            assert df.columns[3] == "Optimal"
+            try:
+                assert repetitions == len(df.index)
+            except NameError:
+                repetitions = len(df.index)
+            tuner = df.columns[2]
+            success_count = (df[tuner] < df["Train"]).sum()
+            data_success_chance[search_space].append(success_count / repetitions)
+            data_speedup_learn[search_space].append((df["Train"] / df[tuner]).mean())
+            data_speedup_optimal[search_space].append((df[tuner] / df["Optimal"]).mean())
+    success_chance = pd.DataFrame(data_success_chance, index=range(100, 1001, 100))
+    speedup_learn = pd.DataFrame(data_speedup_learn, index=range(100, 1001, 100))
+    speedup_optimal = pd.DataFrame(data_speedup_optimal, index=range(100, 1001, 100))
+
+    s = success_chance.style
+    s.format(precision=2)
+    s.to_latex(
+        "analysis/table/simulation_success_chance.tex",
+        hrules=True,
+        label="table:simulation-success-chance",
+        caption="Probability that the learned flags are better than the best flags from the training data",
+        environment="longtable")
+    
+    s = speedup_learn.style
+    s.format(precision=3)
+    s.to_latex(
+        "analysis/table/simulation_speedup_learn.tex",
+        hrules=True,
+        label="table:simulation-speedup-learn",
+        caption="Speedup of the learned flags over the best flags from the training data",
+        environment="longtable")
+
+    s = speedup_optimal.style
+    s.format(precision=3)
+    s.to_latex(
+        "analysis/table/simulation_speedup_optimal.tex",
+        hrules=True,
+        label="table:simulation-speedup-optimal",
+        caption="Speedup of the optimal flags over the learned flags",
+        environment="longtable")
+
+
 validate_score_evaluation_20()
 offline_fourier_success_chance()
 online_fourier_speedup()
+simulation_offline_fourier()
