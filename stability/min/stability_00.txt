@@ -1,0 +1,413 @@
+cbench-automotive-bitcount:number-0001:
+Mean runtime: 0.06937641934545453 s
+Deviating more than 1%: 0.75
+95-percentile: 4.69 %
+Max noise: 10.23 %
+Relative standard deviation 0.02318501235957715
+
+cbench-automotive-qsort1:cdataset-qsort-0001:
+Mean runtime: 0.019701579264705886 s
+Deviating more than 1%: 0.32
+95-percentile: 1.68 %
+Max noise: 6.04 %
+Relative standard deviation 0.009209663180969368
+
+cbench-automotive-qsort1:cdataset-qsort-0005:
+Mean runtime: 0.01235708953125 s
+Deviating more than 1%: 0.26
+95-percentile: 1.92 %
+Max noise: 10.63 %
+Relative standard deviation 0.010330822452806625
+
+cbench-automotive-qsort1:cdataset-qsort-0009:
+Mean runtime: 0.017742560373333334 s
+Deviating more than 1%: 0.24
+95-percentile: 1.51 %
+Max noise: 10.30 %
+Relative standard deviation 0.009071050939051941
+
+cbench-automotive-qsort1:cdataset-qsort-0013:
+Mean runtime: 0.014816888212454212 s
+Deviating more than 1%: 0.24
+95-percentile: 1.59 %
+Max noise: 10.32 %
+Relative standard deviation 0.011119840111628488
+
+cbench-automotive-qsort1:cdataset-qsort-0017:
+Mean runtime: 0.014224336028776978 s
+Deviating more than 1%: 0.27
+95-percentile: 1.77 %
+Max noise: 11.59 %
+Relative standard deviation 0.01159970687554296
+
+cbench-automotive-qsort1:cdataset-qsort-0020:
+Mean runtime: 0.022335563073446328 s
+Deviating more than 1%: 0.21
+95-percentile: 1.56 %
+Max noise: 10.81 %
+Relative standard deviation 0.010841909624687939
+
+cbench-automotive-susan:image-pgm-0001:corners
+Mean runtime: 0.007720031312621359 s
+Deviating more than 1%: 0.15
+95-percentile: 1.37 %
+Max noise: 15.73 %
+Relative standard deviation 0.010486130622574082
+
+cbench-automotive-susan:image-pgm-0005:corners
+Mean runtime: 0.015349787238095236 s
+Deviating more than 1%: 0.04
+95-percentile: 0.94 %
+Max noise: 2.79 %
+Relative standard deviation 0.004745586704240217
+
+cbench-automotive-susan:image-pgm-0009:corners
+Mean runtime: 0.030587424840000006 s
+Deviating more than 1%: 0.04
+95-percentile: 0.95 %
+Max noise: 3.05 %
+Relative standard deviation 0.005131170852173606
+
+cbench-automotive-susan:image-pgm-0013:corners
+Mean runtime: 0.002009685846464646 s
+Deviating more than 1%: 0.05
+95-percentile: 1.02 %
+Max noise: 3.62 %
+Relative standard deviation 0.005389814453295261
+
+cbench-automotive-susan:image-pgm-0017:corners
+Mean runtime: 0.00643135490280066 s
+Deviating more than 1%: 0.01
+95-percentile: 0.74 %
+Max noise: 4.28 %
+Relative standard deviation 0.004010429933907754
+
+cbench-automotive-susan:image-pgm-0020:corners
+Mean runtime: 0.009726278630272953 s
+Deviating more than 1%: 0.00
+95-percentile: 0.70 %
+Max noise: 2.18 %
+Relative standard deviation 0.003172311869246876
+
+cbench-automotive-susan:image-pgm-0001:edges
+Mean runtime: 0.0168652029535865 s
+Deviating more than 1%: 0.00
+95-percentile: 0.37 %
+Max noise: 5.78 %
+Relative standard deviation 0.003152154012460733
+
+cbench-automotive-susan:image-pgm-0005:edges
+Mean runtime: 0.0306209241 s
+Deviating more than 1%: 0.00
+95-percentile: 0.51 %
+Max noise: 1.47 %
+Relative standard deviation 0.0023899285493419195
+
+cbench-automotive-susan:image-pgm-0009:edges
+Mean runtime: 0.09822935057777778 s
+Deviating more than 1%: 0.00
+95-percentile: 0.55 %
+Max noise: 1.51 %
+Relative standard deviation 0.0026259227912284015
+
+cbench-automotive-susan:image-pgm-0013:edges
+Mean runtime: 0.009013490601366742 s
+Deviating more than 1%: 0.00
+95-percentile: 0.36 %
+Max noise: 2.81 %
+Relative standard deviation 0.0021840146956344903
+
+cbench-automotive-susan:image-pgm-0017:edges
+Mean runtime: 0.019287207424390246 s
+Deviating more than 1%: 0.00
+95-percentile: 0.42 %
+Max noise: 1.25 %
+Relative standard deviation 0.002083043174065338
+
+cbench-automotive-susan:image-pgm-0020:edges
+Mean runtime: 0.028170754098591547 s
+Deviating more than 1%: 0.00
+95-percentile: 0.44 %
+Max noise: 1.38 %
+Relative standard deviation 0.0020951158506031242
+
+cbench-automotive-susan:image-pgm-0001:smoothing
+Mean runtime: 0.08460510370212765 s
+Deviating more than 1%: 0.01
+95-percentile: 0.54 %
+Max noise: 6.32 %
+Relative standard deviation 0.003543683353732757
+
+cbench-automotive-susan:image-pgm-0005:smoothing
+Mean runtime: 0.2243229082352941 s
+Deviating more than 1%: 0.00
+95-percentile: 0.64 %
+Max noise: 1.68 %
+Relative standard deviation 0.003232892360070293
+
+cbench-automotive-susan:image-pgm-0009:smoothing
+Mean runtime: 0.43430082779999996 s
+Deviating more than 1%: 0.00
+95-percentile: 0.36 %
+Max noise: 6.12 %
+Relative standard deviation 0.0033089124059078557
+
+cbench-automotive-susan:image-pgm-0013:smoothing
+Mean runtime: 0.01634428185245902 s
+Deviating more than 1%: 0.00
+95-percentile: 0.39 %
+Max noise: 1.37 %
+Relative standard deviation 0.0018572882798539214
+
+cbench-automotive-susan:image-pgm-0017:smoothing
+Mean runtime: 0.07202332029090909 s
+Deviating more than 1%: 0.00
+95-percentile: 0.63 %
+Max noise: 1.55 %
+Relative standard deviation 0.003024447969592771
+
+cbench-automotive-susan:image-pgm-0020:smoothing
+Mean runtime: 0.1191359563030303 s
+Deviating more than 1%: 0.00
+95-percentile: 0.65 %
+Max noise: 1.57 %
+Relative standard deviation 0.0027639030472223045
+
+cbench-network-dijkstra:cdataset-dijkstra-0001:
+Mean runtime: 8.149773569457532e-07 s
+Deviating more than 1%: 0.12
+95-percentile: 2.83 %
+Max noise: 18.67 %
+Relative standard deviation 0.022629019989142986
+
+cbench-network-dijkstra:cdataset-dijkstra-0005:
+Mean runtime: 0.012114350280487806 s
+Deviating more than 1%: 0.04
+95-percentile: 0.77 %
+Max noise: 4.22 %
+Relative standard deviation 0.004608500069157147
+
+cbench-network-dijkstra:cdataset-dijkstra-0009:
+Mean runtime: 0.12932286413333333 s
+Deviating more than 1%: 0.03
+95-percentile: 0.77 %
+Max noise: 2.24 %
+Relative standard deviation 0.0033280328252973342
+
+cbench-network-dijkstra:cdataset-dijkstra-0013:
+Mean runtime: 0.5646673585714286 s
+Deviating more than 1%: 0.00
+95-percentile: 0.56 %
+Max noise: 3.51 %
+Relative standard deviation 0.003088888217547068
+
+cbench-network-patricia:cdataset-patricia-0001:
+Mean runtime: 6.719800189032727e-05 s
+Deviating more than 1%: 0.23
+95-percentile: 1.71 %
+Max noise: 9.66 %
+Relative standard deviation 0.010522362835430817
+
+cbench-network-patricia:cdataset-patricia-0005:
+Mean runtime: 0.000307985791 s
+Deviating more than 1%: 0.19
+95-percentile: 1.42 %
+Max noise: 4.72 %
+Relative standard deviation 0.00769001097099266
+
+cbench-network-patricia:cdataset-patricia-0009:
+Mean runtime: 0.0014012762649480846 s
+Deviating more than 1%: 0.13
+95-percentile: 1.25 %
+Max noise: 4.95 %
+Relative standard deviation 0.00676278951983651
+
+cbench-network-patricia:cdataset-patricia-0013:
+Mean runtime: 0.006760857786440678 s
+Deviating more than 1%: 0.10
+95-percentile: 1.30 %
+Max noise: 6.90 %
+Relative standard deviation 0.007159862832390546
+
+cbench-network-patricia:cdataset-patricia-0017:
+Mean runtime: 0.03411058468 s
+Deviating more than 1%: 0.13
+95-percentile: 1.21 %
+Max noise: 6.30 %
+Relative standard deviation 0.007716846341674628
+
+cbench-network-patricia:cdataset-patricia-0020:
+Mean runtime: 0.11707394825 s
+Deviating more than 1%: 0.09
+95-percentile: 1.12 %
+Max noise: 7.87 %
+Relative standard deviation 0.006899320000075462
+
+cbench-telecom-adpcm-c:pcm-0001:
+Mean runtime: 0.0006574623168580462 s
+Deviating more than 1%: 0.00
+95-percentile: 0.38 %
+Max noise: 64.68 %
+Relative standard deviation 0.08091309777709112
+
+cbench-telecom-adpcm-c:pcm-0005:
+Mean runtime: 0.005938201448275862 s
+Deviating more than 1%: 0.00
+95-percentile: 0.29 %
+Max noise: 0.97 %
+Relative standard deviation 0.0014503235122078756
+
+cbench-telecom-adpcm-c:pcm-0009:
+Mean runtime: 0.0007452897600150461 s
+Deviating more than 1%: 0.00
+95-percentile: 0.35 %
+Max noise: 1.04 %
+Relative standard deviation 0.0016276646654084027
+
+cbench-telecom-adpcm-c:pcm-0013:
+Mean runtime: 0.004817358338 s
+Deviating more than 1%: 0.00
+95-percentile: 0.30 %
+Max noise: 1.05 %
+Relative standard deviation 0.0014447435144375
+
+cbench-telecom-adpcm-c:pcm-0017:
+Mean runtime: 0.004940337481668774 s
+Deviating more than 1%: 0.00
+95-percentile: 0.37 %
+Max noise: 1.04 %
+Relative standard deviation 0.0017812557655690353
+
+cbench-telecom-adpcm-c:pcm-0020:
+Mean runtime: 0.00769487842330097 s
+Deviating more than 1%: 0.00
+95-percentile: 0.26 %
+Max noise: 0.85 %
+Relative standard deviation 0.0014320691120651154
+
+cbench-telecom-adpcm-d:adpcm-0001:
+Mean runtime: 0.0004491304112 s
+Deviating more than 1%: 0.00
+95-percentile: 0.28 %
+Max noise: 0.82 %
+Relative standard deviation 0.001359374301912077
+
+cbench-telecom-adpcm-d:adpcm-0005:
+Mean runtime: 0.00359584402 s
+Deviating more than 1%: 0.00
+95-percentile: 0.33 %
+Max noise: 1.02 %
+Relative standard deviation 0.0015316347760459049
+
+cbench-telecom-adpcm-d:adpcm-0009:
+Mean runtime: 0.0005141485825517153 s
+Deviating more than 1%: 0.00
+95-percentile: 0.28 %
+Max noise: 0.90 %
+Relative standard deviation 0.001438844136518225
+
+cbench-telecom-adpcm-d:adpcm-0013:
+Mean runtime: 0.003328195496 s
+Deviating more than 1%: 0.00
+95-percentile: 0.38 %
+Max noise: 0.92 %
+Relative standard deviation 0.0016810019821948202
+
+cbench-telecom-adpcm-d:adpcm-0017:
+Mean runtime: 0.003341504316 s
+Deviating more than 1%: 0.00
+95-percentile: 0.32 %
+Max noise: 1.05 %
+Relative standard deviation 0.0015484994181046146
+
+cbench-telecom-adpcm-d:adpcm-0020:
+Mean runtime: 0.005136173532467533 s
+Deviating more than 1%: 0.00
+95-percentile: 0.28 %
+Max noise: 0.91 %
+Relative standard deviation 0.0014622709283078114
+
+cbench-telecom-crc32:pcm-0001:
+Mean runtime: 0.0010701531628532974 s
+Deviating more than 1%: 0.01
+95-percentile: 0.37 %
+Max noise: 37.06 %
+Relative standard deviation 0.03726310867725236
+
+cbench-telecom-crc32:pcm-0005:
+Mean runtime: 0.008568097385927505 s
+Deviating more than 1%: 0.02
+95-percentile: 0.41 %
+Max noise: 37.30 %
+Relative standard deviation 0.05266666456727874
+
+cbench-telecom-crc32:pcm-0009:
+Mean runtime: 0.0012231675307503075 s
+Deviating more than 1%: 0.02
+95-percentile: 0.33 %
+Max noise: 36.89 %
+Relative standard deviation 0.03659906255254292
+
+cbench-telecom-crc32:pcm-0013:
+Mean runtime: 0.007917652581027668 s
+Deviating more than 1%: 0.02
+95-percentile: 0.41 %
+Max noise: 37.06 %
+Relative standard deviation 0.04502076498385097
+
+cbench-telecom-crc32:pcm-0017:
+Mean runtime: 0.007964527908548708 s
+Deviating more than 1%: 0.02
+95-percentile: 0.43 %
+Max noise: 37.30 %
+Relative standard deviation 0.05185009980119561
+
+cbench-telecom-crc32:pcm-0020:
+Mean runtime: 0.012190554298780487 s
+Deviating more than 1%: 0.01
+95-percentile: 0.41 %
+Max noise: 37.14 %
+Relative standard deviation 0.036647471887716075
+
+cbench-telecom-gsm:au-0001:
+Mean runtime: 0.01152296436416185 s
+Deviating more than 1%: 0.01
+95-percentile: 0.65 %
+Max noise: 5.82 %
+Relative standard deviation 0.004814810919517988
+
+cbench-telecom-gsm:au-0005:
+Mean runtime: 0.09288172734883722 s
+Deviating more than 1%: 0.01
+95-percentile: 0.66 %
+Max noise: 2.95 %
+Relative standard deviation 0.004360309457200953
+
+cbench-telecom-gsm:au-0009:
+Mean runtime: 0.013139428524590165 s
+Deviating more than 1%: 0.01
+95-percentile: 0.67 %
+Max noise: 5.98 %
+Relative standard deviation 0.005155065793721589
+
+cbench-telecom-gsm:au-0013:
+Mean runtime: 0.08051839681632653 s
+Deviating more than 1%: 0.01
+95-percentile: 0.71 %
+Max noise: 3.76 %
+Relative standard deviation 0.004633281071805616
+
+cbench-telecom-gsm:au-0017:
+Mean runtime: 0.08669636230434782 s
+Deviating more than 1%: 0.01
+95-percentile: 0.66 %
+Max noise: 5.81 %
+Relative standard deviation 0.00498798921072681
+
+cbench-telecom-gsm:au-0020:
+Mean runtime: 0.128421626 s
+Deviating more than 1%: 0.02
+95-percentile: 0.70 %
+Max noise: 4.63 %
+Relative standard deviation 0.004986962411071278
+
