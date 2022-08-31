@@ -9,7 +9,7 @@
 ## Installation
 
 ```
-conda create -n compiler-flags -c conda-forge python anytree cvxopt cvxpy fast-histogram matplotlib numpy pandas pyscipopt pybind11 requests scikit-learn scipy tqdm
+conda create -n compiler-flags -c conda-forge python anytree cvxopt cvxpy fast-histogram jinja2 matplotlib numpy pandas pyscipopt pybind11 requests scikit-learn scipy tqdm
 conda activate compiler-flags
 cd sparse-dsft/cpp; cmake .; make; cd ..; pip install .; cd ..
 cd swht; cmake -DCMAKE_INSTALL_PREFIX=./build -B build .; cmake --build build; cd build; make install; cd ..; pip install .; cd ..
