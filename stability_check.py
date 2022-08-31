@@ -3,7 +3,6 @@ import multiprocessing
 import shutil
 
 import numpy as np
-import pandas as pd
 
 from compiler_opt import benchmark
 
@@ -61,9 +60,7 @@ with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
             results = pool.map(benchmark_thread, args.modules)
     else:
         results = [benchmark_thread(module) for module in args.modules]
-    df = pd.DataFrame()
     for module, run_times in zip(args.modules, results):
-        df[module] = run_times
         noise = np.abs(1 - run_times / np.median(run_times))
         fraction_noisy = np.count_nonzero(noise > 0.01) / len(noise)
         percentile = np.percentile(noise, 95)
@@ -76,4 +73,3 @@ with open(f"results/stability_{nonce:02d}.txt", "w") as fh:
         fh.write(f"Max noise: {max_noise * 100:.2f} %\n")
         fh.write(f"Relative standard deviation {std}\n")
         fh.write("\n")
-    df.to_csv(f"results/stability_{nonce:02d}.csv", index=False)
