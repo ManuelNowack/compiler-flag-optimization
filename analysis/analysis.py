@@ -57,4 +57,31 @@ def validate_score_evaluation_20():
     speedup
 
 
+def offline_fourier_success_chance_(n: int):
+    data_train = []
+    data_fourier = []
+    for file in glob.glob(f"evaluation/fourier/n_{n:03d}_budget_0500_??.csv"):
+        df = pd.read_csv(file, index_col=0).transpose()
+        data_train.append(df["Train"])
+        data_fourier.append(df["Fourier"])
+    df_train = pd.DataFrame(data_train).reset_index(drop=True)
+    df_fourier = pd.DataFrame(data_fourier).reset_index(drop=True)
+    return (df_fourier < df_train).sum() / len(df_train.index)
+
+
+def offline_fourier_success_chance():
+    data = {
+        20: offline_fourier_success_chance_(20),
+        98: offline_fourier_success_chance_(98)}
+    s = pd.DataFrame(data).rename(index=shorten_program_name).style
+    s.format(precision=2)
+    s.to_latex(
+        f"analysis/table/offline_success_chance.tex",
+        hrules=True,
+        label="table:offline-success-chance",
+        caption="Probability that the learned flags are better than the best flags from the training data",
+        environment="longtable")
+
+
 validate_score_evaluation_20()
+offline_fourier_success_chance()
