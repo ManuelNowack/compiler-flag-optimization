@@ -83,5 +83,27 @@ def offline_fourier_success_chance():
         environment="longtable")
 
 
+def online_fourier_speedup():
+    data_random = []
+    data_fourier = []
+    for file in glob.glob(f"evaluation/random/n_020_budget_0500_??.csv"):
+        df = pd.read_csv(file, index_col=0).transpose()
+        data_random.append(df["RandomTuner"])
+    for file in glob.glob(f"evaluation/active_fourier/n_020_budget_0500_??.csv"):
+        df = pd.read_csv(file, index_col=0).transpose()
+        data_fourier.append(df["ActiveFourier"])
+    random = pd.DataFrame(data_random)
+    fourier = pd.DataFrame(data_fourier)
+    speedup = random.mean() / fourier.mean()
+    s = speedup.rename(index=shorten_program_name).to_frame("Speedup").style
+    s.to_latex(
+        f"analysis/table/online_speedup_learn.tex",
+        hrules=True,
+        label="table:online-speedup-learn",
+        caption="Speedup of online Fourier-sparse function learning over the best flags from randomly sampled training data",
+        environment="longtable")
+
+
 validate_score_evaluation_20()
 offline_fourier_success_chance()
+online_fourier_speedup()
