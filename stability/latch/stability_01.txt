@@ -1,0 +1,175 @@
+cbench-consumer-jpeg-c:image-ppm-0001:
+Mean runtime: 0.013749304392857143 s
+Deviating more than 1%: 0.72
+95-percentile: 5.66 %
+Max noise: 16.62 %
+Relative standard deviation 0.028395998245343175
+
+cbench-consumer-jpeg-c:image-ppm-0002:
+Mean runtime: 0.015912304688259108 s
+Deviating more than 1%: 0.72
+95-percentile: 4.76 %
+Max noise: 12.64 %
+Relative standard deviation 0.02537315615187875
+
+cbench-consumer-jpeg-c:image-ppm-0003:
+Mean runtime: 0.5353725540000001 s
+Deviating more than 1%: 0.48
+95-percentile: 2.60 %
+Max noise: 7.25 %
+Relative standard deviation 0.013107227499659539
+
+cbench-consumer-jpeg-c:image-ppm-0004:
+Mean runtime: 0.04638501334 s
+Deviating more than 1%: 0.54
+95-percentile: 3.12 %
+Max noise: 9.77 %
+Relative standard deviation 0.016214444101497003
+
+cbench-consumer-jpeg-c:image-ppm-0005:
+Mean runtime: 0.009809584896551725 s
+Deviating more than 1%: 0.69
+95-percentile: 5.45 %
+Max noise: 17.30 %
+Relative standard deviation 0.02888074186374419
+
+cbench-consumer-jpeg-d:image-jpeg-0001:
+Mean runtime: 0.008225823832285116 s
+Deviating more than 1%: 0.77
+95-percentile: 5.71 %
+Max noise: 17.73 %
+Relative standard deviation 0.03082620350115181
+
+cbench-consumer-jpeg-d:image-jpeg-0002:
+Mean runtime: 0.00984544313486005 s
+Deviating more than 1%: 0.74
+95-percentile: 6.13 %
+Max noise: 15.85 %
+Relative standard deviation 0.031134882190698408
+
+cbench-consumer-jpeg-d:image-jpeg-0003:
+Mean runtime: 0.2104540203 s
+Deviating more than 1%: 0.76
+95-percentile: 5.68 %
+Max noise: 16.42 %
+Relative standard deviation 0.03141103076225596
+
+cbench-consumer-jpeg-d:image-jpeg-0004:
+Mean runtime: 0.020325503421319797 s
+Deviating more than 1%: 0.62
+95-percentile: 3.86 %
+Max noise: 12.55 %
+Relative standard deviation 0.019686143091907325
+
+cbench-consumer-jpeg-d:image-jpeg-0005:
+Mean runtime: 0.006501282388704319 s
+Deviating more than 1%: 0.80
+95-percentile: 7.29 %
+Max noise: 23.33 %
+Relative standard deviation 0.03645298447597122
+
+cbench-consumer-tiff2bw:image-tiff-0001:
+Mean runtime: 0.008839275339960238 s
+Deviating more than 1%: 0.75
+95-percentile: 5.74 %
+Max noise: 13.85 %
+Relative standard deviation 0.02844257204917947
+
+cbench-consumer-tiff2bw:image-tiff-0002:
+Mean runtime: 0.00987076201860465 s
+Deviating more than 1%: 0.74
+95-percentile: 5.39 %
+Max noise: 18.00 %
+Relative standard deviation 0.027739272947480183
+
+cbench-consumer-tiff2bw:image-tiff-0003:
+Mean runtime: 0.20563348039999998 s
+Deviating more than 1%: 0.71
+95-percentile: 5.23 %
+Max noise: 13.10 %
+Relative standard deviation 0.026734065729749394
+
+cbench-consumer-tiff2bw:image-tiff-0004:
+Mean runtime: 0.021858667824175827 s
+Deviating more than 1%: 0.68
+95-percentile: 3.84 %
+Max noise: 11.25 %
+Relative standard deviation 0.021014720009739626
+
+cbench-consumer-tiff2bw:image-tiff-0005:
+Mean runtime: 0.00692274876 s
+Deviating more than 1%: 0.76
+95-percentile: 6.11 %
+Max noise: 19.19 %
+Relative standard deviation 0.032399094083957324
+
+cbench-consumer-tiff2dither:image-tiff-0001-bw:
+Mean runtime: 0.0088936402 s
+Deviating more than 1%: 0.71
+95-percentile: 5.39 %
+Max noise: 19.03 %
+Relative standard deviation 0.028495268720095564
+
+cbench-consumer-tiff2dither:image-tiff-0002-bw:
+Mean runtime: 0.010068218986725665 s
+Deviating more than 1%: 0.71
+95-percentile: 5.34 %
+Max noise: 17.46 %
+Relative standard deviation 0.027672609782369684
+
+cbench-consumer-tiff2dither:image-tiff-0003-bw:
+Mean runtime: 0.25199389466666666 s
+Deviating more than 1%: 0.67
+95-percentile: 4.62 %
+Max noise: 24.20 %
+Relative standard deviation 0.025689039480097823
+
+cbench-consumer-tiff2dither:image-tiff-0004-bw:
+Mean runtime: 0.02217124684090909 s
+Deviating more than 1%: 0.65
+95-percentile: 4.14 %
+Max noise: 17.55 %
+Relative standard deviation 0.022682239408490176
+
+cbench-consumer-tiff2dither:image-tiff-0005-bw:
+Mean runtime: 0.006841859664 s
+Deviating more than 1%: 0.76
+95-percentile: 5.93 %
+Max noise: 16.14 %
+Relative standard deviation 0.031256730939469866
+
+cbench-consumer-tiff2rgba:image-tiff-0001:
+Mean runtime: 0.009468950343283582 s
+Deviating more than 1%: 0.73
+95-percentile: 6.52 %
+Max noise: 14.90 %
+Relative standard deviation 0.030791558576643743
+
+cbench-consumer-tiff2rgba:image-tiff-0002:
+Mean runtime: 0.011399888813056378 s
+Deviating more than 1%: 0.73
+95-percentile: 5.35 %
+Max noise: 14.36 %
+Relative standard deviation 0.027273945409715963
+
+cbench-consumer-tiff2rgba:image-tiff-0003:
+Mean runtime: 0.36863753819999995 s
+Deviating more than 1%: 0.48
+95-percentile: 2.61 %
+Max noise: 7.29 %
+Relative standard deviation 0.013669904407721555
+
+cbench-consumer-tiff2rgba:image-tiff-0004:
+Mean runtime: 0.02836318582 s
+Deviating more than 1%: 0.64
+95-percentile: 4.13 %
+Max noise: 11.85 %
+Relative standard deviation 0.021866628034406956
+
+cbench-consumer-tiff2rgba:image-tiff-0005:
+Mean runtime: 0.008186963040169132 s
+Deviating more than 1%: 0.73
+95-percentile: 5.79 %
+Max noise: 17.41 %
+Relative standard deviation 0.03026050334498157
+
