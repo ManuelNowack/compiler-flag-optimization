@@ -1,0 +1,3155 @@
+Alpha: 0.01
+
+Query 101
+Num coefs: 93
+Fit duration: 1.0292065711691976 s
+Train score: 0.9416756849888682
+Validate score: 0.9241574459186157
+Minimize duration: 0.08029494900256395 s
+
+Query 102
+Num coefs: 82
+Fit duration: 0.9157122680917382 s
+Train score: 0.941003495884017
+Validate score: 0.9249578797275217
+Minimize duration: 0.0717095173895359 s
+
+Query 103
+Num coefs: 80
+Fit duration: 0.9112062575295568 s
+Train score: 0.9411749714336217
+Validate score: 0.9251779562740516
+Minimize duration: 0.06688674818724394 s
+
+Query 104
+Num coefs: 79
+Fit duration: 0.9020545007660985 s
+Train score: 0.9410260547148253
+Validate score: 0.9254941229464692
+Minimize duration: 0.07161280512809753 s
+
+Query 105
+Num coefs: 79
+Fit duration: 0.8724415674805641 s
+Train score: 0.9410715704900868
+Validate score: 0.9257685490460903
+Minimize duration: 0.08153870701789856 s
+
+Query 106
+Num coefs: 77
+Fit duration: 0.8638405846431851 s
+Train score: 0.9410627679942485
+Validate score: 0.9259282823866096
+Minimize duration: 0.07078268565237522 s
+
+Query 107
+Num coefs: 73
+Fit duration: 0.8216782007366419 s
+Train score: 0.9413907457827015
+Validate score: 0.9259658330546624
+Minimize duration: 0.08046423271298409 s
+Take random feature
+
+Query 108
+Num coefs: 75
+Fit duration: 0.864728694781661 s
+Train score: 0.9413616976580008
+Validate score: 0.9259976672323205
+Minimize duration: 0.07365170028060675 s
+Take random feature
+
+Query 109
+Num coefs: 77
+Fit duration: 0.8890882804989815 s
+Train score: 0.9411967568356893
+Validate score: 0.9261625268401547
+Minimize duration: 0.06947330757975578 s
+Take random feature
+
+Query 110
+Num coefs: 76
+Fit duration: 0.859576559625566 s
+Train score: 0.9412714761567451
+Validate score: 0.9261575023326676
+Minimize duration: 0.07344716601073742 s
+Take random feature
+
+Query 111
+Num coefs: 76
+Fit duration: 0.8689838098362088 s
+Train score: 0.9414483888557231
+Validate score: 0.9261915046019612
+Minimize duration: 0.07496987003833055 s
+
+Query 112
+Num coefs: 77
+Fit duration: 0.8963557546958327 s
+Train score: 0.941650549548979
+Validate score: 0.9262421037695625
+Minimize duration: 0.08367083501070738 s
+
+Query 113
+Num coefs: 78
+Fit duration: 0.9125483259558678 s
+Train score: 0.9418488974607115
+Validate score: 0.9262271081370228
+Minimize duration: 0.08343609981238842 s
+
+Query 114
+Num coefs: 76
+Fit duration: 0.863031187094748 s
+Train score: 0.94205831742869
+Validate score: 0.9262256100404362
+Minimize duration: 0.08957173582166433 s
+
+Query 115
+Num coefs: 81
+Fit duration: 0.9217918831855059 s
+Train score: 0.9423858903379476
+Validate score: 0.9262791369937904
+Minimize duration: 0.0968492403626442 s
+Take random feature
+
+Query 116
+Num coefs: 80
+Fit duration: 0.9550706492736936 s
+Train score: 0.9425662272781565
+Validate score: 0.9262633350145921
+Minimize duration: 0.08847145270556211 s
+Take random feature
+
+Query 117
+Num coefs: 78
+Fit duration: 0.8658957704901695 s
+Train score: 0.9425787671893354
+Validate score: 0.9262731284639898
+Minimize duration: 0.10043283924460411 s
+
+Query 118
+Num coefs: 78
+Fit duration: 0.9212919315323234 s
+Train score: 0.9428727530638717
+Validate score: 0.9262207618191826
+Minimize duration: 0.09194897953420877 s
+Take random feature
+
+Query 119
+Num coefs: 79
+Fit duration: 0.9106841050088406 s
+Train score: 0.9428652643754297
+Validate score: 0.9262006882940647
+Minimize duration: 0.09474689234048128 s
+Take random feature
+
+Query 120
+Num coefs: 77
+Fit duration: 0.9225798416882753 s
+Train score: 0.9432570868083316
+Validate score: 0.9262158169469794
+Minimize duration: 0.08613117039203644 s
+
+Query 121
+Num coefs: 75
+Fit duration: 0.9158526305109262 s
+Train score: 0.9433450073939776
+Validate score: 0.9262909728745028
+Minimize duration: 0.07449152879416943 s
+
+Query 122
+Num coefs: 76
+Fit duration: 0.942845324985683 s
+Train score: 0.943560154711497
+Validate score: 0.9262965817588321
+Minimize duration: 0.07899519894272089 s
+
+Query 123
+Num coefs: 77
+Fit duration: 0.9476717533543706 s
+Train score: 0.9438027340640995
+Validate score: 0.9262786331829533
+Minimize duration: 0.07523301523178816 s
+
+Query 124
+Num coefs: 76
+Fit duration: 0.9062531450763345 s
+Train score: 0.9440530982896252
+Validate score: 0.9262770897633062
+Minimize duration: 0.0832225838676095 s
+
+Query 125
+Num coefs: 76
+Fit duration: 0.8875331459566951 s
+Train score: 0.9443060318462317
+Validate score: 0.9262438785893181
+Minimize duration: 0.07717963866889477 s
+
+Query 126
+Num coefs: 76
+Fit duration: 0.9071657555177808 s
+Train score: 0.9445381882068181
+Validate score: 0.9262284903121925
+Minimize duration: 0.07505040150135756 s
+
+Query 127
+Num coefs: 73
+Fit duration: 0.8584661353379488 s
+Train score: 0.9448306806809665
+Validate score: 0.9261336061468806
+Minimize duration: 0.072910794056952 s
+Take random feature
+
+Query 128
+Num coefs: 74
+Fit duration: 0.892432895489037 s
+Train score: 0.9447870599519802
+Validate score: 0.9261212807810375
+Minimize duration: 0.07364729046821594 s
+Take random feature
+
+Query 129
+Num coefs: 75
+Fit duration: 0.9136678343638778 s
+Train score: 0.9446053141010262
+Validate score: 0.9260717086524075
+Minimize duration: 0.06683376431465149 s
+
+Query 130
+Num coefs: 76
+Fit duration: 0.9463570890948176 s
+Train score: 0.9447586218726325
+Validate score: 0.9261475000075751
+Minimize duration: 0.0787962693721056 s
+Take random feature
+
+Query 131
+Num coefs: 76
+Fit duration: 0.945048701018095 s
+Train score: 0.9446568100578275
+Validate score: 0.9261289260380224
+Minimize duration: 0.06948135327547789 s
+Take random feature
+
+Query 132
+Num coefs: 74
+Fit duration: 0.9403980681672692 s
+Train score: 0.9446632131489144
+Validate score: 0.9260898354336551
+Minimize duration: 0.07367931585758924 s
+Take random feature
+
+Query 133
+Num coefs: 76
+Fit duration: 0.9096185034140944 s
+Train score: 0.9447709489316264
+Validate score: 0.9260466912581934
+Minimize duration: 0.07054911646991968 s
+Take random feature
+
+Query 134
+Num coefs: 75
+Fit duration: 0.9426117362454534 s
+Train score: 0.9447308489307017
+Validate score: 0.926067263116152
+Minimize duration: 0.07166787143796682 s
+Take random feature
+
+Query 135
+Num coefs: 80
+Fit duration: 0.9877602802589536 s
+Train score: 0.9448654445987336
+Validate score: 0.9267323326757354
+Minimize duration: 0.08229708764702082 s
+Take random feature
+
+Query 136
+Num coefs: 76
+Fit duration: 0.9906519735231996 s
+Train score: 0.9446369184230763
+Validate score: 0.9269635297307232
+Minimize duration: 0.0767509937286377 s
+Take random feature
+
+Query 137
+Num coefs: 76
+Fit duration: 0.9366361638531089 s
+Train score: 0.9448500318131484
+Validate score: 0.9269379585520698
+Minimize duration: 0.0718472357839346 s
+Take random feature
+
+Query 138
+Num coefs: 77
+Fit duration: 1.0166292702779174 s
+Train score: 0.9448354304331048
+Validate score: 0.9268201450868603
+Minimize duration: 0.07545292563736439 s
+
+Query 139
+Num coefs: 77
+Fit duration: 1.0276331044733524 s
+Train score: 0.9450749227840377
+Validate score: 0.9267373226004462
+Minimize duration: 0.07654597982764244 s
+Take random feature
+
+Query 140
+Num coefs: 76
+Fit duration: 1.0632687266916037 s
+Train score: 0.9450566493976199
+Validate score: 0.9267060087676282
+Minimize duration: 0.07329996675252914 s
+Take random feature
+
+Query 141
+Num coefs: 72
+Fit duration: 0.9832552196457982 s
+Train score: 0.9449824007618857
+Validate score: 0.9267583747708928
+Minimize duration: 0.06939140148460865 s
+Take random feature
+
+Query 142
+Num coefs: 75
+Fit duration: 0.9386250479146838 s
+Train score: 0.9448897792447324
+Validate score: 0.9266441690656282
+Minimize duration: 0.07270773500204086 s
+
+Query 143
+Num coefs: 75
+Fit duration: 0.9984656879678369 s
+Train score: 0.9450552045225236
+Validate score: 0.9266240131600021
+Minimize duration: 0.06607969757169485 s
+
+Query 144
+Num coefs: 75
+Fit duration: 0.9860480325296521 s
+Train score: 0.9452814612972374
+Validate score: 0.926604276442714
+Minimize duration: 0.06611665803939104 s
+Take random feature
+
+Query 145
+Num coefs: 73
+Fit duration: 0.9202030282467604 s
+Train score: 0.9453477949861239
+Validate score: 0.9266957389061585
+Minimize duration: 0.06585515290498734 s
+
+Query 146
+Num coefs: 73
+Fit duration: 0.9547127960249782 s
+Train score: 0.9455643681735337
+Validate score: 0.9266794214300091
+Minimize duration: 0.06680246442556381 s
+Take random feature
+
+Query 147
+Num coefs: 73
+Fit duration: 0.9396694824099541 s
+Train score: 0.9456926743120272
+Validate score: 0.9266566857010529
+Minimize duration: 0.06529317982494831 s
+Take random feature
+
+Query 148
+Num coefs: 72
+Fit duration: 0.8870761636644602 s
+Train score: 0.9457156898422023
+Validate score: 0.926647045516475
+Minimize duration: 0.06425849627703428 s
+Take random feature
+
+Query 149
+Num coefs: 76
+Fit duration: 1.0113023528829217 s
+Train score: 0.9458517849010695
+Validate score: 0.9266587209739744
+Minimize duration: 0.06918406672775745 s
+Take random feature
+
+Query 150
+Num coefs: 74
+Fit duration: 1.0006352961063385 s
+Train score: 0.9457721370099368
+Validate score: 0.9267004211999279
+Minimize duration: 0.06401330046355724 s
+Take random feature
+
+Query 151
+Num coefs: 73
+Fit duration: 0.9729693606495857 s
+Train score: 0.9456264304463148
+Validate score: 0.9266550218461839
+Minimize duration: 0.06891697086393833 s
+Take random feature
+
+Query 152
+Num coefs: 73
+Fit duration: 0.9366784663870931 s
+Train score: 0.9457485282689725
+Validate score: 0.9266704707774429
+Minimize duration: 0.06580254063010216 s
+Take random feature
+
+Query 153
+Num coefs: 74
+Fit duration: 0.9462742181494832 s
+Train score: 0.9455625404563989
+Validate score: 0.9265066370290415
+Minimize duration: 0.07221309468150139 s
+Take random feature
+
+Query 154
+Num coefs: 72
+Fit duration: 0.9457000261172652 s
+Train score: 0.9455565870274358
+Validate score: 0.926395061486279
+Minimize duration: 0.06240353640168905 s
+Take random feature
+
+Query 155
+Num coefs: 75
+Fit duration: 0.952017905190587 s
+Train score: 0.9454515988568667
+Validate score: 0.9263611866850364
+Minimize duration: 0.06544805411249399 s
+Take random feature
+
+Query 156
+Num coefs: 74
+Fit duration: 0.9831977495923638 s
+Train score: 0.9454446937125283
+Validate score: 0.9263777511382497
+Minimize duration: 0.06129438243806362 s
+Take random feature
+
+Query 157
+Num coefs: 73
+Fit duration: 0.9670309294015169 s
+Train score: 0.9456073321169108
+Validate score: 0.9263674732701221
+Minimize duration: 0.06185160391032696 s
+Take random feature
+
+Query 158
+Num coefs: 72
+Fit duration: 0.9448908278718591 s
+Train score: 0.9457943138047491
+Validate score: 0.9263482618132906
+Minimize duration: 0.06496276240795851 s
+Take random feature
+
+Query 159
+Num coefs: 73
+Fit duration: 1.018470942042768 s
+Train score: 0.9457682677602901
+Validate score: 0.9263446216002333
+Minimize duration: 0.05910614226013422 s
+Take random feature
+
+Query 160
+Num coefs: 72
+Fit duration: 0.9550741435959935 s
+Train score: 0.9457082106216256
+Validate score: 0.9262947045499184
+Minimize duration: 0.0583670474588871 s
+
+Query 161
+Num coefs: 72
+Fit duration: 0.9403800070285797 s
+Train score: 0.9459137973682973
+Validate score: 0.926271201772502
+Minimize duration: 0.06161955837160349 s
+Take random feature
+
+Query 162
+Num coefs: 71
+Fit duration: 0.91216473095119 s
+Train score: 0.9460181013806641
+Validate score: 0.9262511037328749
+Minimize duration: 0.05930689815431833 s
+Take random feature
+
+Query 163
+Num coefs: 71
+Fit duration: 0.9281802671030164 s
+Train score: 0.9459777425535836
+Validate score: 0.9262318676321826
+Minimize duration: 0.06003940291702747 s
+Take random feature
+
+Query 164
+Num coefs: 71
+Fit duration: 0.9044579891487956 s
+Train score: 0.945882470370037
+Validate score: 0.9261708292601647
+Minimize duration: 0.060067083686590195 s
+Take random feature
+
+Query 165
+Num coefs: 75
+Fit duration: 1.0068759135901928 s
+Train score: 0.9460188019349326
+Validate score: 0.9260234086920208
+Minimize duration: 0.06229345314204693 s
+Take random feature
+
+Query 166
+Num coefs: 73
+Fit duration: 0.9724090993404388 s
+Train score: 0.9459899898221386
+Validate score: 0.9260711418465539
+Minimize duration: 0.06205557752400637 s
+Take random feature
+
+Query 167
+Num coefs: 76
+Fit duration: 1.0329920640215278 s
+Train score: 0.9458360043768905
+Validate score: 0.9259794600637087
+Minimize duration: 0.06326958537101746 s
+Take random feature
+
+Query 168
+Num coefs: 76
+Fit duration: 1.0399850001558661 s
+Train score: 0.9458583267377882
+Validate score: 0.9259140567507796
+Minimize duration: 0.0628467658534646 s
+Take random feature
+
+Query 169
+Num coefs: 78
+Fit duration: 1.0366577161476016 s
+Train score: 0.9460844581258194
+Validate score: 0.9258673663339092
+Minimize duration: 0.066270861774683 s
+Take random feature
+
+Query 170
+Num coefs: 77
+Fit duration: 1.044436858035624 s
+Train score: 0.9458399253711781
+Validate score: 0.9257777974904484
+Minimize duration: 0.06681245472282171 s
+Take random feature
+
+Query 171
+Num coefs: 76
+Fit duration: 1.0172864543274045 s
+Train score: 0.9459940867086226
+Validate score: 0.925762514487135
+Minimize duration: 0.0689973933622241 s
+Take random feature
+
+Query 172
+Num coefs: 73
+Fit duration: 1.0286205280572176 s
+Train score: 0.9460921998218612
+Validate score: 0.9258282725375105
+Minimize duration: 0.07014137972146273 s
+
+Query 173
+Num coefs: 75
+Fit duration: 1.0187660390511155 s
+Train score: 0.946237048193182
+Validate score: 0.9258544037173919
+Minimize duration: 0.06810022331774235 s
+Take random feature
+
+Query 174
+Num coefs: 75
+Fit duration: 1.0623015044257045 s
+Train score: 0.9462287254380164
+Validate score: 0.9258694954266332
+Minimize duration: 0.06451896298676729 s
+Take random feature
+
+Query 175
+Num coefs: 74
+Fit duration: 0.9822261976078153 s
+Train score: 0.9461162716095048
+Validate score: 0.9258901842815145
+Minimize duration: 0.06719404179602861 s
+Take random feature
+
+Query 176
+Num coefs: 72
+Fit duration: 0.9973198622465134 s
+Train score: 0.9461027236783638
+Validate score: 0.9258854496762151
+Minimize duration: 0.0634780703112483 s
+Take random feature
+
+Query 177
+Num coefs: 72
+Fit duration: 0.9398821657523513 s
+Train score: 0.9461154807445936
+Validate score: 0.926039551646129
+Minimize duration: 0.06275300402194262 s
+Take random feature
+
+Query 178
+Num coefs: 72
+Fit duration: 0.9440365973860025 s
+Train score: 0.9461101110312621
+Validate score: 0.9260393059564397
+Minimize duration: 0.06278290413320065 s
+Take random feature
+
+Query 179
+Num coefs: 70
+Fit duration: 0.9196365168318152 s
+Train score: 0.9460276803178865
+Validate score: 0.9259685346428848
+Minimize duration: 0.061564188450574875 s
+Take random feature
+
+Query 180
+Num coefs: 69
+Fit duration: 0.906605776399374 s
+Train score: 0.946003553527005
+Validate score: 0.9259623634756841
+Minimize duration: 0.06345037929713726 s
+Take random feature
+
+Query 181
+Num coefs: 67
+Fit duration: 0.8301846198737621 s
+Train score: 0.9460733926601794
+Validate score: 0.9260570565613198
+Minimize duration: 0.05935467779636383 s
+Take random feature
+
+Query 182
+Num coefs: 71
+Fit duration: 0.9255332089960575 s
+Train score: 0.9461041268904301
+Validate score: 0.92607911722218
+Minimize duration: 0.06283046584576368 s
+Take random feature
+
+Query 183
+Num coefs: 71
+Fit duration: 0.9089025175198913 s
+Train score: 0.9460848230319234
+Validate score: 0.926065175820846
+Minimize duration: 0.06312659196555614 s
+Take random feature
+
+Query 184
+Num coefs: 71
+Fit duration: 1.008618762716651 s
+Train score: 0.9460902842382335
+Validate score: 0.9260751826049027
+Minimize duration: 0.06252075731754303 s
+Take random feature
+
+Query 185
+Num coefs: 70
+Fit duration: 0.976336196064949 s
+Train score: 0.9460740511381237
+Validate score: 0.9260766450668836
+Minimize duration: 0.06405031308531761 s
+Take random feature
+
+Query 186
+Num coefs: 69
+Fit duration: 0.9348404640331864 s
+Train score: 0.9455685005537895
+Validate score: 0.9257856178206602
+Minimize duration: 0.062050098553299904 s
+Take random feature
+
+Query 187
+Num coefs: 69
+Fit duration: 0.9152763495221734 s
+Train score: 0.9455277456517557
+Validate score: 0.9258322922809799
+Minimize duration: 0.05974678788334131 s
+Take random feature
+
+Query 188
+Num coefs: 68
+Fit duration: 0.8908816780894995 s
+Train score: 0.9454388158531907
+Validate score: 0.9259137072466403
+Minimize duration: 0.05797811783850193 s
+
+Query 189
+Num coefs: 68
+Fit duration: 0.8841035971418023 s
+Train score: 0.9455885496247771
+Validate score: 0.9259188672551493
+Minimize duration: 0.05926584545522928 s
+Take random feature
+
+Query 190
+Num coefs: 68
+Fit duration: 0.9200066840276122 s
+Train score: 0.945636763232075
+Validate score: 0.9259170825538301
+Minimize duration: 0.06048500444740057 s
+Take random feature
+
+Query 191
+Num coefs: 68
+Fit duration: 0.9400092475116253 s
+Train score: 0.945359498661419
+Validate score: 0.9258132319097466
+Minimize duration: 0.05931716784834862 s
+
+Query 192
+Num coefs: 68
+Fit duration: 0.911236778832972 s
+Train score: 0.9455084533575233
+Validate score: 0.9258294566679033
+Minimize duration: 0.0637055803090334 s
+Take random feature
+
+Query 193
+Num coefs: 70
+Fit duration: 0.9600359341129661 s
+Train score: 0.9456233978452905
+Validate score: 0.9258697788578627
+Minimize duration: 0.061402917839586735 s
+Take random feature
+
+Query 194
+Num coefs: 70
+Fit duration: 0.9823947139084339 s
+Train score: 0.9451871834739347
+Validate score: 0.9257864644444027
+Minimize duration: 0.05920727923512459 s
+Take random feature
+
+Query 195
+Num coefs: 67
+Fit duration: 0.9304375192150474 s
+Train score: 0.9450398288000369
+Validate score: 0.9258758264550141
+Minimize duration: 0.0625435933470726 s
+Take random feature
+
+Query 196
+Num coefs: 67
+Fit duration: 0.8483984675258398 s
+Train score: 0.9450351957238463
+Validate score: 0.9258667120352693
+Minimize duration: 0.06224788725376129 s
+Take random feature
+
+Query 197
+Num coefs: 68
+Fit duration: 0.897177922539413 s
+Train score: 0.9449772865636691
+Validate score: 0.9259574893553083
+Minimize duration: 0.05893577262759209 s
+Take random feature
+
+Query 198
+Num coefs: 69
+Fit duration: 0.9516296442598104 s
+Train score: 0.9450360861022644
+Validate score: 0.925909280418619
+Minimize duration: 0.059077794663608074 s
+Take random feature
+
+Query 199
+Num coefs: 72
+Fit duration: 0.9792791148647666 s
+Train score: 0.9451022491508622
+Validate score: 0.9258711095776145
+Minimize duration: 0.059788960963487625 s
+Take random feature
+
+Query 200
+Num coefs: 70
+Fit duration: 0.9089678470045328 s
+Train score: 0.9452482951020026
+Validate score: 0.925837688770199
+Minimize duration: 0.058372609317302704 s
+Take random feature
+
+Query 201
+Num coefs: 69
+Fit duration: 0.9319927543401718 s
+Train score: 0.9453639220586717
+Validate score: 0.9259288898667106
+Minimize duration: 0.059434923343360424 s
+Take random feature
+
+Query 202
+Num coefs: 68
+Fit duration: 0.941100618802011 s
+Train score: 0.9451947528620026
+Validate score: 0.925915308839929
+Minimize duration: 0.059903744608163834 s
+
+Query 203
+Num coefs: 68
+Fit duration: 0.8966973517090082 s
+Train score: 0.9453818456150394
+Validate score: 0.9259257603992623
+Minimize duration: 0.06120179407298565 s
+Take random feature
+
+Query 204
+Num coefs: 67
+Fit duration: 0.8573034079745412 s
+Train score: 0.9451524942473859
+Validate score: 0.9257391099637738
+Minimize duration: 0.059163047932088375 s
+Take random feature
+
+Query 205
+Num coefs: 69
+Fit duration: 1.009297939017415 s
+Train score: 0.9447989442479258
+Validate score: 0.9260007032210689
+Minimize duration: 0.061920639127492905 s
+Take random feature
+
+Query 206
+Num coefs: 73
+Fit duration: 1.1251023970544338 s
+Train score: 0.9448085431979527
+Validate score: 0.9260001735647035
+Minimize duration: 0.06472384184598923 s
+Take random feature
+
+Query 207
+Num coefs: 71
+Fit duration: 1.0163273867219687 s
+Train score: 0.9449508761821621
+Validate score: 0.9260465614740914
+Minimize duration: 0.06266289576888084 s
+Take random feature
+
+Query 208
+Num coefs: 70
+Fit duration: 1.0420199818909168 s
+Train score: 0.9448061328494132
+Validate score: 0.9258438619570148
+Minimize duration: 0.062355498783290386 s
+Take random feature
+
+Query 209
+Num coefs: 68
+Fit duration: 0.9499435070902109 s
+Train score: 0.9450863467354133
+Validate score: 0.9259067734895964
+Minimize duration: 0.05887255072593689 s
+Take random feature
+
+Query 210
+Num coefs: 67
+Fit duration: 0.9076537182554603 s
+Train score: 0.9450315638848839
+Validate score: 0.9258487846525075
+Minimize duration: 0.05735725723206997 s
+
+Query 211
+Num coefs: 67
+Fit duration: 0.9859267836436629 s
+Train score: 0.945217380897363
+Validate score: 0.9258248702065668
+Minimize duration: 0.05972730088979006 s
+
+Query 212
+Num coefs: 67
+Fit duration: 0.9638390280306339 s
+Train score: 0.9453948703375367
+Validate score: 0.9258105035566517
+Minimize duration: 0.058517733588814735 s
+
+Query 213
+Num coefs: 67
+Fit duration: 0.9788551051169634 s
+Train score: 0.945559877383489
+Validate score: 0.9257866721655985
+Minimize duration: 0.05793666932731867 s
+
+Query 214
+Num coefs: 67
+Fit duration: 0.946335625834763 s
+Train score: 0.9457221141401808
+Validate score: 0.9257715016300608
+Minimize duration: 0.05956344585865736 s
+Take random feature
+
+Query 215
+Num coefs: 66
+Fit duration: 0.935718797147274 s
+Train score: 0.9456583516439052
+Validate score: 0.925810945042549
+Minimize duration: 0.05731710605323315 s
+Take random feature
+
+Query 216
+Num coefs: 63
+Fit duration: 0.917875437065959 s
+Train score: 0.94542096711387
+Validate score: 0.9259398101053321
+Minimize duration: 0.05487741157412529 s
+Take random feature
+
+Query 217
+Num coefs: 64
+Fit duration: 0.9367562215775251 s
+Train score: 0.9453319528635786
+Validate score: 0.9260724053427006
+Minimize duration: 0.05786736775189638 s
+Take random feature
+
+Query 218
+Num coefs: 63
+Fit duration: 0.9092469727620482 s
+Train score: 0.9453034494520673
+Validate score: 0.92635153127834
+Minimize duration: 0.058098203502595425 s
+
+Query 219
+Num coefs: 63
+Fit duration: 0.8924087267369032 s
+Train score: 0.945455706894185
+Validate score: 0.9263524167526359
+Minimize duration: 0.05748244933784008 s
+
+Query 220
+Num coefs: 63
+Fit duration: 0.8849215684458613 s
+Train score: 0.9456220679324048
+Validate score: 0.9263557900906025
+Minimize duration: 0.057483100332319736 s
+
+Query 221
+Num coefs: 64
+Fit duration: 0.8845144277438521 s
+Train score: 0.9458102624741596
+Validate score: 0.9263215817175049
+Minimize duration: 0.06044575572013855 s
+
+Query 222
+Num coefs: 62
+Fit duration: 0.8874771147966385 s
+Train score: 0.9459522371912539
+Validate score: 0.926301238592961
+Minimize duration: 0.058620525524020195 s
+Take random feature
+
+Query 223
+Num coefs: 62
+Fit duration: 0.9001699509099126 s
+Train score: 0.9459792347588618
+Validate score: 0.9265339998032105
+Minimize duration: 0.05587842408567667 s
+Take random feature
+
+Query 224
+Num coefs: 62
+Fit duration: 0.9355907151475549 s
+Train score: 0.946025837660606
+Validate score: 0.9265390055966073
+Minimize duration: 0.05539555288851261 s
+Take random feature
+
+Query 225
+Num coefs: 61
+Fit duration: 0.9059047596529126 s
+Train score: 0.9459164173324911
+Validate score: 0.9267892384299407
+Minimize duration: 0.05579105205833912 s
+
+Query 226
+Num coefs: 61
+Fit duration: 0.8916343282908201 s
+Train score: 0.9460870498328
+Validate score: 0.9267632556905849
+Minimize duration: 0.05433299019932747 s
+Take random feature
+
+Query 227
+Num coefs: 61
+Fit duration: 0.9149226006120443 s
+Train score: 0.9460995898995872
+Validate score: 0.9267526528615119
+Minimize duration: 0.05619276035577059 s
+Take random feature
+
+Query 228
+Num coefs: 65
+Fit duration: 0.9758709175512195 s
+Train score: 0.946175170247012
+Validate score: 0.9268737501039623
+Minimize duration: 0.05726381577551365 s
+Take random feature
+
+Query 229
+Num coefs: 66
+Fit duration: 0.9592462657019496 s
+Train score: 0.9460107883072251
+Validate score: 0.9270521185819274
+Minimize duration: 0.06013141851872206 s
+Take random feature
+
+Query 230
+Num coefs: 65
+Fit duration: 0.9736193278804421 s
+Train score: 0.9459996414884503
+Validate score: 0.9270746412913867
+Minimize duration: 0.05725288484245539 s
+Take random feature
+
+Query 231
+Num coefs: 65
+Fit duration: 0.9778186213225126 s
+Train score: 0.9459783555500271
+Validate score: 0.9270380875616494
+Minimize duration: 0.05789543967694044 s
+Take random feature
+
+Query 232
+Num coefs: 64
+Fit duration: 0.9305285001173615 s
+Train score: 0.9458835487373355
+Validate score: 0.9269896804967305
+Minimize duration: 0.05677542369812727 s
+Take random feature
+
+Query 233
+Num coefs: 65
+Fit duration: 0.9705090895295143 s
+Train score: 0.9459572113059103
+Validate score: 0.9270005653097686
+Minimize duration: 0.05771300569176674 s
+Take random feature
+
+Query 234
+Num coefs: 67
+Fit duration: 1.064437435939908 s
+Train score: 0.9459895572085943
+Validate score: 0.9269177653043511
+Minimize duration: 0.06263447552919388 s
+Take random feature
+
+Query 235
+Num coefs: 65
+Fit duration: 0.9072962701320648 s
+Train score: 0.9460312538149512
+Validate score: 0.9269624997946473
+Minimize duration: 0.0584354717284441 s
+Take random feature
+
+Query 236
+Num coefs: 65
+Fit duration: 0.9733799817040563 s
+Train score: 0.9460540304684713
+Validate score: 0.9269641979018941
+Minimize duration: 0.05824088677763939 s
+Take random feature
+
+Query 237
+Num coefs: 65
+Fit duration: 0.9553274866193533 s
+Train score: 0.9463258665014527
+Validate score: 0.927038573265971
+Minimize duration: 0.05659173056483269 s
+Take random feature
+
+Query 238
+Num coefs: 65
+Fit duration: 0.9403489166870713 s
+Train score: 0.9462957143127382
+Validate score: 0.9270925881731407
+Minimize duration: 0.057409011758863926 s
+Take random feature
+
+Query 239
+Num coefs: 65
+Fit duration: 0.9436179883778095 s
+Train score: 0.9462559119970131
+Validate score: 0.9270741621093911
+Minimize duration: 0.057805401273071766 s
+Take random feature
+
+Query 240
+Num coefs: 66
+Fit duration: 0.9731752583757043 s
+Train score: 0.9462734550381391
+Validate score: 0.9270564189473331
+Minimize duration: 0.05833107326179743 s
+
+Query 241
+Num coefs: 65
+Fit duration: 0.9728193506598473 s
+Train score: 0.9464446231042798
+Validate score: 0.9270207553292287
+Minimize duration: 0.05845918599516153 s
+Take random feature
+
+Query 242
+Num coefs: 64
+Fit duration: 0.9416374722495675 s
+Train score: 0.9464176392993401
+Validate score: 0.9270309421052414
+Minimize duration: 0.05642127990722656 s
+Take random feature
+
+Query 243
+Num coefs: 66
+Fit duration: 1.0238206991925836 s
+Train score: 0.9463763292478605
+Validate score: 0.9270831157777278
+Minimize duration: 0.05948389694094658 s
+Take random feature
+
+Query 244
+Num coefs: 65
+Fit duration: 1.0139292981475592 s
+Train score: 0.945919184473472
+Validate score: 0.9272240631543326
+Minimize duration: 0.05766891688108444 s
+
+Query 245
+Num coefs: 63
+Fit duration: 0.9323763772845268 s
+Train score: 0.9460099184009586
+Validate score: 0.927227137812192
+Minimize duration: 0.05340421199798584 s
+Take random feature
+
+Query 246
+Num coefs: 63
+Fit duration: 0.9851532559841871 s
+Train score: 0.946031520427065
+Validate score: 0.9272759665779289
+Minimize duration: 0.05942665599286556 s
+Take random feature
+
+Query 247
+Num coefs: 65
+Fit duration: 0.9951824806630611 s
+Train score: 0.9459537400031435
+Validate score: 0.9273055097825443
+Minimize duration: 0.05629760678857565 s
+Take random feature
+
+Query 248
+Num coefs: 65
+Fit duration: 0.9998042015358806 s
+Train score: 0.9459603501246319
+Validate score: 0.9273019218427694
+Minimize duration: 0.057420351542532444 s
+Take random feature
+
+Query 249
+Num coefs: 65
+Fit duration: 0.9745292095467448 s
+Train score: 0.9460010779001127
+Validate score: 0.9271578706503356
+Minimize duration: 0.05687328986823559 s
+Take random feature
+
+Query 250
+Num coefs: 67
+Fit duration: 1.0607989244163036 s
+Train score: 0.9458817605198582
+Validate score: 0.927316690106347
+Minimize duration: 0.062389922328293324 s
+Take random feature
+
+Query 251
+Num coefs: 66
+Fit duration: 1.0141244921833277 s
+Train score: 0.9458219524670537
+Validate score: 0.9273790695445024
+Minimize duration: 0.05689038056880236 s
+Take random feature
+
+Query 252
+Num coefs: 66
+Fit duration: 0.9793740566819906 s
+Train score: 0.945802658161707
+Validate score: 0.9273750605111062
+Minimize duration: 0.05576247442513704 s
+Take random feature
+
+Query 253
+Num coefs: 68
+Fit duration: 1.0839955331757665 s
+Train score: 0.9458028471864799
+Validate score: 0.927347121711224
+Minimize duration: 0.05728139914572239 s
+Take random feature
+
+Query 254
+Num coefs: 68
+Fit duration: 1.1284465556964278 s
+Train score: 0.9458853099659954
+Validate score: 0.9273341938821573
+Minimize duration: 0.05754802469164133 s
+Take random feature
+
+Query 255
+Num coefs: 65
+Fit duration: 0.9620432499796152 s
+Train score: 0.9458626152723013
+Validate score: 0.9273413023060846
+Minimize duration: 0.05569272302091122 s
+Take random feature
+
+Query 256
+Num coefs: 65
+Fit duration: 0.9986774977296591 s
+Train score: 0.9459952842099582
+Validate score: 0.9273199752160965
+Minimize duration: 0.05535725597292185 s
+Take random feature
+
+Query 257
+Num coefs: 64
+Fit duration: 0.947802702896297 s
+Train score: 0.9461209036747078
+Validate score: 0.9273321260982629
+Minimize duration: 0.05376793071627617 s
+Take random feature
+
+Query 258
+Num coefs: 65
+Fit duration: 0.9841898940503597 s
+Train score: 0.9460722844447047
+Validate score: 0.9273019258898525
+Minimize duration: 0.05539162643253803 s
+Take random feature
+
+Query 259
+Num coefs: 64
+Fit duration: 0.9875060394406319 s
+Train score: 0.946277687005545
+Validate score: 0.9273497453652195
+Minimize duration: 0.05296325217932463 s
+Take random feature
+
+Query 260
+Num coefs: 63
+Fit duration: 0.9994438048452139 s
+Train score: 0.9463771183957914
+Validate score: 0.9273110224930212
+Minimize duration: 0.05450167693197727 s
+Take random feature
+
+Query 261
+Num coefs: 63
+Fit duration: 0.9624977800995111 s
+Train score: 0.9465813481798886
+Validate score: 0.927288173848982
+Minimize duration: 0.05349594447761774 s
+Take random feature
+
+Query 262
+Num coefs: 59
+Fit duration: 0.8291813237592578 s
+Train score: 0.9464200208024529
+Validate score: 0.9274172648069339
+Minimize duration: 0.049560136161744595 s
+Take random feature
+
+Query 263
+Num coefs: 59
+Fit duration: 0.8942072754725814 s
+Train score: 0.9464449092112944
+Validate score: 0.9274450680306149
+Minimize duration: 0.04934570100158453 s
+Take random feature
+
+Query 264
+Num coefs: 59
+Fit duration: 0.8448652634397149 s
+Train score: 0.9464538718515316
+Validate score: 0.927435618495551
+Minimize duration: 0.04973114933818579 s
+Take random feature
+
+Query 265
+Num coefs: 59
+Fit duration: 0.8601289950311184 s
+Train score: 0.9464451263001216
+Validate score: 0.9274191397806856
+Minimize duration: 0.05825106054544449 s
+Take random feature
+
+Query 266
+Num coefs: 58
+Fit duration: 0.8303156476467848 s
+Train score: 0.9466381701964516
+Validate score: 0.9274111262058762
+Minimize duration: 0.04864870570600033 s
+Take random feature
+
+Query 267
+Num coefs: 59
+Fit duration: 0.8306403560563922 s
+Train score: 0.9464091284878918
+Validate score: 0.9273422957945492
+Minimize duration: 0.04885467141866684 s
+Take random feature
+
+Query 268
+Num coefs: 59
+Fit duration: 0.8218676000833511 s
+Train score: 0.9464049438542805
+Validate score: 0.9273303189103728
+Minimize duration: 0.049290530383586884 s
+Take random feature
+
+Query 269
+Num coefs: 60
+Fit duration: 0.8405944295227528 s
+Train score: 0.9464472916861617
+Validate score: 0.9273689596911782
+Minimize duration: 0.04991047456860542 s
+Take random feature
+
+Query 270
+Num coefs: 60
+Fit duration: 0.9090702682733536 s
+Train score: 0.9465485155350998
+Validate score: 0.9273432552572503
+Minimize duration: 0.05052810814231634 s
+Take random feature
+
+Query 271
+Num coefs: 59
+Fit duration: 0.8072021128609776 s
+Train score: 0.9467482807426654
+Validate score: 0.9273271130837369
+Minimize duration: 0.04957950673997402 s
+Take random feature
+
+Query 272
+Num coefs: 59
+Fit duration: 0.8338872073218226 s
+Train score: 0.9467459168316705
+Validate score: 0.9272900599316375
+Minimize duration: 0.04903710447251797 s
+Take random feature
+
+Query 273
+Num coefs: 59
+Fit duration: 0.8461506720632315 s
+Train score: 0.946803304103938
+Validate score: 0.9273412025036398
+Minimize duration: 0.04961569793522358 s
+Take random feature
+
+Query 274
+Num coefs: 59
+Fit duration: 0.8411414604634047 s
+Train score: 0.9468318166564298
+Validate score: 0.9273205819198844
+Minimize duration: 0.04949338547885418 s
+Take random feature
+
+Query 275
+Num coefs: 59
+Fit duration: 0.8411396406590939 s
+Train score: 0.9470172715446593
+Validate score: 0.92729362593932
+Minimize duration: 0.0494297044351697 s
+Take random feature
+
+Query 276
+Num coefs: 61
+Fit duration: 0.9367227349430323 s
+Train score: 0.9471723369991183
+Validate score: 0.9270425098802201
+Minimize duration: 0.05088347569108009 s
+Take random feature
+
+Query 277
+Num coefs: 65
+Fit duration: 0.9509834637865424 s
+Train score: 0.9470208834811293
+Validate score: 0.9269532418817966
+Minimize duration: 0.05479619279503822 s
+Take random feature
+
+Query 278
+Num coefs: 65
+Fit duration: 0.9842637255787849 s
+Train score: 0.9470582660861969
+Validate score: 0.9269413114921691
+Minimize duration: 0.05418680980801582 s
+Take random feature
+
+Query 279
+Num coefs: 64
+Fit duration: 1.0585532141849399 s
+Train score: 0.9470510813806264
+Validate score: 0.9269600042351089
+Minimize duration: 0.05386737268418074 s
+Take random feature
+
+Query 280
+Num coefs: 63
+Fit duration: 0.9621263602748513 s
+Train score: 0.9470871076496125
+Validate score: 0.9269234451993286
+Minimize duration: 0.052458930760622025 s
+Take random feature
+
+Query 281
+Num coefs: 65
+Fit duration: 1.0305296294391155 s
+Train score: 0.9470554358217403
+Validate score: 0.9269541366202607
+Minimize duration: 0.05501261819154024 s
+Take random feature
+
+Query 282
+Num coefs: 64
+Fit duration: 1.0225273100659251 s
+Train score: 0.9469945269231175
+Validate score: 0.926968595320495
+Minimize duration: 0.05476717185229063 s
+Take random feature
+
+Query 283
+Num coefs: 65
+Fit duration: 1.0625744750723243 s
+Train score: 0.9468164315018414
+Validate score: 0.926969172545744
+Minimize duration: 0.055493989028036594 s
+Take random feature
+
+Query 284
+Num coefs: 63
+Fit duration: 1.0126022780314088 s
+Train score: 0.9467861330277497
+Validate score: 0.9269671254276108
+Minimize duration: 0.05396927520632744 s
+Take random feature
+
+Query 285
+Num coefs: 61
+Fit duration: 1.0159395029768348 s
+Train score: 0.9466334888932794
+Validate score: 0.9270996229810902
+Minimize duration: 0.051191313192248344 s
+Take random feature
+
+Query 286
+Num coefs: 62
+Fit duration: 0.9811606276780367 s
+Train score: 0.9466414636694434
+Validate score: 0.9271275602339175
+Minimize duration: 0.052990952506661415 s
+Take random feature
+
+Query 287
+Num coefs: 63
+Fit duration: 0.9504163200035691 s
+Train score: 0.9465781339868089
+Validate score: 0.9271880955949812
+Minimize duration: 0.05423670168966055 s
+Take random feature
+
+Query 288
+Num coefs: 61
+Fit duration: 0.9086429681628942 s
+Train score: 0.9468455627915311
+Validate score: 0.9272091867138018
+Minimize duration: 0.05281601008027792 s
+Take random feature
+
+Query 289
+Num coefs: 57
+Fit duration: 0.873975433409214 s
+Train score: 0.9466702780500328
+Validate score: 0.9272641940050518
+Minimize duration: 0.05259149428457022 s
+Take random feature
+
+Query 290
+Num coefs: 59
+Fit duration: 0.8823106605559587 s
+Train score: 0.9463737160931978
+Validate score: 0.9270348025256478
+Minimize duration: 0.05057872924953699 s
+
+Query 291
+Num coefs: 59
+Fit duration: 0.8756465008482337 s
+Train score: 0.9464946290735261
+Validate score: 0.9270152391362483
+Minimize duration: 0.05005327705293894 s
+Take random feature
+
+Query 292
+Num coefs: 59
+Fit duration: 0.9144581574946642 s
+Train score: 0.9464905843488746
+Validate score: 0.9270047015746983
+Minimize duration: 0.04999478626996279 s
+Take random feature
+
+Query 293
+Num coefs: 59
+Fit duration: 0.9608967946842313 s
+Train score: 0.9465375528460135
+Validate score: 0.927009130821272
+Minimize duration: 0.04981835279613733 s
+Take random feature
+
+Query 294
+Num coefs: 61
+Fit duration: 0.989848610945046 s
+Train score: 0.9467460315893751
+Validate score: 0.927055722908565
+Minimize duration: 0.05114017240703106 s
+Take random feature
+
+Query 295
+Num coefs: 60
+Fit duration: 0.932587930932641 s
+Train score: 0.9468347784274022
+Validate score: 0.9270635452198726
+Minimize duration: 0.054416224360466 s
+Take random feature
+
+Query 296
+Num coefs: 61
+Fit duration: 0.9688146011903882 s
+Train score: 0.9468472141766355
+Validate score: 0.9270805256597411
+Minimize duration: 0.051527139730751514 s
+Take random feature
+
+Query 297
+Num coefs: 57
+Fit duration: 0.8944058297201991 s
+Train score: 0.9466120529962013
+Validate score: 0.927189430735985
+Minimize duration: 0.04953286424279213 s
+Take random feature
+
+Query 298
+Num coefs: 57
+Fit duration: 0.8703414034098387 s
+Train score: 0.9465704281651905
+Validate score: 0.9273228749394686
+Minimize duration: 0.04869520664215088 s
+Take random feature
+
+Query 299
+Num coefs: 58
+Fit duration: 0.8727316856384277 s
+Train score: 0.9465031962222482
+Validate score: 0.9272178123307594
+Minimize duration: 0.04955324623733759 s
+Take random feature
+
+Query 300
+Num coefs: 58
+Fit duration: 0.8915947172790766 s
+Train score: 0.9463817985081446
+Validate score: 0.927178673336325
+Minimize duration: 0.04923497047275305 s
+Take random feature
+
+Query 301
+Num coefs: 58
+Fit duration: 0.8876705691218376 s
+Train score: 0.9463911275872523
+Validate score: 0.9271733748584133
+Minimize duration: 0.04889189172536135 s
+Take random feature
+
+Query 302
+Num coefs: 57
+Fit duration: 0.8757484126836061 s
+Train score: 0.946486779229835
+Validate score: 0.9271532476127046
+Minimize duration: 0.04928239993751049 s
+Take random feature
+
+Query 303
+Num coefs: 59
+Fit duration: 0.9050147067755461 s
+Train score: 0.9464104160935197
+Validate score: 0.9269353184673509
+Minimize duration: 0.0500846179202199 s
+Take random feature
+
+Query 304
+Num coefs: 59
+Fit duration: 0.9050948284566402 s
+Train score: 0.9464110870451106
+Validate score: 0.9269305797929184
+Minimize duration: 0.04983662161976099 s
+Take random feature
+
+Query 305
+Num coefs: 57
+Fit duration: 0.8800264084711671 s
+Train score: 0.9462798860789283
+Validate score: 0.9268223734738487
+Minimize duration: 0.048298158682882786 s
+Take random feature
+
+Query 306
+Num coefs: 57
+Fit duration: 0.8625047681853175 s
+Train score: 0.9463539768587417
+Validate score: 0.9267912600598314
+Minimize duration: 0.04804840311408043 s
+
+Query 307
+Num coefs: 56
+Fit duration: 0.8273877035826445 s
+Train score: 0.9465356829312729
+Validate score: 0.9267787975265025
+Minimize duration: 0.04783112742006779 s
+Take random feature
+
+Query 308
+Num coefs: 57
+Fit duration: 0.8901101034134626 s
+Train score: 0.9466144479931478
+Validate score: 0.9267611434661931
+Minimize duration: 0.04769517481327057 s
+Take random feature
+
+Query 309
+Num coefs: 57
+Fit duration: 0.8281528102234006 s
+Train score: 0.946656714055276
+Validate score: 0.9267670891525983
+Minimize duration: 0.04906856548041105 s
+Take random feature
+
+Query 310
+Num coefs: 57
+Fit duration: 0.8575937785208225 s
+Train score: 0.9465879999077776
+Validate score: 0.9267383782113051
+Minimize duration: 0.048285127617418766 s
+Take random feature
+
+Query 311
+Num coefs: 57
+Fit duration: 0.8941618949174881 s
+Train score: 0.9466100236798982
+Validate score: 0.9267500632640393
+Minimize duration: 0.04800272174179554 s
+Take random feature
+
+Query 312
+Num coefs: 57
+Fit duration: 0.8909996543079615 s
+Train score: 0.9467871905155583
+Validate score: 0.926744250635806
+Minimize duration: 0.04835834912955761 s
+Take random feature
+
+Query 313
+Num coefs: 57
+Fit duration: 0.897528950124979 s
+Train score: 0.9467641038364107
+Validate score: 0.9267403904495716
+Minimize duration: 0.04837170988321304 s
+Take random feature
+
+Query 314
+Num coefs: 58
+Fit duration: 0.9440533574670553 s
+Train score: 0.9467257721867793
+Validate score: 0.9266852108972992
+Minimize duration: 0.04961084760725498 s
+Take random feature
+
+Query 315
+Num coefs: 58
+Fit duration: 0.903888801112771 s
+Train score: 0.9466285242005595
+Validate score: 0.9267167602176384
+Minimize duration: 0.04883782006800175 s
+Take random feature
+
+Query 316
+Num coefs: 61
+Fit duration: 0.9998519439250231 s
+Train score: 0.9465389399530979
+Validate score: 0.9266637227702771
+Minimize duration: 0.050732322968542576 s
+Take random feature
+
+Query 317
+Num coefs: 58
+Fit duration: 0.917225569486618 s
+Train score: 0.9465713757550728
+Validate score: 0.9266521542784595
+Minimize duration: 0.04911067709326744 s
+Take random feature
+
+Query 318
+Num coefs: 56
+Fit duration: 0.9075030330568552 s
+Train score: 0.9466066035947842
+Validate score: 0.9267088774602957
+Minimize duration: 0.06943034008145332 s
+Take random feature
+
+Query 319
+Num coefs: 57
+Fit duration: 0.9315109178423882 s
+Train score: 0.9465532177772757
+Validate score: 0.9266657371154674
+Minimize duration: 0.04958933778107166 s
+Take random feature
+
+Query 320
+Num coefs: 57
+Fit duration: 0.9016968226060271 s
+Train score: 0.9465555689336754
+Validate score: 0.9266576339159643
+Minimize duration: 0.04853185452520847 s
+Take random feature
+
+Query 321
+Num coefs: 57
+Fit duration: 0.9607210112735629 s
+Train score: 0.9466139513303634
+Validate score: 0.9266397177438126
+Minimize duration: 0.04834380000829697 s
+Take random feature
+
+Query 322
+Num coefs: 54
+Fit duration: 0.8546178806573153 s
+Train score: 0.946560171992704
+Validate score: 0.9266724346386556
+Minimize duration: 0.04866152536123991 s
+Take random feature
+
+Query 323
+Num coefs: 58
+Fit duration: 0.9291763659566641 s
+Train score: 0.94618248311893
+Validate score: 0.9269429978358336
+Minimize duration: 0.049703420139849186 s
+Take random feature
+
+Query 324
+Num coefs: 56
+Fit duration: 0.9211298571899533 s
+Train score: 0.9460728330837728
+Validate score: 0.926820797144499
+Minimize duration: 0.047595081850886345 s
+Take random feature
+
+Query 325
+Num coefs: 57
+Fit duration: 0.9455416221171618 s
+Train score: 0.9462340753943379
+Validate score: 0.926834698963799
+Minimize duration: 0.04798244126141071 s
+Take random feature
+
+Query 326
+Num coefs: 57
+Fit duration: 0.9408943187445402 s
+Train score: 0.946214166939729
+Validate score: 0.9268121314429061
+Minimize duration: 0.0482570668682456 s
+Take random feature
+
+Query 327
+Num coefs: 57
+Fit duration: 0.9739523157477379 s
+Train score: 0.9461304778327891
+Validate score: 0.9267416307516283
+Minimize duration: 0.04741622880101204 s
+Take random feature
+
+Query 328
+Num coefs: 57
+Fit duration: 0.9543637176975608 s
+Train score: 0.9461266644453717
+Validate score: 0.9267612115964958
+Minimize duration: 0.04901023395359516 s
+Take random feature
+
+Query 329
+Num coefs: 58
+Fit duration: 0.9901768183335662 s
+Train score: 0.9461318306173195
+Validate score: 0.9267823947897607
+Minimize duration: 0.049974096938967705 s
+Take random feature
+
+Query 330
+Num coefs: 57
+Fit duration: 0.9667381448671222 s
+Train score: 0.9461492550332018
+Validate score: 0.9267717699185839
+Minimize duration: 0.04836333077400923 s
+Take random feature
+
+Query 331
+Num coefs: 57
+Fit duration: 0.9192275535315275 s
+Train score: 0.946128621017168
+Validate score: 0.9268028057171542
+Minimize duration: 0.04964275751262903 s
+Take random feature
+
+Query 332
+Num coefs: 56
+Fit duration: 0.9279453093186021 s
+Train score: 0.9460708415238184
+Validate score: 0.9267998470332534
+Minimize duration: 0.04819409642368555 s
+Take random feature
+
+Query 333
+Num coefs: 56
+Fit duration: 0.9199239006265998 s
+Train score: 0.9463419993078693
+Validate score: 0.9268402111490919
+Minimize duration: 0.047405428253114223 s
+Take random feature
+
+Query 334
+Num coefs: 56
+Fit duration: 0.9348734337836504 s
+Train score: 0.946340839855647
+Validate score: 0.9268228466622669
+Minimize duration: 0.057976764626801014 s
+Take random feature
+
+Query 335
+Num coefs: 56
+Fit duration: 0.933334918692708 s
+Train score: 0.9463648123186038
+Validate score: 0.9268431756975615
+Minimize duration: 0.047530772164464 s
+Take random feature
+
+Query 336
+Num coefs: 58
+Fit duration: 0.9480096381157637 s
+Train score: 0.9463497914660909
+Validate score: 0.9268044398338515
+Minimize duration: 0.05038461647927761 s
+Take random feature
+
+Query 337
+Num coefs: 58
+Fit duration: 0.9994143154472113 s
+Train score: 0.9463047322927278
+Validate score: 0.9268466346662835
+Minimize duration: 0.04865395650267601 s
+Take random feature
+
+Query 338
+Num coefs: 58
+Fit duration: 0.9845611825585365 s
+Train score: 0.946386986176363
+Validate score: 0.9268345064883262
+Minimize duration: 0.049040534533560276 s
+Take random feature
+
+Query 339
+Num coefs: 57
+Fit duration: 0.9261287981644273 s
+Train score: 0.9464609176305784
+Validate score: 0.9268632558453299
+Minimize duration: 0.049256859347224236 s
+Take random feature
+
+Query 340
+Num coefs: 56
+Fit duration: 0.9366468423977494 s
+Train score: 0.9464395933217133
+Validate score: 0.9267812921960459
+Minimize duration: 0.04852357227355242 s
+Take random feature
+
+Query 341
+Num coefs: 59
+Fit duration: 0.9879787778481841 s
+Train score: 0.9464247358445436
+Validate score: 0.926678598404599
+Minimize duration: 0.05050028767436743 s
+Take random feature
+
+Query 342
+Num coefs: 58
+Fit duration: 0.9473311211913824 s
+Train score: 0.946373249105982
+Validate score: 0.9266841111609504
+Minimize duration: 0.04902998451143503 s
+Take random feature
+
+Query 343
+Num coefs: 58
+Fit duration: 0.8974603684619069 s
+Train score: 0.9462932382960997
+Validate score: 0.9265921433705705
+Minimize duration: 0.052518581971526146 s
+Take random feature
+
+Query 344
+Num coefs: 58
+Fit duration: 0.9106961116194725 s
+Train score: 0.9462779420641427
+Validate score: 0.9265839462493651
+Minimize duration: 0.05054170172661543 s
+Take random feature
+
+Query 345
+Num coefs: 54
+Fit duration: 0.8795297546312213 s
+Train score: 0.9459720907149295
+Validate score: 0.9268077558971782
+Minimize duration: 0.04775416851043701 s
+
+Query 346
+Num coefs: 54
+Fit duration: 0.8309918073937297 s
+Train score: 0.9460233302603178
+Validate score: 0.9268070709804929
+Minimize duration: 0.04657373297959566 s
+Take random feature
+
+Query 347
+Num coefs: 54
+Fit duration: 0.8362874062731862 s
+Train score: 0.9459829365799699
+Validate score: 0.9268300394157669
+Minimize duration: 0.04676947649568319 s
+Take random feature
+
+Query 348
+Num coefs: 56
+Fit duration: 0.9036482255905867 s
+Train score: 0.945879623273905
+Validate score: 0.9269283835114608
+Minimize duration: 0.046347638592123985 s
+
+Query 349
+Num coefs: 55
+Fit duration: 0.8467722507193685 s
+Train score: 0.9460571105849659
+Validate score: 0.9268937356221358
+Minimize duration: 0.04469754081219435 s
+Take random feature
+
+Query 350
+Num coefs: 56
+Fit duration: 0.9069748884066939 s
+Train score: 0.9459796249094244
+Validate score: 0.9268765680345833
+Minimize duration: 0.048666260205209255 s
+Take random feature
+
+Query 351
+Num coefs: 55
+Fit duration: 0.8654402289539576 s
+Train score: 0.9460210460919608
+Validate score: 0.9268269593093822
+Minimize duration: 0.045164951123297215 s
+Take random feature
+
+Query 352
+Num coefs: 55
+Fit duration: 0.8805921785533428 s
+Train score: 0.9459835991590037
+Validate score: 0.9267748841928869
+Minimize duration: 0.04702210333198309 s
+
+Query 353
+Num coefs: 54
+Fit duration: 0.8449113490059972 s
+Train score: 0.9460655112948275
+Validate score: 0.926814289826539
+Minimize duration: 0.04489521589130163 s
+Take random feature
+
+Query 354
+Num coefs: 52
+Fit duration: 0.8240696135908365 s
+Train score: 0.9458954922010889
+Validate score: 0.9269322315698892
+Minimize duration: 0.045273544266819954 s
+Take random feature
+
+Query 355
+Num coefs: 52
+Fit duration: 0.7770270397886634 s
+Train score: 0.9459119588452509
+Validate score: 0.9269424104243864
+Minimize duration: 0.04532219376415014 s
+Take random feature
+
+Query 356
+Num coefs: 53
+Fit duration: 0.8592268889769912 s
+Train score: 0.9459606542714423
+Validate score: 0.9269217193635617
+Minimize duration: 0.04428590089082718 s
+Take random feature
+
+Query 357
+Num coefs: 54
+Fit duration: 0.8696022918447852 s
+Train score: 0.9459265945881594
+Validate score: 0.926921831459835
+Minimize duration: 0.04549251962453127 s
+Take random feature
+
+Query 358
+Num coefs: 54
+Fit duration: 0.8418262898921967 s
+Train score: 0.9457687901891784
+Validate score: 0.9268103579583188
+Minimize duration: 0.046111373230814934 s
+Take random feature
+
+Query 359
+Num coefs: 56
+Fit duration: 0.8907131450250745 s
+Train score: 0.9456748988469458
+Validate score: 0.9268834494215706
+Minimize duration: 0.049306243658065796 s
+Take random feature
+
+Query 360
+Num coefs: 57
+Fit duration: 0.9951714845374227 s
+Train score: 0.9456393985386089
+Validate score: 0.9268368889430233
+Minimize duration: 0.049803465604782104 s
+Take random feature
+
+Query 361
+Num coefs: 57
+Fit duration: 1.0226439191028476 s
+Train score: 0.9456653501791313
+Validate score: 0.9268250159648013
+Minimize duration: 0.04886523447930813 s
+Take random feature
+
+Query 362
+Num coefs: 53
+Fit duration: 0.8428159831091762 s
+Train score: 0.9455719000191722
+Validate score: 0.9268559168193989
+Minimize duration: 0.046173484064638615 s
+Take random feature
+
+Query 363
+Num coefs: 53
+Fit duration: 0.8284146003425121 s
+Train score: 0.9455336712062306
+Validate score: 0.9267726277292326
+Minimize duration: 0.046569982543587685 s
+Take random feature
+
+Query 364
+Num coefs: 52
+Fit duration: 0.8405206110328436 s
+Train score: 0.9455563886411723
+Validate score: 0.9267623413975561
+Minimize duration: 0.04406515695154667 s
+Take random feature
+
+Query 365
+Num coefs: 52
+Fit duration: 0.7908917302265763 s
+Train score: 0.9455498600589651
+Validate score: 0.9267568709412031
+Minimize duration: 0.044350823387503624 s
+Take random feature
+
+Query 366
+Num coefs: 52
+Fit duration: 0.8834029110148549 s
+Train score: 0.9456167177692278
+Validate score: 0.9268808968365704
+Minimize duration: 0.04290543124079704 s
+Take random feature
+
+Query 367
+Num coefs: 51
+Fit duration: 0.8199088582769036 s
+Train score: 0.945749486630293
+Validate score: 0.9268307821900461
+Minimize duration: 0.0420968821272254 s
+Take random feature
+
+Query 368
+Num coefs: 51
+Fit duration: 0.8077758271247149 s
+Train score: 0.9456725270624179
+Validate score: 0.9269412618736234
+Minimize duration: 0.04219271428883076 s
+Take random feature
+
+Query 369
+Num coefs: 56
+Fit duration: 0.9278894579038024 s
+Train score: 0.945749152439237
+Validate score: 0.92697259757152
+Minimize duration: 0.049825046211481094 s
+Take random feature
+
+Query 370
+Num coefs: 54
+Fit duration: 0.9270231174305081 s
+Train score: 0.9457519058909454
+Validate score: 0.927004778630145
+Minimize duration: 0.04564681276679039 s
+Take random feature
+
+Query 371
+Num coefs: 54
+Fit duration: 0.9257620591670275 s
+Train score: 0.9457745362599697
+Validate score: 0.9270048116357157
+Minimize duration: 0.04531512409448624 s
+Take random feature
+
+Query 372
+Num coefs: 56
+Fit duration: 0.9421090465039015 s
+Train score: 0.9456315457235455
+Validate score: 0.9269385786719767
+Minimize duration: 0.048394693061709404 s
+Take random feature
+
+Query 373
+Num coefs: 56
+Fit duration: 0.9094622042030096 s
+Train score: 0.9456214808928668
+Validate score: 0.9269439726473911
+Minimize duration: 0.048352272249758244 s
+Take random feature
+
+Query 374
+Num coefs: 55
+Fit duration: 0.8900558296591043 s
+Train score: 0.9456121840115641
+Validate score: 0.9269434861617046
+Minimize duration: 0.04748901259154081 s
+Take random feature
+
+Query 375
+Num coefs: 55
+Fit duration: 0.9748199079185724 s
+Train score: 0.9456749130965222
+Validate score: 0.9270556232714342
+Minimize duration: 0.04594225902110338 s
+Take random feature
+
+Query 376
+Num coefs: 55
+Fit duration: 0.910813975147903 s
+Train score: 0.9457423585061481
+Validate score: 0.9270391290398589
+Minimize duration: 0.0440828874707222 s
+Take random feature
+
+Query 377
+Num coefs: 55
+Fit duration: 0.9576605940237641 s
+Train score: 0.9457360540123405
+Validate score: 0.9270316650602844
+Minimize duration: 0.0446711303666234 s
+Take random feature
+
+Query 378
+Num coefs: 53
+Fit duration: 0.8798920419067144 s
+Train score: 0.9456748391345307
+Validate score: 0.9270510293837743
+Minimize duration: 0.04468346107751131 s
+Take random feature
+
+Query 379
+Num coefs: 53
+Fit duration: 0.8795428248122334 s
+Train score: 0.9456392224170266
+Validate score: 0.9270851608468702
+Minimize duration: 0.04574450384825468 s
+Take random feature
+
+Query 380
+Num coefs: 54
+Fit duration: 0.8868469083681703 s
+Train score: 0.9456431091705509
+Validate score: 0.9270212067467084
+Minimize duration: 0.04525247309356928 s
+Take random feature
+
+Query 381
+Num coefs: 54
+Fit duration: 0.9001297261565924 s
+Train score: 0.9457967617274298
+Validate score: 0.9270525017445681
+Minimize duration: 0.06160215847194195 s
+Take random feature
+
+Query 382
+Num coefs: 54
+Fit duration: 0.8694268567487597 s
+Train score: 0.9457782792267521
+Validate score: 0.9270504224105388
+Minimize duration: 0.043772051110863686 s
+Take random feature
+
+Query 383
+Num coefs: 53
+Fit duration: 0.8845211854204535 s
+Train score: 0.9457526517822864
+Validate score: 0.9270685470090694
+Minimize duration: 0.046198153868317604 s
+Take random feature
+
+Query 384
+Num coefs: 53
+Fit duration: 0.8450281508266926 s
+Train score: 0.9457374564244128
+Validate score: 0.9270295666243822
+Minimize duration: 0.0449014063924551 s
+Take random feature
+
+Query 385
+Num coefs: 53
+Fit duration: 0.9376239944249392 s
+Train score: 0.9457619667079885
+Validate score: 0.927041885942858
+Minimize duration: 0.04542770702391863 s
+Take random feature
+
+Query 386
+Num coefs: 53
+Fit duration: 0.9039307907223701 s
+Train score: 0.9458872719186896
+Validate score: 0.9271585005218951
+Minimize duration: 0.044054556638002396 s
+Take random feature
+
+Query 387
+Num coefs: 55
+Fit duration: 1.0197794046252966 s
+Train score: 0.9459686340585476
+Validate score: 0.9272098467304785
+Minimize duration: 0.04654729180037975 s
+Take random feature
+
+Query 388
+Num coefs: 55
+Fit duration: 0.9487998243421316 s
+Train score: 0.9460089682523296
+Validate score: 0.9272280240598155
+Minimize duration: 0.04465353023260832 s
+Take random feature
+
+Query 389
+Num coefs: 55
+Fit duration: 0.9609492085874081 s
+Train score: 0.9460166789351151
+Validate score: 0.9272196874966084
+Minimize duration: 0.04739182069897652 s
+Take random feature
+
+Query 390
+Num coefs: 53
+Fit duration: 0.9508930621668696 s
+Train score: 0.9458796853124004
+Validate score: 0.927202024994189
+Minimize duration: 0.04323470871895552 s
+Take random feature
+
+Query 391
+Num coefs: 53
+Fit duration: 0.8406288232654333 s
+Train score: 0.9459093814204121
+Validate score: 0.9273141545876544
+Minimize duration: 0.04314045608043671 s
+Take random feature
+
+Query 392
+Num coefs: 50
+Fit duration: 0.8034217404201627 s
+Train score: 0.9451659812651441
+Validate score: 0.9273073333765538
+Minimize duration: 0.04132469557225704 s
+Take random feature
+
+Query 393
+Num coefs: 48
+Fit duration: 0.7752810996025801 s
+Train score: 0.9451407360000978
+Validate score: 0.9273623393953678
+Minimize duration: 0.039621016941964626 s
+Take random feature
+
+Query 394
+Num coefs: 46
+Fit duration: 0.8090500356629491 s
+Train score: 0.9450538695438757
+Validate score: 0.9274564986439132
+Minimize duration: 0.04098268784582615 s
+Take random feature
+
+Query 395
+Num coefs: 49
+Fit duration: 0.8690848806872964 s
+Train score: 0.944951014413298
+Validate score: 0.9274164970723228
+Minimize duration: 0.04109321068972349 s
+Take random feature
+
+Query 396
+Num coefs: 51
+Fit duration: 0.8490208713337779 s
+Train score: 0.9448783291188573
+Validate score: 0.9276191348705599
+Minimize duration: 0.04395517334342003 s
+Take random feature
+
+Query 397
+Num coefs: 51
+Fit duration: 0.8362907953560352 s
+Train score: 0.9448610604574328
+Validate score: 0.9276155273828355
+Minimize duration: 0.04336425103247166 s
+Take random feature
+
+Query 398
+Num coefs: 50
+Fit duration: 0.8681096974760294 s
+Train score: 0.9449009531528072
+Validate score: 0.9276431277169166
+Minimize duration: 0.04180038534104824 s
+Take random feature
+
+Query 399
+Num coefs: 50
+Fit duration: 0.8364125778898597 s
+Train score: 0.9449007166072185
+Validate score: 0.9276560359606276
+Minimize duration: 0.04134846571832895 s
+Take random feature
+
+Query 400
+Num coefs: 49
+Fit duration: 0.8327199658378959 s
+Train score: 0.9448678264412137
+Validate score: 0.9276310277926437
+Minimize duration: 0.0415668711066246 s
+Take random feature
+
+Query 401
+Num coefs: 50
+Fit duration: 0.8116578748449683 s
+Train score: 0.9451045931456724
+Validate score: 0.9276693604811798
+Minimize duration: 0.04153172019869089 s
+Take random feature
+
+Query 402
+Num coefs: 50
+Fit duration: 0.807982980273664 s
+Train score: 0.9450964678368172
+Validate score: 0.9276401422895972
+Minimize duration: 0.043801091611385345 s
+Take random feature
+
+Query 403
+Num coefs: 50
+Fit duration: 0.9085373841226101 s
+Train score: 0.9450630063142058
+Validate score: 0.9276621925731316
+Minimize duration: 0.04408074636012316 s
+Take random feature
+
+Query 404
+Num coefs: 50
+Fit duration: 0.8465901259332895 s
+Train score: 0.9450948891393084
+Validate score: 0.9276465418659792
+Minimize duration: 0.041411747224628925 s
+Take random feature
+
+Query 405
+Num coefs: 50
+Fit duration: 0.8414510721340775 s
+Train score: 0.9451577993371125
+Validate score: 0.927623880609887
+Minimize duration: 0.04379753116518259 s
+Take random feature
+
+Query 406
+Num coefs: 50
+Fit duration: 0.8658599564805627 s
+Train score: 0.9451572712568375
+Validate score: 0.9276257226809742
+Minimize duration: 0.04218232352286577 s
+Take random feature
+
+Query 407
+Num coefs: 51
+Fit duration: 0.9191737826913595 s
+Train score: 0.9451274321952758
+Validate score: 0.9276956498065407
+Minimize duration: 0.04404899571090937 s
+Take random feature
+
+Query 408
+Num coefs: 52
+Fit duration: 0.9322609854862094 s
+Train score: 0.9451210410414429
+Validate score: 0.9276850458997827
+Minimize duration: 0.049597401171922684 s
+Take random feature
+
+Query 409
+Num coefs: 53
+Fit duration: 0.9151319107040763 s
+Train score: 0.9453134251108543
+Validate score: 0.9277408108408299
+Minimize duration: 0.04507196880877018 s
+Take random feature
+
+Query 410
+Num coefs: 52
+Fit duration: 0.8764402354136109 s
+Train score: 0.9453072792670506
+Validate score: 0.9277373641707231
+Minimize duration: 0.04264649469405413 s
+Take random feature
+
+Query 411
+Num coefs: 52
+Fit duration: 0.9161393931135535 s
+Train score: 0.9454571258761597
+Validate score: 0.9277124831677058
+Minimize duration: 0.04292108118534088 s
+Take random feature
+
+Query 412
+Num coefs: 50
+Fit duration: 0.8422012282535434 s
+Train score: 0.9454758153620835
+Validate score: 0.9278175042184603
+Minimize duration: 0.04189577791839838 s
+Take random feature
+
+Query 413
+Num coefs: 50
+Fit duration: 0.8170304149389267 s
+Train score: 0.9454744250723214
+Validate score: 0.9278052548052211
+Minimize duration: 0.04206786211580038 s
+Take random feature
+
+Query 414
+Num coefs: 51
+Fit duration: 0.8968817833811045 s
+Train score: 0.9454899826991363
+Validate score: 0.9277861829249143
+Minimize duration: 0.04261756408959627 s
+Take random feature
+
+Query 415
+Num coefs: 51
+Fit duration: 0.9225134868174791 s
+Train score: 0.9455878129357366
+Validate score: 0.9277945535237196
+Minimize duration: 0.04314144607633352 s
+Take random feature
+
+Query 416
+Num coefs: 53
+Fit duration: 0.9677017088979483 s
+Train score: 0.9455396071896651
+Validate score: 0.9276572166015203
+Minimize duration: 0.044621748849749565 s
+Take random feature
+
+Query 417
+Num coefs: 54
+Fit duration: 0.9830006118863821 s
+Train score: 0.9455223051912917
+Validate score: 0.9276439799067961
+Minimize duration: 0.04458808898925781 s
+Take random feature
+
+Query 418
+Num coefs: 53
+Fit duration: 0.9655287498608232 s
+Train score: 0.9454959963763774
+Validate score: 0.9277401154505801
+Minimize duration: 0.04445735551416874 s
+Take random feature
+
+Query 419
+Num coefs: 51
+Fit duration: 0.8589113121852279 s
+Train score: 0.9455190741323831
+Validate score: 0.9277492810989434
+Minimize duration: 0.04331284016370773 s
+Take random feature
+
+Query 420
+Num coefs: 52
+Fit duration: 0.9446538435295224 s
+Train score: 0.9456301509183632
+Validate score: 0.9277292851493243
+Minimize duration: 0.0432273680344224 s
+Take random feature
+
+Query 421
+Num coefs: 53
+Fit duration: 0.9858128447085619 s
+Train score: 0.9454705787854115
+Validate score: 0.9277880211190941
+Minimize duration: 0.04400983452796936 s
+Take random feature
+
+Query 422
+Num coefs: 53
+Fit duration: 0.9641477782279253 s
+Train score: 0.9454819524160554
+Validate score: 0.9277959085114287
+Minimize duration: 0.04416397865861654 s
+Take random feature
+
+Query 423
+Num coefs: 51
+Fit duration: 0.9322553863748908 s
+Train score: 0.945613121612442
+Validate score: 0.9280071894196107
+Minimize duration: 0.043027992360293865 s
+Take random feature
+
+Query 424
+Num coefs: 51
+Fit duration: 0.9442194830626249 s
+Train score: 0.9457234796999288
+Validate score: 0.9279892304792013
+Minimize duration: 0.04309581499546766 s
+Take random feature
+
+Query 425
+Num coefs: 51
+Fit duration: 0.8651159508153796 s
+Train score: 0.9457151943488471
+Validate score: 0.9279720238439022
+Minimize duration: 0.04283844865858555 s
+Take random feature
+
+Query 426
+Num coefs: 51
+Fit duration: 0.9075141409412026 s
+Train score: 0.9457249577813065
+Validate score: 0.9279660513731973
+Minimize duration: 0.043274798430502415 s
+Take random feature
+
+Query 427
+Num coefs: 51
+Fit duration: 0.9088493697345257 s
+Train score: 0.9456872377137193
+Validate score: 0.9279411303893226
+Minimize duration: 0.05111859459429979 s
+Take random feature
+
+Query 428
+Num coefs: 50
+Fit duration: 0.8919899640604854 s
+Train score: 0.9457043823514638
+Validate score: 0.9279555527194152
+Minimize duration: 0.04167085327208042 s
+Take random feature
+
+Query 429
+Num coefs: 50
+Fit duration: 0.8332580579444766 s
+Train score: 0.9457103935994552
+Validate score: 0.9279328363963505
+Minimize duration: 0.04147501848638058 s
+Take random feature
+
+Query 430
+Num coefs: 51
+Fit duration: 0.909142667427659 s
+Train score: 0.9455930773014427
+Validate score: 0.9278888194979813
+Minimize duration: 0.042727427557110786 s
+Take random feature
+
+Query 431
+Num coefs: 51
+Fit duration: 0.879378710873425 s
+Train score: 0.9456303279516098
+Validate score: 0.9278540379146633
+Minimize duration: 0.04143457766622305 s
+Take random feature
+
+Query 432
+Num coefs: 51
+Fit duration: 0.8786315936595201 s
+Train score: 0.9457493925176905
+Validate score: 0.9278273323284216
+Minimize duration: 0.04139198735356331 s
+Take random feature
+
+Query 433
+Num coefs: 51
+Fit duration: 0.9079152094200253 s
+Train score: 0.9457834456919646
+Validate score: 0.9280286428100318
+Minimize duration: 0.04231980815529823 s
+Take random feature
+
+Query 434
+Num coefs: 51
+Fit duration: 0.9265763582661748 s
+Train score: 0.9458569954510704
+Validate score: 0.9280189916569063
+Minimize duration: 0.04253968223929405 s
+Take random feature
+
+Query 435
+Num coefs: 51
+Fit duration: 0.9291153745725751 s
+Train score: 0.9458899193076699
+Validate score: 0.9280134916802023
+Minimize duration: 0.04205045197159052 s
+Take random feature
+
+Query 436
+Num coefs: 51
+Fit duration: 0.887192266061902 s
+Train score: 0.9459050451635421
+Validate score: 0.9280035547747896
+Minimize duration: 0.042561023496091366 s
+Take random feature
+
+Query 437
+Num coefs: 51
+Fit duration: 0.8857312127947807 s
+Train score: 0.9459367921985707
+Validate score: 0.9280295527918974
+Minimize duration: 0.043814641423523426 s
+Take random feature
+
+Query 438
+Num coefs: 52
+Fit duration: 0.8862665360793471 s
+Train score: 0.9459336215704637
+Validate score: 0.9281080740431892
+Minimize duration: 0.04297412279993296 s
+Take random feature
+
+Query 439
+Num coefs: 52
+Fit duration: 0.8926230883225799 s
+Train score: 0.9459401565602906
+Validate score: 0.928099460788979
+Minimize duration: 0.04534797463566065 s
+Take random feature
+
+Query 440
+Num coefs: 52
+Fit duration: 0.9300050642341375 s
+Train score: 0.9458701003232375
+Validate score: 0.9281358101213686
+Minimize duration: 0.04341431334614754 s
+Take random feature
+
+Query 441
+Num coefs: 51
+Fit duration: 0.9272904340177774 s
+Train score: 0.9457064332394415
+Validate score: 0.9281218878924633
+Minimize duration: 0.04128588456660509 s
+Take random feature
+
+Query 442
+Num coefs: 51
+Fit duration: 0.857508921995759 s
+Train score: 0.9457032790097153
+Validate score: 0.9281135252920935
+Minimize duration: 0.04165376350283623 s
+Take random feature
+
+Query 443
+Num coefs: 52
+Fit duration: 0.9014507848769426 s
+Train score: 0.9456875162853597
+Validate score: 0.9281036759532078
+Minimize duration: 0.04464444052428007 s
+
+Query 444
+Num coefs: 52
+Fit duration: 0.9657489852979779 s
+Train score: 0.9458129142976389
+Validate score: 0.9280818573936723
+Minimize duration: 0.0426995363086462 s
+Take random feature
+
+Query 445
+Num coefs: 51
+Fit duration: 0.9304536543786526 s
+Train score: 0.9458098028724553
+Validate score: 0.9280810671648189
+Minimize duration: 0.043106166645884514 s
+Take random feature
+
+Query 446
+Num coefs: 52
+Fit duration: 0.9368467479944229 s
+Train score: 0.9458345923618373
+Validate score: 0.9280669583791272
+Minimize duration: 0.043892042711377144 s
+Take random feature
+
+Query 447
+Num coefs: 52
+Fit duration: 0.9129337919875979 s
+Train score: 0.9458334703556972
+Validate score: 0.9280827970792926
+Minimize duration: 0.044916036538779736 s
+Take random feature
+
+Query 448
+Num coefs: 53
+Fit duration: 0.9718660516664386 s
+Train score: 0.9459464446219377
+Validate score: 0.9280678219072971
+Minimize duration: 0.04581385664641857 s
+Take random feature
+
+Query 449
+Num coefs: 52
+Fit duration: 0.9203903088346124 s
+Train score: 0.945967307083574
+Validate score: 0.9280696927304212
+Minimize duration: 0.04508097004145384 s
+Take random feature
+
+Query 450
+Num coefs: 50
+Fit duration: 0.8943142956122756 s
+Train score: 0.9463112309577852
+Validate score: 0.928125696696082
+Minimize duration: 0.04388790111988783 s
+Take random feature
+
+Query 451
+Num coefs: 50
+Fit duration: 0.8777546752244234 s
+Train score: 0.9463307283971601
+Validate score: 0.9281156838107474
+Minimize duration: 0.04202527180314064 s
+Take random feature
+
+Query 452
+Num coefs: 50
+Fit duration: 0.9343469711020589 s
+Train score: 0.9463326262326188
+Validate score: 0.9281061501226742
+Minimize duration: 0.04229516815394163 s
+Take random feature
+
+Query 453
+Num coefs: 50
+Fit duration: 0.8982787830755115 s
+Train score: 0.9463089065069176
+Validate score: 0.9280948487008813
+Minimize duration: 0.04222759511321783 s
+Take random feature
+
+Query 454
+Num coefs: 50
+Fit duration: 0.8781222710385919 s
+Train score: 0.9463088063519051
+Validate score: 0.928125012276591
+Minimize duration: 0.04197975993156433 s
+Take random feature
+
+Query 455
+Num coefs: 50
+Fit duration: 0.9010582147166133 s
+Train score: 0.9463009585739309
+Validate score: 0.9281139550560039
+Minimize duration: 0.04226320702582598 s
+Take random feature
+
+Query 456
+Num coefs: 50
+Fit duration: 0.9305369751527905 s
+Train score: 0.94630800756465
+Validate score: 0.9281008263204763
+Minimize duration: 0.042175834998488426 s
+Take random feature
+
+Query 457
+Num coefs: 50
+Fit duration: 0.9379448713734746 s
+Train score: 0.9463584301156782
+Validate score: 0.9280899127974515
+Minimize duration: 0.04197604022920132 s
+Take random feature
+
+Query 458
+Num coefs: 52
+Fit duration: 0.9204087192192674 s
+Train score: 0.9464342204773019
+Validate score: 0.9281060143125409
+Minimize duration: 0.04461377952247858 s
+Take random feature
+
+Query 459
+Num coefs: 52
+Fit duration: 0.9510928560048342 s
+Train score: 0.9464134744569108
+Validate score: 0.9281177573251026
+Minimize duration: 0.043219638988375664 s
+Take random feature
+
+Query 460
+Num coefs: 51
+Fit duration: 0.9531315136700869 s
+Train score: 0.9464221207356707
+Validate score: 0.92811066329195
+Minimize duration: 0.044232891872525215 s
+Take random feature
+
+Query 461
+Num coefs: 50
+Fit duration: 0.9395496780052781 s
+Train score: 0.9463111191097568
+Validate score: 0.9280400075912345
+Minimize duration: 0.0431666374206543 s
+Take random feature
+
+Query 462
+Num coefs: 51
+Fit duration: 0.9577823961153626 s
+Train score: 0.9463000594053615
+Validate score: 0.9280469137039215
+Minimize duration: 0.043194097466766834 s
+Take random feature
+
+Query 463
+Num coefs: 50
+Fit duration: 0.9680378865450621 s
+Train score: 0.9463952061957696
+Validate score: 0.9281054005453062
+Minimize duration: 0.04212144389748573 s
+Take random feature
+
+Query 464
+Num coefs: 50
+Fit duration: 0.9493349678814411 s
+Train score: 0.946405468906539
+Validate score: 0.9281048649073389
+Minimize duration: 0.04077988397330046 s
+Take random feature
+
+Query 465
+Num coefs: 49
+Fit duration: 0.9101727390661836 s
+Train score: 0.9460183960328086
+Validate score: 0.9281814708608395
+Minimize duration: 0.04045411758124828 s
+Take random feature
+
+Query 466
+Num coefs: 49
+Fit duration: 0.8836140837520361 s
+Train score: 0.9460339242362933
+Validate score: 0.9281712733209422
+Minimize duration: 0.041445428505539894 s
+Take random feature
+
+Query 467
+Num coefs: 50
+Fit duration: 0.9252878483384848 s
+Train score: 0.9460538399933078
+Validate score: 0.9281681170802111
+Minimize duration: 0.04123545438051224 s
+Take random feature
+
+Query 468
+Num coefs: 52
+Fit duration: 0.9675889769569039 s
+Train score: 0.9459147214451505
+Validate score: 0.9282815701638661
+Minimize duration: 0.042760767973959446 s
+Take random feature
+
+Query 469
+Num coefs: 51
+Fit duration: 0.9705132637172937 s
+Train score: 0.9460185925743945
+Validate score: 0.9282758975542599
+Minimize duration: 0.04226286709308624 s
+Take random feature
+
+Query 470
+Num coefs: 51
+Fit duration: 0.979087283834815 s
+Train score: 0.9459669782441649
+Validate score: 0.928269725098419
+Minimize duration: 0.042494731955230236 s
+Take random feature
+
+Query 471
+Num coefs: 50
+Fit duration: 0.9302909402176738 s
+Train score: 0.9460890595383524
+Validate score: 0.9282477886026558
+Minimize duration: 0.041610242798924446 s
+Take random feature
+
+Query 472
+Num coefs: 51
+Fit duration: 0.9641817081719637 s
+Train score: 0.9461476677742281
+Validate score: 0.928296738666745
+Minimize duration: 0.04244834091514349 s
+Take random feature
+
+Query 473
+Num coefs: 51
+Fit duration: 0.9322935156524181 s
+Train score: 0.9461500795931594
+Validate score: 0.9282796232465935
+Minimize duration: 0.04248575307428837 s
+Take random feature
+
+Query 474
+Num coefs: 53
+Fit duration: 0.9854919882491231 s
+Train score: 0.94617035318637
+Validate score: 0.9283283850009552
+Minimize duration: 0.04387233406305313 s
+Take random feature
+
+Query 475
+Num coefs: 54
+Fit duration: 1.043119179084897 s
+Train score: 0.9456937666497495
+Validate score: 0.9281609330751674
+Minimize duration: 0.0496433125808835 s
+Take random feature
+
+Query 476
+Num coefs: 54
+Fit duration: 1.044248084537685 s
+Train score: 0.945752562691018
+Validate score: 0.9281509183686445
+Minimize duration: 0.04575348645448685 s
+Take random feature
+
+Query 477
+Num coefs: 53
+Fit duration: 1.096071214415133 s
+Train score: 0.9454418323175329
+Validate score: 0.928033623775624
+Minimize duration: 0.0447341725230217 s
+Take random feature
+
+Query 478
+Num coefs: 55
+Fit duration: 1.082680955529213 s
+Train score: 0.9457332355539085
+Validate score: 0.928081778647741
+Minimize duration: 0.04453619848936796 s
+Take random feature
+
+Query 479
+Num coefs: 54
+Fit duration: 1.032511561177671 s
+Train score: 0.9455349420062433
+Validate score: 0.9280787487557824
+Minimize duration: 0.045222142711281776 s
+Take random feature
+
+Query 480
+Num coefs: 54
+Fit duration: 1.0540613131597638 s
+Train score: 0.9455397834633537
+Validate score: 0.9280861505850184
+Minimize duration: 0.044259301386773586 s
+Take random feature
+
+Query 481
+Num coefs: 54
+Fit duration: 1.0568089066073298 s
+Train score: 0.9454792082169853
+Validate score: 0.928025796414863
+Minimize duration: 0.046245165169239044 s
+Take random feature
+
+Query 482
+Num coefs: 53
+Fit duration: 1.03775189910084 s
+Train score: 0.9453705956035257
+Validate score: 0.9279482127960346
+Minimize duration: 0.044116328470408916 s
+Take random feature
+
+Query 483
+Num coefs: 54
+Fit duration: 1.0423850324004889 s
+Train score: 0.9453844428770106
+Validate score: 0.9279359558852
+Minimize duration: 0.045415027998387814 s
+Take random feature
+
+Query 484
+Num coefs: 54
+Fit duration: 1.0586131876334548 s
+Train score: 0.9454031318291456
+Validate score: 0.92793823502379
+Minimize duration: 0.04458424914628267 s
+Take random feature
+
+Query 485
+Num coefs: 53
+Fit duration: 1.0562799740582705 s
+Train score: 0.9453594600944208
+Validate score: 0.9278946762338485
+Minimize duration: 0.04372624959796667 s
+Take random feature
+
+Query 486
+Num coefs: 53
+Fit duration: 1.06542141828686 s
+Train score: 0.9454455550894317
+Validate score: 0.9278802303285968
+Minimize duration: 0.04347157385200262 s
+Take random feature
+
+Query 487
+Num coefs: 55
+Fit duration: 1.1081872256472707 s
+Train score: 0.9454300377585831
+Validate score: 0.9278644214752004
+Minimize duration: 0.0453060045838356 s
+Take random feature
+
+Query 488
+Num coefs: 55
+Fit duration: 1.1496918173506856 s
+Train score: 0.945432758501259
+Validate score: 0.927856970784058
+Minimize duration: 0.04541673790663481 s
+Take random feature
+
+Query 489
+Num coefs: 56
+Fit duration: 1.0627585388720036 s
+Train score: 0.9455768304978563
+Validate score: 0.9278837179878822
+Minimize duration: 0.04572195466607809 s
+Take random feature
+
+Query 490
+Num coefs: 56
+Fit duration: 1.0977059723809361 s
+Train score: 0.9455664603357871
+Validate score: 0.9279116652971123
+Minimize duration: 0.045495948754251 s
+Take random feature
+
+Query 491
+Num coefs: 55
+Fit duration: 1.1175631685182452 s
+Train score: 0.9455592060824215
+Validate score: 0.9279049846496134
+Minimize duration: 0.05545687209814787 s
+Take random feature
+
+Query 492
+Num coefs: 54
+Fit duration: 1.048017249442637 s
+Train score: 0.9455767105880699
+Validate score: 0.9278748616301574
+Minimize duration: 0.04456706903874874 s
+Take random feature
+
+Query 493
+Num coefs: 54
+Fit duration: 1.086144533008337 s
+Train score: 0.9455611038526066
+Validate score: 0.9278481117129117
+Minimize duration: 0.04517750348895788 s
+Take random feature
+
+Query 494
+Num coefs: 54
+Fit duration: 1.0831981273368 s
+Train score: 0.9455810695969433
+Validate score: 0.9278435627296678
+Minimize duration: 0.04497040808200836 s
+Take random feature
+
+Query 495
+Num coefs: 55
+Fit duration: 1.095384830608964 s
+Train score: 0.9455905697829818
+Validate score: 0.92782646186481
+Minimize duration: 0.044758863747119904 s
+Take random feature
+
+Query 496
+Num coefs: 55
+Fit duration: 1.1265874989330769 s
+Train score: 0.94530110779467
+Validate score: 0.927682338448698
+Minimize duration: 0.05039452854543924 s
+Take random feature
+
+Query 497
+Num coefs: 55
+Fit duration: 1.0766577208414674 s
+Train score: 0.9449526828301376
+Validate score: 0.9278325934314635
+Minimize duration: 0.04750568512827158 s
+
+Query 498
+Num coefs: 55
+Fit duration: 1.0897122835740447 s
+Train score: 0.945124024833962
+Validate score: 0.9277961420200398
+Minimize duration: 0.046324568800628185 s
+Take random feature
+
+Query 499
+Num coefs: 56
+Fit duration: 1.1121410159394145 s
+Train score: 0.9451999202213331
+Validate score: 0.9278486610719596
+Minimize duration: 0.04541692789644003 s
+Take random feature
+
+Query 500
+Num coefs: 55
+Fit duration: 1.0918304100632668 s
+Train score: 0.945144355052434
+Validate score: 0.9279466365860126
+Minimize duration: 0.04608285240828991 s
+Take random feature
