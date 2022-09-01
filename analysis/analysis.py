@@ -1,5 +1,6 @@
 import collections
 import glob
+import matplotlib.pyplot as plt
 import pandas as pd
 
 def shorten_program_name(s: str):
@@ -139,7 +140,7 @@ def simulation_offline_fourier():
         label="table:simulation-success-chance",
         caption="Probability that the learned flags are better than the best flags from the training data",
         environment="longtable")
-    
+
     s = speedup_learn.style
     s.format(precision=3)
     s.to_latex(
@@ -159,7 +160,40 @@ def simulation_offline_fourier():
         environment="longtable")
 
 
+def stability_latch():
+    before = pd.read_csv(f"stability/latch/stability_00.csv")
+    after = pd.read_csv(f"stability/latch/stability_01.csv")
+    for module in before.columns:
+        ax = before[module].plot()
+        plt.savefig(f"analysis/plots/stability/latch_before_{module}")
+        after[module].plot()
+        plt.savefig(f"analysis/plots/stability/latch_after_{module}")
+        plt.close(ax.figure)
+
+
+def stability_min():
+    before = pd.read_csv(f"stability/min/stability_00.csv")
+    after = pd.read_csv(f"stability/min/stability_01.csv")
+    for module in before.columns:
+        ax = before[module].plot()
+        plt.savefig(f"analysis/plots/stability/min_before_{module}")
+        after[module].plot()
+        plt.savefig(f"analysis/plots/stability/min_after_{module}")
+        plt.close(ax.figure)
+
+
+def stability_hopeless():
+    df = pd.read_csv(f"stability/hopeless/stability_02.csv")
+    for module in df.columns:
+        ax = df[module].plot()
+        plt.savefig(f"analysis/plots/stability/hopeless_{module}")
+        plt.close(ax.figure)
+
+
 validate_score_evaluation_20()
 offline_fourier_success_chance()
 online_fourier_speedup()
 simulation_offline_fourier()
+stability_latch()
+stability_min()
+stability_hopeless()
