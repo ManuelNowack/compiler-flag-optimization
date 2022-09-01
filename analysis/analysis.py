@@ -190,6 +190,35 @@ def stability_hopeless():
         plt.close(ax.figure)
 
 
+def stability_default():
+    directories = [
+        "active_fourier",
+    	"active_fourier_low_degree",
+    	"bocs",
+        "fourier",
+        "fourier_low_degree",
+        "mono",
+        "random",
+        "srtuner"]
+    default_runtimes = []
+    for directory in directories:
+        for file in glob.glob(f"evaluation/{directory}/n_020_budget_0500_??.csv"):
+            df = pd.read_csv(file, index_col=0).transpose()
+            default_runtimes.append(df["Default"])
+    df = pd.DataFrame(default_runtimes)
+    for module in df.columns:
+        ax = df[module].plot(kind="density")
+        plt.savefig(f"analysis/plots/default_runtime/{module}")
+        plt.close(ax.figure)
+    noise = df.std() / df.mean()
+    s = noise.to_frame("$\\sigma$").style
+    s.to_latex(
+        "analysis/table/default_relative_standard_deviation.tex",
+        hrules=True,
+        label="table:default-relative-standard-deviation",
+        caption="Relative standard deviation of \\texttt{-O3}",
+        environment="longtable")
+
 validate_score_evaluation_20()
 offline_fourier_success_chance()
 online_fourier_speedup()
@@ -197,3 +226,4 @@ simulation_offline_fourier()
 stability_latch()
 stability_min()
 stability_hopeless()
+stability_default()
