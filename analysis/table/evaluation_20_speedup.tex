@@ -1,0 +1,77 @@
+\begin{longtable}{lrrrr}
+\caption{Speedup of the best optimization setting learned from different tuning methods over \texttt{-O3}; 500 queries and 20 flags in the search space} \label{table:evaluation-20-speedup} \\
+\toprule
+ & Random & Greedy & Fourier & SRTuner \\
+\midrule
+\endfirsthead
+\caption[]{Speedup of the best optimization setting learned from different tuning methods over \texttt{-O3}; 500 queries and 20 flags in the search space} \\
+\toprule
+ & Random & Greedy & Fourier & SRTuner \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+automotive-bitcount:number-0001: & 1.220 & \color{Green}{1.225} & 1.222 & 1.219 \\
+automotive-qsort1:cdataset-qsort-0001: & \color{Green}{1.029} & 1.026 & \color{Green}{1.029} & 1.028 \\
+automotive-qsort1:cdataset-qsort-0005: & 1.036 & 1.037 & \color{Green}{1.040} & 1.033 \\
+automotive-qsort1:cdataset-qsort-0009: & 1.035 & \color{Green}{1.036} & 1.034 & 1.031 \\
+automotive-qsort1:cdataset-qsort-0013: & 1.033 & 1.031 & \color{Green}{1.035} & 1.024 \\
+automotive-qsort1:cdataset-qsort-0017: & \color{Green}{1.033} & 1.031 & 1.032 & 1.028 \\
+automotive-qsort1:cdataset-qsort-0020: & 1.033 & \color{Green}{1.036} & \color{Green}{1.036} & 1.029 \\
+automotive-susan:image-pgm-0001:corners & \color{Green}{1.006} & 1.005 & 0.999 & 1.002 \\
+automotive-susan:image-pgm-0005:corners & \color{Green}{1.007} & 1.005 & 1.006 & 1.003 \\
+automotive-susan:image-pgm-0009:corners & \color{Green}{1.008} & 1.005 & 1.005 & 0.999 \\
+automotive-susan:image-pgm-0013:corners & 1.007 & 1.001 & \color{Green}{1.008} & 1.001 \\
+automotive-susan:image-pgm-0017:corners & 1.006 & 0.999 & \color{Green}{1.007} & 1.000 \\
+automotive-susan:image-pgm-0020:corners & \color{Green}{1.005} & 1.002 & \color{Green}{1.005} & 1.001 \\
+automotive-susan:image-pgm-0001:edges & 1.052 & 1.055 & \color{Green}{1.057} & 1.048 \\
+automotive-susan:image-pgm-0005:edges & 1.047 & 1.048 & \color{Green}{1.050} & 1.049 \\
+automotive-susan:image-pgm-0009:edges & 1.049 & \color{Green}{1.052} & \color{Green}{1.052} & 1.048 \\
+automotive-susan:image-pgm-0013:edges & 1.069 & \color{Green}{1.077} & 1.075 & 1.061 \\
+automotive-susan:image-pgm-0017:edges & 1.060 & \color{Green}{1.062} & \color{Green}{1.062} & 1.054 \\
+automotive-susan:image-pgm-0020:edges & 1.053 & 1.057 & \color{Green}{1.059} & 1.050 \\
+automotive-susan:image-pgm-0001:smoothing & 1.082 & 1.083 & \color{Green}{1.084} & 1.083 \\
+automotive-susan:image-pgm-0005:smoothing & 1.078 & 1.079 & \color{Green}{1.080} & 1.076 \\
+automotive-susan:image-pgm-0009:smoothing & 1.075 & 1.076 & \color{Green}{1.078} & 1.077 \\
+automotive-susan:image-pgm-0013:smoothing & 1.083 & 1.083 & \color{Green}{1.085} & 1.081 \\
+automotive-susan:image-pgm-0017:smoothing & 1.077 & 1.080 & 1.081 & \color{Green}{1.082} \\
+automotive-susan:image-pgm-0020:smoothing & 1.081 & \color{Green}{1.085} & 1.083 & 1.083 \\
+network-dijkstra:cdataset-dijkstra-0001: & 0.975 & 1.000 & \color{Green}{1.002} & 0.992 \\
+network-dijkstra:cdataset-dijkstra-0005: & 0.986 & 1.000 & 1.018 & \color{Green}{1.022} \\
+network-dijkstra:cdataset-dijkstra-0009: & 0.983 & 1.000 & \color{Green}{1.013} & 0.982 \\
+network-dijkstra:cdataset-dijkstra-0013: & 0.983 & 1.000 & \color{Green}{1.010} & 0.985 \\
+network-patricia:cdataset-patricia-0001: & 1.012 & 1.000 & 1.007 & \color{Green}{1.072} \\
+network-patricia:cdataset-patricia-0005: & 1.036 & 1.035 & 1.036 & \color{Green}{1.078} \\
+network-patricia:cdataset-patricia-0009: & 1.022 & 1.024 & 1.026 & \color{Green}{1.124} \\
+network-patricia:cdataset-patricia-0013: & 1.018 & 1.010 & 1.025 & \color{Green}{1.115} \\
+network-patricia:cdataset-patricia-0017: & 1.016 & 1.018 & 1.017 & \color{Green}{1.109} \\
+network-patricia:cdataset-patricia-0020: & 1.016 & 1.017 & 1.016 & \color{Green}{1.099} \\
+telecom-adpcm-c:pcm-0001: & 1.022 & 1.022 & 1.022 & \color{Green}{1.046} \\
+telecom-adpcm-c:pcm-0005: & 1.139 & 1.134 & 1.139 & \color{Green}{1.163} \\
+telecom-adpcm-c:pcm-0009: & 1.017 & 1.018 & 1.018 & \color{Green}{1.043} \\
+telecom-adpcm-c:pcm-0013: & 1.024 & 1.025 & 1.025 & \color{Green}{1.043} \\
+telecom-adpcm-c:pcm-0017: & 1.031 & 1.030 & 1.032 & \color{Green}{1.053} \\
+telecom-adpcm-c:pcm-0020: & 1.060 & 1.060 & 1.060 & \color{Green}{1.071} \\
+telecom-adpcm-d:adpcm-0001: & \color{Green}{1.016} & \color{Green}{1.016} & \color{Green}{1.016} & 1.014 \\
+telecom-adpcm-d:adpcm-0005: & \color{Green}{1.016} & 1.015 & 1.015 & 1.014 \\
+telecom-adpcm-d:adpcm-0009: & \color{Green}{1.016} & 1.015 & \color{Green}{1.016} & 1.014 \\
+telecom-adpcm-d:adpcm-0013: & \color{Green}{1.016} & 1.015 & \color{Green}{1.016} & 1.014 \\
+telecom-adpcm-d:adpcm-0017: & \color{Green}{1.016} & 1.015 & \color{Green}{1.016} & 1.015 \\
+telecom-adpcm-d:adpcm-0020: & \color{Green}{1.016} & 1.015 & \color{Green}{1.016} & 1.015 \\
+telecom-crc32:pcm-0001: & 1.738 & 1.713 & 1.736 & \color{Green}{1.742} \\
+telecom-crc32:pcm-0005: & 1.739 & 1.720 & \color{Green}{1.743} & 1.738 \\
+telecom-crc32:pcm-0009: & 1.739 & 1.715 & 1.737 & \color{Green}{1.750} \\
+telecom-crc32:pcm-0013: & 1.739 & 1.719 & \color{Green}{1.743} & \color{Green}{1.743} \\
+telecom-crc32:pcm-0017: & 1.738 & 1.719 & \color{Green}{1.742} & 1.741 \\
+telecom-crc32:pcm-0020: & 1.740 & 1.720 & \color{Green}{1.744} & 1.738 \\
+telecom-gsm:au-0001: & 1.245 & \color{Green}{1.254} & 1.251 & 1.252 \\
+telecom-gsm:au-0005: & 1.249 & 1.259 & 1.254 & \color{Green}{1.260} \\
+telecom-gsm:au-0009: & 1.248 & 1.258 & 1.255 & \color{Green}{1.260} \\
+telecom-gsm:au-0013: & 1.229 & 1.234 & 1.234 & \color{Green}{1.243} \\
+telecom-gsm:au-0017: & 1.251 & 1.254 & 1.260 & \color{Green}{1.266} \\
+telecom-gsm:au-0020: & 1.231 & 1.241 & 1.232 & \color{Green}{1.246} \\
+\end{longtable}

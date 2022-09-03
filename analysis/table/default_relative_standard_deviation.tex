@@ -1,77 +1,77 @@
-\begin{longtable}{lr}
-\caption{Relative standard deviation of \texttt{-O3}} \label{table:default-relative-standard-deviation} \\
+\begin{longtable}{lrrr}
+\caption{Mean, standard deviation, and relative standard deviation of \texttt{-O3}} \label{table:default-relative-standard-deviation} \\
 \toprule
- & $\sigma$ \\
+ & $\mu$ & $\sigma$ & $\sigma / \mu$ \\
 \midrule
 \endfirsthead
-\caption[]{Relative standard deviation of \texttt{-O3}} \\
+\caption[]{Mean, standard deviation, and relative standard deviation of \texttt{-O3}} \\
 \toprule
- & $\sigma$ \\
+ & $\mu$ & $\sigma$ & $\sigma / \mu$ \\
 \midrule
 \endhead
 \midrule
-\multicolumn{2}{r}{Continued on next page} \\
+\multicolumn{4}{r}{Continued on next page} \\
 \midrule
 \endfoot
 \bottomrule
 \endlastfoot
-cbench-automotive-bitcount:number-0001: & 0.001324 \\
-cbench-automotive-qsort1:cdataset-qsort-0001: & 0.002507 \\
-cbench-automotive-qsort1:cdataset-qsort-0005: & 0.002668 \\
-cbench-automotive-qsort1:cdataset-qsort-0009: & 0.002407 \\
-cbench-automotive-qsort1:cdataset-qsort-0013: & 0.002204 \\
-cbench-automotive-qsort1:cdataset-qsort-0017: & 0.002489 \\
-cbench-automotive-qsort1:cdataset-qsort-0020: & 0.002442 \\
-cbench-automotive-susan:image-pgm-0001:corners & 0.009865 \\
-cbench-automotive-susan:image-pgm-0005:corners & 0.002860 \\
-cbench-automotive-susan:image-pgm-0009:corners & 0.003005 \\
-cbench-automotive-susan:image-pgm-0013:corners & 0.000874 \\
-cbench-automotive-susan:image-pgm-0017:corners & 0.000842 \\
-cbench-automotive-susan:image-pgm-0020:corners & 0.000921 \\
-cbench-automotive-susan:image-pgm-0001:edges & 0.000620 \\
-cbench-automotive-susan:image-pgm-0005:edges & 0.001138 \\
-cbench-automotive-susan:image-pgm-0009:edges & 0.000896 \\
-cbench-automotive-susan:image-pgm-0013:edges & 0.000702 \\
-cbench-automotive-susan:image-pgm-0017:edges & 0.000669 \\
-cbench-automotive-susan:image-pgm-0020:edges & 0.000650 \\
-cbench-automotive-susan:image-pgm-0001:smoothing & 0.001691 \\
-cbench-automotive-susan:image-pgm-0005:smoothing & 0.001486 \\
-cbench-automotive-susan:image-pgm-0009:smoothing & 0.000655 \\
-cbench-automotive-susan:image-pgm-0013:smoothing & 0.001859 \\
-cbench-automotive-susan:image-pgm-0017:smoothing & 0.001502 \\
-cbench-automotive-susan:image-pgm-0020:smoothing & 0.001027 \\
-cbench-network-dijkstra:cdataset-dijkstra-0001: & 0.026944 \\
-cbench-network-dijkstra:cdataset-dijkstra-0005: & 0.000767 \\
-cbench-network-dijkstra:cdataset-dijkstra-0009: & 0.000539 \\
-cbench-network-dijkstra:cdataset-dijkstra-0013: & 0.000817 \\
-cbench-network-patricia:cdataset-patricia-0001: & 0.016870 \\
-cbench-network-patricia:cdataset-patricia-0005: & 0.005400 \\
-cbench-network-patricia:cdataset-patricia-0009: & 0.003262 \\
-cbench-network-patricia:cdataset-patricia-0013: & 0.006670 \\
-cbench-network-patricia:cdataset-patricia-0017: & 0.003565 \\
-cbench-network-patricia:cdataset-patricia-0020: & 0.005934 \\
-cbench-telecom-adpcm-c:pcm-0001: & 0.000688 \\
-cbench-telecom-adpcm-c:pcm-0005: & 0.000769 \\
-cbench-telecom-adpcm-c:pcm-0009: & 0.000748 \\
-cbench-telecom-adpcm-c:pcm-0013: & 0.000601 \\
-cbench-telecom-adpcm-c:pcm-0017: & 0.000665 \\
-cbench-telecom-adpcm-c:pcm-0020: & 0.000692 \\
-cbench-telecom-adpcm-d:adpcm-0001: & 0.000623 \\
-cbench-telecom-adpcm-d:adpcm-0005: & 0.000806 \\
-cbench-telecom-adpcm-d:adpcm-0009: & 0.000716 \\
-cbench-telecom-adpcm-d:adpcm-0013: & 0.000897 \\
-cbench-telecom-adpcm-d:adpcm-0017: & 0.000818 \\
-cbench-telecom-adpcm-d:adpcm-0020: & 0.000755 \\
-cbench-telecom-crc32:pcm-0001: & 0.001188 \\
-cbench-telecom-crc32:pcm-0005: & 0.000974 \\
-cbench-telecom-crc32:pcm-0009: & 0.001008 \\
-cbench-telecom-crc32:pcm-0013: & 0.000900 \\
-cbench-telecom-crc32:pcm-0017: & 0.000870 \\
-cbench-telecom-crc32:pcm-0020: & 0.000953 \\
-cbench-telecom-gsm:au-0001: & 0.003995 \\
-cbench-telecom-gsm:au-0005: & 0.002579 \\
-cbench-telecom-gsm:au-0009: & 0.005488 \\
-cbench-telecom-gsm:au-0013: & 0.001622 \\
-cbench-telecom-gsm:au-0017: & 0.002446 \\
-cbench-telecom-gsm:au-0020: & 0.002852 \\
+automotive-bitcount:number-0001: & 0.067179 & 0.000089 & 0.001324 \\
+automotive-qsort1:cdataset-qsort-0001: & 0.019540 & 0.000049 & 0.002507 \\
+automotive-qsort1:cdataset-qsort-0005: & 0.012261 & 0.000033 & 0.002668 \\
+automotive-qsort1:cdataset-qsort-0009: & 0.017620 & 0.000042 & 0.002407 \\
+automotive-qsort1:cdataset-qsort-0013: & 0.014717 & 0.000032 & 0.002204 \\
+automotive-qsort1:cdataset-qsort-0017: & 0.014128 & 0.000035 & 0.002489 \\
+automotive-qsort1:cdataset-qsort-0020: & 0.022185 & 0.000054 & 0.002442 \\
+automotive-susan:image-pgm-0001:corners & 0.006446 & 0.000064 & 0.009865 \\
+automotive-susan:image-pgm-0005:corners & 0.014079 & 0.000040 & 0.002860 \\
+automotive-susan:image-pgm-0009:corners & 0.028628 & 0.000086 & 0.003005 \\
+automotive-susan:image-pgm-0013:corners & 0.002027 & 0.000002 & 0.000874 \\
+automotive-susan:image-pgm-0017:corners & 0.006525 & 0.000005 & 0.000842 \\
+automotive-susan:image-pgm-0020:corners & 0.009907 & 0.000009 & 0.000921 \\
+automotive-susan:image-pgm-0001:edges & 0.016643 & 0.000010 & 0.000620 \\
+automotive-susan:image-pgm-0005:edges & 0.030185 & 0.000034 & 0.001138 \\
+automotive-susan:image-pgm-0009:edges & 0.087765 & 0.000079 & 0.000896 \\
+automotive-susan:image-pgm-0013:edges & 0.009060 & 0.000006 & 0.000702 \\
+automotive-susan:image-pgm-0017:edges & 0.019398 & 0.000013 & 0.000669 \\
+automotive-susan:image-pgm-0020:edges & 0.028462 & 0.000019 & 0.000650 \\
+automotive-susan:image-pgm-0001:smoothing & 0.084381 & 0.000143 & 0.001691 \\
+automotive-susan:image-pgm-0005:smoothing & 0.223677 & 0.000332 & 0.001486 \\
+automotive-susan:image-pgm-0009:smoothing & 0.433709 & 0.000284 & 0.000655 \\
+automotive-susan:image-pgm-0013:smoothing & 0.016274 & 0.000030 & 0.001859 \\
+automotive-susan:image-pgm-0017:smoothing & 0.071833 & 0.000108 & 0.001502 \\
+automotive-susan:image-pgm-0020:smoothing & 0.119144 & 0.000122 & 0.001027 \\
+network-dijkstra:cdataset-dijkstra-0001: & 0.000001 & 0.000000 & 0.026944 \\
+network-dijkstra:cdataset-dijkstra-0005: & 0.012131 & 0.000009 & 0.000767 \\
+network-dijkstra:cdataset-dijkstra-0009: & 0.129335 & 0.000070 & 0.000539 \\
+network-dijkstra:cdataset-dijkstra-0013: & 0.563865 & 0.000461 & 0.000817 \\
+network-patricia:cdataset-patricia-0001: & 0.000065 & 0.000001 & 0.016870 \\
+network-patricia:cdataset-patricia-0005: & 0.000306 & 0.000002 & 0.005400 \\
+network-patricia:cdataset-patricia-0009: & 0.001395 & 0.000005 & 0.003262 \\
+network-patricia:cdataset-patricia-0013: & 0.006770 & 0.000045 & 0.006670 \\
+network-patricia:cdataset-patricia-0017: & 0.034881 & 0.000124 & 0.003565 \\
+network-patricia:cdataset-patricia-0020: & 0.126599 & 0.000751 & 0.005934 \\
+telecom-adpcm-c:pcm-0001: & 0.000659 & 0.000000 & 0.000688 \\
+telecom-adpcm-c:pcm-0005: & 0.005963 & 0.000005 & 0.000769 \\
+telecom-adpcm-c:pcm-0009: & 0.000749 & 0.000001 & 0.000748 \\
+telecom-adpcm-c:pcm-0013: & 0.004840 & 0.000003 & 0.000601 \\
+telecom-adpcm-c:pcm-0017: & 0.004994 & 0.000003 & 0.000665 \\
+telecom-adpcm-c:pcm-0020: & 0.007744 & 0.000005 & 0.000692 \\
+telecom-adpcm-d:adpcm-0001: & 0.000449 & 0.000000 & 0.000623 \\
+telecom-adpcm-d:adpcm-0005: & 0.003601 & 0.000003 & 0.000806 \\
+telecom-adpcm-d:adpcm-0009: & 0.000514 & 0.000000 & 0.000716 \\
+telecom-adpcm-d:adpcm-0013: & 0.003333 & 0.000003 & 0.000897 \\
+telecom-adpcm-d:adpcm-0017: & 0.003347 & 0.000003 & 0.000818 \\
+telecom-adpcm-d:adpcm-0020: & 0.005147 & 0.000004 & 0.000755 \\
+telecom-crc32:pcm-0001: & 0.001064 & 0.000001 & 0.001188 \\
+telecom-crc32:pcm-0005: & 0.008503 & 0.000008 & 0.000974 \\
+telecom-crc32:pcm-0009: & 0.001218 & 0.000001 & 0.001008 \\
+telecom-crc32:pcm-0013: & 0.007870 & 0.000007 & 0.000900 \\
+telecom-crc32:pcm-0017: & 0.007905 & 0.000007 & 0.000870 \\
+telecom-crc32:pcm-0020: & 0.012140 & 0.000012 & 0.000953 \\
+telecom-gsm:au-0001: & 0.011500 & 0.000046 & 0.003995 \\
+telecom-gsm:au-0005: & 0.092705 & 0.000239 & 0.002579 \\
+telecom-gsm:au-0009: & 0.013125 & 0.000072 & 0.005488 \\
+telecom-gsm:au-0013: & 0.080278 & 0.000130 & 0.001622 \\
+telecom-gsm:au-0017: & 0.086502 & 0.000212 & 0.002446 \\
+telecom-gsm:au-0020: & 0.128208 & 0.000366 & 0.002852 \\
 \end{longtable}
