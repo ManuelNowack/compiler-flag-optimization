@@ -3,6 +3,7 @@ import glob
 import math
 import matplotlib.pyplot as plt
 import pandas as pd
+from typing import Callable
 
 def shorten_program_name(s: str):
     prefix = "cbench-"
@@ -25,7 +26,7 @@ def shorten_tuner_name(s: str):
     return s
 
 
-def color_max(path: str):
+def color_table(path: str, f: Callable[[str], str]):
     new_lines = []
     with open(path) as fh:
         read = False
@@ -35,7 +36,7 @@ def color_max(path: str):
                     read = False
                 else:
                     values = line.removesuffix(" \\\\\n").split(" & ")
-                    max_value = max(values[1:])
+                    max_value = f(values[1:])
                     values = [f"\\color{{Green}}{{{val}}}" if val == max_value else val for val in values]
                     line = " & ".join(values) + " \\\\\n"
             elif line == "\\endlastfoot\n":
@@ -71,7 +72,7 @@ def validate_score_evaluation_20():
         label="table:validate-score",
         caption="$R^2$ validation score of the learned Fourier-sparse set function for different $\\alpha$; 500 queries and 20 flags in the search space",
         environment="longtable")
-    validate_scores
+    color_table("analysis/table/n_20_validate_scores.tex", max)
 
     data_speedup = []
     for alpha, path in alphas.items():
@@ -91,7 +92,7 @@ def validate_score_evaluation_20():
         label="table:validate-score-speedup",
         caption="Runtime of the minimum of the learned Fourier-sparse set function for different $\\alpha$; 500 queries and 20 flags in the search space",
         environment="longtable")
-    speedup
+    color_table("analysis/table/n_20_validate_scores_runtime.tex", min)
 
 
 def simulation_validate_score():
@@ -220,7 +221,7 @@ def evaluation_20_comparison():
         label="table:evaluation-20-speedup",
         caption="Speedup of the best optimization setting learned from different tuning methods over \\texttt{-O3}; 500 queries and 20 flags in the search space",
         environment="longtable")
-    color_max("analysis/table/evaluation_20_speedup.tex")
+    color_table("analysis/table/evaluation_20_speedup.tex", max)
     print()
     print("Evaluation winners (n=20, budget=500)")
     print(tuner_runtimes.transpose().idxmin().value_counts())
@@ -258,7 +259,7 @@ def evaluation_98_comparison():
         label="table:evaluation-98-speedup",
         caption="Speedup of the best optimization setting learned from different tuning methods over \\texttt{-O3}; 500 queries and 98 flags in the search space",
         environment="longtable")
-    color_max("analysis/table/evaluation_98_speedup.tex")
+    color_table("analysis/table/evaluation_98_speedup.tex", max)
     print()
     print("Evaluation winners (n=98, budget=500)")
     print(tuner_runtimes.transpose().idxmin().value_counts())
@@ -301,7 +302,7 @@ def evaluation_low_degree():
         label="table:evaluation-low-degree-speedup",
         caption="Speedup of the best optimization setting learned from different Fourier-sparse set functions over \\texttt{-O3}; 500 queries and 20 flags in the search space",
         environment="longtable")
-    color_max("analysis/table/evaluation_low_degree_speedup.tex")
+    color_table("analysis/table/evaluation_low_degree_speedup.tex", max)
     print()
     print("Evaluation winners (n=20, budget=500)")
     print(tuner_runtimes.transpose().idxmin().value_counts())
