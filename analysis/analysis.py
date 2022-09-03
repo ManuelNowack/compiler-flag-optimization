@@ -67,32 +67,32 @@ def validate_score_evaluation_20():
     s = validate_scores.style
     s.format(precision=2)
     s.to_latex(
-        "analysis/table/n_20_validate_scores.tex",
+        "analysis/table/evaluation_20_validate_scores.tex",
         hrules=True,
         label="table:validate-score",
         caption="$R^2$ validation score of the learned Fourier-sparse set function for different $\\alpha$; 500 queries and 20 flags in the search space",
         environment="longtable")
-    color_table("analysis/table/n_20_validate_scores.tex", max)
+    color_table("analysis/table/evaluation_20_validate_scores.tex", max)
 
     data_speedup = []
     for alpha, path in alphas.items():
         speedup = []
         for file in glob.glob(f"evaluation/{path}/n_020_budget_0500_??.csv"):
             df = pd.read_csv(file, index_col=0).transpose()
-            speedup.append(df["Fourier"])
+            speedup.append(df["Train"] / df["Fourier"])
         assert speedup
         df = pd.DataFrame(speedup)
         data_speedup.append(df.mean())
     speedup = pd.DataFrame(data_speedup, index=alphas.keys()).transpose().rename(shorten_program_name)
     s = speedup.style
-    s.format(precision=4)
+    s.format(precision=3)
     s.to_latex(
-        "analysis/table/n_20_validate_scores_runtime.tex",
+        "analysis/table/evaluation_20_validate_scores_speedup.tex",
         hrules=True,
         label="table:validate-score-speedup",
-        caption="Runtime of the minimum of the learned Fourier-sparse set function for different $\\alpha$; 500 queries and 20 flags in the search space",
+        caption="Speedup of the minimum of the learned simulated Fourier-sparse set function over the best optimizating setting from the training data for different $\\alpha$; 500 queries and 20 flags in the search space",
         environment="longtable")
-    color_table("analysis/table/n_20_validate_scores_runtime.tex", min)
+    color_table("analysis/table/evaluation_20_validate_scores_speedup.tex", max)
 
 
 def simulation_validate_score():
