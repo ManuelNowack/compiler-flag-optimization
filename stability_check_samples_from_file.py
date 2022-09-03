@@ -21,11 +21,11 @@ max_noise = noise.max()
 
 for i in range(100):
     try:
-        with open(f"results/samples_{i:02d}.csv", "x"):
+        with open(f"results/stability_samples_{i:02d}.csv", "x"):
             nonce = i
             break
     except Exception:
         pass
-max_noise.to_csv(f"results/samples_{nonce:02d}.csv")
+noise.to_csv(f"results/stability_samples_{nonce:02d}.csv")
 with open(f"results/samples_{nonce:02d}.txt", "w") as fh:
     fh.write(max_noise.to_string(index=False))
