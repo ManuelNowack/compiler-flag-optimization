@@ -221,7 +221,7 @@ def evaluation_20_comparison():
         caption="Speedup of the best optimization setting learned from different tuning methods over \\texttt{-O3}; 500 queries and 20 flags in the search space",
         environment="longtable")
     color_max("analysis/table/evaluation_20_speedup.tex")
-
+    print()
     print("Evaluation winners (n=20, budget=500)")
     print(tuner_runtimes.transpose().idxmin().value_counts())
 
@@ -259,7 +259,7 @@ def evaluation_98_comparison():
         caption="Speedup of the best optimization setting learned from different tuning methods over \\texttt{-O3}; 500 queries and 98 flags in the search space",
         environment="longtable")
     color_max("analysis/table/evaluation_98_speedup.tex")
-
+    print()
     print("Evaluation winners (n=98, budget=500)")
     print(tuner_runtimes.transpose().idxmin().value_counts())
 
@@ -302,7 +302,7 @@ def evaluation_low_degree():
         caption="Speedup of the best optimization setting learned from different Fourier-sparse set functions over \\texttt{-O3}; 500 queries and 20 flags in the search space",
         environment="longtable")
     color_max("analysis/table/evaluation_low_degree_speedup.tex")
-
+    print()
     print("Evaluation winners (n=20, budget=500)")
     print(tuner_runtimes.transpose().idxmin().value_counts())
 
@@ -417,20 +417,10 @@ def stability_hopeless():
 
 
 def stability_default():
-    directories = [
-        "active_fourier",
-    	"active_fourier_low_degree",
-    	"bocs",
-        "fourier",
-        "fourier_low_degree",
-        "mono",
-        "random",
-        "srtuner"]
     default_runtimes = []
-    for directory in directories:
-        for file in glob.glob(f"evaluation/{directory}/n_020_budget_0500_??.csv"):
-            df = pd.read_csv(file, index_col=0).transpose()
-            default_runtimes.append(df["Default"])
+    for file in glob.glob(f"evaluation/*/n_???_budget_????_??.csv"):
+        df = pd.read_csv(file, index_col=0).transpose()
+        default_runtimes.append(df["Default"])
     df = pd.DataFrame(default_runtimes)
     for module in df.columns:
         ax = df[module].plot(kind="density")
@@ -445,6 +435,8 @@ def stability_default():
         label="table:default-relative-standard-deviation",
         caption="Mean, standard deviation, and relative standard deviation of \\texttt{-O3}",
         environment="longtable")
+    print()
+    print(f"Number of -O3 queries: {len(default_runtimes)}")
 
 validate_score_evaluation_20()
 offline_fourier_success_chance()
