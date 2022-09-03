@@ -18,7 +18,7 @@ def shorten_tuner_name(s: str):
     if s == "ActiveFourier":
         return "Fourier"
     if s == "ActiveLowDegree":
-        return "Fourier (low-degree)"
+        return "Fourier (degree-two)"
     if s == "MonoTuner":
         return "Greedy"
     if s == "RandomTuner":
@@ -391,9 +391,9 @@ def stability_latch():
     before = pd.read_csv(f"stability/latch/stability_00.csv")
     after = pd.read_csv(f"stability/latch/stability_01.csv")
     for module in before.columns:
-        ax = before[module].plot()
+        ax = before[module].plot(xlabel="Queries", ylabel="Runtime")
         plt.savefig(f"analysis/plots/stability/latch_before_{module}")
-        after[module].plot()
+        after[module].plot(xlabel="Queries", ylabel="Runtime")
         plt.savefig(f"analysis/plots/stability/latch_after_{module}")
         plt.close(ax.figure)
 
@@ -402,9 +402,9 @@ def stability_min():
     before = pd.read_csv(f"stability/min/stability_00.csv")
     after = pd.read_csv(f"stability/min/stability_01.csv")
     for module in before.columns:
-        ax = before[module].plot()
+        ax = before[module].plot(xlabel="Queries", ylabel="Runtime")
         plt.savefig(f"analysis/plots/stability/min_before_{module}")
-        after[module].plot()
+        after[module].plot(xlabel="Queries", ylabel="Runtime")
         plt.savefig(f"analysis/plots/stability/min_after_{module}")
         plt.close(ax.figure)
 
@@ -412,7 +412,7 @@ def stability_min():
 def stability_hopeless():
     df = pd.read_csv(f"stability/hopeless/stability_02.csv")
     for module in df.columns:
-        ax = df[module].plot()
+        ax = df[module].plot(xlabel="Queries", ylabel="Runtime")
         plt.savefig(f"analysis/plots/stability/hopeless_{module}")
         plt.close(ax.figure)
 
