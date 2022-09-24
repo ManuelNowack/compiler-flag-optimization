@@ -1,5 +1,20 @@
 # Compiler Flags
 
+## Project Structure
+
+* `BOCS` contains [Bayesian Optimization of Combinatorial Structures (BOCS)](https://github.com/baptistar/BOCS)
+* `SRTuner` contains [SRTuner](https://github.com/sunggg/SRTuner)
+* `analysis` contains various scripts to analyze the output
+* `cDatasets` contains a shell script to download and install additional datasets from [cBench](https://sourceforge.net/projects/cbenchmark/files/cDatasets/)
+* `compiler_opt` contains our code
+* `evaluation` contains the output of the experiments
+* `gcc_flags` contains a compilation of gcc flags
+* `samples` contains randomly sampled runtime measurements
+* `simulation` contains the output of the simulated experiments
+* `sparse-dsft` contains an implementation of Fourier-sparse approximations of set functions by Chris Wendler and Eliza Wszola
+* `stability` contains the output of the stability experiments
+* `swht` contains an implementation of sparse Walsh-Hadamard transform by Kaiko Bonstein and Andisheh Amrollahi
+
 ## Requirements
 
 * Conda
